@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.color = new Vector4(1, 1, 1, 0);
+        sr.color = new Vector4(0, 1, 0, 1);
     }
 
     // Update is called once per frame
@@ -20,9 +20,9 @@ public class Interactable : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.GetComponent<LightController>().tag == "Light Source")
+        if(collision.collider.tag == "Light Source")
         {
-            print("YES");
+            Debug.Log("YES");
             sr.color = new Vector4(1, 1, 1, 1);
         }
     }
