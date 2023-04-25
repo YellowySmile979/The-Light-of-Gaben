@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public abstract class BaseEnemy : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    bool offOrOn = false;
-    public GameObject lightSource;
     Vector2 moveDirection;
 
     Rigidbody2D rb;
@@ -21,7 +19,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ProcessInputs();
-        ToggleFlashlight();
     }
     void FixedUpdate()
     {
@@ -39,20 +36,5 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-    }
-    void ToggleFlashlight()
-    {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            offOrOn = !offOrOn;
-            if (!offOrOn)
-            {
-                lightSource.SetActive(false);
-            }
-            else
-            {
-                lightSource.gameObject.SetActive(true);
-            }
-        }
     }
 }

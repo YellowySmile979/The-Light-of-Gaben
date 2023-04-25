@@ -6,6 +6,9 @@ TagManager:
   tags:
   - White Light
   - Light Source
+  - Red Light
+  - Green Light
+  - Blue Light
   layers:
   - Default
   - TransparentFX
@@ -45,6 +48,12 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Light Source
+    uniqueID: 3552292549
+    locked: 0
+  - name: Object
+    uniqueID: 830337355
     locked: 0
   - name: Player
     uniqueID: 1982575351

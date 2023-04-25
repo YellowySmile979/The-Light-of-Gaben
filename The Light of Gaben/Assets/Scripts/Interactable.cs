@@ -5,14 +5,12 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     SpriteRenderer sr;
-
-    public Vector4 originalColour;
+    public Color originalColour;
 
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        originalColour = new Vector4(0, 0, 0, 1);
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,14 +22,14 @@ public class Interactable : MonoBehaviour
     {
         if(collision.gameObject.tag == "Light Source")
         {
-            sr.color = new Vector4(1, 1, 1, 1);
+            sr.color = originalColour;
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Light Source")
         {
-            sr.color = originalColour;
+            sr.color = Color.black;
         }
     }
 }
