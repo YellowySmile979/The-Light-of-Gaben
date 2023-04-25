@@ -23,7 +23,7 @@ public class LightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             colourChangeCounter++;
             switch (colourChangeCounter)
@@ -40,10 +40,8 @@ public class LightController : MonoBehaviour
                 case 3:
                     sr.color = blue;
                     break;
-                case 4:
-                    colourChangeCounter = 0;
-                    break;
             }
         }
+        if (colourChangeCounter > 3) colourChangeCounter = 0;
     }
 }

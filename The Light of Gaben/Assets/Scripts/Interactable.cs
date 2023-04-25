@@ -18,11 +18,10 @@ public class Interactable : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.collider.tag == "Light Source")
+        if(collision.gameObject.tag == "Light Source")
         {
-            Debug.Log("YES");
             sr.color = new Vector4(1, 1, 1, 1);
         }
     }
