@@ -20,7 +20,7 @@ public class JoystickMovement : MonoBehaviour
         //stores the joysticks original pos so that it can return when not pressed 
         joystickOriginalPos = joystickBG.transform.position;
         //stores the BG radius
-        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.y / 4;
+        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.x;
     }
     void Update()
     {
@@ -47,6 +47,7 @@ public class JoystickMovement : MonoBehaviour
     {
         //gets the pointer position and sets the variable on the left as the general event data on
         //the right which also takes the pointer data
+        //as is a cast like () but not really
         PointerEventData pointerEventData = baseEventData as PointerEventData;
         //gets the position on where ur pointer is
         Vector2 dragPos = pointerEventData.position;
@@ -56,9 +57,10 @@ public class JoystickMovement : MonoBehaviour
         //calculates the distance between where u r clicking and where u r dragging
         float joystickDist = Vector2.Distance(dragPos, joystickTouchPos);
 
-        //calculates if the joystick should move by the dist or the radius of the BG
+        //clamps the max dist the joystick can move
         if (joystickDist < joystickRadius)
         {
+            //when drag, move it by this amount
             joystick.transform.position = joystickTouchPos + joystickVec * joystickDist;
         }
         else
