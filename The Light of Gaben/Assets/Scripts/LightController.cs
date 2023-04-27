@@ -5,7 +5,9 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
     int colourChangeCounter = 0;
-    SpriteRenderer sr;
+    public SpriteRenderer sr;
+    public GameObject flashlight;
+    bool onOrOff = true;
 
     [Header("Colour Defs")]
     public Vector4 white, red, blue, green;
@@ -13,7 +15,7 @@ public class LightController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sets the possible colour of the flashlight
         white = new Color(1, 1, 1, 1);
         red = new Color(1, 0, 0, 1);
         green = new Color(0, 1, 0, 1);
@@ -23,7 +25,8 @@ public class LightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        //whenever i press E, change the colour of the flashlight
+        if (Input.GetKeyDown(KeyCode.E) && onOrOff)
         {
             colourChangeCounter++;
             switch (colourChangeCounter)
@@ -42,6 +45,20 @@ public class LightController : MonoBehaviour
                     break;
             }
         }
+        //resets the counter back to zero so that the colour is white
         if (colourChangeCounter > 3) colourChangeCounter = 0;
+        //when i press Q, flip flop between off or on
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            onOrOff = !onOrOff;
+            if(onOrOff)
+            {
+                flashlight.SetActive(true);
+            }
+            else
+            {
+                flashlight.SetActive(false);
+            }
+        }
     }
 }
