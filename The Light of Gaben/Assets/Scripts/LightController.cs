@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightController : MonoBehaviour
 {
-    int colourChangeCounter = 0;
+    [HideInInspector] public int colourChangeCounter = 0;
     public SpriteRenderer sr;
     public GameObject flashlight;
     bool onOrOff = true;
@@ -16,10 +16,10 @@ public class LightController : MonoBehaviour
     void Start()
     {
         //sets the possible colour of the flashlight
-        white = new Color(1, 1, 1, 1);
-        red = new Color(1, 0, 0, 1);
-        green = new Color(0, 1, 0, 1);
-        blue = new Color(0, 0, 1, 1);
+        white = new Color(1, 1, 1, 0.45f);
+        red = new Color(1, 0, 0, 0.45f);
+        green = new Color(0, 1, 0, 0.45f);
+        blue = new Color(0, 0, 1, 0.45f);
     }
 
     // Update is called once per frame
