@@ -20,7 +20,7 @@ public class JoystickMovement : MonoBehaviour
         //stores the joysticks original pos so that it can return when not pressed 
         joystickOriginalPos = joystickBG.transform.position;
         //stores the BG radius
-        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.x;
+        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.x * 4;
     }
     void Update()
     {

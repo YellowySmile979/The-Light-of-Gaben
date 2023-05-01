@@ -21,30 +21,33 @@ public class LightController : MonoBehaviour
         green = new Color(0, 1, 0, 0.45f);
         blue = new Color(0, 0, 1, 0.45f);
     }
-
+    public void ColourSwitcher()
+    {
+        //whenever i press the button, change the colour of the flashlight
+        colourChangeCounter++;
+        switch (colourChangeCounter)
+        {
+            default:
+                sr.color = white;
+                break;
+            case 1:
+                sr.color = red;
+                break;
+            case 2:
+                sr.color = green;
+                break;
+            case 3:
+                sr.color = blue;
+                break;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        //whenever i press E, change the colour of the flashlight
-        if (Input.GetKeyDown(KeyCode.E) && onOrOff)
+        if(Input.GetKeyDown(KeyCode.E) && onOrOff)
         {
-            colourChangeCounter++;
-            switch (colourChangeCounter)
-            {
-                default:
-                    sr.color = white;
-                    break;
-                case 1:
-                    sr.color = red;
-                    break;
-                case 2:
-                    sr.color = green;
-                    break;
-                case 3:
-                    sr.color = blue;
-                    break;
-            }
-        }
+            ColourSwitcher();
+        }       
         //resets the counter back to zero so that the colour is white
         if (colourChangeCounter > 3) colourChangeCounter = 0;
         //when i press Q, flip flop between off or on
