@@ -13,12 +13,7 @@ public class Flashlight : MonoBehaviour
     {
         lightController = FindObjectOfType<LightController>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //turns on or off the flashlight, this is button inputs
     public void TurnOnOrOffLight()
     {
         onOrOff = !onOrOff;
@@ -31,6 +26,7 @@ public class Flashlight : MonoBehaviour
             flashlight.SetActive(false);
         }
     }
+    //switches the colour of the light by calling the colour switcher func
     public void CallColourSwitcher()
     {
         lightController.ColourSwitcher();
