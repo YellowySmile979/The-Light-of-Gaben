@@ -9,6 +9,8 @@ TagManager:
   - Red Light
   - Green Light
   - Blue Light
+  - PlayerUnit
+  - EnemyUnit
   layers:
   - Default
   - TransparentFX
