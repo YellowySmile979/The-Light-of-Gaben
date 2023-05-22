@@ -18,7 +18,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [Header("Detected Player")]
     public Transform detectedPlayer;
-    public float chaseTime;
+    float chaseTime;
     public float setChaseTime;
 
     [Header("Return to Original Position")]
