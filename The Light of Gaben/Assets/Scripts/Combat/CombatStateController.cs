@@ -39,11 +39,11 @@ public class CombatStateController : MonoBehaviour
         //Rolls every units Speed to determine turns.
         // Player Units turns (Gaben + Smolours)
         GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
-        print (playerUnits);
+        print ("Player Units: " + playerUnits);
         foreach (GameObject playerUnit in playerUnits)
         {
             UnitStats currentPlayerUnit = playerUnit.GetComponent<UnitStats>();
-            currentPlayerUnit.calculateNextTurn(0);
+            currentPlayerUnit.CalculateNextTurn(0);
             TurnOrder.Add(currentPlayerUnit);
         }
         // Enemy Units turns
@@ -51,7 +51,7 @@ public class CombatStateController : MonoBehaviour
         foreach (GameObject enemyUnit in enemyUnits)
         {
             UnitStats currentEnemyUnit = enemyUnit.GetComponent<UnitStats>();
-            currentEnemyUnit.calculateNextTurn(0);
+            currentEnemyUnit.CalculateNextTurn(0);
             TurnOrder.Add(currentEnemyUnit);
         }
         //Adding another object here to trigger all passive Damage Over Time effects - noelle
@@ -61,23 +61,31 @@ public class CombatStateController : MonoBehaviour
         // lowest nextTurnIn.
 
         TurnOrder.Sort(SortByTurn);
-        print(TurnOrder);
-        nextTurn();
+        print("TurnOrder: " + TurnOrder);
+        NextTurn();
     }
 
     // Comparable called to sort List by nextTurnIn
     static int SortByTurn(UnitStats p1, UnitStats p2)
     {
+        print("SortByTurn: " + p1.nextTurnIn.CompareTo(p2.nextTurnIn));
         return p1.nextTurnIn.CompareTo(p2.nextTurnIn);
     }
 
     // Called after Player and Enemy states, calls the next unit in TurnOrder.
-    int currentTurn = -1;
-    public void nextTurn()
+    [SerializeField] int currentTurn = -1;
+    public void NextTurn()
     {
         StartCoroutine(Wait());
-        if (currentTurn == TurnOrder.Count - 1) currentTurn = 0;
-        else ++currentTurn;
+        if (currentTurn == TurnOrder.Count - 1)
+        {           
+            currentTurn = 0;
+        }
+        else
+        {
+            print("TurnOrder.Count = " + TurnOrder.Count);
+            currentTurn++;
+        }
         UnitStats currentUnit = TurnOrder[currentTurn];
         //UnitStats currentUnitStats = TurnOrder[0];
         //TurnOrder.Remove(currentUnitStats);
@@ -87,21 +95,21 @@ public class CombatStateController : MonoBehaviour
         //    currentUnitStats.calculateNextTurn(currentUnit.GetComponent<UnitStats>().nextTurnIn);
         //    TurnOrder.Add(currentUnitStats);
         //    TurnOrder.Sort(SortByTurn);
-            if (currentUnit.tag == "PlayerUnit")
-            {
-                Debug.Log("Player unit acting");
-                actionDesc = "Player is now acting!";
-                StartCoroutine(Wait());
-                PlayerState();
-            }
-            else
-            {
-                Debug.Log("Enemy unit acting");
-                EnemyState();
-                actionDesc = "Enemy is now acting!";
-                StartCoroutine(Wait());
-                currentUnit.GetComponent<EnemyCombatController>().Attack();
-            }
+        if (currentUnit.tag == "PlayerUnit")
+        {
+            Debug.Log("Player unit acting");
+            actionDesc = "Player is now acting!";
+            StartCoroutine(Wait());
+            PlayerState();
+        }
+        else
+        {
+            Debug.Log("Enemy unit acting");
+            EnemyState();
+            actionDesc = "Enemy is now acting!";
+            StartCoroutine(Wait());
+            currentUnit.GetComponent<EnemyCombatController>().Attack();
+        }
         //}
     }
 
@@ -125,11 +133,12 @@ public class CombatStateController : MonoBehaviour
     {
         state = GameStates.End;
         actionDesc = "Combat Ended.";
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2);        
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Start");
+        BaseEnemy.timeScale = 1;
+        BaseEnemy.instance.hasLoaded = false;
     }
 
     IEnumerator WinCombat()

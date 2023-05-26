@@ -1236,7 +1236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522565568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.52, y: 23.08, z: 0}
+  m_LocalPosition: {x: 11.2, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 15121010}
@@ -1407,7 +1407,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!1839735485 &539565218
 Tilemap:
   m_ObjectHideFlags: 0
@@ -10914,6 +10914,7 @@ GameObject:
   - component: {fileID: 1273349826}
   - component: {fileID: 1273349827}
   - component: {fileID: 1273349828}
+  - component: {fileID: 1273349829}
   m_Layer: 0
   m_Name: Normal Shadow
   m_TagString: Untagged
@@ -11067,6 +11068,9 @@ MonoBehaviour:
   isWaiting: 0
   currentPatrolTarget: {x: 0, y: 0}
   enemyMover: {fileID: 1990479996}
+  combatScene: Turn-Based Test
+  explorationCanvas: {fileID: 1759497093}
+  hasLoaded: 1
 --- !u!50 &1273349827
 Rigidbody2D:
   serializedVersion: 4
@@ -11113,6 +11117,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &1273349829
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273349822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1 &1440488550
 GameObject:
@@ -11981,7 +12011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 206.387, y: 206.988}
+  m_AnchoredPosition: {x: 206.3872, y: 206.98804}
   m_SizeDelta: {x: 399.369, y: 382.733}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900920626

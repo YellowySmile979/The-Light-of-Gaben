@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseEnemy : MonoBehaviour
@@ -34,8 +35,28 @@ public abstract class BaseEnemy : MonoBehaviour
     bool isInitialised = false;
     public EnemyMover enemyMover;
 
+    [Header("Combat Scene")]
+    public string combatScene;
+    public Canvas explorationCanvas;
+    public bool hasLoaded = true;
+    public static BaseEnemy instance;
+    public static float timeScale;
+
     int currentIndex = -1;
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerMovement>())
+        {
+            //the SceneManager loads new Scene as an extra Scene (overlapping the other). This is Additive mode
+            SceneManager.LoadSceneAsync(combatScene, LoadSceneMode.Additive);
+
+            explorationCanvas.enabled = false;
+            timeScale = 0;
+            Time.timeScale = timeScale;
+            hasLoaded = true;
+        }
+    }
     //detects player
     protected void DetectPlayer()
     {
@@ -81,6 +102,8 @@ public abstract class BaseEnemy : MonoBehaviour
     }
     void Awake()
     {
+        instance = this;
+        timeScale = Time.timeScale;
         if (enemyMover == null) enemyMover = GetComponentInChildren<EnemyMover>();
         if (patrolPath == null) patrolPath = GetComponentInChildren<PatrolPath>();
     }
@@ -164,6 +187,12 @@ public abstract class BaseEnemy : MonoBehaviour
         if (!hasDetectedPlayer)
         {
             Patrol();
+        }
+        if(timeScale == 1 && !hasLoaded)
+        {
+            print("Unload");
+            SceneManager.UnloadSceneAsync(combatScene);
+            explorationCanvas.enabled = true;
         }
     }
 }

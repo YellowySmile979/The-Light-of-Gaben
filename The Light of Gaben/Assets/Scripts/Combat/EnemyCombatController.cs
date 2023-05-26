@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class EnemyCombatController : UnitStats
 {
-    PlayerCombatController player;
-    
-
-    void Start()
+    public PlayerCombatController player;
+    public void Attack()
     {
         player = FindObjectOfType<PlayerCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
-    }
-    public void Attack()
-    {
         player.TakeDamage(attack);
         stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
-        StartCoroutine(Wait());
+        StartCoroutine(WaitUnitStatsVer());
     }
 }
