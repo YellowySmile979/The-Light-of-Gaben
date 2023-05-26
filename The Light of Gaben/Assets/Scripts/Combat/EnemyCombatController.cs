@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyCombatController : UnitStats
 {
-    public PlayerCombatController player;
+    UnitStats player;
     public void Attack()
     {
+        print("Enemy Attack");
         player = FindObjectOfType<PlayerCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
         player.TakeDamage(attack);

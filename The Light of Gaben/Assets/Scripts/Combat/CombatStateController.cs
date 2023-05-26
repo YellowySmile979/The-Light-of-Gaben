@@ -68,7 +68,6 @@ public class CombatStateController : MonoBehaviour
     // Comparable called to sort List by nextTurnIn
     static int SortByTurn(UnitStats p1, UnitStats p2)
     {
-        print("SortByTurn: " + p1.nextTurnIn.CompareTo(p2.nextTurnIn));
         return p1.nextTurnIn.CompareTo(p2.nextTurnIn);
     }
 
@@ -76,14 +75,15 @@ public class CombatStateController : MonoBehaviour
     [SerializeField] int currentTurn = -1;
     public void NextTurn()
     {
-        StartCoroutine(Wait());
+        print("NextTurn() called");
         if (currentTurn == TurnOrder.Count - 1)
-        {           
+        {
+            print("currentTurn has been set to 0");
             currentTurn = 0;
         }
         else
         {
-            print("TurnOrder.Count = " + TurnOrder.Count);
+            print("currentTurn has been added");
             currentTurn++;
         }
         UnitStats currentUnit = TurnOrder[currentTurn];
@@ -151,8 +151,9 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Start");
     }
-    IEnumerator Wait()
+    public IEnumerator Wait()
     {
+        print("Waiting to do stuff");
         yield return new WaitForSeconds(2);
     }
 }

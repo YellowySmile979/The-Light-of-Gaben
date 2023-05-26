@@ -50,6 +50,7 @@ public class PlayerCombatController : UnitStats
     {
         //Temp, since it's just 1v1
         attackTarget = FindObjectOfType<EnemyCombatController>();
+        stateController = FindObjectOfType<CombatStateController>();
         healTarget = this;
     }
     public void Attack()

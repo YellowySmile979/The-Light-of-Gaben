@@ -31,22 +31,22 @@ public abstract class UnitStats : MonoBehaviour
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(int dmg)
     {
+        print("Took Damage");
         health -= dmg;
     }
 
     public void HealDamage(int heal)
     {
-        print("Took Damage");
         health += heal;
     }
 
-    // Wait() is a temporary numerable called in place of actual animation and give player
+    // WaitUnitStatsVer() is a temporary numerable called in place of actual animation and give player
     // enough time to read the action desc to undersatdn what the hell is happening
     // - noelle
     public IEnumerator WaitUnitStatsVer()
-    {
-        print("WaitUnitStatsVer() called");
-        yield return new WaitForSeconds(2f);
+    {        
+        yield return new WaitForSeconds(1f);
         stateController.NextTurn();
+        print("WaitUnitStatsVer() called");
     }
 }
