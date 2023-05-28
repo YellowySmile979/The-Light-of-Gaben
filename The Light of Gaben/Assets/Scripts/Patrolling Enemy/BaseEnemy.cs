@@ -56,6 +56,7 @@ public abstract class BaseEnemy : MonoBehaviour
             moveSpeed = 0;
             turnSpeed = 0;
             hasLoaded = true;
+            LevelManager.Instance.hasPlayed = false;
         }
     }
     //detects player

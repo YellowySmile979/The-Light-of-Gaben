@@ -14,7 +14,6 @@ public class CombatStateController : MonoBehaviour
 
     PlayerCombatController player;
     EnemyCombatController enemy;
-    public static CombatStateController Instance;
 
     // Each turn has different states, Start State, Player Action, Enemy Action, and Passive Actions.
     // Honestly, this is prob gonna be more for debugging and testing. - noelle
@@ -22,10 +21,6 @@ public class CombatStateController : MonoBehaviour
     public enum GameStates { Start, Player, Enemy, Passive, End }
     public GameStates state = GameStates.Start;
 
-    void Awake()
-    {
-        Instance = this;
-    }
     void Start()
     {
         TurnOrder = new List<UnitStats>();

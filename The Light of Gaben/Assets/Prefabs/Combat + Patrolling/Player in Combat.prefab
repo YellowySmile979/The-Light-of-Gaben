@@ -104,3 +104,4 @@ MonoBehaviour:
   stateController: {fileID: 0}
   playerLevel: 1
   playerXP: 0
+  buttonSFX: {fileID: 8300000, guid: 37897981cd1e45a44b9854972d9b28f8, type: 3}

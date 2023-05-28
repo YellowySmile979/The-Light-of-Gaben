@@ -9,6 +9,8 @@ public class PlayerCombatController : UnitStats
     [Header("Player Stats")]
     public float playerLevel = 1;
     public float playerXP = 0;
+    [Header("Audio Clips")]
+    public AudioClip buttonSFX;
 
     void Update()
     {
@@ -55,6 +57,7 @@ public class PlayerCombatController : UnitStats
     }
     public void Attack()
     {
+        stateController.camAudioSource.PlayOneShot(buttonSFX, 1f);
         SelectTarget();
         int damage = Random.Range(1, 20) + attack;
         attackTarget.TakeDamage(damage);
@@ -64,6 +67,7 @@ public class PlayerCombatController : UnitStats
 
     public void Heal()
     {
+        stateController.camAudioSource.PlayOneShot(buttonSFX, 1f);
         SelectTarget();
         int heal = Random.Range(1, 20) + attack;
         healTarget.HealDamage(heal);

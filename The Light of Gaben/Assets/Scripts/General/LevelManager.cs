@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public bool hasWon;
     public AudioClip explorationMusic1;
     public AudioSource camExplorationAudioSource;
+    public bool hasPlayed;
 
     void Awake()
     {
@@ -36,7 +37,11 @@ public class LevelManager : MonoBehaviour
     {        
         if (BaseEnemy.instance.hasLoaded == false)
         {
-            PlayExplorationMusic();
+            if (!hasPlayed)
+            {
+                PlayExplorationMusic();
+                hasPlayed = true;
+            }
             SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
             if (hasWon)
             {                
