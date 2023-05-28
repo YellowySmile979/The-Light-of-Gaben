@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 0}
   actionDesc: 
-  setWaitTime: 1.5
+  combatMusic1: {fileID: 8300000, guid: 17e9315aaedbd424aa703f40488eb0c0, type: 3}
+  combatMusic2: {fileID: 8300000, guid: 645065618ddd57646b9551bc9b5123de, type: 3}
+  camAudioSource: {fileID: 0}
   state: 0
   currentTurn: -1

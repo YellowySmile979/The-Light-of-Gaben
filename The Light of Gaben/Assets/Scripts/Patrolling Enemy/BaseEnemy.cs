@@ -51,7 +51,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             //the SceneManager loads new Scene as an extra Scene (overlapping the other). This is Additive mode
             SceneManager.LoadSceneAsync(combatScene, LoadSceneMode.Additive);
-
+            LevelManager.Instance.StopMusic();            
             explorationCanvas.enabled = false;
             moveSpeed = 0;
             turnSpeed = 0;

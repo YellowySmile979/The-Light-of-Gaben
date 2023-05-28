@@ -9,9 +9,12 @@ public class CombatStateController : MonoBehaviour
     private List<UnitStats> TurnOrder;
     UnitStats stats;
     public string actionDesc;
+    public AudioClip combatMusic1, combatMusic2;
+    public AudioSource camAudioSource;
 
     PlayerCombatController player;
     EnemyCombatController enemy;
+    public static CombatStateController Instance;
 
     // Each turn has different states, Start State, Player Action, Enemy Action, and Passive Actions.
     // Honestly, this is prob gonna be more for debugging and testing. - noelle
@@ -19,7 +22,11 @@ public class CombatStateController : MonoBehaviour
     public enum GameStates { Start, Player, Enemy, Passive, End }
     public GameStates state = GameStates.Start;
 
-    private void Start()
+    void Awake()
+    {
+        Instance = this;
+    }
+    void Start()
     {
         TurnOrder = new List<UnitStats>();
         stats = FindObjectOfType<UnitStats>();
@@ -34,8 +41,22 @@ public class CombatStateController : MonoBehaviour
         if (player.health <= 0) StartCoroutine(LostCombat());
         if (enemy.health <= 0) StartCoroutine(WinCombat());
     }
+    public void RandomiseCombatMusic()
+    {
+        float randomTrack = Mathf.Round(Random.Range(0, 100));
+        print("Random music");
+        if(randomTrack < 50)
+        {
+            camAudioSource.PlayOneShot(combatMusic1);
+        }
+        else
+        {
+            camAudioSource.PlayOneShot(combatMusic2);
+        }
+    }
     void StartState()
     {
+        RandomiseCombatMusic();
         //Start State
         //Rolls every units Speed to determine turns.
         // Player Units turns (Gaben + Smolours)

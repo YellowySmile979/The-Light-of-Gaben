@@ -523,9 +523,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17e9315aaedbd424aa703f40488eb0c0, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.59
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -842,8 +842,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5971892679329468425, guid: a45b1e0e8eced5846b7dd4c32a4bca35, type: 3}
       propertyPath: m_Name
-      value: LevelManager
+      value: Combat Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 5971892679329468430, guid: a45b1e0e8eced5846b7dd4c32a4bca35, type: 3}
+      propertyPath: camAudioSource
+      value: 
+      objectReference: {fileID: 1950884178}
     - target: {fileID: 5971892679329468431, guid: a45b1e0e8eced5846b7dd4c32a4bca35, type: 3}
       propertyPath: m_RootOrder
       value: 4
