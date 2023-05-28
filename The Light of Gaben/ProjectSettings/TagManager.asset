@@ -57,6 +57,9 @@ TagManager:
   - name: Object to Interact with
     uniqueID: 2503713123
     locked: 0
+  - name: Currency
+    uniqueID: 4142841183
+    locked: 0
   - name: Light Source
     uniqueID: 3552292549
     locked: 0
