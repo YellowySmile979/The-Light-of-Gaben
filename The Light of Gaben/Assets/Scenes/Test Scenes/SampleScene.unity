@@ -1555,8 +1555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -756.57, y: -336.523}
+  m_SizeDelta: {x: -1513.2, y: -673.047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425393435
 MonoBehaviour:
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   joystick: {fileID: 589281680}
   joystickBG: {fileID: 1900920624}
   joystickVec: {x: 0, y: 0}
-  joystickRadiusLimit: 6
+  joystickRadiusLimit: 8
   playerTransform: {fileID: 522565570}
 --- !u!114 &425393438
 MonoBehaviour:
