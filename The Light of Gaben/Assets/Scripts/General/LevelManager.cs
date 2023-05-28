@@ -10,11 +10,23 @@ public class LevelManager : MonoBehaviour
     public AudioClip explorationMusic1;
     public AudioSource camExplorationAudioSource;
     public bool hasPlayed;
+    public string currentScene;
+    public GameObject player;
+    public bool hasLoaded;
 
     void Awake()
-    {
-        Instance = this;
+    {        
         PlayExplorationMusic();
+        DontDestroyOnLoad(player);
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }   
     }
     void Start()
     {
@@ -37,12 +49,12 @@ public class LevelManager : MonoBehaviour
     {        
         if (BaseEnemy.instance.hasLoaded == false)
         {
+            SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
             if (!hasPlayed)
             {
                 PlayExplorationMusic();
                 hasPlayed = true;
             }
-            SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
             if (hasWon)
             {                
                 BaseEnemy.instance.explorationCanvas.enabled = true;

@@ -43002,6 +43002,14 @@ MonoBehaviour:
   hasWon: 0
   explorationMusic1: {fileID: 8300000, guid: e8612f9bd37b84e42b75ac7b7ddfb108, type: 3}
   camExplorationAudioSource: {fileID: 1346749865}
+  hasPlayed: 0
+  currentScene: SampleScene
+  player: {fileID: 522565568}
+  enemies:
+  - {fileID: 81120361}
+  - {fileID: 1280922137}
+  - {fileID: 958500587}
+  hasLoaded: 0
 --- !u!82 &1346749865
 AudioSource:
   m_ObjectHideFlags: 0
