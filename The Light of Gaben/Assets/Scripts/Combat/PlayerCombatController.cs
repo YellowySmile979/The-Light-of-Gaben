@@ -56,7 +56,7 @@ public class PlayerCombatController : UnitStats
     public void Attack()
     {
         SelectTarget();
-        int damage = Random.Range(1, 20) + attack;
+        int damage = attack;
         attackTarget.TakeDamage(damage, this, attackTarget);
         stateController.actionDesc = "Player attacks " + attackTarget.name + " for " + damage + " damage!";
         StartCoroutine(WaitUnitStatsVer());

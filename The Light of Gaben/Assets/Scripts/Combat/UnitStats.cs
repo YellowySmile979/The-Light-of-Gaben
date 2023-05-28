@@ -64,7 +64,8 @@ public abstract class UnitStats : MonoBehaviour
 
     public void HealDamage(int heal)
     {
-        health += heal;
+        if (lightType == LightTypes.Blue) health += health * 1.25f;
+        else health += heal;
         if (health > maxHealth) health = maxHealth;
     }
 

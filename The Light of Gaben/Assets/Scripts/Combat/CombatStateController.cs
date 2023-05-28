@@ -119,7 +119,7 @@ public class CombatStateController : MonoBehaviour
         //    TurnOrder.Sort(SortByTurn);
         if (currentUnit.tag == "PlayerUnit")
         {
-            CanvasController.Instance.playerActions.SetActive(true);
+            CanvasController.Instance.lightChanger.SetActive(true);
             Debug.Log("Player unit acting");
             actionDesc = "Player is now acting!";
             StartCoroutine(Wait());
@@ -127,7 +127,7 @@ public class CombatStateController : MonoBehaviour
         }
         else
         {
-            CanvasController.Instance.playerActions.SetActive(false);
+            CanvasController.Instance.lightChanger.SetActive(false);
             Debug.Log("Enemy unit acting");
             EnemyState();
             actionDesc = "Enemy is now acting!";
