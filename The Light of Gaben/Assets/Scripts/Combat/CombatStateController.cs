@@ -31,8 +31,8 @@ public class CombatStateController : MonoBehaviour
 
     void Update()
     {
-        if (player.health <= 0) StartCoroutine(EndCombat());
-        if (enemy.health <= 0) StartCoroutine(EndCombat());
+        if (player.health <= 0) StartCoroutine(LostCombat());
+        if (enemy.health <= 0) StartCoroutine(WinCombat());
     }
     void StartState()
     {
@@ -98,6 +98,7 @@ public class CombatStateController : MonoBehaviour
         //    TurnOrder.Sort(SortByTurn);
         if (currentUnit.tag == "PlayerUnit")
         {
+            CanvasController.Instance.playerActions.SetActive(true);
             Debug.Log("Player unit acting");
             actionDesc = "Player is now acting!";
             StartCoroutine(Wait());
@@ -105,11 +106,15 @@ public class CombatStateController : MonoBehaviour
         }
         else
         {
+            CanvasController.Instance.playerActions.SetActive(false);
             Debug.Log("Enemy unit acting");
             EnemyState();
             actionDesc = "Enemy is now acting!";
             StartCoroutine(Wait());
-            currentUnit.GetComponent<EnemyCombatController>().Attack();
+            if(state != GameStates.End)
+            {
+                currentUnit.GetComponent<EnemyCombatController>().Attack();
+            }
         }
         //}
     }
@@ -130,31 +135,32 @@ public class CombatStateController : MonoBehaviour
         state = GameStates.Passive;
     }
 
-    IEnumerator EndCombat()
+    IEnumerator LostCombat()
     {
         state = GameStates.End;
-        actionDesc = "Combat Ended.";
+        actionDesc = "You Lost!";
         yield return new WaitForSeconds(2);        
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
-        BaseEnemy.timeScale = 1;
+        LevelManager.Instance.hasWon = false;
         BaseEnemy.instance.hasLoaded = false;
     }
 
     IEnumerator WinCombat()
     {
         state = GameStates.End;
-        actionDesc = "Combat Ended.";
+        actionDesc = "You Won!";
         yield return new WaitForSeconds(2);
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Start");
+        LevelManager.Instance.hasWon = true;
+        BaseEnemy.instance.hasLoaded = false;
     }
     public IEnumerator Wait()
     {
         print("Waiting to do stuff");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1f);
     }
 }
