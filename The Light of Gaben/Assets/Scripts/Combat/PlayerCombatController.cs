@@ -48,7 +48,7 @@ public class PlayerCombatController : UnitStats
 
     public void SelectTarget()
     {
-        //Temp, since it's just 1v1
+        //Temp
         attackTarget = FindObjectOfType<EnemyCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
         healTarget = this;
@@ -57,7 +57,7 @@ public class PlayerCombatController : UnitStats
     {
         SelectTarget();
         int damage = Random.Range(1, 20) + attack;
-        attackTarget.TakeDamage(damage);
+        attackTarget.TakeDamage(damage, this, attackTarget);
         stateController.actionDesc = "Player attacks " + attackTarget.name + " for " + damage + " damage!";
         StartCoroutine(WaitUnitStatsVer());
     }
@@ -69,5 +69,29 @@ public class PlayerCombatController : UnitStats
         healTarget.HealDamage(heal);
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
         StartCoroutine(WaitUnitStatsVer());
+    }
+
+    public void LightChangerBlue()
+    {
+        lightType = LightTypes.Blue;
+        stateController.actionDesc = "Player changes their light to Blue!";
+    }
+
+    public void LightChangerRed()
+    {
+        lightType = LightTypes.Red;
+        stateController.actionDesc = "Player changes their light to Red!";
+    }
+
+    public void LightChangerYellow()
+    {
+        lightType = LightTypes.Yellow;
+        stateController.actionDesc = "Player changes their light to Yellow!";
+    }
+
+    public void LightChangerWhite()
+    {
+        lightType = LightTypes.White;
+        stateController.actionDesc = "Player changes their light to White!";
     }
 }

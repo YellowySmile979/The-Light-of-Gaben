@@ -12,12 +12,8 @@ public class CanvasController : MonoBehaviour
     public static CanvasController Instance;
 
     public Image gabenHPBar;
-    public Image enemyHPBar;
-    public Text gabenHealth;
-    public Text enemyHealth;
-    public Text gameStateAnnouncer;
-    public GameObject playerActions;
     public Text combatActions;
+    public GameObject lightChanger;
 
     void Awake()
     {
@@ -29,7 +25,7 @@ public class CanvasController : MonoBehaviour
         player = FindObjectOfType<PlayerCombatController>();
         enemy = FindObjectOfType<EnemyCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
-        playerActions.SetActive(true);
+        lightChanger.SetActive(false);
     }
     private void Update()
     {
@@ -42,13 +38,17 @@ public class CanvasController : MonoBehaviour
             playerActions.SetActive(false);
         }*/
         gabenHPBar.fillAmount = Mathf.Clamp(player.health / player.maxHealth, 0, 1f);
-        gabenHealth.text = player.health.ToString() + "/" + player.maxHealth.ToString();
 
-        enemyHPBar.fillAmount = Mathf.Clamp(enemy.health / enemy.maxHealth, 0, 1f);
-        enemyHealth.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
-
-        gameStateAnnouncer.text = stateController.state.ToString();
         combatActions.text = stateController.actionDesc.ToString();
 
+    }
+    public void LightChangeMenu()
+    {
+        lightChanger.SetActive(true);
+    }
+
+    public void LightChangeExit()
+    {
+        lightChanger.SetActive(false);
     }
 }

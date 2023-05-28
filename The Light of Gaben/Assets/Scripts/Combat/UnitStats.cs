@@ -15,9 +15,12 @@ public abstract class UnitStats : MonoBehaviour
 
     public CombatStateController stateController;
 
+    public enum LightTypes { White, Red, Yellow, Blue };
+    public LightTypes lightType = LightTypes.White;
+    
     void Start()
     {
-        health = maxHealth;        
+        health = maxHealth;
     }
     void Awake()
     {
@@ -30,18 +33,42 @@ public abstract class UnitStats : MonoBehaviour
     }
 
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, UnitStats attacker, UnitStats attackee)
     {
         print("Took Damage");
-        health -= dmg;
+
+        // Light Type If Else statements! There's probably a more efficient way to do this but it's 28 May and our critique is in 2 days.
+        // Red > Blue > Yellow > Red
+        // - noelle
+        float multiplier = 1.25f;
+        switch (attackee.lightType)
+        {
+            case LightTypes.Red:
+                if (attacker.lightType == LightTypes.Yellow) health -= dmg * multiplier;
+                else health -= dmg;
+                break;
+            case LightTypes.Yellow:
+                if (attacker.lightType == LightTypes.Blue) health -= dmg * multiplier;
+                else health -= dmg;
+                break;
+            case LightTypes.Blue:
+                if (attacker.lightType == LightTypes.Red) health -= dmg * multiplier;
+                else health -= dmg;
+                break;
+            default:
+                health -= dmg;
+                break;
+        }
+        
     }
 
     public void HealDamage(int heal)
     {
         health += heal;
+        if (health > maxHealth) health = maxHealth;
     }
 
-    // WaitUnitStatsVer() is a temporary numerable called in place of actual animation and give player
+    // WaitUnitStatsVer() is a temporary numerable called in place of actual animation and gives players
     // enough time to read the action desc to undersatdn what the hell is happening
     // - noelle
     protected IEnumerator WaitUnitStatsVer()

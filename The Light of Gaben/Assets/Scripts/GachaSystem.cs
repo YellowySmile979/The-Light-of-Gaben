@@ -9,15 +9,20 @@ public class GachaSystem : MonoBehaviour
     public int pity = 0;
     public Text pityCounter;
     public Sprite smolourSprite1, smolourSprite2;
-    public Image result1, result2, result3;
+    public GameObject result1, result2, result3;
     private List<string> rolled;
-
+    GameObject[] results;
 
     //The Gacha System
     // Current drop rates are:
     // SSR++* : 1/1000 = 0.01 % (Not taking into account Pity)
     // SR : 99 / 1000 = 0.99 %
     // R : 900/1000 = 90 %
+
+    private void Start()
+    {
+        results = new GameObject[] {result1, result2, result3};
+    }
 
     public void Roll()
     {
@@ -53,23 +58,26 @@ public class GachaSystem : MonoBehaviour
     void Results()
     {
         print("Results() called");
-        Image[] results = new Image[] { result1, result2, result3};
-
+        
         for (int i = 0; i < 3; i++)
         {
-            if (rolled[i] == "SSR") results[i].color = Color.yellow;
-            else if (rolled[i] == "SR") results[i].color = Color.green;
-            else results[i].color = Color.blue;
+            if (rolled[i] == "SSR") results[i].GetComponent<Image>().color = Color.yellow;
+            else if (rolled[i] == "SR") results[i].GetComponent<Image>().color = Color.green;
+            else results[i].GetComponent<Image>().color = Color.blue;
 
             int smolourRandom = Random.Range(1, 3);
-            print(smolourRandom);
-            if (smolourRandom == 1) results[i].sprite = smolourSprite1;
-            else results[i].sprite = smolourSprite2;
+            if (smolourRandom == 1) results[i].GetComponent<Image>().sprite = smolourSprite1;
+            else results[i].GetComponent<Image>().sprite = smolourSprite2;
+
+            //results[i].GetComponent<Image>().color -= new Color(0f, 0f, 0f, 1f);
+            print(i);
+            Image result = results[i].GetComponent<Image>();
+            result.CrossFadeAlpha(1, 1f, false);
         }
     }
+
     void RollSSRTable()
     {
-        print("Rolled an SSR!");
         pity = 0;
         // We would have another roll here in each table to
         // randomise the loot that players get
@@ -77,13 +85,11 @@ public class GachaSystem : MonoBehaviour
 
     void RollSRTable()
     {
-        print("Rolled an SR!");
         pity += 1;
     }
 
     void RollRTable()
     {
-        print("Rolled an R!");
         pity += 1;
     }
 }
