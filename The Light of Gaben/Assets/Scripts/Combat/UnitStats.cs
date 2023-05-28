@@ -17,12 +17,14 @@ public abstract class UnitStats : MonoBehaviour
 
     void Start()
     {
-        health = maxHealth;stateController = FindObjectOfType<CombatStateController>();
+        health = maxHealth;        
     }
-
-    // Calculates nextTurnIn value
-    
-    public void calculateNextTurn(int currentTurn)
+    void Awake()
+    {
+        stateController = FindObjectOfType<CombatStateController>();
+    }
+    // Calculates nextTurnIn value   
+    public void CalculateNextTurn(int currentTurn)
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - speed);
     }
@@ -30,6 +32,7 @@ public abstract class UnitStats : MonoBehaviour
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(int dmg)
     {
+        print("Took Damage");
         health -= dmg;
     }
 
@@ -38,13 +41,13 @@ public abstract class UnitStats : MonoBehaviour
         health += heal;
     }
 
-    // Wait() is a temporary numerable called in place of actual animation and give player
+    // WaitUnitStatsVer() is a temporary numerable called in place of actual animation and give player
     // enough time to read the action desc to undersatdn what the hell is happening
     // - noelle
-    public IEnumerator Wait()
-    {
-        print("Wait() called");
-        yield return new WaitForSeconds(2f);
-        stateController.nextTurn();
+    protected IEnumerator WaitUnitStatsVer()
+    {   
+        yield return new WaitForSeconds(1f);
+        stateController.NextTurn();
+        print("WaitUnitStatsVer() called");
     }
 }
