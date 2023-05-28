@@ -9,6 +9,7 @@ public class CombatStateController : MonoBehaviour
     private List<UnitStats> TurnOrder;
     UnitStats stats;
     public string actionDesc;
+
     PlayerCombatController player;
     EnemyCombatController enemy;
 
@@ -68,7 +69,7 @@ public class CombatStateController : MonoBehaviour
     // Comparable called to sort List by nextTurnIn
     static int SortByTurn(UnitStats p1, UnitStats p2)
     {
-        return p1.nextTurnIn.CompareTo(p2.nextTurnIn);
+        return p1.nextTurnIn.CompareTo(p2.nextTurnIn);       
     }
 
     // Called after Player and Enemy states, calls the next unit in TurnOrder.

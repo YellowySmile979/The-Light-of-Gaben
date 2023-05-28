@@ -17,12 +17,13 @@ public abstract class UnitStats : MonoBehaviour
 
     void Start()
     {
-        health = maxHealth;
+        health = maxHealth;        
+    }
+    void Awake()
+    {
         stateController = FindObjectOfType<CombatStateController>();
     }
-
-    // Calculates nextTurnIn value
-    
+    // Calculates nextTurnIn value   
     public void CalculateNextTurn(int currentTurn)
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - speed);
@@ -43,8 +44,8 @@ public abstract class UnitStats : MonoBehaviour
     // WaitUnitStatsVer() is a temporary numerable called in place of actual animation and give player
     // enough time to read the action desc to undersatdn what the hell is happening
     // - noelle
-    public IEnumerator WaitUnitStatsVer()
-    {        
+    protected IEnumerator WaitUnitStatsVer()
+    {   
         yield return new WaitForSeconds(1f);
         stateController.NextTurn();
         print("WaitUnitStatsVer() called");

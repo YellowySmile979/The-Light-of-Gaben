@@ -45,4 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 0}
   actionDesc: 
+  setWaitTime: 1.5
   state: 0
+  currentTurn: -1
