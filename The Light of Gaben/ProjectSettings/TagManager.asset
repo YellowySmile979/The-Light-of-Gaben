@@ -54,6 +54,9 @@ TagManager:
   - name: Object
     uniqueID: 830337355
     locked: 0
+  - name: Object to Interact with
+    uniqueID: 2503713123
+    locked: 0
   - name: Light Source
     uniqueID: 3552292549
     locked: 0
