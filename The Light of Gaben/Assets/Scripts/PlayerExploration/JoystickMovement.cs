@@ -8,6 +8,7 @@ public class JoystickMovement : MonoBehaviour
     public GameObject joystick;
     public GameObject joystickBG;
     public Vector2 joystickVec;
+    [SerializeField] float joystickRadiusLimit;
     Vector2 joystickTouchPos;
     Vector2 joystickOriginalPos;
     float joystickRadius;
@@ -20,7 +21,7 @@ public class JoystickMovement : MonoBehaviour
         //stores the joysticks original pos so that it can return when not pressed 
         joystickOriginalPos = joystickBG.transform.position;
         //stores the BG radius
-        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.x / 8;
+        joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.x / joystickRadiusLimit;
     }
     void Update()
     {
@@ -42,7 +43,7 @@ public class JoystickMovement : MonoBehaviour
         //stores the pos of where pressed
         joystickTouchPos = Input.mousePosition;
     }
-    
+
     public void Drag(BaseEventData baseEventData)
     {
         //gets the pointer position and sets the variable on the left as the general event data on
