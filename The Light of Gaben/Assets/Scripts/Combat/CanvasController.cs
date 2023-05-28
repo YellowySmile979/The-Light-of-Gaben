@@ -29,7 +29,7 @@ public class CanvasController : MonoBehaviour
         player = FindObjectOfType<PlayerCombatController>();
         enemy = FindObjectOfType<EnemyCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
-        playerActions.SetActive(false);
+        playerActions.SetActive(true);
     }
     private void Update()
     {
