@@ -46,28 +46,28 @@ public class PlayerCombatController : UnitStats
         //}
     }
 
-    public void selectTarget()
+    public void SelectTarget()
     {
         //Temp, since it's just 1v1
         attackTarget = FindObjectOfType<EnemyCombatController>();
+        stateController = FindObjectOfType<CombatStateController>();
         healTarget = this;
     }
     public void Attack()
     {
-        selectTarget();
+        SelectTarget();
         int damage = Random.Range(1, 20) + attack;
         attackTarget.TakeDamage(damage);
         stateController.actionDesc = "Player attacks " + attackTarget.name + " for " + damage + " damage!";
-        StartCoroutine(Wait());
-
+        StartCoroutine(WaitUnitStatsVer());
     }
 
     public void Heal()
     {
-        selectTarget();
+        SelectTarget();
         int heal = Random.Range(1, 20) + attack;
         healTarget.HealDamage(heal);
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
-        StartCoroutine(Wait());
+        StartCoroutine(WaitUnitStatsVer());
     }
 }

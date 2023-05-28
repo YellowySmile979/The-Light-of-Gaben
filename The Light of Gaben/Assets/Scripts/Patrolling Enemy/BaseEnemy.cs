@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseEnemy : MonoBehaviour
@@ -8,6 +9,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 5f;
     public float turnSpeed = 30f;
+    [HideInInspector] public float originalMoveSpeed;
+    [HideInInspector] public float originalTurnSpeed;
 
     [Header("Detect Player")]
     public Transform detectPlayerArea;
@@ -34,8 +37,27 @@ public abstract class BaseEnemy : MonoBehaviour
     bool isInitialised = false;
     public EnemyMover enemyMover;
 
+    [Header("Combat Scene")]
+    public string combatScene;
+    public Canvas explorationCanvas;
+    public bool hasLoaded = true;
+    public static BaseEnemy instance;
+
     int currentIndex = -1;
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerMovement>())
+        {
+            //the SceneManager loads new Scene as an extra Scene (overlapping the other). This is Additive mode
+            SceneManager.LoadSceneAsync(combatScene, LoadSceneMode.Additive);
+
+            explorationCanvas.enabled = false;
+            moveSpeed = 0;
+            turnSpeed = 0;
+            hasLoaded = true;
+        }
+    }
     //detects player
     protected void DetectPlayer()
     {
@@ -81,6 +103,9 @@ public abstract class BaseEnemy : MonoBehaviour
     }
     void Awake()
     {
+        instance = this;
+        originalMoveSpeed = moveSpeed;
+        originalTurnSpeed = turnSpeed;
         if (enemyMover == null) enemyMover = GetComponentInChildren<EnemyMover>();
         if (patrolPath == null) patrolPath = GetComponentInChildren<PatrolPath>();
     }
