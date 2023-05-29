@@ -4,16 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
-{
-    public static LevelManager Instance;
+{   
     public bool hasWon;
-    public AudioClip explorationMusic1;
+    public AudioClip explorationMusic1, confirmSFX;
     public AudioSource camExplorationAudioSource;
     public bool hasPlayed;
     public string currentScene;
     public GameObject player;
     public bool hasLoaded;
+    public GameObject lightShardToSpawn;
     bool hasUnloaded;
+
+    public List<BaseEnemy> enemies = new List<BaseEnemy>();
+    public static LevelManager Instance;    
 
     void Awake()
     {        
@@ -31,6 +34,7 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
+        enemies.AddRange(FindObjectsOfType<BaseEnemy>());
         camExplorationAudioSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
@@ -44,7 +48,12 @@ public class LevelManager : MonoBehaviour
     }
     void PlayExplorationMusic()
     {
-        camExplorationAudioSource.PlayOneShot(explorationMusic1);
+        camExplorationAudioSource.PlayOneShot(explorationMusic1, 0.1f);
+    }
+    public void SpawnLightShard()
+    {
+        print("Spawn Light Shard");
+        Instantiate(lightShardToSpawn, BaseEnemy.instance.transform.position, Quaternion.identity);
     }
     void CheckToSeeIfCombatHasEnded()
     {        

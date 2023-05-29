@@ -13,7 +13,6 @@ public class BlackFade : MonoBehaviour
     }
     public void FadeOut()
     {
-        print("FadeOut");
         Image i = GetComponent<Image>();
         i.CrossFadeAlpha(1, duration, true);
     }

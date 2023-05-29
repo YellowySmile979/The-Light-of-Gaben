@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Image hpBar;
+    [Header("Health Bar")]
+    public GameObject fullHP;
+    public GameObject threeQuartersHP, halfHP, quarterHP, almostZeroHP;
+    [Header("Health")]
     public float maxHealth;
     public float currentHealth;
-    Vector2 currentRectTransform;
 
     public static HealthBar Instance;
 
     void Awake()
     {
         Instance = this;
-        currentRectTransform = hpBar.GetComponent<RectTransform>().anchoredPosition;
     }
     void Update()
     {
@@ -25,27 +25,43 @@ public class HealthBar : MonoBehaviour
     {
         if (currentHealth == maxHealth)
         {
-            hpBar.GetComponent<RectTransform>().anchoredPosition = currentRectTransform;
+            fullHP.SetActive(true);
+            threeQuartersHP.SetActive(false);
+            halfHP.SetActive(false);
+            quarterHP.SetActive(false);
+            almostZeroHP.SetActive(false);
         }
-        else if(currentHealth >= maxHealth - 10)
+        else if(currentHealth >= maxHealth * 0.75f)
         {
-            hpBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(105.9f, currentRectTransform.y);
+            fullHP.SetActive(false);
+            threeQuartersHP.SetActive(true);
+            halfHP.SetActive(false);
+            quarterHP.SetActive(false);
+            almostZeroHP.SetActive(false);
         }
-        else if (currentHealth >= maxHealth - 20)
+        else if (currentHealth >= maxHealth * 0.5f)
         {
-            hpBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(49.1f, currentRectTransform.y);
+            fullHP.SetActive(false);
+            threeQuartersHP.SetActive(false);
+            halfHP.SetActive(true);
+            quarterHP.SetActive(false);
+            almostZeroHP.SetActive(false);
         }
-        else if (currentHealth >= maxHealth - 30)
+        else if (currentHealth >= maxHealth * 0.25f)
         {
-            hpBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(-37.1f, currentRectTransform.y);
-        }
-        else if (currentHealth >= maxHealth - 40)
-        {
-            hpBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(-96.8f, currentRectTransform.y);
+            fullHP.SetActive(false);
+            threeQuartersHP.SetActive(false);
+            halfHP.SetActive(false);
+            quarterHP.SetActive(true);
+            almostZeroHP.SetActive(false);
         }
         else if(currentHealth >= 0)
         {
-            hpBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(-133f, currentRectTransform.y);
+            fullHP.SetActive(false);
+            threeQuartersHP.SetActive(false);
+            halfHP.SetActive(false);
+            quarterHP.SetActive(false);
+            almostZeroHP.SetActive(true);
         }
     }
 }

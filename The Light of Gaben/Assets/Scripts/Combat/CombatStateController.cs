@@ -30,12 +30,6 @@ public class CombatStateController : MonoBehaviour
         enemy = FindObjectOfType<EnemyCombatController>();
         if (state == GameStates.Start) StartState();
     }
-
-    void Update()
-    {
-        if (player.health <= 0) StartCoroutine(LostCombat());
-        if (enemy.health <= 0) StartCoroutine(WinCombat());
-    }
     public void RandomiseCombatMusic()
     {
         float randomTrack = Mathf.Round(Random.Range(0, 100));
@@ -104,6 +98,20 @@ public class CombatStateController : MonoBehaviour
             currentTurn++;
         }
         UnitStats currentUnit = TurnOrder[currentTurn];
+        //checks to see if either enemy or player has died
+        //if the respective dude has died, perform the respective Coroutine
+        //and then return
+        if (player.health <= 0)
+        {
+            StartCoroutine(LostCombat());
+            return;
+        }
+
+        if (enemy.health <= 0)
+        {
+            StartCoroutine(WinCombat());
+            return;
+        }
         //UnitStats currentUnitStats = TurnOrder[0];
         //TurnOrder.Remove(currentUnitStats);
         //if (!currentUnitStats.isDead)
@@ -166,6 +174,7 @@ public class CombatStateController : MonoBehaviour
     IEnumerator WinCombat()
     {
         state = GameStates.End;
+        LevelManager.Instance.SpawnLightShard();
         actionDesc = "You Won!";
         yield return new WaitForSeconds(2);
         // Uh load the scene before this
