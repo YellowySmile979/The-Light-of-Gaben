@@ -8,7 +8,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public GameObject creditScreen;
     public string lvlToStart;
-    public AudioClip confirmSFX, hoverSFX;
+    public AudioClip confirmSFX, hoverSFX, startSFX;
     public AudioSource audioSource;
 
     public void DetectHover()
@@ -17,7 +17,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void StartLevel()
     {
-        audioSource.PlayOneShot(confirmSFX);
+        audioSource.PlayOneShot(startSFX);
         SceneManager.LoadScene(lvlToStart);
     }
 
