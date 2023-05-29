@@ -26,7 +26,6 @@ public class ItemInteraction : MonoBehaviour, IDropHandler
             {
                 baseObjectInteraction[i].detectItemUI.enabled = false;
                 baseObjectInteraction[i].itemInteraction.SetActive(false);
-                LevelManager.Instance.camExplorationAudioSource.PlayOneShot(LevelManager.Instance.itemUseSFX, 0.5f);
                 Destroy(objectToInteractWith);
                 inventoryManager.DeleteItemAfterUse(usedItem);
             }
