@@ -1,0 +1,238 @@
+fileFormatVersion: 2
+guid: 7298f25024f63934f9a22a9685b93b24
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7012570248057132052
+    second: bars naked enemy_0
+  - first:
+      213: 5157212517736231647
+    second: bars naked enemy_1
+  - first:
+      213: -2946263507146089693
+    second: bars naked enemy_2
+  - first:
+      213: 319520465736225168
+    second: bars naked enemy_3
+  - first:
+      213: 8322601508385452097
+    second: bars naked enemy_4
+  - first:
+      213: -7344871937904255028
+    second: bars naked enemy_5
+  - first:
+      213: -7574954881685120123
+    second: bars naked enemy_6
+  - first:
+      213: -5624313574308085915
+    second: bars naked enemy_7
+  - first:
+      213: 5297524906934334513
+    second: bars naked enemy_8
+  - first:
+      213: -8584390607512621858
+    second: bars naked enemy_9
+  - first:
+      213: -1157231729944145696
+    second: bars naked enemy_10
+  - first:
+      213: -2195190198125101649
+    second: bars naked enemy_11
+  - first:
+      213: -8997189260476940428
+    second: bars naked enemy_12
+  - first:
+      213: 9195267895131769159
+    second: bars naked enemy_13
+  - first:
+      213: 4693633701412909914
+    second: bars naked enemy_14
+  - first:
+      213: 2466845702674138154
+    second: bars naked enemy_15
+  - first:
+      213: 8120597533085636977
+    second: bars naked enemy_16
+  - first:
+      213: 7976042195763336366
+    second: bars naked enemy_17
+  - first:
+      213: 1228503077589518576
+    second: bars naked enemy_18
+  - first:
+      213: 5268070604916364961
+    second: bars naked enemy_19
+  - first:
+      213: 5841600789850034935
+    second: bars naked enemy_20
+  - first:
+      213: -7325019497890585247
+    second: bars naked enemy_21
+  - first:
+      213: -802944850963032370
+    second: bars naked enemy_22
+  - first:
+      213: 1862559979907555887
+    second: bars naked enemy_23
+  - first:
+      213: 5169418092688942898
+    second: bars naked enemy_24
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bars naked enemy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1095
+        width: 2048
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4141be58c77a15160800000000000000
+      internalID: 7012570248057132052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bars naked enemy_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 142
+        width: 2048
+        height: 953
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2bdd6f579129740800000000000000
+      internalID: 5157212517736231647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
