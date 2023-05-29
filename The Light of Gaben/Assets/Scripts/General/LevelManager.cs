@@ -14,9 +14,10 @@ public class LevelManager : MonoBehaviour
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
     bool hasUnloaded;
+    public bool inCombat;
 
     public List<BaseEnemy> enemies = new List<BaseEnemy>();
-    public static LevelManager Instance;    
+    public static LevelManager Instance;
 
     void Awake()
     {        

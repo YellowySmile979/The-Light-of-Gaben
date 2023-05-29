@@ -47,6 +47,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (LevelManager.Instance.inCombat) return;
         if (collision.GetComponent<PlayerMovement>())
         {
             //the SceneManager loads new Scene as an extra Scene (overlapping the other). This is Additive mode
@@ -56,6 +57,7 @@ public abstract class BaseEnemy : MonoBehaviour
             moveSpeed = 0;
             turnSpeed = 0;
             hasLoaded = true;
+            LevelManager.Instance.inCombat = true;
             LevelManager.Instance.hasPlayed = false;
             LevelManager.Instance.hasLoaded = true;
         }
@@ -182,6 +184,7 @@ public abstract class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelManager.Instance.inCombat) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         //sets the detection area
         hasDetectedPlayer = Physics2D.OverlapCircle(detectPlayerArea.position, detectPlayerRadius, whatIsAPlayer);
         if (hasDetectedPlayer || isChasing)
@@ -192,5 +195,6 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             Patrol();
         }
+
     }
 }

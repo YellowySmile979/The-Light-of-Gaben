@@ -11,6 +11,7 @@ public class CombatStateController : MonoBehaviour
     public string actionDesc;
     public AudioClip combatMusic1, combatMusic2;
     public AudioSource camAudioSource;
+    public Canvas turnBasedScreen;
 
     PlayerCombatController player;
     EnemyCombatController enemy;
@@ -28,6 +29,7 @@ public class CombatStateController : MonoBehaviour
         fade = FindObjectOfType<BlackFade>();
         player = FindObjectOfType<PlayerCombatController>();
         enemy = FindObjectOfType<EnemyCombatController>();
+        camAudioSource = FindObjectOfType<LevelManager>().GetComponent<AudioSource>();
         if (state == GameStates.Start) StartState();
     }
     public void RandomiseCombatMusic()
@@ -122,7 +124,7 @@ public class CombatStateController : MonoBehaviour
         //    TurnOrder.Sort(SortByTurn);
         if (currentUnit.tag == "PlayerUnit")
         {
-            CanvasController.Instance.playerActions.SetActive(true);
+            CanvasController.Instance.lightChanger.SetActive(true);
             Debug.Log("Player unit acting");
             actionDesc = "Player is now acting!";
             StartCoroutine(Wait());
@@ -130,7 +132,7 @@ public class CombatStateController : MonoBehaviour
         }
         else
         {
-            CanvasController.Instance.playerActions.SetActive(false);
+            CanvasController.Instance.lightChanger.SetActive(false);
             Debug.Log("Enemy unit acting");
             EnemyState();
             actionDesc = "Enemy is now acting!";

@@ -7,17 +7,13 @@ using UnityEngine.UI;
 public class CanvasController : MonoBehaviour
 {
     PlayerCombatController player;
-    EnemyCombatController enemy;
     CombatStateController stateController;
     public static CanvasController Instance;
 
     public Image gabenHPBar;
-    public Image enemyHPBar;
-    public Text gabenHealth;
-    public Text enemyHealth;
-    public Text gameStateAnnouncer;
-    public GameObject playerActions;
     public Text combatActions;
+    public GameObject lightChanger;
+    public Image lightBG;
 
     void Awake()
     {
@@ -27,28 +23,29 @@ public class CanvasController : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerCombatController>();
-        enemy = FindObjectOfType<EnemyCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
-        playerActions.SetActive(true);
+        lightBG = GameObject.Find("LightBackGround").GetComponent<Image>();
+        lightChanger.SetActive(false);
     }
     private void Update()
     {
-        /*if (stateController.state == CombatStateController.GameStates.Player)
-        {
-            playerActions.SetActive(true);
-        }
-        else
-        {
-            playerActions.SetActive(false);
-        }*/
         gabenHPBar.fillAmount = Mathf.Clamp(player.health / player.maxHealth, 0, 1f);
-        gabenHealth.text = player.health.ToString() + "/" + player.maxHealth.ToString();
-
-        enemyHPBar.fillAmount = Mathf.Clamp(enemy.health / enemy.maxHealth, 0, 1f);
-        enemyHealth.text = enemy.health.ToString() + "/" + enemy.maxHealth.ToString();
-
-        gameStateAnnouncer.text = stateController.state.ToString();
         combatActions.text = stateController.actionDesc.ToString();
+        if (player.lightType == UnitStats.LightTypes.Red) lightBG.color = Color.red;
+        else if (player.lightType == UnitStats.LightTypes.Blue) lightBG.color = Color.blue;
+        else if (player.lightType == UnitStats.LightTypes.Yellow) lightBG.color = Color.yellow;
+        else lightBG.color = Color.white;
 
+        if (stateController.state == CombatStateController.GameStates.Player) LightChangeMenu();
+        else LightChangeExit();
+    }
+    public void LightChangeMenu()
+    {
+        lightChanger.SetActive(true);
+    }
+
+    public void LightChangeExit()
+    {
+        lightChanger.SetActive(false);
     }
 }
