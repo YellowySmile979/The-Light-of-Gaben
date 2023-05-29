@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCombatController : UnitStats
 {
     UnitStats player;
-    public GameObject healthBar;
+    //public GameObject healthBar;
+    public Image healthBar;
 
     private void Start()
     {
@@ -18,19 +20,19 @@ public class EnemyCombatController : UnitStats
         {
             case 1:
                 lightType = LightTypes.White;
-                GetComponent<SpriteRenderer>().color = Color.white;
+                GetComponent<Image>().color = Color.white;
                 break;
             case 2:
                 lightType = LightTypes.Red;
-                GetComponent<SpriteRenderer>().color = Color.red;
+                GetComponent<Image>().color = Color.red;
                 break;
             case 3:
                 lightType = LightTypes.Blue;
-                GetComponent<SpriteRenderer>().color = Color.blue;
+                GetComponent<Image>().color = Color.blue;
                 break;
             case 4:
                 lightType = LightTypes.Yellow;
-                GetComponent<SpriteRenderer>().color = Color.yellow;
+                GetComponent<Image>().color = Color.yellow;
                 break;
             default:
                 lightType = LightTypes.White;
@@ -39,7 +41,7 @@ public class EnemyCombatController : UnitStats
     }
     private void Update()
     {
-        healthBar.transform.localScale = new Vector3((health/maxHealth) * 2f, -0.1f, 1);
+        healthBar.fillAmount = ((health/maxHealth) * 1);
     }
     public void Attack()
     {

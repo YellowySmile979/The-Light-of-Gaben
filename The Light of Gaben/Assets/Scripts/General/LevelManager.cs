@@ -37,9 +37,8 @@ public class LevelManager : MonoBehaviour
         if (BaseEnemy.instance.hasLoaded == false)
         {
             PlayExplorationMusic();
-            SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
             if (hasWon)
-            {                
+            {
                 BaseEnemy.instance.explorationCanvas.enabled = true;
                 Destroy(BaseEnemy.instance.gameObject);
             }

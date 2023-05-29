@@ -11,6 +11,7 @@ public class CombatStateController : MonoBehaviour
     public string actionDesc;
     public AudioClip combatMusic1, combatMusic2;
     public AudioSource camAudioSource;
+    public Canvas turnBasedScreen;
 
     PlayerCombatController player;
     EnemyCombatController enemy;
@@ -33,6 +34,7 @@ public class CombatStateController : MonoBehaviour
         fade = FindObjectOfType<BlackFade>();
         player = FindObjectOfType<PlayerCombatController>();
         enemy = FindObjectOfType<EnemyCombatController>();
+        camAudioSource = FindObjectOfType<LevelManager>().GetComponent<AudioSource>();
         if (state == GameStates.Start) StartState();
     }
 
@@ -166,6 +168,7 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = false;
         BaseEnemy.instance.hasLoaded = false;
+        Destroy(turnBasedScreen);
     }
 
     IEnumerator WinCombat()
@@ -178,6 +181,7 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = true;
         BaseEnemy.instance.hasLoaded = false;
+        Destroy(turnBasedScreen);
     }
     public IEnumerator Wait()
     {
