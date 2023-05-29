@@ -58,7 +58,7 @@ public class PlayerCombatController : UnitStats
         SelectTarget();
         int damage = attack;
         attackTarget.TakeDamage(damage, this, attackTarget);
-        stateController.actionDesc = "Player attacks " + attackTarget.name + " for " + damage + " damage!";
+        
         StartCoroutine(WaitUnitStatsVer());
     }
 
@@ -80,7 +80,6 @@ public class PlayerCombatController : UnitStats
     public void LightChangerRed()
     {
         lightType = LightTypes.Red;
-        print("Redsss");
         stateController.actionDesc = "Player changes their light to Red!";
     }
 

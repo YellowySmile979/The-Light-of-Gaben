@@ -33,7 +33,7 @@ public abstract class UnitStats : MonoBehaviour
     }
 
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
-    public void TakeDamage(int dmg, UnitStats attacker, UnitStats attackee)
+    public void TakeDamage(float dmg, UnitStats attacker, UnitStats attackee)
     {
         print("Took Damage");
 
@@ -44,22 +44,20 @@ public abstract class UnitStats : MonoBehaviour
         switch (attackee.lightType)
         {
             case LightTypes.Red:
-                if (attacker.lightType == LightTypes.Yellow) health -= dmg * multiplier;
-                else health -= dmg;
+                if (attacker.lightType == LightTypes.Yellow) dmg = dmg * multiplier; 
                 break;
             case LightTypes.Yellow:
-                if (attacker.lightType == LightTypes.Blue) health -= dmg * multiplier;
-                else health -= dmg;
+                if (attacker.lightType == LightTypes.Blue) dmg = dmg * multiplier;
                 break;
             case LightTypes.Blue:
-                if (attacker.lightType == LightTypes.Red) health -= dmg * multiplier;
-                else health -= dmg;
+                if (attacker.lightType == LightTypes.Red) dmg = dmg * multiplier;
                 break;
             default:
-                health -= dmg;
                 break;
         }
-        
+        health -= dmg;
+        stateController.actionDesc = "Player attacks " + attackee.name + " for " + dmg + " damage!";
+
     }
 
     public void HealDamage(int heal)
