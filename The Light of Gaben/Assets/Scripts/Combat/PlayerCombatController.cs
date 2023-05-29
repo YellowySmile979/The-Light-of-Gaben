@@ -47,9 +47,16 @@ public class PlayerCombatController : UnitStats
         //    HealDamage(10);
         //}
     }
+    void Awake()
+    {
+        HealthBar.Instance.maxHealth = this.maxHealth;
+        HealthBar.Instance.currentHealth = this.maxHealth;
+    }
     void UpdateHealthBar()
     {
         HealthBar.Instance.currentHealth = this.health;
+        print("maxHealth: " + HealthBar.Instance.maxHealth);
+        print("currentHealth: " + HealthBar.Instance.currentHealth);
     }
     public void SelectTarget()
     {
@@ -59,9 +66,9 @@ public class PlayerCombatController : UnitStats
         healTarget = this;
     }
     public void Attack()
-    {
-        stateController.camAudioSource.PlayOneShot(buttonSFX, 1f);
+    {        
         SelectTarget();
+        stateController.camAudioSource.PlayOneShot(buttonSFX, 1f);
         int damage = Random.Range(1, 20) + attack;
         attackTarget.TakeDamage(damage);
         stateController.actionDesc = "Player attacks " + attackTarget.name + " for " + damage + " damage!";
@@ -70,9 +77,9 @@ public class PlayerCombatController : UnitStats
     }
 
     public void Heal()
-    {
-        stateController.camAudioSource.PlayOneShot(buttonSFX, 1f);
+    {        
         SelectTarget();
+        stateController.camAudioSource.PlayOneShot(buttonSFX, 1f);
         int heal = Random.Range(1, 20) + attack;
         healTarget.HealDamage(heal);
         stateController.actionDesc = "Player heals themself for " + heal + " health!";

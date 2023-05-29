@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public string currentScene;
     public GameObject player;
     public bool hasLoaded;
+    bool hasUnloaded;
 
     void Awake()
     {        
@@ -49,7 +50,11 @@ public class LevelManager : MonoBehaviour
     {        
         if (BaseEnemy.instance.hasLoaded == false)
         {
-            SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
+            if(!hasUnloaded)
+            {
+                SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
+            }
+            hasUnloaded = true; 
             if (!hasPlayed)
             {
                 PlayExplorationMusic();
