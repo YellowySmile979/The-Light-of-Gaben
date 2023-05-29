@@ -104,6 +104,7 @@ MonoBehaviour:
   isDead: 0
   stateController: {fileID: 0}
   lightType: 0
+  healthBar: {fileID: 6837788639371966151}
 --- !u!1 &6837788639371966151
 GameObject:
   m_ObjectHideFlags: 0

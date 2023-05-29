@@ -80,6 +80,7 @@ public class PlayerCombatController : UnitStats
     public void LightChangerRed()
     {
         lightType = LightTypes.Red;
+        print("Redsss");
         stateController.actionDesc = "Player changes their light to Red!";
     }
 

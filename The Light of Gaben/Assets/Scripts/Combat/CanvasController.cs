@@ -33,6 +33,9 @@ public class CanvasController : MonoBehaviour
         if (player.lightType == UnitStats.LightTypes.Red) lightBG.color = Color.red;
         else if (player.lightType == UnitStats.LightTypes.Blue) lightBG.color = Color.blue;
         else if (player.lightType == UnitStats.LightTypes.Yellow) lightBG.color = Color.yellow;
+
+        if (stateController.state == CombatStateController.GameStates.Player) LightChangeMenu();
+        else LightChangeExit();
     }
     public void LightChangeMenu()
     {

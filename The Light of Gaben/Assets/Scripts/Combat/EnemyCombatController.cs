@@ -9,7 +9,7 @@ public class EnemyCombatController : UnitStats
 
     private void Update()
     {
-        healthBar.transform.localScale = new Vector3(Mathf.Clamp(health / maxHealth, 0, 2), -0.1f, 1);
+        healthBar.transform.localScale = new Vector3((health/maxHealth) * 2f, -0.1f, 1);
     }
     public void Attack()
     {
