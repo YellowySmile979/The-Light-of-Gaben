@@ -55,7 +55,6 @@ public abstract class BaseEnemy : MonoBehaviour
             explorationCanvas.enabled = false;
             moveSpeed = 0;
             turnSpeed = 0;
-            LevelManager.Instance.DefeatedEnemy(this);
             hasLoaded = true;
             LevelManager.Instance.hasPlayed = false;
             LevelManager.Instance.hasLoaded = true;
