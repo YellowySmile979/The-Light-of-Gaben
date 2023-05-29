@@ -57,6 +57,10 @@ public class ItemInventory : Item, IDragHandler, IBeginDragHandler, IEndDragHand
         {
             Destroy(gameObject);
         }
+        else
+        {
+            LevelManager.Instance.camExplorationAudioSource.PlayOneShot(LevelManager.Instance.itemDenySFX, 0.5f);
+        }
     }
 
     void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
