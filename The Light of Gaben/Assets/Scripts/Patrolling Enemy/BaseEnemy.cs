@@ -25,7 +25,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public float setChaseTime;
 
     [Header("Return to Original Position")]
-    public Vector3 originalPosition;
+    public Transform originalPosition;
 
     [Header("Patrol")]
     public PatrolPath patrolPath;
@@ -38,8 +38,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public EnemyMover enemyMover;
 
     [Header("Combat Scene")]
-    //public string combatScene;
-    public Canvas turnBasedScreen;
+    public string combatScene;
     public Canvas explorationCanvas;
     public bool hasLoaded = true;
     public static BaseEnemy instance;
@@ -51,10 +50,8 @@ public abstract class BaseEnemy : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             //the SceneManager loads new Scene as an extra Scene (overlapping the other). This is Additive mode
-            //SceneManager.LoadSceneAsync(combatScene, LoadSceneMode.Additive);
-
-            Instantiate(turnBasedScreen);
-            LevelManager.Instance.StopMusic();
+            SceneManager.LoadSceneAsync(combatScene, LoadSceneMode.Additive);
+            LevelManager.Instance.StopMusic();            
             explorationCanvas.enabled = false;
             moveSpeed = 0;
             turnSpeed = 0;
@@ -112,7 +109,6 @@ public abstract class BaseEnemy : MonoBehaviour
         instance = this;
         originalMoveSpeed = moveSpeed;
         originalTurnSpeed = turnSpeed;
-        gameObject.transform.localPosition = originalPosition;
         if (enemyMover == null) enemyMover = GetComponentInChildren<EnemyMover>();
         if (patrolPath == null) patrolPath = GetComponentInChildren<PatrolPath>();
     }
@@ -176,7 +172,7 @@ public abstract class BaseEnemy : MonoBehaviour
     void Start()
     {
         //sets the original position of this dude to where it was
-        originalPosition = gameObject.transform.position;
+        originalPosition = gameObject.transform;
     }
     private void OnDrawGizmosSelected()
     {

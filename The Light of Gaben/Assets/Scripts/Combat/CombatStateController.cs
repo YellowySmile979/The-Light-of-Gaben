@@ -11,7 +11,6 @@ public class CombatStateController : MonoBehaviour
     public string actionDesc;
     public AudioClip combatMusic1, combatMusic2;
     public AudioSource camAudioSource;
-    public Canvas turnBasedScreen;
 
     PlayerCombatController player;
     EnemyCombatController enemy;
@@ -29,7 +28,6 @@ public class CombatStateController : MonoBehaviour
         fade = FindObjectOfType<BlackFade>();
         player = FindObjectOfType<PlayerCombatController>();
         enemy = FindObjectOfType<EnemyCombatController>();
-        camAudioSource = FindObjectOfType<LevelManager>().GetComponent<AudioSource>();
         if (state == GameStates.Start) StartState();
     }
     public void RandomiseCombatMusic()
@@ -124,7 +122,7 @@ public class CombatStateController : MonoBehaviour
         //    TurnOrder.Sort(SortByTurn);
         if (currentUnit.tag == "PlayerUnit")
         {
-            CanvasController.Instance.lightChanger.SetActive(true);
+            CanvasController.Instance.playerActions.SetActive(true);
             Debug.Log("Player unit acting");
             actionDesc = "Player is now acting!";
             StartCoroutine(Wait());
@@ -132,7 +130,7 @@ public class CombatStateController : MonoBehaviour
         }
         else
         {
-            CanvasController.Instance.lightChanger.SetActive(false);
+            CanvasController.Instance.playerActions.SetActive(false);
             Debug.Log("Enemy unit acting");
             EnemyState();
             actionDesc = "Enemy is now acting!";
@@ -171,7 +169,6 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = false;
         BaseEnemy.instance.hasLoaded = false;
-        Destroy(turnBasedScreen);
     }
 
     IEnumerator WinCombat()
@@ -185,7 +182,6 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = true;
         BaseEnemy.instance.hasLoaded = false;
-        Destroy(turnBasedScreen);
     }
     public IEnumerator Wait()
     {
