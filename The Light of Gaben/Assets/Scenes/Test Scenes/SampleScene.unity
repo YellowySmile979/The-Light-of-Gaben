@@ -44638,14 +44638,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasWon: 0
-  explorationMusic1: {fileID: 8300000, guid: e8612f9bd37b84e42b75ac7b7ddfb108, type: 3}
-  confirmSFX: {fileID: 8300000, guid: 37897981cd1e45a44b9854972d9b28f8, type: 3}
-  camExplorationAudioSource: {fileID: 1346749865}
   hasPlayed: 0
   currentScene: SampleScene
   player: {fileID: 522565568}
   hasLoaded: 0
   lightShardToSpawn: {fileID: 3993934148287303071, guid: efa45a28ab787c84f93ec05936a704d7, type: 3}
+  camExplorationAudioSource: {fileID: 1346749865}
+  explorationMusic1: {fileID: 8300000, guid: e8612f9bd37b84e42b75ac7b7ddfb108, type: 3}
+  confirmSFX: {fileID: 8300000, guid: 37897981cd1e45a44b9854972d9b28f8, type: 3}
+  selectUiSFX: {fileID: 8300000, guid: f69ed00b454900041802e3145a7e3b19, type: 3}
+  itemDenySFX: {fileID: 8300000, guid: 00c54240ad36c294e8fd7c38ba5d9e81, type: 3}
+  itemUseSFX: {fileID: 8300000, guid: ef795b171b3d67d44b8f41b96004ce9c, type: 3}
+  pickUpItemSFX: {fileID: 8300000, guid: ef795b171b3d67d44b8f41b96004ce9c, type: 3}
   enemies: []
 --- !u!82 &1346749865
 AudioSource:

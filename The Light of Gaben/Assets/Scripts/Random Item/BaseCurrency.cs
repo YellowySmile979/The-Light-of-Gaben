@@ -27,6 +27,7 @@ public abstract class BaseCurrency : MonoBehaviour
             spawnRandomItem.hasRandomised = false;
             //returns itemValue and currencyData to get the type of currency
             currencyUI.UpdateText(currencyData.itemValue, currencyData);
+            LevelManager.Instance.camExplorationAudioSource.PlayOneShot(LevelManager.Instance.pickUpItemSFX, 0.5f);
             Destroy(gameObject);
             //sets the bool to true so that we can prevent further function calls
             hasCollided = true;
