@@ -19,7 +19,6 @@ public class InventoryOpener : MonoBehaviour
     {
         if(!onOrOff)
         {
-            LevelManager.Instance.camExplorationAudioSource.PlayOneShot(LevelManager.Instance.selectUiSFX, 0.5f);
             for (int i = 0; i < inventorySlots.Length; i++)
             {
                 Image image = inventorySlots[i].GetComponent<Image>();
@@ -32,7 +31,6 @@ public class InventoryOpener : MonoBehaviour
         }
         else
         {
-            LevelManager.Instance.camExplorationAudioSource.PlayOneShot(LevelManager.Instance.selectUiSFX, 0.5f);
             for (int i = 0; i < inventorySlots.Length; i++)
             {
                 Image image = inventorySlots[i].GetComponent<Image>();

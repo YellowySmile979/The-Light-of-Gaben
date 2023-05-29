@@ -29,7 +29,6 @@ public abstract class Item : MonoBehaviour
             //returns the item data and destroy the object
             print(collision);
             inventoryManager.AddItem(data);
-            LevelManager.Instance.camExplorationAudioSource.PlayOneShot(LevelManager.Instance.pickUpItemSFX, 0.5f);
             Destroy(gameObject);
             //sets the bool to true so that we can prevent further function calls
             hasCollided = true;
