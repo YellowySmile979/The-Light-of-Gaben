@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8a4792a756345f547921b1f6082bc1ea
+guid: c59cf29a2b1f001499a0efaccb3ab5e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4188801834110349931
-    second: UI_Pause_0
+      213: -2567675474899516492
+    second: HP bar fill_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Pause_0
+      name: HP bar fill_0
       rect:
         serializedVersion: 2
-        x: 248
-        y: 252
-        width: 1551
-        height: 1543
+        x: 139
+        y: 756
+        width: 1771
+        height: 514
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59d0953dce26ed5c0800000000000000
-      internalID: -4188801834110349931
+      spriteID: 4b3c12c72c8cd5cd0800000000000000
+      internalID: -2567675474899516492
       vertices: []
       indices: 
       edges: []
