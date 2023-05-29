@@ -171,6 +171,7 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = false;
         BaseEnemy.instance.hasLoaded = false;
+        LevelManager.Instance.inCombat = false;
     }
 
     IEnumerator WinCombat()
@@ -184,6 +185,7 @@ public class CombatStateController : MonoBehaviour
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = true;
         BaseEnemy.instance.hasLoaded = false;
+        LevelManager.Instance.inCombat = false;
     }
     public IEnumerator Wait()
     {
