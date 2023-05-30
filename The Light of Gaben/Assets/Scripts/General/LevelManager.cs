@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
     bool hasUnloaded;
+
     [Header("Audio")]
     public AudioSource camExplorationAudioSource;
     public AudioClip explorationMusic1, confirmSFX, selectUiSFX, itemDenySFX, itemUseSFX, pickUpItemSFX;
@@ -23,6 +24,9 @@ public class LevelManager : MonoBehaviour
     public bool inCombat;
     bool hasAddedIndex;
     public static LevelManager Instance;
+
+    [Header("UI")]
+    public GameObject gachaScreen;
 
     void Awake()
     {
@@ -48,6 +52,10 @@ public class LevelManager : MonoBehaviour
     {
         CheckToSeeIfCombatHasEnded();
     }
+    public void TurnOffUiElement()
+    {
+        gachaScreen.SetActive(false);
+    }
     public void StopMusic()
     {
         camExplorationAudioSource.Stop();
@@ -59,7 +67,7 @@ public class LevelManager : MonoBehaviour
     public void SpawnLightShard()
     {
         print("Spawn Light Shard");
-        Instantiate(lightShardToSpawn, BaseEnemy.instance.transform.position + new Vector3(2, 2, 0), Quaternion.identity);
+        Instantiate(lightShardToSpawn, enemies[theEnemy].transform.position + new Vector3(2, 2, 0), Quaternion.identity);
     }
     //gets the index of the enemy that we r fighting
     public void DefeatedEnemy(BaseEnemy thisEnemy)
