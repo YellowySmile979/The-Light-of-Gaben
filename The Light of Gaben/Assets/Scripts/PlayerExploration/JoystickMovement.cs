@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class JoystickMovement : MonoBehaviour
 {
-    public static JoystickMovement Instance;
     public GameObject joystick;
     public GameObject joystickBG;
     public Vector2 joystickVec;
@@ -18,10 +17,6 @@ public class JoystickMovement : MonoBehaviour
     public Transform flashlightTransform;
     public Transform separateTransform;
 
-    void Awake()
-    {
-        Instance = this;
-    }
     // Start is called before the first frame update
     void Start()
     {
