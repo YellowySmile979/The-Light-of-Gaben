@@ -240,7 +240,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6dcfc2ec0d168b54981326fe9d31e2a9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4509804}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -258,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15121008}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.71, y: -0.03, z: 0}
+  m_LocalPosition: {x: 5.13, y: -0.03, z: 0}
   m_LocalScale: {x: 6, y: 8, z: 1}
   m_Children:
   - {fileID: 1039258023}
@@ -1300,7 +1300,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 14}
-  m_SizeDelta: {x: 160, y: 80}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362664324
 MonoBehaviour:
@@ -2186,7 +2186,7 @@ SpriteRenderer:
   m_SortingLayerID: 1982575351
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4474678770818248588, guid: 3cf96038d703d574ab7482a778623747, type: 3}
+  m_Sprite: {fileID: -8134760244659852312, guid: 3cf96038d703d574ab7482a778623747, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11859,10 +11859,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: face934acafe0d9489f528d6b3f25364, type: 3}
-    m_FontSize: 22
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -12209,7 +12209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000019073486, y: -127}
+  m_AnchoredPosition: {x: 0.0000019073486, y: -92}
   m_SizeDelta: {x: 177.2167, y: 81.65021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668855001
@@ -12245,7 +12245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PAUSED
+  m_Text: PAUSE
 --- !u!222 &668855002
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44638,18 +44638,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasWon: 0
+  explorationMusic1: {fileID: 8300000, guid: e8612f9bd37b84e42b75ac7b7ddfb108, type: 3}
+  confirmSFX: {fileID: 8300000, guid: 37897981cd1e45a44b9854972d9b28f8, type: 3}
+  camExplorationAudioSource: {fileID: 1346749865}
   hasPlayed: 0
   currentScene: SampleScene
   player: {fileID: 522565568}
   hasLoaded: 0
   lightShardToSpawn: {fileID: 3993934148287303071, guid: efa45a28ab787c84f93ec05936a704d7, type: 3}
-  camExplorationAudioSource: {fileID: 1346749865}
-  explorationMusic1: {fileID: 8300000, guid: e8612f9bd37b84e42b75ac7b7ddfb108, type: 3}
-  confirmSFX: {fileID: 8300000, guid: 37897981cd1e45a44b9854972d9b28f8, type: 3}
-  selectUiSFX: {fileID: 8300000, guid: f69ed00b454900041802e3145a7e3b19, type: 3}
-  itemDenySFX: {fileID: 8300000, guid: 00c54240ad36c294e8fd7c38ba5d9e81, type: 3}
-  itemUseSFX: {fileID: 8300000, guid: ef795b171b3d67d44b8f41b96004ce9c, type: 3}
-  pickUpItemSFX: {fileID: 8300000, guid: ef795b171b3d67d44b8f41b96004ce9c, type: 3}
   enemies: []
 --- !u!82 &1346749865
 AudioSource:
@@ -44865,8 +44861,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -75.1}
-  m_SizeDelta: {x: 160, y: 80}
+  m_AnchoredPosition: {x: 0, y: -34}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440488552
 MonoBehaviour:
@@ -45373,10 +45369,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: face934acafe0d9489f528d6b3f25364, type: 3}
-    m_FontSize: 20
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -45384,7 +45380,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "QUIT TO \nMAIN MENU"
+  m_Text: QUIT TO MAIN MENU
 --- !u!222 &1560904514
 CanvasRenderer:
   m_ObjectHideFlags: 0
