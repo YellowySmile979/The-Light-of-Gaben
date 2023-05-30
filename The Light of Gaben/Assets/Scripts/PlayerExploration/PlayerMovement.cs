@@ -10,15 +10,20 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animation")]
     public float angle;
-    public Animator frontAnim, leftAnim, rightAnim, backAnim;
+    public RuntimeAnimatorController frontAnim, leftAnim, rightAnim, backAnim;
+    Animator animator;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
-
+    void Update()
+    {
+        CalculateRotation();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -37,6 +42,22 @@ public class PlayerMovement : MonoBehaviour
     }
     void CalculateRotation()
     {
-        
+        angle = transform.eulerAngles.z;
+        if(angle >= 45 && angle < 135)
+        {
+            animator.runtimeAnimatorController = backAnim;
+        }
+        else if (angle >= 135 && angle < 225)
+        {
+            animator.runtimeAnimatorController = rightAnim;
+        }
+        else if (angle >= 225 && angle < 315)
+        {
+            animator.runtimeAnimatorController = frontAnim;
+        }
+        else if (angle >= 315 && angle < 45)
+        {
+            animator.runtimeAnimatorController = leftAnim;
+        }
     }
 }

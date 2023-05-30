@@ -2139,6 +2139,7 @@ GameObject:
   - component: {fileID: 522565571}
   - component: {fileID: 522565573}
   - component: {fileID: 522565572}
+  - component: {fileID: 522565574}
   m_Layer: 3
   m_Name: Temp player
   m_TagString: Untagged
@@ -2264,6 +2265,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystickMovement: {fileID: 425393437}
   playerSpeed: 3
+  angle: 0
+  frontAnim: {fileID: 9100000, guid: b74dd5db6b815284d8c3331bf7070573, type: 2}
+  leftAnim: {fileID: 9100000, guid: 7576a1f362d8a60428dcefc8c78cd6b9, type: 2}
+  rightAnim: {fileID: 9100000, guid: cf23c879052bc8e4b9eae33ac43e4253, type: 2}
+  backAnim: {fileID: 9100000, guid: f163d0e9f26fb5b4fa6d182e8fac531e, type: 2}
+--- !u!95 &522565574
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522565568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf23c879052bc8e4b9eae33ac43e4253, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &538103351
 GameObject:
   m_ObjectHideFlags: 0
