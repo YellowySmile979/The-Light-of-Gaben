@@ -73,7 +73,10 @@ public class LevelManager : MonoBehaviour
     //gets the index of the enemy that we r fighting
     public void DefeatedEnemy(BaseEnemy thisEnemy)
     {
+        //stores what enemy was selected
         BaseEnemy givenEnemy = thisEnemy;
+        //checks the list to see if enemy exists and then chooses the corresponding enemy,
+        //and then sets the theEnemy int to the corresponding enemy's index
         if (enemies.Contains(givenEnemy) == thisEnemy)
         {
             hasAddedIndex = false;
@@ -83,23 +86,26 @@ public class LevelManager : MonoBehaviour
     }
     //checks to see if combat has ended
     //if yes, unload the combat scene, play exploration music and
-    //if player wins, kill the enemy and remove it from the list. otherwise, reset the enemy
+    //if player wins, kill the enemy and remove it from the list. otherwise, reset the enemy and load the specified scene
     void CheckToSeeIfCombatHasEnded()
     {
         if (!hasAddedIndex)
         {
             if (enemies[theEnemy].hasLoaded == false)
             {
+                //unloads combat scene. the hasUnloaded bool is to prevent scene from closing itself multiple times
                 if (!hasUnloaded)
                 {
                     SceneManager.UnloadSceneAsync(enemies[theEnemy].combatScene);
                 }
                 hasUnloaded = true;
+                //plays exploration music
                 if (!hasPlayed)
                 {
                     PlayExplorationMusic();
                     hasPlayed = true;
                 }
+                //checks to see if player has won or not
                 if (hasWon)
                 {
                     print("hasWon");

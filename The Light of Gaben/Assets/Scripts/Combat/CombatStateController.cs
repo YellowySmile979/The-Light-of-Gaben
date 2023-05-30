@@ -156,7 +156,8 @@ public class CombatStateController : MonoBehaviour
     {
         state = GameStates.Passive;
     }
-
+    //when player loses, set the gamestate to end, play the lossSFX, tell player they have lost,
+    //fadeout the scene and then reset the variables in the levelManager
     IEnumerator LostCombat()
     {
         state = GameStates.End;
@@ -166,11 +167,13 @@ public class CombatStateController : MonoBehaviour
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
+        LevelManager.Instance.hasUnloaded = false;
         LevelManager.Instance.hasWon = false;
         LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
         LevelManager.Instance.inCombat = false;
     }
-
+    //when player wins, set the gamestate to end, play the victorySFX, tell player they have won,
+    //fadeout the scene and then reset the variables in the levelManager
     IEnumerator WinCombat()
     {
         print("WinCombat");
