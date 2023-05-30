@@ -9,7 +9,7 @@ public class CombatStateController : MonoBehaviour
     private List<UnitStats> TurnOrder;
     UnitStats stats;
     public string actionDesc;
-    public AudioClip combatMusic1, combatMusic2;
+    public AudioClip combatMusic1, combatMusic2, victorySFX, lossSFX, clawSFX, whiteSFX, blueSFX, redSFX, yellowSFX;
     public AudioSource camAudioSource;
     public Canvas turnBasedScreen;
 
@@ -164,6 +164,7 @@ public class CombatStateController : MonoBehaviour
     IEnumerator LostCombat()
     {
         state = GameStates.End;
+        camAudioSource.PlayOneShot(lossSFX);
         actionDesc = "You Lost!";
         yield return new WaitForSeconds(2);        
         // Uh load the scene before this
@@ -178,6 +179,7 @@ public class CombatStateController : MonoBehaviour
     {
         state = GameStates.End;
         LevelManager.Instance.SpawnLightShard();
+        camAudioSource.PlayOneShot(victorySFX);
         actionDesc = "You Won!";
         yield return new WaitForSeconds(2);
         // Uh load the scene before this

@@ -230,5 +230,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurnBased Combat
       objectReference: {fileID: 0}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: redSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d950f3373c704f4d970ce27f49de2e8, type: 3}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: blueSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d6365521686b664aa37ca6372765f79, type: 3}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: clawSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ec3219a6bdbfa54f98ec22b1dca6d27, type: 3}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: lossSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d745dd97cb1f124699a98f48a3a9679, type: 3}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: whiteSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 583847110e9f9a049be83d798d7a0164, type: 3}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: yellowSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cf8f42eabfcaa44e84caa8345745288, type: 3}
+    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: victorySFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 91c0605c38bb245449c8778b956c14cb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
