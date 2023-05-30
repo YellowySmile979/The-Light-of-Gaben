@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
+    //calculates the angle at which the player is turning and then changes the walking animation accordingly
     void CalculateRotation()
     {
         angle = joystickMovement.separateTransform.transform.eulerAngles.z;

@@ -47,17 +47,25 @@ public abstract class BaseEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //checks to see if player is inCombat, if yes, return
         if (LevelManager.Instance.inCombat) return;
+
         if (collision.GetComponent<PlayerMovement>())
         {
             //the SceneManager loads new Scene as an extra Scene (overlapping the other). This is Additive mode
             SceneManager.LoadSceneAsync(combatScene, LoadSceneMode.Additive);
-            LevelManager.Instance.StopMusic();            
+            //stops the exploration music
+            LevelManager.Instance.StopMusic();
+            //turns off the exploration canvas
             explorationCanvas.enabled = false;
+            //cancels the speed of the enemy
             moveSpeed = 0;
             turnSpeed = 0;
             hasLoaded = true;
+            //sends the corresponding object's data regarding its attached script to the LevelManager's
+            //DefeatedEnemy function for it to perform its checks
             LevelManager.Instance.DefeatedEnemy(this);
+            //updates the corresponding booleans appropriately
             LevelManager.Instance.hasPlayed = false;
             LevelManager.Instance.hasLoaded = true;
             LevelManager.Instance.inCombat = true;
@@ -188,6 +196,8 @@ public abstract class BaseEnemy : MonoBehaviour
         if (LevelManager.Instance.inCombat) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         //sets the detection area
         hasDetectedPlayer = Physics2D.OverlapCircle(detectPlayerArea.position, detectPlayerRadius, whatIsAPlayer);
+        //checks to see if the enemy hasDetectedPlayer or isChasing the player
+        //otherwise if it no longer detects the player (isChasing isnt checked), go back to patrolling
         if (hasDetectedPlayer || isChasing)
         {
             DetectPlayer();

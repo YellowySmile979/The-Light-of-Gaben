@@ -57,7 +57,7 @@ public abstract class UnitStats : MonoBehaviour
         stateController.actionDesc = "Player attacks " + attackee.name + " for " + dmg + " damage!";
 
     }
-
+    //healing part
     public void HealDamage(int heal)
     {
         if (lightType == LightTypes.Blue) health += health * 1.25f;

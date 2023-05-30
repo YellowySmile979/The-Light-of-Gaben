@@ -34,6 +34,7 @@ public class CombatStateController : MonoBehaviour
         camAudioSource = FindObjectOfType<LevelManager>().GetComponent<AudioSource>();
         if (state == GameStates.Start) StartState();
     }
+    //randomises the combat music
     public void RandomiseCombatMusic()
     {
         float randomTrack = Mathf.Round(Random.Range(0, 100));
@@ -89,6 +90,7 @@ public class CombatStateController : MonoBehaviour
     [SerializeField] int currentTurn = -1;
     public void NextTurn()
     {
+        //updates the turn count
         if (currentTurn == TurnOrder.Count - 1)
         {
             currentTurn = 0;
@@ -97,7 +99,9 @@ public class CombatStateController : MonoBehaviour
         {
             currentTurn++;
         }
+        //sets the unit according to the currentTurn
         UnitStats currentUnit = TurnOrder[currentTurn];
+
         //checks to see if either enemy or player has died
         //if the respective dude has died, perform the respective Coroutine
         //and then return
@@ -106,20 +110,12 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(LostCombat());
             return;
         }
-
         if (enemy.health <= 0)
         {
             StartCoroutine(WinCombat());
             return;
         }
-        //UnitStats currentUnitStats = TurnOrder[0];
-        //TurnOrder.Remove(currentUnitStats);
-        //if (!currentUnitStats.isDead)
-        //{
-        //    GameObject currentUnit = currentUnitStats.gameObject;
-        //    currentUnitStats.calculateNextTurn(currentUnit.GetComponent<UnitStats>().nextTurnIn);
-        //    TurnOrder.Add(currentUnitStats);
-        //    TurnOrder.Sort(SortByTurn);
+        //checks to see which unit's turn it should be
         if (currentUnit.tag == "PlayerUnit")
         {
             CanvasController.Instance.lightChanger.SetActive(true);
@@ -140,13 +136,14 @@ public class CombatStateController : MonoBehaviour
         }
         //}
     }
-
+    //call this to change the state to player
     void PlayerState()
     {
         state = GameStates.Player;
         TurnOrder.Sort(SortByTurn);
 
     }
+    //call this to change the state to player
     void EnemyState()
     {
         state = GameStates.Enemy;

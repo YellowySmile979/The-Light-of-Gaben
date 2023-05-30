@@ -29,13 +29,17 @@ public class CanvasController : MonoBehaviour
     }
     private void Update()
     {
+        //corresponds the hp to the visual element
         gabenHPBar.fillAmount = Mathf.Clamp(player.health / player.maxHealth, 0, 1f);
+        //sets the text
         combatActions.text = stateController.actionDesc.ToString();
+        //changes the colour of the attack accordingly (depending on what button the player chooses
         if (player.lightType == UnitStats.LightTypes.Red) lightBG.color = Color.red;
         else if (player.lightType == UnitStats.LightTypes.Blue) lightBG.color = Color.blue;
         else if (player.lightType == UnitStats.LightTypes.Yellow) lightBG.color = Color.yellow;
         else lightBG.color = Color.white;
 
+        //deactivates/activates the UI for the battle menu
         if (stateController.state == CombatStateController.GameStates.Player) LightChangeMenu();
         else LightChangeExit();
     }
