@@ -50,6 +50,7 @@ public class PlayerCombatController : UnitStats
         HealthBar.Instance.maxHealth = this.maxHealth;
         HealthBar.Instance.currentHealth = this.health;
     }
+    //selects the target to attack
     public void SelectTarget()
     {
         //Temp
@@ -57,6 +58,7 @@ public class PlayerCombatController : UnitStats
         stateController = FindObjectOfType<CombatStateController>();
         healTarget = this;
     }
+    //performs the player's attack
     public void Attack()
     {
         SelectTarget();
@@ -65,7 +67,7 @@ public class PlayerCombatController : UnitStats
         attackTarget.TakeDamage(damage, this, attackTarget);
         StartCoroutine(WaitUnitStatsVer());
     }
-
+    //performs the player's heal
     public void Heal()
     {
         SelectTarget();
@@ -75,25 +77,25 @@ public class PlayerCombatController : UnitStats
         HealthBar.Instance.currentHealth = this.health;
         StartCoroutine(WaitUnitStatsVer());
     }
-
+    //changes the colour of the attack to be blue
     public void LightChangerBlue()
     {
         lightType = LightTypes.Blue;
         stateController.actionDesc = "Player changes their light to Blue!";
     }
-
+    //changes the colour of the attack to be red
     public void LightChangerRed()
     {
         lightType = LightTypes.Red;
         stateController.actionDesc = "Player changes their light to Red!";
     }
-
+    //changes the colour of the attack to be yellow
     public void LightChangerYellow()
     {
         lightType = LightTypes.Yellow;
         stateController.actionDesc = "Player changes their light to Yellow!";
     }
-
+    //changes the colour of the attack to be white
     public void LightChangerWhite()
     {
         lightType = LightTypes.White;

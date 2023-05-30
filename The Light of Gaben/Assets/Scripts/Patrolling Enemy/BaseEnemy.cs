@@ -122,6 +122,7 @@ public abstract class BaseEnemy : MonoBehaviour
         if (enemyMover == null) enemyMover = GetComponentInChildren<EnemyMover>();
         if (patrolPath == null) patrolPath = GetComponentInChildren<PatrolPath>();
     }
+    //handles the AI's patrolling behaviour
     protected void Patrol()
     {
         if (!isWaiting)

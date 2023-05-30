@@ -6,6 +6,7 @@ public class GachaWishingWell : MonoBehaviour
 {
     public GameObject gachaScreen;
 
+    //when player collides, open the gacha screen
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerMovement>())

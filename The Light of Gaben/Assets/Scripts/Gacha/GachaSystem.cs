@@ -49,7 +49,7 @@ public class GachaSystem : MonoBehaviour
         pityCounter.text = "Pity: " + pity;
         Results();
     }
-
+    //randomises which place the appropriate smolour should spawn in
     void Results()
     {
         print("Results() called");

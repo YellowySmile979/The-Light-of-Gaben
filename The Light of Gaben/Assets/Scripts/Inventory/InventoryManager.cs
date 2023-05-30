@@ -35,6 +35,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+    //after we use the item, we delete it from the inventory
     public void DeleteItemAfterUse(GameObject usedItem)
     {
         print("Fire");

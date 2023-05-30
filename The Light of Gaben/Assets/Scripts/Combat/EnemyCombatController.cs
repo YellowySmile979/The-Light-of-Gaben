@@ -13,6 +13,7 @@ public class EnemyCombatController : UnitStats
     {
         RandomColour();
     }
+    //randomises which colour the enemy spawns as
     void RandomColour()
     {
         var randomColour = Random.Range(1, 5);
@@ -43,6 +44,7 @@ public class EnemyCombatController : UnitStats
     {
         healthBar.fillAmount = ((health/maxHealth) * 1);
     }
+    //performs the enemy's attack
     public void Attack()
     {
         print("Enemy Attack");

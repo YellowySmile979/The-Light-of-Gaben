@@ -15,6 +15,7 @@ public class InventoryOpener : MonoBehaviour
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
     }
+    //opens/closes the inventory and turns on/off the items
     public void TurnOnObjects()
     {
         if(!onOrOff)

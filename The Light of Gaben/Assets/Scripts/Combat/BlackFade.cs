@@ -11,12 +11,13 @@ public class BlackFade : MonoBehaviour
     {
         FadeIn();
     }
+    //fades in the black screen
     public void FadeOut()
     {
         Image i = GetComponent<Image>();
         i.CrossFadeAlpha(1, duration, true);
     }
-
+    //fades out the black screen
     public void FadeIn()
     {
         Image i = GetComponent<Image>();
