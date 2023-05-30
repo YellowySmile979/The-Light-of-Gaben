@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
     
     [Header("Enemies")]
     public List<BaseEnemy> enemies = new List<BaseEnemy>();
-    int theEnemy;
+    [HideInInspector] public int theEnemy;
     bool hasAddedIndex;
     public static LevelManager Instance;    
 
