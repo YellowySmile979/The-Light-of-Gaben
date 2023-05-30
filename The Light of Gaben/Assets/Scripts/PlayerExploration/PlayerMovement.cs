@@ -49,15 +49,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (angle >= 135 && angle < 225)
         {
-            animator.runtimeAnimatorController = rightAnim;
+            animator.runtimeAnimatorController = leftAnim;
         }
         else if (angle >= 225 && angle < 315)
         {
             animator.runtimeAnimatorController = frontAnim;
         }
-        else if (angle >= 315 && angle < 45)
+        else if (angle >= 315 && angle < 45 || angle == 0)
         {
-            animator.runtimeAnimatorController = leftAnim;
+            animator.runtimeAnimatorController = rightAnim;
         }
     }
 }
