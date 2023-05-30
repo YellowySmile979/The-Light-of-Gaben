@@ -4,26 +4,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
-{   
+{
+    [Header("Combat")]
     public bool hasWon;
-    public AudioClip explorationMusic1, confirmSFX;
-    public AudioSource camExplorationAudioSource;
     public bool hasPlayed;
     public string currentScene;
     public GameObject player;
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
     bool hasUnloaded;
-    public bool inCombat;
+    [Header("Audio")]
+    public AudioSource camExplorationAudioSource;
+    public AudioClip explorationMusic1, confirmSFX, selectUiSFX, itemDenySFX, itemUseSFX, pickUpItemSFX;
 
+    [Header("Enemies")]
     public List<BaseEnemy> enemies = new List<BaseEnemy>();
+    [HideInInspector] public int theEnemy;
+    bool hasAddedIndex;
     public static LevelManager Instance;
 
     void Awake()
-    {        
+    {
         PlayExplorationMusic();
         DontDestroyOnLoad(player);
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -31,7 +35,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }   
+        }
     }
     void Start()
     {
@@ -54,33 +58,52 @@ public class LevelManager : MonoBehaviour
     public void SpawnLightShard()
     {
         print("Spawn Light Shard");
-        Instantiate(lightShardToSpawn, BaseEnemy.instance.transform.position, Quaternion.identity);
+        Instantiate(lightShardToSpawn, BaseEnemy.instance.transform.position + new Vector3(2, 2, 0), Quaternion.identity);
     }
-    void CheckToSeeIfCombatHasEnded()
-    {        
-        if (BaseEnemy.instance.hasLoaded == false)
+    //gets the index of the enemy that we r fighting
+    public void DefeatedEnemy(BaseEnemy thisEnemy)
+    {
+        if (enemies.Contains(BaseEnemy.instance) == thisEnemy)
         {
-            if(!hasUnloaded)
+            hasAddedIndex = false;
+            print("theEnemy" + theEnemy);
+            theEnemy = enemies.IndexOf(thisEnemy);
+        }
+    }
+    //checks to see if combat has ended
+    //if yes, unload the combat scene, play exploration music and
+    //if player wins, kill the enemy and remove it from the list. otherwise, reset the enemy
+    void CheckToSeeIfCombatHasEnded()
+    {
+        if (!hasAddedIndex)
+        {
+            if (enemies[theEnemy].hasLoaded == false)
             {
-                SceneManager.UnloadSceneAsync(BaseEnemy.instance.combatScene);
-            }
-            hasUnloaded = true; 
-            if (!hasPlayed)
-            {
-                PlayExplorationMusic();
-                hasPlayed = true;
-            }
-            if (hasWon)
-            {                
-                BaseEnemy.instance.explorationCanvas.enabled = true;
-                Destroy(BaseEnemy.instance.gameObject);
-            }
-            else
-            {
-                BaseEnemy.instance.explorationCanvas.enabled = true;
-                BaseEnemy.instance.moveSpeed = BaseEnemy.instance.originalMoveSpeed;
-                BaseEnemy.instance.turnSpeed = BaseEnemy.instance.originalTurnSpeed;
-                BaseEnemy.instance.explorationCanvas.enabled = true;
+                if (!hasUnloaded)
+                {
+                    SceneManager.UnloadSceneAsync(enemies[theEnemy].combatScene);
+                }
+                hasUnloaded = true;
+                if (!hasPlayed)
+                {
+                    PlayExplorationMusic();
+                    hasPlayed = true;
+                }
+                if (hasWon)
+                {
+                    enemies[theEnemy].explorationCanvas.enabled = true;
+                    Destroy(enemies[theEnemy].gameObject);
+                    enemies.RemoveAt(theEnemy);
+                    hasAddedIndex = true;
+                }
+                else
+                {
+                    enemies[theEnemy].explorationCanvas.enabled = true;
+                    enemies[theEnemy].moveSpeed = enemies[theEnemy].originalMoveSpeed;
+                    enemies[theEnemy].turnSpeed = enemies[theEnemy].originalTurnSpeed;
+                    enemies[theEnemy].explorationCanvas.enabled = true;
+                    hasAddedIndex = true;
+                }
             }
         }
     }

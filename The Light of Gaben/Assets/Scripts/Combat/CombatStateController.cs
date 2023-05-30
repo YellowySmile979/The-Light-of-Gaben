@@ -170,7 +170,7 @@ public class CombatStateController : MonoBehaviour
         fade.FadeOut();
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = false;
-        BaseEnemy.instance.hasLoaded = false;
+        LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
         LevelManager.Instance.inCombat = false;
     }
 
@@ -184,7 +184,7 @@ public class CombatStateController : MonoBehaviour
         fade.FadeOut();
         yield return new WaitForSeconds(1);
         LevelManager.Instance.hasWon = true;
-        BaseEnemy.instance.hasLoaded = false;
+        LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
         LevelManager.Instance.inCombat = false;
     }
     public IEnumerator Wait()
