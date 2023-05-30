@@ -45,7 +45,11 @@ public class PlayerCombatController : UnitStats
         //    HealDamage(10);
         //}
     }
-
+    void Start()
+    {
+        HealthBar.Instance.maxHealth = this.maxHealth;
+        HealthBar.Instance.currentHealth = this.health;
+    }
     public void SelectTarget()
     {
         //Temp
@@ -56,9 +60,9 @@ public class PlayerCombatController : UnitStats
     public void Attack()
     {
         SelectTarget();
+        HealthBar.Instance.currentHealth = this.health;
         int damage = attack;
         attackTarget.TakeDamage(damage, this, attackTarget);
-        
         StartCoroutine(WaitUnitStatsVer());
     }
 
@@ -68,6 +72,7 @@ public class PlayerCombatController : UnitStats
         int heal = Random.Range(1, 20) + attack;
         healTarget.HealDamage(heal);
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
+        HealthBar.Instance.currentHealth = this.health;
         StartCoroutine(WaitUnitStatsVer());
     }
 

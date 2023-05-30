@@ -40,7 +40,7 @@ public abstract class UnitStats : MonoBehaviour
         // Light Type If Else statements! There's probably a more efficient way to do this but it's 28 May and our critique is in 2 days.
         // Red > Blue > Yellow > Red
         // - noelle
-        float multiplier = 1.25f;
+        float multiplier = 2.5f;
         switch (attackee.lightType)
         {
             case LightTypes.Red:
