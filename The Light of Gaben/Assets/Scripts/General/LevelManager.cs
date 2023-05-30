@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
     }
     public void TurnOffUiElement()
     {
+        Time.timeScale = 1;
         gachaScreen.SetActive(false);
     }
     public void StopMusic()

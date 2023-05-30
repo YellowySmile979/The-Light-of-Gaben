@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class JoystickMovement : MonoBehaviour
 {
+    public static JoystickMovement Instance;
     public GameObject joystick;
     public GameObject joystickBG;
     public Vector2 joystickVec;
@@ -14,7 +15,13 @@ public class JoystickMovement : MonoBehaviour
     float joystickRadius;
 
     public Transform playerTransform;
+    public Transform flashlightTransform;
+    public Transform separateTransform;
 
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +39,8 @@ public class JoystickMovement : MonoBehaviour
             //aka where im wanting the player to move to
             float angle = Mathf.Atan2(joystickVec.y, joystickVec.x) * Mathf.Rad2Deg;
             //calculates the rotation that the player has to move to
-            playerTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            separateTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            flashlightTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
     //when i press down, sets the joystick and it's BG to the mouseposition

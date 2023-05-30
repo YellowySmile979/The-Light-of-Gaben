@@ -11,14 +11,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animation")]
     public float angle;
     public RuntimeAnimatorController frontAnim, leftAnim, rightAnim, backAnim;
-    Animator animator;
+    public Animator animator;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -42,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void CalculateRotation()
     {
-        angle = transform.eulerAngles.z;
+        angle = JoystickMovement.Instance.separateTransform.transform.eulerAngles.z;
         if(angle >= 45 && angle < 135)
         {
             animator.runtimeAnimatorController = backAnim;

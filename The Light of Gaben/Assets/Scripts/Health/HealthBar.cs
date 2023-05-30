@@ -21,6 +21,7 @@ public class HealthBar : MonoBehaviour
     {
         UpdateHealth();
     }
+    //updates the health according to the remaining battlehealth
     public void UpdateHealth()
     {
         if (currentHealth == maxHealth)
