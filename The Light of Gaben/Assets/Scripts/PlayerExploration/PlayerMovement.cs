@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public JoystickMovement joystickMovement;
     public float playerSpeed;
+
+    [Header("Animation")]
+    public float angle;
+    public Animator frontAnim, leftAnim, rightAnim, backAnim;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -30,5 +34,9 @@ public class PlayerMovement : MonoBehaviour
             //simply stops the player
             rb.velocity = Vector2.zero;
         }
+    }
+    void CalculateRotation()
+    {
+        
     }
 }

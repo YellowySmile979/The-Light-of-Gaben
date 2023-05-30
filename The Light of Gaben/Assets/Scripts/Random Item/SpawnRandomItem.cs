@@ -34,7 +34,7 @@ public class SpawnRandomItem : MonoBehaviour
         float randomPosition = Mathf.Round(Random.Range(0, spawnPositionList.Count));
         //sets the spawnposition of the currency to the chosen, randomised spawnposition
         Vector3 spawnPosition = spawnPositionList[(int)randomPosition].transform.position;
-        print(randomCurrency);
+        print(spawnPosition);
 
         //checks to see if the amount of places that can be spawned is more than the limit
         //if yes, then spawn, otherwise no

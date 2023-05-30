@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     [Header("Combat")]
     public bool hasWon;
     public bool hasPlayed;
-    public string currentScene;
+    public string currentScene, sceneToUnload;
     public GameObject player;
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     [Header("Enemies")]
     public List<BaseEnemy> enemies = new List<BaseEnemy>();
     [HideInInspector] public int theEnemy;
+    public bool inCombat;
     bool hasAddedIndex;
     public static LevelManager Instance;
 
@@ -81,7 +82,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (!hasUnloaded)
                 {
-                    SceneManager.UnloadSceneAsync(enemies[theEnemy].combatScene);
+                    SceneManager.UnloadSceneAsync(sceneToUnload);
                 }
                 hasUnloaded = true;
                 if (!hasPlayed)

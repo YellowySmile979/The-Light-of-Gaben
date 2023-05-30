@@ -57,9 +57,10 @@ public abstract class BaseEnemy : MonoBehaviour
             moveSpeed = 0;
             turnSpeed = 0;
             hasLoaded = true;
-            LevelManager.Instance.inCombat = true;
+            LevelManager.Instance.DefeatedEnemy(this);
             LevelManager.Instance.hasPlayed = false;
             LevelManager.Instance.hasLoaded = true;
+            LevelManager.Instance.inCombat = true;
         }
     }
     //detects player
