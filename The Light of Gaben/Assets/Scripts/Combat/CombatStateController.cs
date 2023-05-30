@@ -177,6 +177,7 @@ public class CombatStateController : MonoBehaviour
 
     IEnumerator WinCombat()
     {
+        print("WinCombat");
         state = GameStates.End;
         LevelManager.Instance.SpawnLightShard();
         camAudioSource.PlayOneShot(victorySFX);

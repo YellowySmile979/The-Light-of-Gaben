@@ -63,6 +63,9 @@ TagManager:
   - name: Light Source
     uniqueID: 3552292549
     locked: 0
+  - name: Enemy
+    uniqueID: 766010943
+    locked: 0
   - name: Player
     uniqueID: 1982575351
     locked: 0

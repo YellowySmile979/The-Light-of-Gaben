@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
     }
     public void SpawnLightShard()
     {
-        print("Spawn Light Shard");
+        print("theEnemy LS: " + theEnemy);
         Instantiate(lightShardToSpawn, enemies[theEnemy].transform.position + new Vector3(2, 2, 0), Quaternion.identity);
     }
     //gets the index of the enemy that we r fighting
@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
         if (enemies.Contains(BaseEnemy.instance) == thisEnemy)
         {
             hasAddedIndex = false;
-            print("theEnemy" + theEnemy);
+            print(thisEnemy);
             theEnemy = enemies.IndexOf(thisEnemy);
         }
     }
