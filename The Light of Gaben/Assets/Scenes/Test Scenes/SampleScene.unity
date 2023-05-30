@@ -55684,6 +55684,7 @@ MonoBehaviour:
   hasPlayed: 0
   currentScene: SampleScene
   sceneToUnload: Turn-Based Test
+  loseScene: Start
   player: {fileID: 522565568}
   hasLoaded: 0
   lightShardToSpawn: {fileID: 3993934148287303071, guid: efa45a28ab787c84f93ec05936a704d7, type: 3}

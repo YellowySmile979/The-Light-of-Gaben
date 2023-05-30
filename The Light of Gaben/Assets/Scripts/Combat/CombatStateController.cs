@@ -179,7 +179,7 @@ public class CombatStateController : MonoBehaviour
     {
         print("WinCombat");
         state = GameStates.End;
-        LevelManager.Instance.SpawnLightShard();
+        //LevelManager.Instance.SpawnLightShard();
         camAudioSource.PlayOneShot(victorySFX);
         actionDesc = "You Won!";
         yield return new WaitForSeconds(2);

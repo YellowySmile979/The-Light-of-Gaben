@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     [Header("Combat")]
     public bool hasWon;
     public bool hasPlayed;
-    public string currentScene, sceneToUnload;
+    public string currentScene, sceneToUnload, loseScene;
     public GameObject player;
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
@@ -113,6 +113,7 @@ public class LevelManager : MonoBehaviour
                     enemies[theEnemy].turnSpeed = enemies[theEnemy].originalTurnSpeed;
                     enemies[theEnemy].explorationCanvas.enabled = true;
                     hasAddedIndex = true;
+                    SceneManager.LoadScene(loseScene);
                 }
             }
         }
