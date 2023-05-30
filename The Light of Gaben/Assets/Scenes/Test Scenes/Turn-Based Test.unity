@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4934545750629632662, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LightChangerWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789798505059103566, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 25f21e4d0eb078d4d8baa7c4ed452aae, type: 3}
+    - target: {fileID: 5789798505059103566, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5789798505608056338, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0
