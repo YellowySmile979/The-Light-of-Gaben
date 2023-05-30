@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
-    bool hasUnloaded;
+    [HideInInspector] public bool hasUnloaded;
 
     [Header("Audio")]
     public AudioSource camExplorationAudioSource;
@@ -68,15 +68,16 @@ public class LevelManager : MonoBehaviour
     public void SpawnLightShard()
     {
         print("theEnemy LS: " + theEnemy);
-        Instantiate(lightShardToSpawn, enemies[theEnemy].transform.position + new Vector3(2, 2, 0), Quaternion.identity);
+        Instantiate(lightShardToSpawn, enemies[theEnemy].transform.position + new Vector3(1, 1, 0), Quaternion.identity);
     }
     //gets the index of the enemy that we r fighting
     public void DefeatedEnemy(BaseEnemy thisEnemy)
     {
-        if (enemies.Contains(BaseEnemy.instance) == thisEnemy)
+        BaseEnemy givenEnemy = thisEnemy;
+        if (enemies.Contains(givenEnemy) == thisEnemy)
         {
             hasAddedIndex = false;
-            print(thisEnemy);
+            print("thisEnemy" + thisEnemy);
             theEnemy = enemies.IndexOf(thisEnemy);
         }
     }
@@ -91,7 +92,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (!hasUnloaded)
                 {
-                    SceneManager.UnloadSceneAsync(sceneToUnload);
+                    SceneManager.UnloadSceneAsync(enemies[theEnemy].combatScene);
                 }
                 hasUnloaded = true;
                 if (!hasPlayed)
@@ -101,13 +102,16 @@ public class LevelManager : MonoBehaviour
                 }
                 if (hasWon)
                 {
+                    print("hasWon");
                     enemies[theEnemy].explorationCanvas.enabled = true;
+                    SpawnLightShard();
                     Destroy(enemies[theEnemy].gameObject);
                     enemies.RemoveAt(theEnemy);
                     hasAddedIndex = true;
                 }
                 else
                 {
+                    print("hasntWon");
                     enemies[theEnemy].explorationCanvas.enabled = true;
                     enemies[theEnemy].moveSpeed = enemies[theEnemy].originalMoveSpeed;
                     enemies[theEnemy].turnSpeed = enemies[theEnemy].originalTurnSpeed;

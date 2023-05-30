@@ -15,6 +15,7 @@ public class CombatStateController : MonoBehaviour
 
     PlayerCombatController player;
     EnemyCombatController enemy;
+    CanvasController canvasController;
 
     // Each turn has different states, Start State, Player Action, Enemy Action, and Passive Actions.
     // Honestly, this is prob gonna be more for debugging and testing. - noelle
@@ -29,6 +30,7 @@ public class CombatStateController : MonoBehaviour
         fade = FindObjectOfType<BlackFade>();
         player = FindObjectOfType<PlayerCombatController>();
         enemy = FindObjectOfType<EnemyCombatController>();
+        canvasController = FindObjectOfType<CanvasController>();
         camAudioSource = FindObjectOfType<LevelManager>().GetComponent<AudioSource>();
         if (state == GameStates.Start) StartState();
     }
@@ -52,7 +54,6 @@ public class CombatStateController : MonoBehaviour
         //Rolls every units Speed to determine turns.
         // Player Units turns (Gaben + Smolours)
         GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
-        print ("Player Units: " + playerUnits);
         foreach (GameObject playerUnit in playerUnits)
         {
             UnitStats currentPlayerUnit = playerUnit.GetComponent<UnitStats>();
@@ -88,15 +89,12 @@ public class CombatStateController : MonoBehaviour
     [SerializeField] int currentTurn = -1;
     public void NextTurn()
     {
-        print("NextTurn() called");
         if (currentTurn == TurnOrder.Count - 1)
         {
-            print("currentTurn has been set to 0");
             currentTurn = 0;
         }
         else
         {
-            print("currentTurn has been added");
             currentTurn++;
         }
         UnitStats currentUnit = TurnOrder[currentTurn];
@@ -125,7 +123,6 @@ public class CombatStateController : MonoBehaviour
         if (currentUnit.tag == "PlayerUnit")
         {
             CanvasController.Instance.lightChanger.SetActive(true);
-            Debug.Log("Player unit acting");
             actionDesc = "Player is now acting!";
             StartCoroutine(Wait());
             PlayerState();
@@ -133,7 +130,6 @@ public class CombatStateController : MonoBehaviour
         else
         {
             CanvasController.Instance.lightChanger.SetActive(false);
-            Debug.Log("Enemy unit acting");
             EnemyState();
             actionDesc = "Enemy is now acting!";
             StartCoroutine(Wait());
@@ -179,20 +175,20 @@ public class CombatStateController : MonoBehaviour
     {
         print("WinCombat");
         state = GameStates.End;
-        //LevelManager.Instance.SpawnLightShard();
         camAudioSource.PlayOneShot(victorySFX);
         actionDesc = "You Won!";
         yield return new WaitForSeconds(2);
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
+        canvasController.gabenHPBar.enabled = false;
+        LevelManager.Instance.hasUnloaded = false;
         LevelManager.Instance.hasWon = true;
         LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
         LevelManager.Instance.inCombat = false;
     }
     public IEnumerator Wait()
     {
-        print("Waiting to do stuff");
         yield return new WaitForSeconds(1f);
     }
 }

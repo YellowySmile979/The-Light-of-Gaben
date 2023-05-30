@@ -35,8 +35,6 @@ public abstract class UnitStats : MonoBehaviour
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(float dmg, UnitStats attacker, UnitStats attackee)
     {
-        print("Took Damage");
-
         // Light Type If Else statements! There's probably a more efficient way to do this but it's 28 May and our critique is in 2 days.
         // Red > Blue > Yellow > Red
         // - noelle
@@ -74,6 +72,5 @@ public abstract class UnitStats : MonoBehaviour
     {   
         yield return new WaitForSeconds(1f);
         stateController.NextTurn();
-        print("WaitUnitStatsVer() called");
     }
 }

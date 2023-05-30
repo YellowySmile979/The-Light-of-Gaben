@@ -28,7 +28,7 @@ public class SpawnRandomItem : MonoBehaviour
     //spawns a random currency of random type
     public void SpawnCurrency()
     {
-        if (spawnPositionList == null) return;
+        if (spawnPositionList[0] == null) return;
         //randomises the chosen currency by the odds set by the min/max values
         float randomCurrency = Mathf.Round(Random.Range(minProbabilitySpawnValue, maxProbabilitySpawnValue));
         //randomises the spawn position of the currency
