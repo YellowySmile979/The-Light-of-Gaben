@@ -47,8 +47,19 @@ public class PlayerCombatController : UnitStats
     }
     void Start()
     {
+        //sets the max health of the exploration health bar to the combat max health
         HealthBar.Instance.maxHealth = this.maxHealth;
-        HealthBar.Instance.currentHealth = this.health;
+        //checks if the current health of the exploration hp bar is the same as the combat hp bar,
+        //or if the exploration hp bar is <=0
+        //otherwise sets the combat hp to exploration hp to perceive hp being carried over
+        if (HealthBar.Instance.currentHealth == this.health || HealthBar.Instance.currentHealth <= 0)
+        {
+            HealthBar.Instance.currentHealth = this.health;
+        }
+        else
+        {
+            this.health = HealthBar.Instance.currentHealth;
+        }
     }
     //selects the target to attack
     public void SelectTarget()
