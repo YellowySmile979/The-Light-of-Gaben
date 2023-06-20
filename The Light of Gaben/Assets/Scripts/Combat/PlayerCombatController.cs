@@ -47,21 +47,9 @@ public class PlayerCombatController : UnitStats
     }
     void Start()
     {
-        //sets the max health of the exploration health bar to the combat max health
         HealthBar.Instance.maxHealth = this.maxHealth;
-        //checks if the current health of the exploration hp bar is the same as the combat hp bar,
-        //or if the exploration hp bar is <=0
-        //otherwise sets the combat hp to exploration hp to perceive hp being carried over
-        if (HealthBar.Instance.currentHealth == this.health || HealthBar.Instance.currentHealth <= 0)
-        {
-            HealthBar.Instance.currentHealth = this.health;
-        }
-        else
-        {
-            this.health = HealthBar.Instance.currentHealth;
-        }
+        HealthBar.Instance.currentHealth = this.health;
     }
-    //selects the target to attack
     public void SelectTarget()
     {
         //Temp
@@ -69,7 +57,6 @@ public class PlayerCombatController : UnitStats
         stateController = FindObjectOfType<CombatStateController>();
         healTarget = this;
     }
-    //performs the player's attack
     public void Attack()
     {
         SelectTarget();
@@ -78,7 +65,7 @@ public class PlayerCombatController : UnitStats
         attackTarget.TakeDamage(damage, this, attackTarget);
         StartCoroutine(WaitUnitStatsVer());
     }
-    //performs the player's heal
+
     public void Heal()
     {
         SelectTarget();
@@ -88,25 +75,25 @@ public class PlayerCombatController : UnitStats
         HealthBar.Instance.currentHealth = this.health;
         StartCoroutine(WaitUnitStatsVer());
     }
-    //changes the colour of the attack to be blue
+
     public void LightChangerBlue()
     {
         lightType = LightTypes.Blue;
         stateController.actionDesc = "Player changes their light to Blue!";
     }
-    //changes the colour of the attack to be red
+
     public void LightChangerRed()
     {
         lightType = LightTypes.Red;
         stateController.actionDesc = "Player changes their light to Red!";
     }
-    //changes the colour of the attack to be yellow
+
     public void LightChangerYellow()
     {
         lightType = LightTypes.Yellow;
         stateController.actionDesc = "Player changes their light to Yellow!";
     }
-    //changes the colour of the attack to be white
+
     public void LightChangerWhite()
     {
         lightType = LightTypes.White;

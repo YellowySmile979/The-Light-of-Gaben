@@ -604,7 +604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3870601731250450640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -642,12 +642,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pity: 0
+  amontToPull: 50
   pityCounter: {fileID: 3870601731224152950}
   smolourSprite1: {fileID: 21300000, guid: 219e7b6f3cc00b847823cd81c7b27fcd, type: 3}
   smolourSprite2: {fileID: 21300000, guid: 660790e0fbcdeb5489f7c05920eb8a59, type: 3}
   result1: {fileID: 3870601729850650733}
   result2: {fileID: 3870601730084445167}
   result3: {fileID: 3870601730610861971}
+  RollButton: {fileID: 3870601730459990336}
 --- !u!1 &3870601731260767576
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +769,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3870601731260767581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: TurnOffUiElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3870601731313870874
 GameObject:
   m_ObjectHideFlags: 0

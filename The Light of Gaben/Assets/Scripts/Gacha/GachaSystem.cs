@@ -7,30 +7,38 @@ public class GachaSystem : MonoBehaviour
 {
     private int roll;
     public int pity = 0;
+    public int amontToPull = 50;
     public Text pityCounter;
     public Sprite smolourSprite1, smolourSprite2;
     public Image result1, result2, result3;
     private List<string> rolled;
-
+    SmolourGallery smolour;
+    public Button RollButton;
 
     //The Gacha System
     // Current drop rates are:
     // SSR++* : 1/1000 = 0.01 % (Not taking into account Pity)
     // SR : 99 / 1000 = 0.99 %
     // R : 900/1000 = 90 %
-
+    private void Start()
+    {
+        // If you have less than 50 PP, will not let you interact
+        if ((int)CurrencyData.Type.PP < amontToPull) RollButton.interactable = false;
+        else RollButton.interactable = true;
+        smolour = FindObjectOfType<SmolourGallery>();
+    }
     public void Roll()
     {
         rolled = new List<string>();
         print("Start Rolls");
         // Rolls 3 times
-        for (int i = 1; i <4; i++)
+        for (int i = 1; i < 4; i++)
         {
             roll = Random.Range(1, 1001);
-        
+
             //Once roll is calculated, an if else statement
             // is used to call the loot table according to the roll
-;           if (roll == 1000 || pity == 80)
+            ; if (roll == 1000 || pity == 80)
             {
                 RollSSRTable();
                 rolled.Add("SSR");
@@ -41,9 +49,9 @@ public class GachaSystem : MonoBehaviour
                 rolled.Add("SR");
             }
             else
-            { 
-                RollRTable(); 
-                rolled.Add("R"); 
+            {
+                RollRTable();
+                rolled.Add("R");
             }
         }
         pityCounter.text = "Pity: " + pity;
@@ -53,7 +61,7 @@ public class GachaSystem : MonoBehaviour
     void Results()
     {
         print("Results() called");
-        Image[] results = new Image[] { result1, result2, result3};
+        Image[] results = new Image[] { result1, result2, result3 };
 
         for (int i = 0; i < 3; i++)
         {
@@ -71,8 +79,6 @@ public class GachaSystem : MonoBehaviour
     {
         print("Rolled an SSR!");
         pity = 0;
-        // We would have another roll here in each table to
-        // randomise the loot that players get
     }
 
     void RollSRTable()
@@ -84,6 +90,16 @@ public class GachaSystem : MonoBehaviour
     void RollRTable()
     {
         print("Rolled an R!");
-        pity += 1;
+        pity += 1; //Increases Pity
+        int rolledSmolourIndex = Random.Range(1, smolour.RSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
+        SmolourCombatController rolledSmolour = smolour.RSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
+
+        // if the rolled smolour has already been collected, it does not get added to the collected Smolours array
+        bool alreadyCollected = false;
+        foreach (SmolourCombatController i in smolour.collectedSmolours)
+        {
+            if (i == rolledSmolour) alreadyCollected = true;
+        }
+        if (!alreadyCollected) smolour.collectedSmolours.Add(rolledSmolour);
     }
 }
