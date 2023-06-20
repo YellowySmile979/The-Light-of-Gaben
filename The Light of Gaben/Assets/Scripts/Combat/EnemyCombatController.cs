@@ -8,9 +8,19 @@ public class EnemyCombatController : UnitStats
     UnitStats player;
     //public GameObject healthBar;
     public Image healthBar;
+    public float xpToGive = 10f;
+    public int lowestProbabilityInt, highestProbabilityInt;
 
-    private void Start()
+    void Start()
     {
+        if (lowestProbabilityInt == 0)
+        {
+            lowestProbabilityInt = 1;
+        }
+        if (highestProbabilityInt == 0)
+        {
+            highestProbabilityInt = 100;
+        }
         RandomColour();
     }
     //randomises which colour the enemy spawns as
@@ -48,10 +58,48 @@ public class EnemyCombatController : UnitStats
     public void Attack()
     {
         print("Enemy Attack");
+        //sets the player and stateController
         player = FindObjectOfType<PlayerCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
+        //makes player takedamage
         player.TakeDamage(attack, this, player);
+        //tells play what happened
         stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
         StartCoroutine(WaitUnitStatsVer());
+    }
+    //enemy will do nothing
+    public void DoNothing()
+    {
+        print("Enemy Does Nothing");
+        //everything here does like Attack(), except the part on attacking
+        player = FindObjectOfType<PlayerCombatController>();
+        stateController = FindObjectOfType<CombatStateController>();
+        stateController.actionDesc = stateController.actionDesc + " Enemy does absolutely nothing!";
+        StartCoroutine(WaitUnitStatsVer());
+    }
+    //scale xp given to the level of the enemy
+    public void ScaleXPWithLevel()
+    {
+        switch (level)
+        {
+            default:
+                return;
+            case 1:
+                xpToGive = 50;
+                break;
+            case 2:
+                xpToGive = 60;
+                break;
+            case 3:
+                xpToGive = 70;
+                break;
+            case 4:
+                xpToGive = 80;
+                break;
+            case 5:
+                xpToGive = 90;
+                break;
+        }
+        PlayerCombatController.Instance.UpdatePlayerLevel(xpToGive);
     }
 }

@@ -131,7 +131,19 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(Wait());
             if(state != GameStates.End)
             {
-                currentUnit.GetComponent<EnemyCombatController>().Attack();
+                int randomInt = Random.Range(
+                    currentUnit.GetComponent<EnemyCombatController>().lowestProbabilityInt,
+                    currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt
+                    );
+
+                if(randomInt <= (randomInt / currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt) * 100)
+                {
+                    currentUnit.GetComponent<EnemyCombatController>().Attack();
+                }
+                else
+                {
+                    currentUnit.GetComponent<EnemyCombatController>().DoNothing();
+                }
             }
         }
         //}
@@ -177,6 +189,7 @@ public class CombatStateController : MonoBehaviour
         state = GameStates.End;
         camAudioSource.PlayOneShot(victorySFX);
         actionDesc = "You Won!";
+        enemy.ScaleXPWithLevel();
         yield return new WaitForSeconds(2);
         // Uh load the scene before this
         fade.FadeOut();

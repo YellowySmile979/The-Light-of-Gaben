@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurnBased Combat
       objectReference: {fileID: 0}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: highestProbabilityInt
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: redSFX
       value: 

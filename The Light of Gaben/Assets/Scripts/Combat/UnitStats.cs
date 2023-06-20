@@ -10,6 +10,7 @@ public abstract class UnitStats : MonoBehaviour
     public int nextTurnIn = 0;
     public float maxHealth = 50;
     public float health = 50;
+    public static float level = 1;
 
     public bool isDead = false;
 
