@@ -41,19 +41,19 @@ public class GachaSystem : MonoBehaviour
             // is used to call the loot table according to the roll
             ; if (roll == 1000 || pity == 80)
             {
-                int rolledSmolourIndex = Random.Range(1, smolour.SSRSmolours.Length); // rolls on Rare Smolours Table for the Smolour Rolled.
+                int rolledSmolourIndex = Random.Range(1, smolour.SSRSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
                 rolledSmolour = smolour.SSRSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
             else if (roll > 901)
             {
                 pity += 1; //Increases Pity
-                int rolledSmolourIndex = Random.Range(1, smolour.SRSmolours.Length); // rolls on Rare Smolours Table for the Smolour Rolled.
+                int rolledSmolourIndex = Random.Range(1, smolour.SRSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
                 rolledSmolour = smolour.SRSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
             else
             {
                 pity += 1; //Increases Pity
-                int rolledSmolourIndex = Random.Range(1, smolour.RSmolours.Length); // rolls on Rare Smolours Table for the Smolour Rolled.
+                int rolledSmolourIndex = Random.Range(1, smolour.RSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
                 rolledSmolour = smolour.RSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
             
