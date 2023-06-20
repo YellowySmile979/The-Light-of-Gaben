@@ -73,7 +73,7 @@ public abstract class UnitStats : MonoBehaviour
     // - noelle
     protected IEnumerator WaitUnitStatsVer()
     {   
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         stateController.NextTurn();
         print("WaitUnitStatsVer() called");
     }
