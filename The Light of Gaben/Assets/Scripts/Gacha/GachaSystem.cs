@@ -11,8 +11,9 @@ public class GachaSystem : MonoBehaviour
     public Text pityCounter;
     public Sprite smolourSprite1, smolourSprite2;
     public Image result1, result2, result3;
-    private List<string> rolled;
+    private List<SmolourCombatController> rolled;
     SmolourGallery smolour;
+    SmolourCombatController rolledSmolour;
     public Button RollButton;
 
     //The Gacha System
@@ -29,7 +30,7 @@ public class GachaSystem : MonoBehaviour
     }
     public void Roll()
     {
-        rolled = new List<string>();
+        rolled = new List<SmolourCombatController>();
         print("Start Rolls");
         // Rolls 3 times
         for (int i = 1; i < 4; i++)
@@ -40,19 +41,30 @@ public class GachaSystem : MonoBehaviour
             // is used to call the loot table according to the roll
             ; if (roll == 1000 || pity == 80)
             {
-                RollSSRTable();
-                rolled.Add("SSR");
+                int rolledSmolourIndex = Random.Range(1, smolour.SSRSmolours.Length); // rolls on Rare Smolours Table for the Smolour Rolled.
+                rolledSmolour = smolour.SSRSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
             else if (roll > 901)
             {
-                RollSRTable();
-                rolled.Add("SR");
+                pity += 1; //Increases Pity
+                int rolledSmolourIndex = Random.Range(1, smolour.SRSmolours.Length); // rolls on Rare Smolours Table for the Smolour Rolled.
+                rolledSmolour = smolour.SRSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
             else
             {
-                RollRTable();
-                rolled.Add("R");
+                pity += 1; //Increases Pity
+                int rolledSmolourIndex = Random.Range(1, smolour.RSmolours.Length); // rolls on Rare Smolours Table for the Smolour Rolled.
+                rolledSmolour = smolour.RSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
+            
+
+            // if the rolled smolour has already been collected, it does not get added to the collected Smolours array
+            bool alreadyCollected = false;
+            foreach (SmolourCombatController j in smolour.collectedSmolours)
+            {
+                if (j == rolledSmolour) alreadyCollected = true;
+            }
+            if (!alreadyCollected) smolour.collectedSmolours.Add(rolledSmolour);
         }
         pityCounter.text = "Pity: " + pity;
         Results();
@@ -60,13 +72,11 @@ public class GachaSystem : MonoBehaviour
     //randomises which place the appropriate smolour should spawn in
     void Results()
     {
-        print("Results() called");
         Image[] results = new Image[] { result1, result2, result3 };
-
         for (int i = 0; i < 3; i++)
         {
-            if (rolled[i] == "SSR") results[i].color = Color.yellow;
-            else if (rolled[i] == "SR") results[i].color = Color.green;
+            if (rolled[i].rarity == SmolourCombatController.Rarity.SSR) results[i].color = Color.yellow;
+            else if (rolled[i].rarity == SmolourCombatController.Rarity.SR) results[i].color = Color.green;
             else results[i].color = Color.blue;
 
             int smolourRandom = Random.Range(1, 3);
@@ -75,7 +85,8 @@ public class GachaSystem : MonoBehaviour
             else results[i].sprite = smolourSprite2;
         }
     }
-    void RollSSRTable()
+
+/*    void RollSSRTable()
     {
         print("Rolled an SSR!");
         pity = 0;
@@ -91,6 +102,7 @@ public class GachaSystem : MonoBehaviour
     {
         print("Rolled an R!");
         pity += 1; //Increases Pity
+
         int rolledSmolourIndex = Random.Range(1, smolour.RSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
         SmolourCombatController rolledSmolour = smolour.RSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
 
@@ -101,5 +113,5 @@ public class GachaSystem : MonoBehaviour
             if (i == rolledSmolour) alreadyCollected = true;
         }
         if (!alreadyCollected) smolour.collectedSmolours.Add(rolledSmolour);
-    }
+    }*/
 }
