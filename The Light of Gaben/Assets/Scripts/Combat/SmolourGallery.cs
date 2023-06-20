@@ -29,7 +29,6 @@ public class SmolourGallery : MonoBehaviour
     {
         foreach (SmolourCombatController smolour in collectedSmolours)
         {
-            Smolours.FindIndex(Smolours,0, Smolours.Length, smolour);
         }
     }
 }
