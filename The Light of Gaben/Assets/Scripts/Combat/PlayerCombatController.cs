@@ -6,6 +6,7 @@ public class PlayerCombatController : UnitStats
 {
     UnitStats attackTarget;
     UnitStats healTarget;
+    int playerPrefsDMG;
     [Header("Player Stats")]
     public float playerXP = 0;
 
@@ -30,19 +31,30 @@ public class PlayerCombatController : UnitStats
     }
     public void Attack()
     {
+        //selects the target
         SelectTarget();
+        //sets the hp bar for the main HUD
         HealthBar.Instance.currentHealth = this.health;
         int damage = (int)attack;
+        playerPrefsDMG += damage;
+        //sets the total damage for the end card
+        PlayerPrefs.SetInt("Total Attack", playerPrefsDMG);
+        //makes enemy take dmg
         attackTarget.TakeDamage(damage, this, attackTarget);
         StartCoroutine(WaitUnitStatsVer());
     }
 
     public void Heal()
     {
+        //selects the target
         SelectTarget();
+        //randomises health to heal
         int heal = Random.Range(1, 20) + (int)attack;
+        //heals self
         healTarget.HealDamage(heal);
+        //shows what happened
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
+        //updates the hp bar for the main HUD
         HealthBar.Instance.currentHealth = this.health;
         StartCoroutine(WaitUnitStatsVer());
     }

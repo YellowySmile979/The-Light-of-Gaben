@@ -13,6 +13,7 @@ public class GeneralCanvasStuff : MonoBehaviour
     public static bool fade = false;
     public Text finalLevelText, finalPPText, finalLSText, finalTotalDMG, finalSmouloursCount;    
     public Image backgroundGameOverScreen;
+    public string mainMenu;
 
     public static GeneralCanvasStuff Instance;
 
@@ -65,12 +66,13 @@ public class GeneralCanvasStuff : MonoBehaviour
         finalLevelText.text = "Level: " + PlayerPrefs.GetInt("Player Level");
         finalLSText.text = "LS Count: " + PlayerPrefs.GetInt("LS Count");
         finalPPText.text = "PP Count: " + PlayerPrefs.GetInt("PP Count");
+        finalTotalDMG.text = "Total Damage Dealt: " + PlayerPrefs.GetInt("Total Attack");
         //fades in the BG
         fade = true;
     }
     //returns back to main menu
     public void BackToMainMenu()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(mainMenu);
     }
 }

@@ -56657,6 +56657,7 @@ MonoBehaviour:
   finalTotalDMG: {fileID: 7736970002630671601}
   finalSmouloursCount: {fileID: 7736970002630671600}
   backgroundGameOverScreen: {fileID: 7736970002630671599}
+  mainMenu: Start
 --- !u!1 &1768025176
 GameObject:
   m_ObjectHideFlags: 0
@@ -58711,6 +58712,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1759497090}
+    - target: {fileID: 7736970002100945603, guid: 2743ec364a33e254bb67e237983dddb9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 824.0483
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736970002100945603, guid: 2743ec364a33e254bb67e237983dddb9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.3283
+      objectReference: {fileID: 0}
     - target: {fileID: 7736970003354674222, guid: 2743ec364a33e254bb67e237983dddb9, type: 3}
       propertyPath: m_Name
       value: Game Over Screen
