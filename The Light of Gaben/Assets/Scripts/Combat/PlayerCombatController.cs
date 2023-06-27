@@ -7,7 +7,6 @@ public class PlayerCombatController : UnitStats
     UnitStats attackTarget;
     UnitStats healTarget;
     [Header("Player Stats")]
-    public float playerLevel = 1;
     public float playerXP = 0;
 
     public static PlayerCombatController Instance;
