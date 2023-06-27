@@ -122,8 +122,7 @@ public class LevelManager : MonoBehaviour
                     enemies[theEnemy].turnSpeed = enemies[theEnemy].originalTurnSpeed;
                     enemies[theEnemy].explorationCanvas.enabled = true;
                     hasAddedIndex = true;
-                    Destroy(PlayerMovement.Instance.gameObject);
-                    SceneManager.LoadScene(loseScene);
+                    GeneralCanvasStuff.Instance.GameOver();
                 }
             }
         }

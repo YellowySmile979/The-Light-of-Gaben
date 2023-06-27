@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
@@ -104,7 +103,7 @@ public class LoadSceneManager : MonoBehaviour
         GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionMet);
         yield return new WaitForSeconds(2f);
         canWin = false;
-        SceneManager.LoadScene(loseScene);
+        GeneralCanvasStuff.Instance.GameOver();
     }
     public void WinConditionCollectItems(float collectedItems = 0)
     {
