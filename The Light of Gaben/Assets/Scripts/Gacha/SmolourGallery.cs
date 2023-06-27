@@ -8,26 +8,18 @@ public class SmolourGallery : MonoBehaviour
     public List<SmolourCombatController> collectedSmolours;
 
     public Sprite known;
-
+    
     public SmolourCombatController[] Smolours;
     public Text[] Texts;
     public Image[] Images;
-    public List<SmolourCombatController> RSmolours;
-    public List<SmolourCombatController> SRSmolours;
-    public List<SmolourCombatController> SSRSmolours;
+    public GameObject gallery;
 
-    private void Start()
+    public void Close()
     {
-        foreach (SmolourCombatController smolour in Smolours)
-        {
-            if (smolour.rarity == SmolourCombatController.Rarity.SSR) SSRSmolours.Add(smolour);
-            else if (smolour.rarity == SmolourCombatController.Rarity.SR) SRSmolours.Add(smolour);
-            else RSmolours.Add(smolour);
-        }
+        gallery.SetActive(false);
     }
 
-
-    private void Awake()
+    private void Update()
     {
         foreach (SmolourCombatController smolour in collectedSmolours)
         {

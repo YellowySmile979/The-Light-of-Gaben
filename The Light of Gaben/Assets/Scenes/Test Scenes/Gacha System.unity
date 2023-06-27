@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3645447}
   - component: {fileID: 3645446}
   m_Layer: 5
-  m_Name: Smolour 1 Text (1)
+  m_Name: Smolour 8 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 51838234}
   - component: {fileID: 51838233}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: BlueBonusSmolour Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 97679826}
   - component: {fileID: 97679825}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 7 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 135640257}
   - component: {fileID: 135640256}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 139824642}
   - component: {fileID: 139824641}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 161588841}
   - component: {fileID: 161588840}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 6 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 163937738}
   - component: {fileID: 163937737}
   m_Layer: 5
-  m_Name: Smolour 1 Text (1)
+  m_Name: Smolour 4 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 191247416}
   - component: {fileID: 191247415}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: YellowBonusSmolour Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 220841767}
   - component: {fileID: 220841766}
   m_Layer: 5
-  m_Name: Smolour 2 (1)
+  m_Name: Smolour 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 273358264}
   - component: {fileID: 273358263}
   m_Layer: 5
-  m_Name: Smolour 2 (1)
+  m_Name: Smolour 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 321148439}
   - component: {fileID: 321148438}
   m_Layer: 5
-  m_Name: Smolour 1 (1)
+  m_Name: Smolour 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 388327259}
   - component: {fileID: 388327258}
   m_Layer: 5
-  m_Name: Smolour 1 Text (1)
+  m_Name: Smolour 8 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,7 +1158,7 @@ GameObject:
   - component: {fileID: 435449884}
   - component: {fileID: 435449883}
   m_Layer: 5
-  m_Name: 'Smolour 3 '
+  m_Name: BlueBonusSmolour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1450,6 +1450,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512209556}
   m_CullTransparentMesh: 1
+--- !u!1 &519104263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519104264}
+  - component: {fileID: 519104266}
+  - component: {fileID: 519104265}
+  m_Layer: 5
+  m_Name: Gallery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &519104264
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519104263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1891967650}
+  - {fileID: 678754923}
+  - {fileID: 1608626593}
+  m_Father: {fileID: 685982148}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &519104265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519104263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8039216}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &519104266
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519104263}
+  m_CullTransparentMesh: 1
 --- !u!1 &650493614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1540,7 @@ GameObject:
   - component: {fileID: 650493617}
   - component: {fileID: 650493616}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 7 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1541,7 +1619,7 @@ GameObject:
   - component: {fileID: 667109229}
   - component: {fileID: 667109228}
   m_Layer: 5
-  m_Name: Smolour 1 Text (1)
+  m_Name: Smolour 4 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1639,13 +1717,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1523593085}
-  m_Father: {fileID: 685982148}
+  m_Father: {fileID: 519104264}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -17}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_SizeDelta: {x: 20, y: -421.5}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &678754924
 MonoBehaviour:
@@ -1691,7 +1769,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1681835476}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.32908335
+  m_Size: 0.31999454
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1744,7 +1822,6 @@ GameObject:
   m_Component:
   - component: {fileID: 685982148}
   - component: {fileID: 685982151}
-  - component: {fileID: 685982150}
   - component: {fileID: 685982149}
   - component: {fileID: 685982152}
   m_Layer: 5
@@ -1765,8 +1842,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1891967650}
-  - {fileID: 678754923}
+  - {fileID: 519104264}
   m_Father: {fileID: 1046583408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1805,36 +1881,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &685982150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685982147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &685982151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1855,24 +1901,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818956f1874395c4cb6299f90544649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectedSmolours:
-  - {fileID: 4073334913990084348, guid: 00453e7332cc588409cd14255bb6b7e6, type: 3}
+  collectedSmolours: []
   known: {fileID: 21300000, guid: 219e7b6f3cc00b847823cd81c7b27fcd, type: 3}
   Smolours:
   - {fileID: 4073334913990084348, guid: 00453e7332cc588409cd14255bb6b7e6, type: 3}
+  - {fileID: 4431816201114603184, guid: 6844383e5286a4a40a4da0d65102e3b6, type: 3}
+  - {fileID: 5575215830068110151, guid: b890bb680b2308f409d0c982675dab6a, type: 3}
+  - {fileID: 6202202224664093236, guid: e18d87164cd9be543ada60ca58719b69, type: 3}
+  - {fileID: 6202202224664093236, guid: e18d87164cd9be543ada60ca58719b69, type: 3}
+  - {fileID: 6202202224664093236, guid: e18d87164cd9be543ada60ca58719b69, type: 3}
+  - {fileID: 6202202224664093236, guid: e18d87164cd9be543ada60ca58719b69, type: 3}
+  - {fileID: 6202202224664093236, guid: e18d87164cd9be543ada60ca58719b69, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 7767275409198021873, guid: 3e518380e2cf4c64aa2aaf77caba8b24, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
+  - {fileID: 5623013651396345362, guid: a24502b9a048aed499f19d56bf9b7add, type: 3}
   Texts:
   - {fileID: 1379584082}
+  - {fileID: 191247415}
+  - {fileID: 51838233}
+  - {fileID: 667109228}
+  - {fileID: 1716540648}
+  - {fileID: 161588840}
+  - {fileID: 1067031356}
+  - {fileID: 388327258}
+  - {fileID: 1050345911}
+  - {fileID: 139824641}
+  - {fileID: 1637045942}
+  - {fileID: 1528302349}
+  - {fileID: 806299163}
+  - {fileID: 1920210784}
+  - {fileID: 650493616}
+  - {fileID: 1316349829}
+  - {fileID: 702738872}
+  - {fileID: 135640256}
+  - {fileID: 972255551}
+  - {fileID: 163937737}
   - {fileID: 1456141138}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 895392547}
+  - {fileID: 97679825}
+  - {fileID: 3645446}
   Images:
   - {fileID: 508857396}
   - {fileID: 871688215}
   - {fileID: 435449883}
   - {fileID: 2074243596}
-  RSmolours: []
-  SRSmolours: []
-  SSRSmolours: []
+  - {fileID: 321148438}
+  - {fileID: 220841766}
+  - {fileID: 686236490}
+  - {fileID: 1579135260}
+  - {fileID: 445626426}
+  - {fileID: 732065254}
+  - {fileID: 1269671280}
+  - {fileID: 512209558}
+  - {fileID: 1754815045}
+  - {fileID: 1684680232}
+  - {fileID: 1443690499}
+  - {fileID: 2030853828}
+  - {fileID: 1553731477}
+  - {fileID: 1281890504}
+  - {fileID: 1629113918}
+  - {fileID: 834342640}
+  - {fileID: 2025883922}
+  - {fileID: 273358263}
+  - {fileID: 1572356669}
+  - {fileID: 1561600613}
+  gallery: {fileID: 519104263}
 --- !u!1 &686236488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1991,7 @@ GameObject:
   - component: {fileID: 686236491}
   - component: {fileID: 686236490}
   m_Layer: 5
-  m_Name: Smolour 3  (1)
+  m_Name: Smolour 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2116,7 +2222,7 @@ GameObject:
   - component: {fileID: 806299164}
   - component: {fileID: 806299163}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 5 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2271,7 +2377,7 @@ GameObject:
   - component: {fileID: 871688216}
   - component: {fileID: 871688215}
   m_Layer: 5
-  m_Name: Smolour 2
+  m_Name: YellowBonusSmolour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2347,7 +2453,7 @@ GameObject:
   - component: {fileID: 895392548}
   - component: {fileID: 895392547}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 6 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2426,7 +2532,7 @@ GameObject:
   - component: {fileID: 972255552}
   - component: {fileID: 972255551}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 3 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2506,7 +2612,7 @@ GameObject:
   - component: {fileID: 1046583410}
   - component: {fileID: 1046583409}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Gacha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2685,7 +2791,7 @@ GameObject:
   - component: {fileID: 1067031357}
   - component: {fileID: 1067031356}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 7 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2995,7 +3101,7 @@ GameObject:
   - component: {fileID: 1316349830}
   - component: {fileID: 1316349829}
   m_Layer: 5
-  m_Name: Smolour 1 Text (1)
+  m_Name: Smolour 8 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3227,6 +3333,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046583408}
     m_Modifications:
+    - target: {fileID: 2090167749, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: amontToPull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090167749, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: smolourGallery
+      value: 
+      objectReference: {fileID: 519104263}
+    - target: {fileID: 1580948973223521535, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 002cc258dc31e7e429ecaeab390dbdc1, type: 3}
+    - target: {fileID: 1839168468760030521, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 002cc258dc31e7e429ecaeab390dbdc1, type: 3}
+    - target: {fileID: 3385615098695726844, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 002cc258dc31e7e429ecaeab390dbdc1, type: 3}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030518
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601730459990337, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 160
+      objectReference: {fileID: 0}
     - target: {fileID: 3870601731250450640, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3319,6 +3473,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3870601731514923082, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601731514923082, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 25f21e4d0eb078d4d8baa7c4ed452aae, type: 3}
+    - target: {fileID: 3870601731514923082, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601731514923082, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 137
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601731514923082, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601731514923082, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870601731514923083, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
 --- !u!224 &1383014338 stripped
@@ -3338,7 +3520,7 @@ GameObject:
   - component: {fileID: 1443690500}
   - component: {fileID: 1443690499}
   m_Layer: 5
-  m_Name: Smolour 3  (1)
+  m_Name: Smolour 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3493,7 +3675,7 @@ GameObject:
   - component: {fileID: 1456141139}
   - component: {fileID: 1456141138}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 5 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3608,7 +3790,7 @@ GameObject:
   - component: {fileID: 1528302350}
   - component: {fileID: 1528302349}
   m_Layer: 5
-  m_Name: Smolour 1 Text (1)
+  m_Name: Smolour 4 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3763,7 +3945,7 @@ GameObject:
   - component: {fileID: 1561600614}
   - component: {fileID: 1561600613}
   m_Layer: 5
-  m_Name: Smolour 4 (1)
+  m_Name: Smolour 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3839,7 +4021,7 @@ GameObject:
   - component: {fileID: 1572356670}
   - component: {fileID: 1572356669}
   m_Layer: 5
-  m_Name: Smolour 3  (1)
+  m_Name: Smolour 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3915,7 +4097,7 @@ GameObject:
   - component: {fileID: 1579135261}
   - component: {fileID: 1579135260}
   m_Layer: 5
-  m_Name: Smolour 4 (1)
+  m_Name: Smolour 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3978,6 +4160,138 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579135258}
+  m_CullTransparentMesh: 1
+--- !u!1 &1608626592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608626593}
+  - component: {fileID: 1608626596}
+  - component: {fileID: 1608626595}
+  - component: {fileID: 1608626594}
+  m_Layer: 5
+  m_Name: 'Close '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1608626593
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608626592}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519104264}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 113, y: -105}
+  m_SizeDelta: {x: 153.783, y: 153.783}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1608626594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608626592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1608626595}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 685982152}
+        m_TargetAssemblyTypeName: SmolourGallery, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1608626595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608626592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b286a9dc4332bf24482789900df32803, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1608626596
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608626592}
   m_CullTransparentMesh: 1
 --- !u!1 &1629113916
 GameObject:
@@ -4067,7 +4381,7 @@ GameObject:
   - component: {fileID: 1637045943}
   - component: {fileID: 1637045942}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 3 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4221,7 +4535,7 @@ GameObject:
   - component: {fileID: 1684680233}
   - component: {fileID: 1684680232}
   m_Layer: 5
-  m_Name: Smolour 2 (1)
+  m_Name: Smolour 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4297,7 +4611,7 @@ GameObject:
   - component: {fileID: 1716540649}
   - component: {fileID: 1716540648}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 5 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4376,7 +4690,7 @@ GameObject:
   - component: {fileID: 1754815046}
   - component: {fileID: 1754815045}
   m_Layer: 5
-  m_Name: Smolour 1 (1)
+  m_Name: Smolour 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4533,13 +4847,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1888562629}
-  m_Father: {fileID: 685982148}
+  m_Father: {fileID: 519104264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1891967651
 MonoBehaviour:
@@ -4604,7 +4918,7 @@ GameObject:
   - component: {fileID: 1920210785}
   - component: {fileID: 1920210784}
   m_Layer: 5
-  m_Name: Smolour 1 Text
+  m_Name: Smolour 6 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4749,7 +5063,7 @@ GameObject:
   - component: {fileID: 2025883923}
   - component: {fileID: 2025883922}
   m_Layer: 5
-  m_Name: Smolour 1 (1)
+  m_Name: Smolour 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4825,7 +5139,7 @@ GameObject:
   - component: {fileID: 2030853829}
   - component: {fileID: 2030853828}
   m_Layer: 5
-  m_Name: Smolour 4 (1)
+  m_Name: Smolour 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

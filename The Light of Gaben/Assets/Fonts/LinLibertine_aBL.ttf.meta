@@ -3,14 +3,16 @@ guid: 002cc258dc31e7e429ecaeab390dbdc1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 20
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
   - Linux Libertine Slanted
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 752a49bb8c8f5b449af1f8c0b9acdf66, type: 3}
+  - {fileID: 12800000, guid: 31f31cd67f4f131498aca12c337bb1ae, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

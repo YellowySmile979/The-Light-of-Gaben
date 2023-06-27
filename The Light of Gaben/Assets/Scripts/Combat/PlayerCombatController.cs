@@ -17,41 +17,6 @@ public class PlayerCombatController : UnitStats
         Instance = this;
     }
 
-    void Update()
-    {
-        // Controls XP levelling
-        //switch (playerXP)
-        //{
-        //    case 10:
-        //        playerLevel = 2;
-        //        print("Player levelled up!");
-        //        break;
-        //    case 20:
-        //        playerLevel = 3;
-        //        print("Player levelled up!");
-        //        break;
-        //    case 40:
-        //        playerLevel = 4;
-        //        print("Player levelled up!");
-        //        break;
-        //    case 80:
-        //        playerLevel = 5;
-        //        print("Player levelled up!");
-        //        break;
-        //}
-
-        //Testing Health
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    print("Health minused");
-        //    TakeDamage(10);
-        //}
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    print("Health addeded");
-        //    HealDamage(10);
-        //}
-    }
     void Start()
     {
         HealthBar.Instance.maxHealth = this.maxHealth;
