@@ -230,6 +230,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurnBased Combat
       objectReference: {fileID: 0}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: defense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: attack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: defense
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: highestProbabilityInt
       value: 100

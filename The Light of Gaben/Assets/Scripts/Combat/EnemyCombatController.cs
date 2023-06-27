@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyCombatController : UnitStats
 {
     UnitStats player;
-    UnitStats healTarget;
+    UnitStats healingTarget;
     //public GameObject healthBar;
     public Image healthBar;
     public float xpToGive = 10f;
@@ -14,7 +14,7 @@ public class EnemyCombatController : UnitStats
 
     void Start()
     {
-        healTarget = this;
+        healingTarget = this;
         if (lowestProbabilityInt == 0)
         {
             lowestProbabilityInt = 1;
@@ -85,8 +85,9 @@ public class EnemyCombatController : UnitStats
         int heal = Random.Range(1, 20) + (int)attack;
         //everything here does like Attack(), except heals self
         stateController = FindObjectOfType<CombatStateController>();
-        healTarget.health += heal;
-        stateController.actionDesc = "Enemy heals itself for " + heal + " health!";
+        if (health < maxHealth) healingTarget.health += heal;
+        else healingTarget.health = maxHealth;
+        stateController.actionDesc = stateController.actionDesc + "Enemy heals itself for " + heal + " health!";
         StartCoroutine(WaitUnitStatsVer());
     }
     //scale xp given to the level of the enemy
