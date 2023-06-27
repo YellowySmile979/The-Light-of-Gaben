@@ -62,6 +62,8 @@ public abstract class BaseEnemy : MonoBehaviour
             moveSpeed = 0;
             turnSpeed = 0;
             hasLoaded = true;
+            //deactivates timer to prevent weird stuff from happening
+            LoadSceneManager.Instance.deactivateTimer = true;
             //sends the corresponding object's data regarding its attached script to the LevelManager's
             //DefeatedEnemy function for it to perform its checks
             LevelManager.Instance.DefeatedEnemy(this);

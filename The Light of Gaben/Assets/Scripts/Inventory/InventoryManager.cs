@@ -9,11 +9,18 @@ public class InventoryManager : MonoBehaviour
     public int maxSlots = 9;
     InventoryOpener inventoryOpener;
     [SerializeField] private InventorySlot[] inventorySlots;
-    [SerializeField] private GameObject[] itemsInSlots;
+    public GameObject[] itemsInSlots;
     public Vector3 scaleInventoryItemSize;
     ItemInventory[] itemInventory;
     ItemInteraction itemInteraction;
 
+    //a singleton
+    public static InventoryManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour
     public bool hasWon;
     public bool hasPlayed;
     public string currentScene, sceneToUnload, loseScene;
-    public GameObject player;
     public bool hasLoaded;
     public GameObject lightShardToSpawn;
     [HideInInspector] public bool hasUnloaded;
@@ -31,7 +30,6 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         PlayExplorationMusic();
-        DontDestroyOnLoad(player);
         if (Instance == null)
         {
             Instance = this;
@@ -111,6 +109,7 @@ public class LevelManager : MonoBehaviour
                     print("hasWon");
                     enemies[theEnemy].explorationCanvas.enabled = true;
                     SpawnLightShard();
+                    LoadSceneManager.Instance.baseEnemies.Remove(enemies[theEnemy].gameObject);
                     Destroy(enemies[theEnemy].gameObject);
                     enemies.RemoveAt(theEnemy);
                     hasAddedIndex = true;
