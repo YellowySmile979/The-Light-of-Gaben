@@ -10,7 +10,8 @@ public class ItemData : ScriptableObject
     public enum Type
     {
         key,
-        consumables
+        consumables,
+        winItem
     }
     public Type type;
     public Sprite icon;

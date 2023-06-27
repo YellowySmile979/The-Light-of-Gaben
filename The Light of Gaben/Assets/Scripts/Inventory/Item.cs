@@ -32,6 +32,18 @@ public abstract class Item : MonoBehaviour
             Destroy(gameObject);
             //sets the bool to true so that we can prevent further function calls
             hasCollided = true;
-        }       
+        }
+        if (collision.GetComponent<PlayerMovement>() && data.type == ItemData.Type.winItem)
+        {
+            //prevents function from being called so many times
+            if (hasCollided) return;
+
+            LoadSceneManager.Instance.WinConditionCollectItems(1);
+            //returns the item data and destroy the object
+            inventoryManager.AddItem(data);
+            Destroy(gameObject);
+            //sets the bool to true so that we can prevent further function calls
+            hasCollided = true;
+        }
     }
 }
