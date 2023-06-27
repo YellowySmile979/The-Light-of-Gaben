@@ -140,9 +140,13 @@ public class CombatStateController : MonoBehaviour
                 {
                     currentUnit.GetComponent<EnemyCombatController>().Attack();
                 }
-                else
+                else if(randomInt <= currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt * 0.1)
                 {
                     currentUnit.GetComponent<EnemyCombatController>().DoNothing();
+                }
+                else if(randomInt <= currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt * 0.2)
+                {
+                    currentUnit.GetComponent<EnemyCombatController>().HealSelf();
                 }
             }
         }

@@ -32,7 +32,7 @@ public class PlayerCombatController : UnitStats
     {
         SelectTarget();
         HealthBar.Instance.currentHealth = this.health;
-        int damage = attack;
+        int damage = (int)attack;
         attackTarget.TakeDamage(damage, this, attackTarget);
         StartCoroutine(WaitUnitStatsVer());
     }
@@ -40,7 +40,7 @@ public class PlayerCombatController : UnitStats
     public void Heal()
     {
         SelectTarget();
-        int heal = Random.Range(1, 20) + attack;
+        int heal = Random.Range(1, 20) + (int)attack;
         healTarget.HealDamage(heal);
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
         HealthBar.Instance.currentHealth = this.health;
