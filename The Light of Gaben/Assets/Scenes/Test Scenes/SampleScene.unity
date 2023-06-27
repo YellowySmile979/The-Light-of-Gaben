@@ -400,15 +400,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a2b9d0ca8da64fa27f086b202ffdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames: []
-  loseScene: 
+  sceneNames:
+  - Start
+  loseScene: Start
+  deactivateTimer: 0
   info: Do not delete or modify this. 0 is minKillRequirement, 1 is timer, 2 is itemsToCollect.
-  minKillRequirement: 0
-  timeLeftBeforeLose: 0
-  numberOfWinItemsToCollect: 0
+  minKillRequirement: 1
+  timeLeftBeforeLose: 1
+  numberOfWinItemsToCollect: 1
+  initialNumberOfEnemies: 0
   chosenWinCondtion: 0
   canWin: 0
-  baseEnemy: []
+  baseEnemies:
+  - {fileID: 1273349822}
+  - {fileID: 1255320496}
+  - {fileID: 344175375}
 --- !u!1 &81120361
 GameObject:
   m_ObjectHideFlags: 0
@@ -55546,7 +55552,6 @@ MonoBehaviour:
   currentScene: SampleScene
   sceneToUnload: Turn-Based Test
   loseScene: Start
-  player: {fileID: 522565568}
   hasLoaded: 0
   lightShardToSpawn: {fileID: 3993934148287303071, guid: efa45a28ab787c84f93ec05936a704d7, type: 3}
   hasUnloaded: 0

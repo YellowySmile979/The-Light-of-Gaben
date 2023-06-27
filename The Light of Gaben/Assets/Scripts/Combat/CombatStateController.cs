@@ -136,7 +136,7 @@ public class CombatStateController : MonoBehaviour
                     currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt
                     );
 
-                if(randomInt <= (randomInt / currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt) * 100)
+                if(randomInt <= currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt * 0.7)
                 {
                     currentUnit.GetComponent<EnemyCombatController>().Attack();
                 }
