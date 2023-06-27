@@ -82,7 +82,7 @@ public class EnemyCombatController : UnitStats
     public void HealSelf()
     {
         print("Enemy heals self");
-        int heal = Random.Range(1, 20) + (int)attack;
+        int heal = Random.Range(1, 10) + (int)attack;
         //everything here does like Attack(), except heals self
         stateController = FindObjectOfType<CombatStateController>();
         if (health < maxHealth) healingTarget.health += heal;
