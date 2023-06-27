@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GeneralCanvasStuff : MonoBehaviour
 {
-    public Text levelText;
+    public Text levelText, floorText, winConditionText;
 
     public static GeneralCanvasStuff Instance;
 
@@ -13,20 +13,26 @@ public class GeneralCanvasStuff : MonoBehaviour
     {
         Instance = this;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        UpdateFloorNoText();
     }
+    //updates the level text to display the player's level
     public void UpdateLevelText(float level)
     {
-        levelText.text = "Level: " + level;
+        //updates the playerprefs so that we can store info
+        PlayerPrefs.SetInt("Player Level", (int)level);
+        levelText.text = "Level: " + PlayerPrefs.GetInt("Player Level");
+    }
+    //udpates the floor text to display which floor their on
+    public void UpdateFloorNoText()
+    {
+        //updates the playerprefs so that we can store info
+        floorText.text = "Floor: " + PlayerPrefs.GetInt("Floor Number");
+    }
+    //updates the win condition text to display which win condition the player must make
+    public void UpdateWinConditionText(string winCondition)
+    {
+        winConditionText.text = "Win Condition: " + winCondition;
     }
 }

@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class LevelEndGoal : MonoBehaviour
 {
     public static LevelEndGoal Instance;
+    public int floorNumber;
     
     void Awake()
     {
         Instance = this;
+    }
+    void Start()
+    {
+        PlayerPrefs.SetInt("Floor Number", floorNumber);
     }
     //detects when player enters
     void OnTriggerEnter2D(Collider2D collision)

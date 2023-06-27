@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Scenes/Turn-Based Test.unity
     guid: 1ccc55dee67057942806ec89b384eb0a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy1.unity
+    guid: 51203b14e29c8994da6ab97178a7c086
   m_configObjects: {}

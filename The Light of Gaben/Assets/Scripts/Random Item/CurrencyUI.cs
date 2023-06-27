@@ -26,13 +26,15 @@ public class CurrencyUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ppCount.text = "0";
-        lightShardCount.text = "0";
+        //sets the respective currency text to display the value of the appropriate amount of currency
+        //so that it carries between levels
+        ppCount.text = PlayerPrefs.GetInt("PP Count").ToString();
+        lightShardCount.text = PlayerPrefs.GetInt("LS Count").ToString();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        //constantly updates the player prefs
+        PlayerPrefs.SetInt("PP Count", addValueForPP);
+        PlayerPrefs.SetInt("LS Count", addValueForLS);
     }
 }
