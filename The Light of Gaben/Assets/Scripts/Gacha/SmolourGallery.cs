@@ -12,14 +12,20 @@ public class SmolourGallery : MonoBehaviour
     public SmoloursData[] Smolours;
     public Text[] Texts;
     public Image[] Images;
+    public GameObject Gallery;
 
+    private void Start()
+    {
+        Close();
+    }
     public void Close()
     {
-        gameObject.SetActive(false);
+        Gallery.SetActive(false);
     }
 
-    private void Awake()
+    public void Open()
     {
+        Gallery.SetActive(true);
         foreach (SmoloursData smolour in collectedSmolours)
         {
             // searches for the index of each collected smolour in the Smolour array, and changes the corresponding Image and text.
