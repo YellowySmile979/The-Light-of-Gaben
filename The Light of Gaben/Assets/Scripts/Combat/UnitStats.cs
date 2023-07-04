@@ -33,15 +33,7 @@ public abstract class UnitStats : MonoBehaviour
 
     public enum LightTypes { White, Red, Yellow, Blue };
     public LightTypes lightType = LightTypes.White;
-    
-    void Start()
-    {
-        health = maxHealth;
-        attack = attack + attackBonus * attackMulitplier;
-        defense = defense + defenseBonus * defenseMultiplier;
-        speed = speed + speedBonus * speedMultiplier;
-        crit += critBonus;
-    }
+
     void Awake()
     {
         stateController = FindObjectOfType<CombatStateController>();
@@ -61,7 +53,7 @@ public abstract class UnitStats : MonoBehaviour
         // Red > Blue > Yellow > Red
         // - noelle
         
-        dmg = (((2 * attacker.level * (attacker.crit) / 5) + 2) * attacker.WV * (attacker.attack / attackee.defense) / 2) +2 ;
+        dmg = (((2 * attacker.level * (attacker.crit + attacker.critBonus) / 5) + 2) * attacker.WV * (((attacker.attack + attacker.attackBonus)*attackMulitplier) / ((attackee.defense+ attacker.defenseBonus)* attacker.defenseMultiplier)) / 2) +2 ;
         
         // Switch Case for Light Weakness
         switch (attackee.lightType)
@@ -103,10 +95,11 @@ public abstract class UnitStats : MonoBehaviour
 
     }
 
-    public void HealDamage(int heal)
+    public void HealDamage(float heal)
     {
-        if (lightType == LightTypes.Blue) health += health * 1.25f;
-        else health += heal;
+        if (lightType == LightTypes.Blue) heal = heal * 1.25f;
+
+        health += heal / 2;
         if (health > maxHealth) health = maxHealth;
     }
 

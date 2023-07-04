@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
-  m_Name: SRareYellowBoost
+  m_Name: SRareRedBoost
   m_EditorClassIdentifier: 
   rarity: 1
   hpMultiplier: 0
   hpBonus: 0
-  redMultiplier: 0
-  redBonus: 0
-  yellowMultiplier: 2
-  yellowBonus: 5
+  redMultiplier: 2
+  redBonus: 5
+  yellowMultiplier: 0
+  yellowBonus: 0
   blueMultiplier: 0
   blueBonus: 0
   speedMultiplier: 0
@@ -29,4 +29,4 @@ MonoBehaviour:
   defenseBonus: 0
   shield: 0
   critBonus: 0
-  description: Substantially Boosts Yellow Type Damage
+  description: Substantially Boosts Red Type Damage

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RareDefenseBonus
   m_EditorClassIdentifier: 
   rarity: 0
+  hpMultiplier: 0
+  hpBonus: 0
   redMultiplier: 0
   redBonus: 0
   yellowMultiplier: 0
@@ -27,4 +29,4 @@ MonoBehaviour:
   defenseBonus: 5
   shield: 0
   critBonus: 0
-  description: Increases Defense by 5
+  description: Marginally Increases Defense

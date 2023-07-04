@@ -16,7 +16,7 @@ public class GachaSystem : MonoBehaviour
     SmolourGallery smolour;
     SmoloursData rolledSmolour;
     public Button RollButton;
-    public GameObject smolourGallery;
+    public SmolourGallery smolourGallery;
 
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
     //The Gacha System
@@ -46,25 +46,26 @@ public class GachaSystem : MonoBehaviour
         // Rolls 3 times
         for (int i = 1; i < 4; i++)
         {
-            roll = Random.Range(1, 1001);
+            roll = Random.Range(0, 1001);
 
             //Once roll is calculated, an if else statement
             // is used to call the loot table according to the roll
             ; if (roll == 1000 || pity == 80)
             {
-                int rolledSmolourIndex = Random.Range(1, SSRSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
-                rolledSmolour = SSRSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
+                int rolledSmolourIndex = Random.Range(0, SSRSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
+                rolledSmolour = SSRSmolours[rolledSmolourIndex]; // Finds the Smolour rolled
+                pity = 0;
             }
             else if (roll > 901)
             {
                 pity += 1; //Increases Pity
-                int rolledSmolourIndex = Random.Range(1, SRSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
+                int rolledSmolourIndex = Random.Range(0, SRSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
                 rolledSmolour = SRSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
             else
             {
                 pity += 1; //Increases Pity
-                int rolledSmolourIndex = Random.Range(1, RSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
+                int rolledSmolourIndex = Random.Range(0, RSmolours.Count); // rolls on Rare Smolours Table for the Smolour Rolled.
                 rolledSmolour = RSmolours[rolledSmolourIndex]; // Fidns the Smolour rolled
             }
 
@@ -101,7 +102,7 @@ public class GachaSystem : MonoBehaviour
     }
     public void OpenGallery()
     {
-        smolourGallery.SetActive(true);
+        smolourGallery.Open();
     } 
 
 /*    void RollSSRTable()
