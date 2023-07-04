@@ -8,13 +8,14 @@ public abstract class UnitStats : MonoBehaviour
     [Header("Unit Stats")]
     public float attack = 10;
     public float defense = 0;
-    public float WV = 0;
+    public float WV = 2;
     public float speed = 10;
     public float crit = 0;
     public float nextTurnIn = 0;
     public float maxHealth = 50;
     public float health = 50;
     public float level = 1;
+    float WeakBuff = 2.5f;
 
     [Header ("Smolour Buff Stats")]
     float redMultiplier = 1.0f, redBonus = 0.0f;
@@ -59,7 +60,7 @@ public abstract class UnitStats : MonoBehaviour
         // Light Type If Else statements! There's probably a more efficient way to do this but it's 28 May and our critique is in 2 days.
         // Red > Blue > Yellow > Red
         // - noelle
-        float WeakBuff = 2.5f;
+        
         dmg = (((2 * attacker.level * (attacker.crit) / 5) + 2) * attacker.WV * (attacker.attack / attackee.defense) / 2) +2 ;
         
         // Switch Case for Light Weakness

@@ -12,13 +12,13 @@ public class GachaSystem : MonoBehaviour
     public Sprite smolourSprite1, smolourSprite2;
     public Image result1, result2, result3;
     public Text desc1, desc2, desc3;
-    private List<SmolourCombatController> rolled;
+    private List<SmoloursData> rolled;
     SmolourGallery smolour;
-    SmolourCombatController rolledSmolour;
+    SmoloursData rolledSmolour;
     public Button RollButton;
     public GameObject smolourGallery;
 
-    public List<SmolourCombatController> RSmolours, SRSmolours, SSRSmolours;
+    public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
     //The Gacha System
     // Current drop rates are:
     // SSR++* : 1/1000 = 0.01 % (Not taking into account Pity)
@@ -33,16 +33,16 @@ public class GachaSystem : MonoBehaviour
         
         // auto sorts Smolours into rarity.
         // These tables are called by GachaSystem to determine which Smolour the player receives.
-        foreach (SmolourCombatController smolour in smolour.Smolours)
+        foreach (SmoloursData smolour in smolour.Smolours)
         {
-            if (smolour.rarity == SmolourCombatController.Rarity.SSR) SSRSmolours.Add(smolour);
-            else if (smolour.rarity == SmolourCombatController.Rarity.SR) SRSmolours.Add(smolour);
+            if (smolour.rarity == SmoloursData.Rarity.SSR) SSRSmolours.Add(smolour);
+            else if (smolour.rarity == SmoloursData.Rarity.SR) SRSmolours.Add(smolour);
             else RSmolours.Add(smolour);
         }
     }
     public void Roll()
     {
-        rolled = new List<SmolourCombatController>();
+        rolled = new List<SmoloursData>();
         // Rolls 3 times
         for (int i = 1; i < 4; i++)
         {
@@ -72,7 +72,7 @@ public class GachaSystem : MonoBehaviour
 
             // if the rolled smolour has already been collected, it does not get added to the collected Smolours array
             bool alreadyCollected = false;
-            foreach (SmolourCombatController j in smolour.collectedSmolours)
+            foreach (SmoloursData j in smolour.collectedSmolours)
             {
                 if (j == rolledSmolour) alreadyCollected = true;
             }
@@ -88,8 +88,8 @@ public class GachaSystem : MonoBehaviour
         Text[] descriptions = new Text[] { desc1, desc2, desc3 };
         for (int i = 0; i < 3; i++)
         {
-            if (rolled[i].rarity == SmolourCombatController.Rarity.SSR) results[i].color = Color.yellow;
-            else if (rolled[i].rarity == SmolourCombatController.Rarity.SR) results[i].color = Color.green;
+            if (rolled[i].rarity == SmoloursData.Rarity.SSR) results[i].color = Color.yellow;
+            else if (rolled[i].rarity == SmoloursData.Rarity.SR) results[i].color = Color.green;
             else results[i].color = Color.blue;
 
             descriptions[i].text = rolled[i].description;

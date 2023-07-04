@@ -6,6 +6,7 @@ public class SmoloursData : ScriptableObject
 {
     public enum Rarity { R, SR, SSR }
     public Rarity rarity;
+    public float hpMultiplier = 0, hpBonus = 0;
     public float redMultiplier = 0.0f, redBonus = 0.0f;
     public float yellowMultiplier = 0.0f, yellowBonus = 0.0f;
     public float blueMultiplier = 0.0f, blueBonus = 0.0f;

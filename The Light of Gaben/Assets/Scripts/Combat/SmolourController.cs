@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmolourCombatController : MonoBehaviour
+public class SmolourController : MonoBehaviour
 {
     public enum Rarity { R, SR, SSR }
     public Rarity rarity;

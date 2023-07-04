@@ -5,23 +5,22 @@ using UnityEngine.UI;
 
 public class SmolourGallery : MonoBehaviour
 {
-    public List<SmolourCombatController> collectedSmolours;
+    public List<SmoloursData> collectedSmolours;
 
     public Sprite known;
     
-    public SmolourCombatController[] Smolours;
+    public SmoloursData[] Smolours;
     public Text[] Texts;
     public Image[] Images;
-    public GameObject gallery;
 
     public void Close()
     {
-        gallery.SetActive(false);
+        gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void Awake()
     {
-        foreach (SmolourCombatController smolour in collectedSmolours)
+        foreach (SmoloursData smolour in collectedSmolours)
         {
             // searches for the index of each collected smolour in the Smolour array, and changes the corresponding Image and text.
             int index = 0;
@@ -32,8 +31,8 @@ public class SmolourGallery : MonoBehaviour
 
             Images[index].sprite = known;
             Texts[index].text = smolour.description;
-            if (smolour.rarity == SmolourCombatController.Rarity.SSR) Images[index].color = Color.yellow;
-            else if (smolour.rarity == SmolourCombatController.Rarity.SR) Images[index].color = Color.green;
+            if (smolour.rarity == SmoloursData.Rarity.SSR) Images[index].color = Color.yellow;
+            else if (smolour.rarity == SmoloursData.Rarity.SR) Images[index].color = Color.green;
             else Images[index].color = Color.blue;
         }
     }
