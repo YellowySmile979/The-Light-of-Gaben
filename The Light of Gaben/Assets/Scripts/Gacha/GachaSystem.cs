@@ -16,8 +16,6 @@ public class GachaSystem : MonoBehaviour
     SmolourGallery smolour;
     SmoloursData rolledSmolour;
     public Button RollButton;
-    public SmolourGallery smolourGallery;
-
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
     //The Gacha System
     // Current drop rates are:
@@ -100,11 +98,6 @@ public class GachaSystem : MonoBehaviour
             else results[i].sprite = smolourSprite2;
         }
     }
-    public void OpenGallery()
-    {
-        smolourGallery.Open();
-    } 
-
 /*    void RollSSRTable()
     {
         print("Rolled an SSR!");

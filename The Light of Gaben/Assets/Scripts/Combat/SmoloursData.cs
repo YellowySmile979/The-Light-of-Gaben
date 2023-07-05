@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 [CreateAssetMenu(fileName = "SmolourData", menuName = "SmolourData/SmolourBuffs")]
 public class SmoloursData : ScriptableObject
 {
     public enum Rarity { R, SR, SSR }
+    public Sprite known, unknown;
     public Rarity rarity;
     public float hpMultiplier = 0, hpBonus = 0;
     public float redMultiplier = 0.0f, redBonus = 0.0f;

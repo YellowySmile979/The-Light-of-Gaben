@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: SRareBlueBoost
   m_EditorClassIdentifier: 
+  known: {fileID: 21300000, guid: 219e7b6f3cc00b847823cd81c7b27fcd, type: 3}
+  unknown: {fileID: 21300000, guid: 72425713a574e9a4bb616ada0d572b70, type: 3}
   rarity: 1
   hpMultiplier: 0
   hpBonus: 0

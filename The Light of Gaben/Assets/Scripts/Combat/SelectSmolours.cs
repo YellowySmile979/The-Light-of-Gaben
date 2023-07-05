@@ -9,16 +9,23 @@ public class SelectSmolours : MonoBehaviour
     SmolourGallery gallery;
     PlayerCombatController player;
 
-    private void Update()
+    private void OnEnable()
     {
         for (int i = 0; i < gallery.collectedSmolours.Count; i++)
         {
+            SmoloursData smolour = gallery.collectedSmolours[i];
             GameObject newbutton = Instantiate(buttonPrefab, buttonParent.transform);
+            newbutton.GetComponent<SmolourButtonSelect>().displayed.sprite = smolour.known;
+            newbutton.GetComponent<SmolourButtonSelect>().buttonText.text = smolour.description;
+            newbutton.GetComponent<SmolourButtonSelect>().smoloursData = smolour;
+
+            newbutton.GetComponent<Button>().onClick.AddListener(() => SelectSmolour(smolour));
         }
     }
 
-    public void SelectSmolour(SmoloursData smolour)
+    private void SelectSmolour(SmoloursData smolour)
     {
+        Debug.Log("Added smolour to smolour buffs");
         player.smolourBuffs.Add(smolour);
     }
 
