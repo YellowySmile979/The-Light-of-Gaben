@@ -17,6 +17,8 @@ public abstract class UnitStats : MonoBehaviour
     public float level = 1;
     float WeakBuff = 2.5f;
 
+    public bool hasFinishedTheirTurn;
+
     [Header ("Smolour Buff Stats")]
     float redMultiplier = 1.0f, redBonus = 0.0f;
     float yellowMultiplier = 1.0f, yellowBonus = 0.0f;

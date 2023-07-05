@@ -12,16 +12,24 @@ public class CombatStateController : MonoBehaviour
     public AudioClip combatMusic1, combatMusic2, victorySFX, lossSFX, clawSFX, whiteSFX, blueSFX, redSFX, yellowSFX;
     public AudioSource camAudioSource;
     public Canvas turnBasedScreen;
+    public int defeatedEnemies = 0;
 
     PlayerCombatController player;
     EnemyCombatController enemy;
     CanvasController canvasController;
+
+    public static CombatStateController Instance;
 
     // Each turn has different states, Start State, Player Action, Enemy Action, and Passive Actions.
     // Honestly, this is prob gonna be more for debugging and testing. - noelle
 
     public enum GameStates { Start, Player, Enemy, Passive, End }
     public GameStates state = GameStates.Start;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -101,6 +109,13 @@ public class CombatStateController : MonoBehaviour
         }
         //sets the unit according to the currentTurn
         UnitStats currentUnit = TurnOrder[currentTurn];
+        /*if (currentUnit.GetComponent<EnemyCombatController>())
+        {
+            if(currentUnit.GetComponent<EnemyCombatController>().turnOrder == EnemyManager.Instance.activeCombatEnemies.Count)
+            {
+                currentUnit = EnemyManager.Instance.activeCombatEnemies[currentUnit.GetComponent<EnemyCombatController>().turnOrder];
+            }
+        }*/
 
         //checks to see if either enemy or player has died
         //if the respective dude has died, perform the respective Coroutine
@@ -110,7 +125,17 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(LostCombat());
             return;
         }
-        if (enemy.health <= 0)
+        /*if (EnemyManager.Instance.activeCombatEnemies.Find(s => s.health <= 0))
+        {
+            EnemyManager.Instance.activeCombatEnemies.Find(s => s.health <= 0).gameObject.SetActive(false);
+            return;
+        }
+        if(defeatedEnemies == EnemyManager.Instance.activeCombatEnemies.Count)
+        {
+            StartCoroutine(WinCombat());
+            return;
+        }*/
+        if(enemy.health <= 0)
         {
             StartCoroutine(WinCombat());
             return;
@@ -136,18 +161,19 @@ public class CombatStateController : MonoBehaviour
                     currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt
                     );
 
-                if(randomInt <= 70)
+                if (randomInt <= 70)
                 {
                     currentUnit.GetComponent<EnemyCombatController>().Attack();
                 }
-                else if(randomInt <= 80 && randomInt > 70)
+                else if (randomInt <= 80 && randomInt > 70)
                 {
                     currentUnit.GetComponent<EnemyCombatController>().DoNothing();
                 }
-                else if(randomInt <= 100 && randomInt > 80)
+                else if (randomInt <= 100 && randomInt > 80)
                 {
                     currentUnit.GetComponent<EnemyCombatController>().HealSelf();
                 }
+                
             }
         }
         //}
@@ -193,7 +219,10 @@ public class CombatStateController : MonoBehaviour
         state = GameStates.End;
         camAudioSource.PlayOneShot(victorySFX);
         actionDesc = "You Won!";
-        enemy.ScaleXPWithLevel();
+        EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+        {
+            enemy.ScaleXPWithLevel();
+        });
         yield return new WaitForSeconds(2);
         // Uh load the scene before this
         fade.FadeOut();

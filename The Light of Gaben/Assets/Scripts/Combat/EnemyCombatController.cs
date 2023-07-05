@@ -10,7 +10,7 @@ public class EnemyCombatController : UnitStats
     //public GameObject healthBar;
     public Image healthBar;
     public float xpToGive = 10f;
-    public int lowestProbabilityInt, highestProbabilityInt;
+    public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
 
     void Start()
     {
@@ -59,6 +59,7 @@ public class EnemyCombatController : UnitStats
     //performs the enemy's attack
     public void Attack()
     {
+        hasFinishedTheirTurn = false;
         print("Enemy Attack");
         //sets the player and stateController
         player = FindObjectOfType<PlayerCombatController>();
@@ -67,20 +68,24 @@ public class EnemyCombatController : UnitStats
         player.TakeDamage(attack, this, player);
         //tells player what happened
         stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
+        hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }
     //enemy will do nothing
     public void DoNothing()
     {
+        hasFinishedTheirTurn = false;
         print("Enemy Does Nothing");
         //everything here does like Attack(), except the part on attacking
         player = FindObjectOfType<PlayerCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
         stateController.actionDesc = stateController.actionDesc + " Enemy does absolutely nothing!";
+        hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }
     public void HealSelf()
     {
+        hasFinishedTheirTurn = false;
         print("Enemy heals self");
         int heal = Random.Range(1, 10) + (int)attack;
         //everything here does like Attack(), except heals self
@@ -88,6 +93,7 @@ public class EnemyCombatController : UnitStats
         if (health < maxHealth) healingTarget.health += heal;
         else healingTarget.health = maxHealth;
         stateController.actionDesc = stateController.actionDesc + "Enemy heals itself for " + heal + " health!";
+        hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }
     //scale xp given to the level of the enemy
