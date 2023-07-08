@@ -5,17 +5,25 @@ using UnityEngine.UI;
 
 public class SelectSmolours : MonoBehaviour
 {
-    SmolourGallery smolourGallery;
-    public Button Select;
-    public GameObject player;
-    public SmoloursData[] selectedSmolours;
+    public GameObject buttonPrefab, buttonParent;
+    SmolourGallery gallery;
+    PlayerCombatController player;
 
-    public GameObject smolourSelectScreen;
-
-    public void OnSmolourSelect(int smolourChoice)
+    private void Update()
     {
-        smolourSelectScreen.SetActive(false);
-        
-        SmoloursData selectedCharacter = selectedSmolours[smolourChoice];
+        for (int i = 0; i < gallery.collectedSmolours.Count; i++)
+        {
+            GameObject newbutton = Instantiate(buttonPrefab, buttonParent.transform);
+        }
+    }
+
+    public void SelectSmolour(SmoloursData smolour)
+    {
+        player.smolourBuffs.Add(smolour);
+    }
+
+    public void Deselect(SmoloursData smolour)
+    {
+        player.smolourBuffs.Remove(smolour);
     }
 }

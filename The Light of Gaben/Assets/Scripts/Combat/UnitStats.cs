@@ -26,6 +26,7 @@ public abstract class UnitStats : MonoBehaviour
     float defenseMultiplier = 1.0f, defenseBonus = 0.0f;
     float shield = 0.0f;
     int critBonus = 0;
+    public List<SmoloursData> smolourBuffs;
 
     public bool isDead = false;
 
@@ -41,7 +42,7 @@ public abstract class UnitStats : MonoBehaviour
     // Calculates nextTurnIn value   
     public void CalculateNextTurn(int currentTurn)
     {
-        nextTurnIn = currentTurn + (Random.Range(1, 50) - speed);
+        nextTurnIn = currentTurn + (Random.Range(1, 50) - ((speed+speedBonus)*speedMultiplier));
     }
 
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
