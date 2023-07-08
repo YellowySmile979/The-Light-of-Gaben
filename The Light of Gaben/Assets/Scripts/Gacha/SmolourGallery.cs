@@ -7,12 +7,11 @@ public class SmolourGallery : MonoBehaviour
 {
     public List<SmoloursData> collectedSmolours;
 
-    public Sprite known;
-    
     public SmoloursData[] Smolours;
     public Text[] Texts;
     public Image[] Images;
     public GameObject Gallery;
+    public GameObject SelectScreen;
 
     private void Start()
     {
@@ -35,11 +34,8 @@ public class SmolourGallery : MonoBehaviour
                 if (Smolours[index] == smolour) break;
             }
 
-            Images[index].sprite = known;
+            Images[index].sprite = smolour.known;
             Texts[index].text = smolour.description;
-            if (smolour.rarity == SmoloursData.Rarity.SSR) Images[index].color = Color.yellow;
-            else if (smolour.rarity == SmoloursData.Rarity.SR) Images[index].color = Color.green;
-            else Images[index].color = Color.blue;
         }
     }
 }

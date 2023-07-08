@@ -58631,6 +58631,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: sceneNames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: sceneNames.Array.data[0]
+      value: Easy 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: sceneNames.Array.data[1]
+      value: Easy 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: sceneNames.Array.data[2]
+      value: Easy 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: sceneNames.Array.data[3]
+      value: Easy 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
       propertyPath: baseEnemies.Array.data[0]
       value: 
       objectReference: {fileID: 1273349822}

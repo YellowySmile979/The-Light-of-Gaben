@@ -17,6 +17,8 @@ public abstract class UnitStats : MonoBehaviour
     public float level = 1;
     float WeakBuff = 2.5f;
 
+    public bool hasFinishedTheirTurn;
+
     [Header ("Smolour Buff Stats")]
     float redMultiplier = 1.0f, redBonus = 0.0f;
     float yellowMultiplier = 1.0f, yellowBonus = 0.0f;
@@ -32,7 +34,7 @@ public abstract class UnitStats : MonoBehaviour
 
     public CombatStateController stateController;
 
-    public enum LightTypes { White, Red, Yellow, Blue };
+    public enum LightTypes { White, Red, Yellow, Blue, Orange, Magenta, Green };
     public LightTypes lightType = LightTypes.White;
 
     void Awake()
@@ -60,13 +62,64 @@ public abstract class UnitStats : MonoBehaviour
         switch (attackee.lightType)
         {
             case LightTypes.Red:
-                if (attacker.lightType == LightTypes.Yellow) dmg *= WeakBuff; 
+                if (attacker.lightType == LightTypes.Yellow)
+                {
+                    dmg *= WeakBuff;
+                }
+                else if(attacker.lightType == LightTypes.Magenta || attacker.lightType == LightTypes.Orange)
+                {
+                    dmg *= WeakBuff / 2;
+                }
                 break;
             case LightTypes.Yellow:
-                if (attacker.lightType == LightTypes.Blue) dmg *= WeakBuff;
+                if (attacker.lightType == LightTypes.Blue)
+                {
+                    dmg *= WeakBuff;
+                }
+                else if (attacker.lightType == LightTypes.Green || attacker.lightType == LightTypes.Orange)
+                {
+                    dmg *= WeakBuff / 2;
+                }
                 break;
             case LightTypes.Blue:
-                if (attacker.lightType == LightTypes.Red) dmg *= WeakBuff;
+                if (attacker.lightType == LightTypes.Red)
+                {
+                    dmg *= WeakBuff;
+                }
+                else if (attacker.lightType == LightTypes.Magenta || attacker.lightType == LightTypes.Green)
+                {
+                    dmg *= WeakBuff / 2;
+                }
+                break;
+            case LightTypes.Orange:
+                if(attacker.lightType == LightTypes.Green)
+                {
+                    dmg *= WeakBuff;
+                }
+                else if (attacker.lightType == LightTypes.Yellow || attacker.lightType == LightTypes.Blue)
+                {
+                    dmg *= WeakBuff / 2;
+                }
+                break;
+            case LightTypes.Magenta:
+                if (attacker.lightType == LightTypes.Orange)
+                {
+                    dmg *= WeakBuff;
+                }
+                else if (attacker.lightType == LightTypes.Yellow || attacker.lightType == LightTypes.Red)
+                {
+                    dmg *= WeakBuff / 2;
+                }
+                break;
+            case LightTypes.Green:
+                if (attacker.lightType == LightTypes.Magenta)
+                {
+                    dmg *= WeakBuff;
+                }
+                else if (attacker.lightType == LightTypes.Red || attacker.lightType == LightTypes.Blue)
+                {
+                    dmg *= WeakBuff / 2;
+                }
                 break;
             default:
                 break;
@@ -99,6 +152,8 @@ public abstract class UnitStats : MonoBehaviour
     public void HealDamage(float heal)
     {
         if (lightType == LightTypes.Blue) heal = heal * 1.25f;
+        else if (lightType == LightTypes.Magenta) heal = heal * 1.5f;
+        else if (lightType == LightTypes.Green) heal = heal * 1.5f;
 
         health += heal / 2;
         if (health > maxHealth) health = maxHealth;

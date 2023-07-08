@@ -9,16 +9,16 @@ public class GachaSystem : MonoBehaviour
     public int pity = 0;
     public int amontToPull = 50;
     public Text pityCounter;
-    public Sprite smolourSprite1, smolourSprite2;
     public Image result1, result2, result3;
     public Text desc1, desc2, desc3;
     private List<SmoloursData> rolled;
     SmolourGallery smolour;
     SmoloursData rolledSmolour;
     public Button RollButton;
-    public SmolourGallery smolourGallery;
-
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
+
+    public GameObject SelectScreen;
+
     //The Gacha System
     // Current drop rates are:
     // SSR++* : 1/1000 = 0.01 % (Not taking into account Pity)
@@ -89,21 +89,14 @@ public class GachaSystem : MonoBehaviour
         Text[] descriptions = new Text[] { desc1, desc2, desc3 };
         for (int i = 0; i < 3; i++)
         {
-            if (rolled[i].rarity == SmoloursData.Rarity.SSR) results[i].color = Color.yellow;
-            else if (rolled[i].rarity == SmoloursData.Rarity.SR) results[i].color = Color.green;
-            else results[i].color = Color.blue;
-
+            
             descriptions[i].text = rolled[i].description;
-
-            int smolourRandom = Random.Range(1, 3);
-            if (smolourRandom == 1) results[i].sprite = smolourSprite1;
-            else results[i].sprite = smolourSprite2;
+            results[i].sprite = rolled[i].known;
         }
     }
-    public void OpenGallery()
-    {
-        smolourGallery.Open();
-    } 
+
+    public void Gallery() { smolour.Open(); }
+    public void Select() { SelectScreen.SetActive(true); }
 
 /*    void RollSSRTable()
     {

@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Test Scenes/Turn-Based Test.unity
     guid: 1ccc55dee67057942806ec89b384eb0a
   - enabled: 1
-    path: Assets/Scenes/Levels/Easy 1.unity
+    path: Assets/Scenes/Levels/Easy/Easy 1.unity
     guid: 51203b14e29c8994da6ab97178a7c086
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy/Easy 2.unity
+    guid: f11e231015792c146a52fd9eeddfa588
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy/Easy 3.unity
+    guid: db07d207c118975419903504da0219d1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Easy/Easy 4.unity
+    guid: 4e3ee13aa8b02bb45adb640863935ebe
   m_configObjects: {}
