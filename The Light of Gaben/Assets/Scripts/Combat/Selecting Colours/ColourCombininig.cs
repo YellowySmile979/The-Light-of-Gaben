@@ -19,6 +19,10 @@ public class ColourCombininig : MonoBehaviour
         {
             colourChild = GetComponentInChildren<DraggableColour>().gameObject;
         }
+        else
+        {
+            return;
+        }
         if (isColour1) CanvasController.Instance.ReceiveColour1(colourChild);
         else CanvasController.Instance.ReceiveColour2(colourChild);
     }

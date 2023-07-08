@@ -206,6 +206,7 @@ public class CombatStateController : MonoBehaviour
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
+        camAudioSource.Stop();
         LevelManager.Instance.hasUnloaded = false;
         LevelManager.Instance.hasWon = false;
         LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
@@ -227,6 +228,7 @@ public class CombatStateController : MonoBehaviour
         // Uh load the scene before this
         fade.FadeOut();
         yield return new WaitForSeconds(1);
+        camAudioSource.Stop();
         canvasController.gabenHPBar.enabled = false;
         LevelManager.Instance.hasUnloaded = false;
         LevelManager.Instance.hasWon = true;
