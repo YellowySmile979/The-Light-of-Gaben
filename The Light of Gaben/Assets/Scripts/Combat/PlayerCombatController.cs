@@ -9,6 +9,12 @@ public class PlayerCombatController : UnitStats
     int playerPrefsDMG;
     [Header("Player Stats")]
     public float playerXP = 0;
+    public GameObject w;
+
+    [Header("Animator")]
+
+    public RuntimeAnimatorController whiteAnim, redAnim, blueAnim, yellowAnim, orangeAnim, greenAnim, purpleAnim;
+    public Animator animator;
 
     public static PlayerCombatController Instance;
 

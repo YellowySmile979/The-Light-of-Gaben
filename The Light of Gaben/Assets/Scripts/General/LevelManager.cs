@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource camExplorationAudioSource;
-    public AudioClip explorationMusic1, confirmSFX, selectUiSFX, itemDenySFX, itemUseSFX, pickUpItemSFX;
+    public AudioClip explorationMusic1, confirmSFX, selectUiSFX, itemDenySFX, itemUseSFX, pickUpItemSFX, footstepsSFX;
 
     [Header("Enemies")]
     public List<BaseEnemy> enemies = new List<BaseEnemy>();

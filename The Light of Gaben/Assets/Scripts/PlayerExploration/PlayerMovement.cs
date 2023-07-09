@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement Instance;
     Rigidbody2D rb;
+    public bool isMoving;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        isMoving = false;
     }
     void Update()
     {
@@ -38,11 +40,13 @@ public class PlayerMovement : MonoBehaviour
             //moves the player in the direction of the joystick movement
             rb.velocity = new Vector2(joystickMovement.joystickVec.x * playerSpeed,
                 joystickMovement.joystickVec.y * playerSpeed);
+            isMoving = true;
         }
         else
         {
             //simply stops the player
             rb.velocity = Vector2.zero;
+            isMoving = false;
         }
     }
     //calculates the angle at which the player is turning and then changes the walking animation accordingly
