@@ -8,38 +8,38 @@ public class SelectSmolours : MonoBehaviour
     public GameObject buttonPrefab, buttonParent;
     public Text playerStats, finalStats;
     SmolourGallery gallery;
-    public PlayerCombatController player;
-    public GameObject playerPrefab;
+    SmolourCombatController smolourController;
+    public int buttonCount = 0;
 
-    public void Close() { gameObject.SetActive(false); }
+    public void Close()
+    { 
+        gameObject.SetActive(false);
+    }
 
     private void Start()
     {
+        gallery = FindObjectOfType<SmolourGallery>();
+        smolourController = FindObjectOfType<SmolourCombatController>();
         Debug.Log("SelectScreenStart");
-        player = FindObjectOfType<PlayerCombatController>();
-        if (player = null)
-        {
-            GameObject tempplayer = Instantiate(playerPrefab, buttonParent.transform);
-            player = tempplayer.GetComponent<PlayerCombatController>();
-        }
         Close();
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        Debug.Log("Select Screen Awake.");
-        gallery = FindObjectOfType<SmolourGallery>();
-
-        for (int i = 0; i < gallery.collectedSmolours.Count; i++)
+        if (gallery.collectedSmolours.Count != buttonCount)
         {
             Debug.Log("Created Button");
-            SmoloursData smolour = gallery.collectedSmolours[i];
+            SmoloursData smolour = gallery.collectedSmolours[buttonCount];
             GameObject newbutton = Instantiate(buttonPrefab, buttonParent.transform);
             newbutton.GetComponent<SmolourButtonSelect>().displayed.sprite = smolour.known;
             newbutton.GetComponent<SmolourButtonSelect>().buttonText.text = smolour.description;
             newbutton.GetComponent<SmolourButtonSelect>().smoloursData = smolour;
+            newbutton.GetComponent<SmolourButtonSelect>().selectSmolours = this;
+            newbutton.GetComponent<SmolourButtonSelect>().player = player;
+            newbutton.GetComponent<SmolourButtonSelect>().button = newbutton.GetComponent<Button>();
+            buttonCount += 1;
+            //UpdateStats();
         }
-        //UpdateStats();
     }
 
     public void SelectSmolour(SmoloursData smolour)

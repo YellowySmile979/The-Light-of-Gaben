@@ -13,7 +13,13 @@ public class PlayerCombatController : UnitStats
 
     [Header("Animator")]
 
-    public RuntimeAnimatorController whiteAnim, redAnim, blueAnim, yellowAnim, orangeAnim, greenAnim, purpleAnim;
+    public RuntimeAnimatorController whiteAnim;
+    public RuntimeAnimatorController redAnim;
+    public RuntimeAnimatorController blueAnim;
+    public RuntimeAnimatorController yellowAnim;
+    public RuntimeAnimatorController orangeAnim;
+    public RuntimeAnimatorController greenAnim;
+    public RuntimeAnimatorController purpleAnim;
     public Animator animator;
 
     public static PlayerCombatController Instance;

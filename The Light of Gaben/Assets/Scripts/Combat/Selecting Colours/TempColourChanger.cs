@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TempColourChanger : MonoBehaviour
 {
-    //quick code noelle did at 12am to test stuff
+    // quick code noelle did at 12am to test stuff
+    // Things to Change Back:
+    // Switch Colour Change reference to Proper Colour Change menu in Attack Screen
+    // Uncomment FinalColourSwitch() in CanvasController
 
     public PlayerCombatController player;
 
