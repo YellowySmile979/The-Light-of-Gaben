@@ -11,6 +11,7 @@ public class SmolourButtonSelect : MonoBehaviour
     SelectSmolours selectSmolours;
     bool selected;
 
+
     public void Pressed()
     {
         if (selected)
@@ -23,5 +24,9 @@ public class SmolourButtonSelect : MonoBehaviour
             selectSmolours.SelectSmolour(smoloursData);
             selected = !selected;
         }
+    }
+
+    private void Update()
+    {
     }
 }

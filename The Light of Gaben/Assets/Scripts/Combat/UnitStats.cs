@@ -56,7 +56,11 @@ public abstract class UnitStats : MonoBehaviour
         // Red > Blue > Yellow > Red
         // - noelle
         
-        dmg = (((2 * attacker.level * (attacker.crit + attacker.critBonus) / 5) + 2) * attacker.WV * (((attacker.attack + attacker.attackBonus)*attackMulitplier) / ((attackee.defense+ attacker.defenseBonus)* attacker.defenseMultiplier)) / 2) +2 ;
+        dmg = (((2 * attacker.level * 
+            (attacker.crit + attacker.critBonus) / 5) + 2) 
+            * attacker.WV 
+            * (((attacker.attack + attacker.attackBonus)*attackMulitplier) / ((attackee.defense+ attacker.defenseBonus)
+            * attacker.defenseMultiplier)) / 2) +2;
         
         // Switch Case for Light Weakness
         switch (attackee.lightType)

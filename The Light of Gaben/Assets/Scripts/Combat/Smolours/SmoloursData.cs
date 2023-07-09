@@ -10,9 +10,9 @@ public class SmoloursData : ScriptableObject
     public Sprite known;
     public Rarity rarity;
     public float hpMultiplier = 0, hpBonus = 0;
-    public float redMultiplier = 0.0f, redBonus = 0.0f;
-    public float yellowMultiplier = 0.0f, yellowBonus = 0.0f;
-    public float blueMultiplier = 0.0f, blueBonus = 0.0f;
+    public float redMultiplier = 0.0f;
+    public float yellowMultiplier = 0.0f;
+    public float blueMultiplier = 0.0f;
     public float speedMultiplier = 0.0f, speedBonus = 0.0f;
     public float attackMulitplier = 0.0f, attackBonus = 0.0f;
     public float defenseMultiplier = 0.0f, defenseBonus = 0.0f;
