@@ -16,6 +16,7 @@ public class CanvasController : MonoBehaviour
     public Text combatActions;
     public GameObject lightChanger;
     public Image lightBG;
+    bool hasPickedColour = false;
 
     [Header("Final Resulting Colour")]
     public GameObject result;
@@ -34,7 +35,7 @@ public class CanvasController : MonoBehaviour
     {
         player = FindObjectOfType<PlayerCombatController>();
         stateController = FindObjectOfType<CombatStateController>();
-        lightBG = GameObject.Find("LightBackGround").GetComponent<Image>();
+        if (lightBG == null) lightBG = GameObject.Find("LightBackGround").GetComponent<Image>();
         lightChanger.SetActive(false);
     }
     private void Update()
@@ -86,96 +87,122 @@ public class CanvasController : MonoBehaviour
     }
     public void FinalResultingColour()
     {
-        if (colour1 == null && colour2 == null)
+        if (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible 
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible)
         {
             //changes the result to the stated colour
             result.GetComponent<Image>().color = Color.white;
             //updates the appropriate info to this colour
             lightBG.color = Color.white;
             player.lightType = UnitStats.LightTypes.White;
-            stateController.actionDesc = "Player changes their light to 'White'!";
+            if(!hasPickedColour)
+            {
+                stateController.actionDesc = "Player changes their light to 'White'!";
+                hasPickedColour = true;
+            }
         }
-        else if ((colour1 == null && colour2 != null) || (colour1 != null && colour2 == null))
+        //decides what the final result will be
+        //and yes, there is a condition for every possible combination of colours
+        if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible)
+            ||
+            (colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
+            && colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible))
         {
-            //decides what the final result will be
-            //and yes, there is a condition for every possible combination of colours
-            if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
-                && colour2 == null)
-                ||
-                (colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
-                && colour1 == null))
+            //changes the result to the stated colour
+            result.GetComponent<Image>().color = red.colour;
+            //updates the appropriate info to this colour
+            lightBG.color = red.colour;
+            player.lightType = UnitStats.LightTypes.Red;
+            if(!hasPickedColour)
             {
-                //changes the result to the stated colour
-                result.GetComponent<Image>().color = red.colour;
-                //updates the appropriate info to this colour
-                lightBG.color = red.colour;
-                player.lightType = UnitStats.LightTypes.Red;
                 stateController.actionDesc = "Player changes their light to 'Red'!";
+                hasPickedColour = true;
             }
-            else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
-                && colour2 == null)
-                ||
-                (colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
-                && colour1 == null))
+        }
+        else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible)
+            ||
+            (colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
+            && colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible))
+        {
+            //changes the result to the stated colour
+            result.GetComponent<Image>().color = blue.colour;
+            //updates the appropriate info to this colour
+            lightBG.color = blue.colour;
+            player.lightType = UnitStats.LightTypes.Blue;
+            if (!hasPickedColour)
             {
-                //changes the result to the stated colour
-                result.GetComponent<Image>().color = blue.colour;
-                //updates the appropriate info to this colour
-                lightBG.color = blue.colour;
-                player.lightType = UnitStats.LightTypes.Blue;
                 stateController.actionDesc = "Player changes their light to 'Blue'!";
+                hasPickedColour = true;
             }
-            else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
-                && colour2 == null)
-                ||
-                (colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
-                && colour1 == null))
+        }
+        else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible)
+            ||
+            (colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
+            && colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible))
+        {
+            //changes the result to the stated colour
+            result.GetComponent<Image>().color = yellow.colour;
+            //updates the appropriate info to this colour
+            lightBG.color = yellow.colour;
+            player.lightType = UnitStats.LightTypes.Yellow;
+            if(!hasPickedColour)
             {
-                //changes the result to the stated colour
-                result.GetComponent<Image>().color = yellow.colour;
-                //updates the appropriate info to this colour
-                lightBG.color = yellow.colour;
-                player.lightType = UnitStats.LightTypes.Yellow;
                 stateController.actionDesc = "Player changes their light to 'Yellow'!";
+                hasPickedColour = true;
             }
-            if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
-                && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow)
-                ||
-                (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
-                && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red))
+        }
+        if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow)
+            ||
+            (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red))
+        {
+            //changes the result to the stated colour
+            result.GetComponent<Image>().color = orange.colour;
+            //updates the appropriate info to this colour
+            lightBG.color = orange.colour;
+            player.lightType = UnitStats.LightTypes.Orange;
+            if(!hasPickedColour)
             {
-                //changes the result to the stated colour
-                result.GetComponent<Image>().color = orange.colour;
-                //updates the appropriate info to this colour
-                lightBG.color = orange.colour;
-                player.lightType = UnitStats.LightTypes.Orange;
                 stateController.actionDesc = "Player changes their light to 'Orange'!";
+                hasPickedColour = true;
             }
-            else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
-                && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue)
-                ||
-                (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
-                && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red))
+        }
+        else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue)
+            ||
+            (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red))
+        {
+            //changes the result to the stated colour
+            result.GetComponent<Image>().color = magenta.colour;
+            //updates the appropriate info to this colour
+            lightBG.color = magenta.colour;
+            player.lightType = UnitStats.LightTypes.Magenta;
+            if(!hasPickedColour)
             {
-                //changes the result to the stated colour
-                result.GetComponent<Image>().color = magenta.colour;
-                //updates the appropriate info to this colour
-                lightBG.color = magenta.colour;
-                player.lightType = UnitStats.LightTypes.Magenta;
                 stateController.actionDesc = "Player changes their light to 'Magenta'!";
+                hasPickedColour = true;
             }
-            else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
-                && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow)
-                ||
-                (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
-                && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue))
+        }
+        else if ((colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow)
+            ||
+            (colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Yellow
+            && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue))
+        {
+            //changes the result to the stated colour
+            result.GetComponent<Image>().color = green.colour;
+            //updates the appropriate info to this colour
+            lightBG.color = green.colour;
+            player.lightType = UnitStats.LightTypes.Green;
+            if(!hasPickedColour)
             {
-                //changes the result to the stated colour
-                result.GetComponent<Image>().color = green.colour;
-                //updates the appropriate info to this colour
-                lightBG.color = green.colour;
-                player.lightType = UnitStats.LightTypes.Green;
                 stateController.actionDesc = "Player changes their light to 'Green'!";
+                hasPickedColour = true;
             }
         }
     }

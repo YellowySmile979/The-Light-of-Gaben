@@ -11,6 +11,7 @@ public class DraggableColour : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     [Header("Related to Dragging")]
     public Image colour; 
     public Transform parentAfterDrag;
+    public bool isColour = false;
 
     void Start()
     {

@@ -28,7 +28,7 @@ public class EnemyCombatController : UnitStats
     //randomises which colour the enemy spawns as
     void RandomColour()
     {
-        var randomColour = Random.Range(1, 5);
+        var randomColour = Random.Range(1, 8);
         switch (randomColour)
         {
             case 1:
@@ -46,6 +46,18 @@ public class EnemyCombatController : UnitStats
             case 4:
                 lightType = LightTypes.Yellow;
                 GetComponent<Image>().color = Color.yellow;
+                break;
+            case 5:
+                lightType = LightTypes.Magenta;
+                GetComponent<Image>().color = Color.magenta;
+                break;
+            case 6:
+                lightType = LightTypes.Green;
+                GetComponent<Image>().color = Color.green;
+                break;
+            case 7:
+                lightType = LightTypes.Orange;
+                GetComponent<Image>().color = new Color(1, 0.5607843f, 0, 1);
                 break;
             default:
                 lightType = LightTypes.White;
@@ -87,7 +99,7 @@ public class EnemyCombatController : UnitStats
     {
         hasFinishedTheirTurn = false;
         print("Enemy heals self");
-        int heal = Random.Range(1, 10) + (int)attack;
+        int heal = Random.Range(1, 10) + ((int)attack / 2);
         //everything here does like Attack(), except heals self
         stateController = FindObjectOfType<CombatStateController>();
         if (health < maxHealth) healingTarget.health += heal;

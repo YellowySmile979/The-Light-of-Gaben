@@ -61,7 +61,10 @@ public class LevelManager : MonoBehaviour
     }
     void PlayExplorationMusic()
     {
-        camExplorationAudioSource.PlayOneShot(explorationMusic1, 0.1f);
+        //camExplorationAudioSource.PlayOneShot(explorationMusic1, 0.1f);
+        camExplorationAudioSource.clip = explorationMusic1;
+        camExplorationAudioSource.volume = 0.1f;
+        camExplorationAudioSource.Play();
     }
     public void SpawnLightShard()
     {

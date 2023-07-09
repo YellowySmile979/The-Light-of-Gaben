@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ColourCombininig : MonoBehaviour
 {
+    public List<DraggableColour> draggableColours = new List<DraggableColour>();
     public GameObject colourChild;
     public bool isColour1;
 
+    void Start()
+    {
+        draggableColours.Add(GetComponentInChildren<DraggableColour>());
+    }
     // Update is called once per frame
     void Update()
     {
@@ -15,14 +20,24 @@ public class ColourCombininig : MonoBehaviour
     //detects the colour
     void DetectColourChild()
     {
-        if (gameObject.GetComponentInChildren<DraggableColour>())
+        if (draggableColours.Find(colour => colour.GetComponent<DraggableColour>().scriptableColour.typeOfColour != ColourType.Invisible))
         {
-            colourChild = GetComponentInChildren<DraggableColour>().gameObject;
+            //colourChild = GetComponentInChildren<DraggableColour>().gameObject;
+            colourChild = draggableColours.Find(colour =>
+            colour.GetComponent<DraggableColour>().scriptableColour.typeOfColour != ColourType.Invisible).gameObject;
+            colourChild.transform.SetAsFirstSibling();
         }
-        else
+        if (transform.childCount == 1)
         {
-            return;
+            colourChild.transform.SetAsLastSibling();
+            //colourChild = GetComponentInChildren<DraggableColour>().gameObject;
+            DraggableColour draggableColour = draggableColours.Find(colour =>
+            colour.GetComponent<DraggableColour>().scriptableColour.typeOfColour != ColourType.Invisible);
+            draggableColours.Remove(draggableColour);
+            colourChild = draggableColours.Find(colour =>
+            colour.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible).gameObject;
         }
+        //decides if the slot is colour1 or colour2
         if (isColour1) CanvasController.Instance.ReceiveColour1(colourChild);
         else CanvasController.Instance.ReceiveColour2(colourChild);
     }

@@ -17,5 +17,6 @@ public enum ColourType
     Yellow,
     Orange,
     Magenta,
-    Green
+    Green,
+    Invisible
 }

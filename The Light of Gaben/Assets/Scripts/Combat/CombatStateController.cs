@@ -49,11 +49,17 @@ public class CombatStateController : MonoBehaviour
         print("Random music");
         if(randomTrack < 50)
         {
-            camAudioSource.PlayOneShot(combatMusic1);
+            camAudioSource.clip = combatMusic1;
+            camAudioSource.volume = 0.7f;
+            camAudioSource.Play();
+            //camAudioSource.PlayOneShot(combatMusic1, 0.7f);
         }
         else
         {
-            camAudioSource.PlayOneShot(combatMusic2);
+            camAudioSource.clip = combatMusic2;
+            camAudioSource.volume = 0.5f;
+            camAudioSource.Play();
+            //camAudioSource.PlayOneShot(combatMusic2, 0.7f);
         }
     }
     void StartState()
