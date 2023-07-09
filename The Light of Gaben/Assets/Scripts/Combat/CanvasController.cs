@@ -45,7 +45,7 @@ public class CanvasController : MonoBehaviour
         //sets the text
         combatActions.text = stateController.actionDesc.ToString();
         //changes the colour of the attack accordingly depending on what colour the player chooses
-        FinalResultingColour();
+        //FinalResultingColour();
         /*if (player.lightType == UnitStats.LightTypes.Red) lightBG.color = Color.red;
         else if (player.lightType == UnitStats.LightTypes.Blue) lightBG.color = Color.blue;
         else if (player.lightType == UnitStats.LightTypes.Yellow) lightBG.color = Color.yellow;

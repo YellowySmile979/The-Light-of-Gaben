@@ -77,6 +77,21 @@ public class PlayerCombatController : UnitStats
         stateController.actionDesc = "Player changes their light to Yellow!";
     }
 
+    public void LightChangerOrange()
+    {
+        lightType = LightTypes.Orange;
+        stateController.actionDesc = "Player changes their light to Orange!";
+    }
+    public void LightChangerGreen()
+    {
+        lightType = LightTypes.Green;
+        stateController.actionDesc = "Player changes their light to Green!";
+    }
+    public void LightChangerMagenta()
+    {
+        lightType = LightTypes.Magenta;
+        stateController.actionDesc = "Player changes their light to Magenta!";
+    }
     public void LightChangerWhite()
     {
         lightType = LightTypes.White;
