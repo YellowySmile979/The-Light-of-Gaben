@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: SRareRedBoost
   m_EditorClassIdentifier: 
-  ID: SRRedBns
   known: {fileID: -3510813460809086798, guid: 5649c4ef9975aa045a780f6f5be7a3e2, type: 3}
   rarity: 1
   hpBonus: 0
-  redMultiplier: 2
+  redMultiplier: 1
   yellowMultiplier: 0
   blueMultiplier: 0
   orangeMultiplier: 0

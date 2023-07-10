@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: SRareAttackBoost
   m_EditorClassIdentifier: 
-  ID: SRAtkBst
   known: {fileID: -8455250563329604006, guid: a497e75606fc767468f0386f53d9bd96, type: 3}
   rarity: 1
   hpBonus: 0
@@ -23,7 +22,7 @@ MonoBehaviour:
   greenMultiplier: 0
   magentaMultiplier: 0
   speedBonus: 0
-  attackBonus: 15
+  attackBonus: 5
   defenseBonus: 0
   shield: 0
   critBonus: 0

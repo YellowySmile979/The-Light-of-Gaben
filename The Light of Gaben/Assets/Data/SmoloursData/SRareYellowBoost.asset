@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: SRareYellowBoost
   m_EditorClassIdentifier: 
-  ID: SRYlwBst
   known: {fileID: 500169332240608110, guid: a497e75606fc767468f0386f53d9bd96, type: 3}
   rarity: 1
   hpBonus: 0
   redMultiplier: 0
-  yellowMultiplier: 2
+  yellowMultiplier: 1
   blueMultiplier: 0
   orangeMultiplier: 0
   greenMultiplier: 0

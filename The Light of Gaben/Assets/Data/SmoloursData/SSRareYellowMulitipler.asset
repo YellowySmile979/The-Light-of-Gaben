@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: SSRareYellowMulitipler
   m_EditorClassIdentifier: 
-  ID: SSRYlwMut
   known: {fileID: -8836014038229330232, guid: d54e3a73daa8def479547a8c2edbf22b, type: 3}
   rarity: 2
   hpBonus: 0
   redMultiplier: 0
-  yellowMultiplier: 5
+  yellowMultiplier: 4
   blueMultiplier: 0
   orangeMultiplier: 0
   greenMultiplier: 0
