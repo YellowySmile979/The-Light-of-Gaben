@@ -30,7 +30,18 @@ public class LevelEndGoal : MonoBehaviour
         if (LoadSceneManager.Instance.canWin)
         {
             //player can win
-            SceneManager.LoadScene(LoadSceneManager.Instance.sceneNames[randomNumber]);
+            if(PlayerPrefs.GetInt("Floor Number") <= 5)
+            {
+                SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNumber]);
+            }
+            else if(PlayerPrefs.GetInt("Floor Number") > 5 && PlayerPrefs.GetInt("Floor Number") <= 10)
+            {
+                SceneManager.LoadScene(LoadSceneManager.Instance.mediumSceneNames[randomNumber]);
+            }
+            else if(PlayerPrefs.GetInt("Floor Number") > 10 && PlayerPrefs.GetInt("Floor Number") <= 15)
+            {
+                SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNumber]);
+            }
         }
     }
 }
