@@ -23,6 +23,8 @@ public class PlayerCombatController : UnitStats
     public RuntimeAnimatorController orangeAnim;
     public RuntimeAnimatorController greenAnim;
     public RuntimeAnimatorController purpleAnim;
+
+    public RuntimeAnimatorController heal;
     public Animator animator;
 
     public static PlayerCombatController Instance;
@@ -83,7 +85,7 @@ public class PlayerCombatController : UnitStats
         //heals self
         healTarget.HealDamage(heal);
         //shows what happened
-        stateController.actionDesc = "Player heals themself for " + heal + " health!";
+        stateController.actionDesc = "Gaben heals himself for " + heal + " health!";
         //updates the hp bar for the main HUD
         //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
@@ -131,40 +133,40 @@ public class PlayerCombatController : UnitStats
     public void LightChangerBlue()
     {
         lightType = LightTypes.Blue;
-        stateController.actionDesc = "Player changes their light to Blue!";
+        stateController.actionDesc = "Gaben changes his light to Blue!";
     }
 
     public void LightChangerRed()
     {
         lightType = LightTypes.Red;
-        stateController.actionDesc = "Player changes their light to Red!";
+        stateController.actionDesc = "Gaben changes his light to Red!";
     }
 
     public void LightChangerYellow()
     {
         lightType = LightTypes.Yellow;
-        stateController.actionDesc = "Player changes their light to Yellow!";
+        stateController.actionDesc = "Gaben changes his light to Yellow!";
     }
 
     public void LightChangerOrange()
     {
         lightType = LightTypes.Orange;
-        stateController.actionDesc = "Player changes their light to Orange!";
+        stateController.actionDesc = "Gaben changes his light to Orange!";
     }
     public void LightChangerGreen()
     {
         lightType = LightTypes.Green;
-        stateController.actionDesc = "Player changes their light to Green!";
+        stateController.actionDesc = "Gaben changes his light to Green!";
     }
     public void LightChangerMagenta()
     {
         lightType = LightTypes.Magenta;
-        stateController.actionDesc = "Player changes their light to Magenta!";
+        stateController.actionDesc = "Gaben changes his light to Magenta!";
     }
     public void LightChangerWhite()
     {
         lightType = LightTypes.White;
-        stateController.actionDesc = "Player changes their light to White!";
+        stateController.actionDesc = "Gaben changes his light to White!";
     }
     public void UpdatePlayerLevel(float xpGiven)
     {
