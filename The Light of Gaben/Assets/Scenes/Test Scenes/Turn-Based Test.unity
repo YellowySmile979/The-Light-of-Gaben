@@ -175,6 +175,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 109706804, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1120.7244
+      objectReference: {fileID: 0}
+    - target: {fileID: 109706804, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 633.4191
+      objectReference: {fileID: 0}
+    - target: {fileID: 109706804, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 117.76297
+      objectReference: {fileID: 0}
+    - target: {fileID: 109706804, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 137.64484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278863437, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278863437, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 534083736240082505, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5789798505608056338, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -263,9 +291,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurnBased Combat
       objectReference: {fileID: 0}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: flash
+      value: 
+      objectReference: {fileID: 8936266892992936878}
     - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: crit
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+--- !u!1 &8936266892992936878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1278863436, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+  m_PrefabInstance: {fileID: 8936266892992936877}
+  m_PrefabAsset: {fileID: 0}
