@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: RareBlueBonus
   m_EditorClassIdentifier: 
+  ID: RareBluBns
   known: {fileID: 1132432112563908636, guid: 2b39c7608f7ed884cb893a940038e203, type: 3}
   rarity: 0
   hpBonus: 0

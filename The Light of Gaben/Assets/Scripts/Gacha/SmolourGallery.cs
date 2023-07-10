@@ -12,7 +12,6 @@ public class SmolourGallery : MonoBehaviour
     public Image[] Images;
     public GameObject Gallery;
     public GameObject SelectScreen;
-
     private void Start()
     {
         Close();
@@ -21,7 +20,10 @@ public class SmolourGallery : MonoBehaviour
     {
         Gallery.SetActive(false);
     }
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public void Open()
     {
         Gallery.SetActive(true);
