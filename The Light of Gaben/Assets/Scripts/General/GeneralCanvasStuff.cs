@@ -10,16 +10,19 @@ public class GeneralCanvasStuff : MonoBehaviour
     public Text levelText, floorText, winConditionText;
     [Header("Game Over Screen")]
     public GameObject gameOverScreen;
+    public GameObject mapScreenOverlay;
     public static bool fade = false;
     public Text finalLevelText, finalPPText, finalLSText, finalTotalDMG, finalSmouloursCount;    
     public Image backgroundGameOverScreen;
     public string mainMenu;
 
     public static GeneralCanvasStuff Instance;
+    public bool mapOpen;
 
     void Awake()
     {
         Instance = this;
+        mapOpen = false;
     }
     void Update()
     {
@@ -74,5 +77,21 @@ public class GeneralCanvasStuff : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(mainMenu);
+    }
+
+    public void OpenMap()
+    {
+        mapScreenOverlay.SetActive(true);
+        //mapOpen = true;
+
+    }
+
+    public void CloseMap()
+    {
+        //if( mapOpen == true){
+            mapScreenOverlay.SetActive(false);
+            //mapOpen = false;
+        //}
+        //else mapScreenOverlay.SetActive(true);
     }
 }

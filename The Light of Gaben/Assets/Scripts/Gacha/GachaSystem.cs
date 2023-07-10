@@ -17,7 +17,7 @@ public class GachaSystem : MonoBehaviour
     public Button RollButton;
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
 
-    public GameObject SelectScreen;
+    public GameObject SelectScreen, Instructions1Screen, Instructions2Screen;
 
     //The Gacha System
     // Current drop rates are:

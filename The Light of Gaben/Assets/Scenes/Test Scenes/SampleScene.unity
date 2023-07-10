@@ -353,18 +353,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smolourBuffsSelected: []
-  hpPlus: 
-  atkPlus: 
-  defPlus: 
-  spPlus: 
-  critPlus: 
-  shieldPlus: 
-  redPlus: 
-  bluePlus: 
-  yellowPlus: 
-  orangePlus: 
-  greenPlus: 
-  magentaPlus: 
+  hpPlus: 0
+  atkPlus: 0
+  defPlus: 0
+  spPlus: 0
+  critPlus: 0
+  shieldPlus: 0
+  redPlus: 0
+  bluePlus: 0
+  yellowPlus: 0
+  orangePlus: 0
+  greenPlus: 0
+  magentaPlus: 0
 --- !u!1 &228764195
 GameObject:
   m_ObjectHideFlags: 0
@@ -54773,6 +54773,10 @@ PrefabInstance:
       propertyPath: flashlightTransform
       value: 
       objectReference: {fileID: 996216906}
+    - target: {fileID: 6064957411694028266, guid: 8387474fcc75dc441a512608c240f0c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8387474fcc75dc441a512608c240f0c5, type: 3}
 --- !u!1001 &7381109794823078223
