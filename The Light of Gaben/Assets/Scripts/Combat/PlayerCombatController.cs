@@ -35,7 +35,7 @@ public class PlayerCombatController : UnitStats
     void Start()
     {
         HealthBar.Instance.maxHealth = this.maxHealth;
-        HealthBar.Instance.currentHealth = this.health;
+        HealthBar.Instance.currentHealth = PlayerPrefs.GetFloat("Current Health");
     }
     public void SelectTarget()
     {
@@ -49,7 +49,7 @@ public class PlayerCombatController : UnitStats
         //selects the target
         SelectTarget();
         //sets the hp bar for the main HUD
-        HealthBar.Instance.currentHealth = this.health;
+        //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
         int damage = (int)attack;
         playerPrefsDMG += damage;
@@ -71,7 +71,7 @@ public class PlayerCombatController : UnitStats
         //shows what happened
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
         //updates the hp bar for the main HUD
-        HealthBar.Instance.currentHealth = this.health;
+        //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
         StartCoroutine(WaitUnitStatsVer());
     }

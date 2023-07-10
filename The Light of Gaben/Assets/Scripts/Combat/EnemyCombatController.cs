@@ -88,7 +88,7 @@ public class EnemyCombatController : UnitStats
         //makes player takedamage
         player.TakeDamage(attack, this, player);
         //tells player what happened
-        stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
+        //stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
         hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }

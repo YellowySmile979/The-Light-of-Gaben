@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc8ba91a273056a4faa3a13a03cc702f, type: 3}
-  m_Name: Key
+  m_Name: WinConditonals
   m_EditorClassIdentifier: 
-  nameOfItem: Key
-  type: 0
-  icon: {fileID: 21300000, guid: 12e20f4487546d74a8d432797779054d, type: 3}
-  ic: {fileID: 763385891739640293, guid: a9672fdb17eb97048aacd608cd531a42, type: 3}
+  nameOfItem: Win Item
+  type: 2
+  icon: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  ic: {fileID: 6307370249779158888, guid: f416b62d7ad0d4643b2cf1f7b1790d74, type: 3}
