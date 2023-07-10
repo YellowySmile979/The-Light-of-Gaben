@@ -40,6 +40,8 @@ public class GachaSystem : MonoBehaviour
             else RSmolours.Add(smolour);
         }
     }
+
+    public void Close() { gameObject.SetActive(false); }
     public void Roll()
     {
         rolled = new List<SmoloursData>();

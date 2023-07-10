@@ -6,6 +6,7 @@ public class PlayerCombatController : UnitStats
 {
     UnitStats attackTarget;
     UnitStats healTarget;
+    PlayerSmolourController smolourController;
     int playerPrefsDMG;
     [Header("Player Stats")]
     public float playerXP = 0;
@@ -27,6 +28,8 @@ public class PlayerCombatController : UnitStats
     void Awake()
     {
         Instance = this;
+        smolourController = FindObjectOfType<PlayerSmolourController>();
+        smolourController.smolourBuffsSelected = smolourBuffs;
     }
 
     void Start()

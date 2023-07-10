@@ -10,8 +10,13 @@ public class SmolourButtonSelect : MonoBehaviour
     public Button button;
     public SmoloursData smoloursData;
     public SelectSmolours selectSmolours;
-    public PlayerCombatController player;
+    PlayerSmolourController smolourController;
     bool selected;
+
+    public void Start()
+    {
+        smolourController = FindObjectOfType<PlayerSmolourController>();
+    }
 
     public void Pressed()
     {
@@ -29,7 +34,7 @@ public class SmolourButtonSelect : MonoBehaviour
 
     private void Update()
     {
-        if (player.smolourBuffs.Count == 6 && !selected) //if there are already 6 buffs selected and current button is not selected,
+        if (smolourController.smolourBuffsSelected.Count == 6 && !selected) //if there are already 6 buffs selected and current button is not selected,
         {
             button.interactable = false;
         }
