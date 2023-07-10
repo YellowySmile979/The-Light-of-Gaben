@@ -29,7 +29,7 @@ public class ColourCombininig : MonoBehaviour
         }
         if (transform.childCount == 1)
         {
-            colourChild.transform.SetAsLastSibling();
+            if (colourChild != null) colourChild.transform.SetAsLastSibling();
             //colourChild = GetComponentInChildren<DraggableColour>().gameObject;
             DraggableColour draggableColour = draggableColours.Find(colour =>
             colour.GetComponent<DraggableColour>().scriptableColour.typeOfColour != ColourType.Invisible);

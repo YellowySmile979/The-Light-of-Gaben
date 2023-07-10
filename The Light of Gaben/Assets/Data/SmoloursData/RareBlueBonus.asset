@@ -14,19 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   known: {fileID: 1132432112563908636, guid: 2b39c7608f7ed884cb893a940038e203, type: 3}
   rarity: 0
-  hpMultiplier: 0
   hpBonus: 0
   redMultiplier: 0
-  redBonus: 0
   yellowMultiplier: 0
-  yellowBonus: 0
-  blueMultiplier: 0
-  blueBonus: 5
-  speedMultiplier: 0
+  blueMultiplier: 1.25
+  orangeMultiplier: 0
+  greenMultiplier: 0
+  magentaMultiplier: 0
   speedBonus: 0
-  attackMulitplier: 0
   attackBonus: 0
-  defenseMultiplier: 0
   defenseBonus: 0
   shield: 0
   critBonus: 0

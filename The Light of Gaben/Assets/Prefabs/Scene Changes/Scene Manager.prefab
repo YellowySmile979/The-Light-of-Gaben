@@ -43,8 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034a2b9d0ca8da64fa27f086b202ffdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames:
-  - Easy1
+  easySceneNames:
+  - Easy 1
+  - Easy 2
+  - Easy 3
+  - Easy 4
+  - Easy 5
+  mediumSceneNames:
+  - Easy 6
+  - Easy 7
+  - Easy 8
+  - Easy 9
+  - Hard 10
+  hardSceneNames:
+  - Hard 11
+  - Hard 12
+  - Hard 13
+  - Hard 14
+  - Hard 15
   loseScene: Start
   deactivateTimer: 0
   info: Do not delete or modify this. 0 is minKillRequirement, 1 is timer, 2 is itemsToCollect.

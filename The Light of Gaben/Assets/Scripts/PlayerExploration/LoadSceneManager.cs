@@ -7,11 +7,14 @@ public class LoadSceneManager : MonoBehaviour
     public static LoadSceneManager Instance;
 
     [Header("Scenes")]
-    //please input ur selected scene names
-    public List<string> sceneNames = new List<string>();
+    //please input ur selected scene names FOR EASY
+    public List<string> easySceneNames = new List<string>();
+    public List<string> mediumSceneNames = new List<string>();
+    public List<string> hardSceneNames = new List<string>();
+
     public string loseScene;
     [HideInInspector] public bool deactivateTimer = false;
-    int randomNumber;
+    int easyRandomNumber, mediumRandomNumber, hardRandomNumber;
     float timer, initialTime = 10f;
 
     [Header("Win Conditions")]
@@ -34,7 +37,9 @@ public class LoadSceneManager : MonoBehaviour
     void Start()
     {
         canWin = false;
-        randomNumber = Random.Range(0, sceneNames.Count - 1);
+        easyRandomNumber = Random.Range(0, easySceneNames.Count - 1);
+        mediumRandomNumber = Random.Range(0, mediumSceneNames.Count - 1);
+        hardRandomNumber = Random.Range(0, hardSceneNames.Count - 1);
         initialNumberOfEnemies = baseEnemies.Count - (int)minKillRequirement;
         timer = initialTime;        
     }
@@ -55,8 +60,21 @@ public class LoadSceneManager : MonoBehaviour
     {
         if (timer <= 0)
         {
-            randomNumber = Random.Range(0, sceneNames.Count - 1);
-            LevelEndGoal.Instance.Win(randomNumber);
+            if (PlayerPrefs.GetInt("Floor Number") <= 5)
+            {
+                easyRandomNumber = Random.Range(0, easySceneNames.Count - 1);
+                LevelEndGoal.Instance.Win(easyRandomNumber);
+            }
+            else if(PlayerPrefs.GetInt("Floor Number") <= 10 && PlayerPrefs.GetInt("Floor Number") > 5)
+            {
+                mediumRandomNumber = Random.Range(0, mediumSceneNames.Count - 1);
+                LevelEndGoal.Instance.Win(mediumRandomNumber);
+            }
+            else if(PlayerPrefs.GetInt("Floor Number") <= 15 && PlayerPrefs.GetInt("Floor Number") > 10)
+            {
+                hardRandomNumber = Random.Range(0, hardSceneNames.Count - 1);
+                LevelEndGoal.Instance.Win(hardRandomNumber);
+            }
             timer = initialTime;
         }
         else

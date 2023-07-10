@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class UnitStats : MonoBehaviour
 {
-
     [Header("Unit Stats")]
     public float attack = 10;
     public float defense = 0;
@@ -19,15 +18,19 @@ public abstract class UnitStats : MonoBehaviour
 
     public bool hasFinishedTheirTurn;
 
-    [Header ("Smolour Buff Stats")]
-    float redMultiplier = 1.0f, redBonus = 0.0f;
-    float yellowMultiplier = 1.0f, yellowBonus = 0.0f;
-    float blueMultiplier = 1.0f, blueBonus = 0.0f;
-    float speedMultiplier = 1.0f, speedBonus = 0.0f;
-    float attackMulitplier = 1.0f, attackBonus = 0.0f;
-    float defenseMultiplier = 1.0f, defenseBonus = 0.0f;
-    float shield = 0.0f;
-    int critBonus = 0;
+    [Header("Smolour Buff Stats")]
+    public float redMultiplier = 1.0f;
+    public float yellowMultiplier = 1.0f;
+    public float blueMultiplier = 1.0f;
+    public float orangeMultiplier = 1.0f;
+    public float greenMultiplier = 1.0f;
+    public float magentaMultiplier = 1.0f;
+    public float hpBonus = 0.0f;
+    public float speedBonus = 0.0f;
+    public float attackBonus = 0.0f;
+    public float defenseBonus = 0.0f;
+    public float shield = 0.0f;
+    public float critBonus = 0;
     public List<SmoloursData> smolourBuffs;
 
     public bool isDead = false;
@@ -40,11 +43,13 @@ public abstract class UnitStats : MonoBehaviour
     void Awake()
     {
         stateController = FindObjectOfType<CombatStateController>();
+        maxHealth += hpBonus;
+        UpdateComb();
     }
     // Calculates nextTurnIn value   
     public void CalculateNextTurn(int currentTurn)
     {
-        nextTurnIn = currentTurn + (Random.Range(1, 50) - ((speed+speedBonus)*speedMultiplier));
+        nextTurnIn = currentTurn + (Random.Range(1, 50) - (speed+speedBonus));
     }
 
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
@@ -56,7 +61,10 @@ public abstract class UnitStats : MonoBehaviour
         // Red > Blue > Yellow > Red
         // - noelle
         
-        dmg = (((2 * attacker.level * (attacker.crit + attacker.critBonus) / 5) + 2) * attacker.WV * (((attacker.attack + attacker.attackBonus)*attackMulitplier) / ((attackee.defense+ attacker.defenseBonus)* attacker.defenseMultiplier)) / 2) +2 ;
+        dmg = (((2 * attacker.level * 
+            (attacker.crit + attacker.critBonus) / 5) + 2) 
+            * attacker.WV 
+            * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attacker.defenseBonus)) / 2) +2;
         
         // Switch Case for Light Weakness
         switch (attackee.lightType)
@@ -128,16 +136,22 @@ public abstract class UnitStats : MonoBehaviour
         switch (attacker.lightType)
         {
             case LightTypes.Red:
-                dmg += attacker.redBonus;
                 dmg *= attacker.redMultiplier;
                 break;
             case LightTypes.Blue:
-                dmg += attacker.blueBonus;
                 dmg *= attacker.blueMultiplier;
                 break;
             case LightTypes.Yellow:
-                dmg += attacker.yellowBonus;
                 dmg *= attacker.yellowMultiplier;
+                break;
+            case LightTypes.Orange:
+                dmg *= attacker.orangeMultiplier;
+                break;
+            case LightTypes.Green:
+                dmg *= attacker.greenMultiplier;
+                break;
+            case LightTypes.Magenta:
+                dmg *= attacker.magentaMultiplier;
                 break;
             default:
                 break;
@@ -167,5 +181,37 @@ public abstract class UnitStats : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         stateController.NextTurn();
         print("WaitUnitStatsVer() called");
+    }
+
+    public void UpdateComb()
+    {
+        hpBonus = 0;
+        attackBonus = 0;
+        defenseBonus = 0;
+        speedBonus = 0;
+        critBonus = 0;
+        shield = 0;
+        redMultiplier = 0;
+        blueMultiplier = 0;
+        yellowMultiplier = 0;
+        orangeMultiplier = 0;
+        greenMultiplier = 0;
+        magentaMultiplier = 0;
+
+        foreach (SmoloursData smoloursData in smolourBuffs)
+        {
+            hpBonus += smoloursData.hpBonus;
+            attackBonus += smoloursData.attackBonus;
+            defenseBonus += smoloursData.defenseBonus;
+            speedBonus += smoloursData.speedBonus;
+            critBonus += smoloursData.critBonus;
+            shield += smoloursData.shield;
+            redMultiplier += smoloursData.redMultiplier;
+            blueMultiplier += smoloursData.blueMultiplier;
+            yellowMultiplier += smoloursData.yellowMultiplier;
+            orangeMultiplier += smoloursData.orangeMultiplier;
+            greenMultiplier += smoloursData.greenMultiplier;
+            magentaMultiplier += smoloursData.magentaMultiplier;
+        }
     }
 }

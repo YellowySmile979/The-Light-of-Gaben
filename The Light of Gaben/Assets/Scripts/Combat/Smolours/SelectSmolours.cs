@@ -6,44 +6,71 @@ using UnityEngine.UI;
 public class SelectSmolours : MonoBehaviour
 {
     public GameObject buttonPrefab, buttonParent;
-    public Text playerStats;
-    public Text smolourBuffs;
+    public Text finalStats;
     SmolourGallery gallery;
-    public PlayerCombatController player;
+    PlayerSmolourController smolourController;
+    public int buttonCount = 0;
 
-    public void Close() { gameObject.SetActive(false); }
+    public void Close()
+    { 
+        gameObject.SetActive(false);
+    }
 
-    private void Start() { Close(); }
-    private void OnEnable()
+    private void Start()
     {
         gallery = FindObjectOfType<SmolourGallery>();
-        player = FindObjectOfType<PlayerCombatController>();
-        if (player = null)
-        {
-            GameObject tempPlayer = Instantiate(gameObject);
-            tempPlayer.GetComponent<PlayerCombatController>();
-        }
+        smolourController = FindObjectOfType<PlayerSmolourController>();
+        Debug.Log("SelectScreenStart");
+        Close();
+    }
 
-        for (int i = 0; i < gallery.collectedSmolours.Count; i++)
+    private void Update()
+    {
+        if (gallery.collectedSmolours.Count != buttonCount)
         {
-            SmoloursData smolour = gallery.collectedSmolours[i];
+            SmoloursData smolour = gallery.collectedSmolours[buttonCount];
             GameObject newbutton = Instantiate(buttonPrefab, buttonParent.transform);
             newbutton.GetComponent<SmolourButtonSelect>().displayed.sprite = smolour.known;
             newbutton.GetComponent<SmolourButtonSelect>().buttonText.text = smolour.description;
             newbutton.GetComponent<SmolourButtonSelect>().smoloursData = smolour;
+            newbutton.GetComponent<SmolourButtonSelect>().selectSmolours = this;
+            newbutton.GetComponent<SmolourButtonSelect>().button = newbutton.GetComponent<Button>();
+            buttonCount += 1;
+            //UpdateStats();
         }
-
-        playerStats.text = player.attack.ToString();
     }
 
     public void SelectSmolour(SmoloursData smolour)
     {
         Debug.Log("Added smolour to smolour buffs");
-        player.smolourBuffs.Add(smolour);
+        //player.smolourBuffs.Add(smolour);
+        smolourController.smolourBuffsSelected.Add(smolour);
+        smolourController.UpdateComb();
+        UpdateStats();
     }
 
     public void Deselect(SmoloursData smolour)
     {
-        player.smolourBuffs.Remove(smolour);
+        //player.smolourBuffs.Remove(smolour);
+        smolourController.smolourBuffsSelected.Remove(smolour);
+        smolourController.UpdateComb();
+        UpdateStats();
+    }
+
+    public void UpdateStats()
+    {
+        finalStats.text =
+            "+" + smolourController.hpPlus + "\n" +
+            "+" + smolourController.atkPlus + "\n" +
+            "+" + smolourController.defPlus + "\n" +
+            "+" + smolourController.critPlus + "\n" +
+            "+" + smolourController.spPlus + "\n" +
+            "\n"+
+            "x" + smolourController.redPlus + "\n" +
+            "x" + smolourController.bluePlus + "\n" +
+            "x" + smolourController.yellowPlus + "\n" +
+            "x" + smolourController.orangePlus + "\n" +
+            "x" + smolourController.orangePlus + "\n" +
+            "x" + smolourController.magentaPlus + "\n";
     }
 }

@@ -6,15 +6,30 @@ public class PlayerCombatController : UnitStats
 {
     UnitStats attackTarget;
     UnitStats healTarget;
+    PlayerSmolourController smolourController;
     int playerPrefsDMG;
     [Header("Player Stats")]
     public float playerXP = 0;
+    public GameObject w;
+
+    [Header("Animator")]
+
+    public RuntimeAnimatorController whiteAnim;
+    public RuntimeAnimatorController redAnim;
+    public RuntimeAnimatorController blueAnim;
+    public RuntimeAnimatorController yellowAnim;
+    public RuntimeAnimatorController orangeAnim;
+    public RuntimeAnimatorController greenAnim;
+    public RuntimeAnimatorController purpleAnim;
+    public Animator animator;
 
     public static PlayerCombatController Instance;
 
     void Awake()
     {
         Instance = this;
+        smolourController = FindObjectOfType<PlayerSmolourController>();
+        smolourController.smolourBuffsSelected = smolourBuffs;
     }
 
     void Start()
@@ -35,6 +50,7 @@ public class PlayerCombatController : UnitStats
         SelectTarget();
         //sets the hp bar for the main HUD
         HealthBar.Instance.currentHealth = this.health;
+        PlayerPrefs.SetFloat("Current Health", this.health);
         int damage = (int)attack;
         playerPrefsDMG += damage;
         //sets the total damage for the end card
@@ -56,6 +72,7 @@ public class PlayerCombatController : UnitStats
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
         //updates the hp bar for the main HUD
         HealthBar.Instance.currentHealth = this.health;
+        PlayerPrefs.SetFloat("Current Health", this.health);
         StartCoroutine(WaitUnitStatsVer());
     }
 
@@ -77,6 +94,21 @@ public class PlayerCombatController : UnitStats
         stateController.actionDesc = "Player changes their light to Yellow!";
     }
 
+    public void LightChangerOrange()
+    {
+        lightType = LightTypes.Orange;
+        stateController.actionDesc = "Player changes their light to Orange!";
+    }
+    public void LightChangerGreen()
+    {
+        lightType = LightTypes.Green;
+        stateController.actionDesc = "Player changes their light to Green!";
+    }
+    public void LightChangerMagenta()
+    {
+        lightType = LightTypes.Magenta;
+        stateController.actionDesc = "Player changes their light to Magenta!";
+    }
     public void LightChangerWhite()
     {
         lightType = LightTypes.White;

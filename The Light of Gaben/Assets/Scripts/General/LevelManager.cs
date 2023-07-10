@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource camExplorationAudioSource;
-    public AudioClip explorationMusic1, confirmSFX, selectUiSFX, itemDenySFX, itemUseSFX, pickUpItemSFX;
+    public AudioClip explorationMusic1, confirmSFX, selectUiSFX, itemDenySFX, itemUseSFX, pickUpItemSFX, footstepsSFX;
 
     [Header("Enemies")]
     public List<BaseEnemy> enemies = new List<BaseEnemy>();
@@ -26,6 +26,8 @@ public class LevelManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject gachaScreen;
+
+    [HideInInspector] public Sprite spr;
 
     void Awake()
     {
@@ -44,6 +46,11 @@ public class LevelManager : MonoBehaviour
     {
         enemies.AddRange(FindObjectsOfType<BaseEnemy>());
         camExplorationAudioSource = GetComponent<AudioSource>();
+    }
+    //self-explanatory
+    public void ChangeEnemyInCombatSprite(Sprite sprite)
+    {
+        spr = sprite;
     }
     // Update is called once per frame
     void Update()

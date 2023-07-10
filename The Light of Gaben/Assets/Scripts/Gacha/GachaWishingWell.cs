@@ -17,6 +17,14 @@ public class GachaWishingWell : MonoBehaviour
             hasCollided = true;
         }
     }
+
+    public void Close()
+    {
+        Time.timeScale = 1;
+        gachaScreen.SetActive(false);
+        hasCollided = false;
+    }
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerMovement>())
