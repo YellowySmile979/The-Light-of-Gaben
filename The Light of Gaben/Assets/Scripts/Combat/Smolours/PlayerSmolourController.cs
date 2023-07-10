@@ -5,17 +5,14 @@ using UnityEngine;
 public class PlayerSmolourController : MonoBehaviour
 {
     public static PlayerSmolourController Instance;
+    SmolourGallery gallery;
     public List<SmoloursData> smolourBuffsSelected;
 
-    public string hpPlus, atkPlus, defPlus, spPlus, critPlus, shieldPlus, redPlus, bluePlus, yellowPlus, orangePlus, greenPlus, magentaPlus;
+    public float hpPlus, atkPlus, defPlus, spPlus, critPlus, shieldPlus, redPlus, bluePlus, yellowPlus, orangePlus, greenPlus, magentaPlus;
 
-    private void Awake()
+    private void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        DontDestroyOnLoad(gameObject);
+        gallery = FindObjectOfType<SmolourGallery>();
     }
     public void UpdateComb()
     {
@@ -25,12 +22,12 @@ public class PlayerSmolourController : MonoBehaviour
             combSP = 0, 
             combCRIT = 0,
             combSHIELD = 0,
-            combred = 0, 
-            combblue = 0,
-            combyellow = 0,
-            comborange = 0,
-            combgreen = 0,
-            combmagenta = 0;
+            combred = 1, 
+            combblue = 1,
+            combyellow = 1,
+            comborange = 1,
+            combgreen = 1,
+            combmagenta = 1;
 
         foreach (SmoloursData smoloursData in smolourBuffsSelected)
         {
@@ -48,20 +45,17 @@ public class PlayerSmolourController : MonoBehaviour
             combmagenta += smoloursData.magentaMultiplier;
         }
 
-        hpPlus = combHP.ToString();
-        atkPlus = combATK.ToString();
-        defPlus = combDEF.ToString();
-        spPlus = combSP.ToString();
-        critPlus = combCRIT.ToString();
-        shieldPlus = combSHIELD.ToString();
-        redPlus = combred.ToString();
-        bluePlus = combblue.ToString();
-        yellowPlus = combyellow.ToString();
-        orangePlus = comborange.ToString();
-        greenPlus = combgreen.ToString();
-        magentaPlus = combmagenta.ToString();
-
-        Instance = this;
-        Instance.smolourBuffsSelected = smolourBuffsSelected;
+        hpPlus = combHP;
+        atkPlus = combATK;
+        defPlus = combDEF;
+        spPlus = combSP;
+        critPlus = combCRIT;
+        shieldPlus = combSHIELD;
+        redPlus = combred;
+        bluePlus = combblue;
+        yellowPlus = combyellow;
+        orangePlus = comborange;
+        greenPlus = combgreen;
+        magentaPlus = combmagenta;
     }
 }

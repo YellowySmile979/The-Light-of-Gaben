@@ -17,7 +17,7 @@ MonoBehaviour:
   hpBonus: 0
   redMultiplier: 0
   yellowMultiplier: 0
-  blueMultiplier: 1.25
+  blueMultiplier: 0.25
   orangeMultiplier: 0
   greenMultiplier: 0
   magentaMultiplier: 0

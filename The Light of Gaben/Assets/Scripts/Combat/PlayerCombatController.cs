@@ -33,7 +33,6 @@ public class PlayerCombatController : UnitStats
     {
         Instance = this;
         smolourController = FindObjectOfType<PlayerSmolourController>();
-        smolourController.smolourBuffsSelected = smolourBuffs;
     }
 
     void Start()
@@ -41,6 +40,19 @@ public class PlayerCombatController : UnitStats
         HealthBar.Instance.maxHealth = this.maxHealth;
         HealthBar.Instance.currentHealth = PlayerPrefs.GetFloat("Current Health");
 
+
+        hpBonus = smolourController.hpPlus;
+        attackBonus = smolourController.atkPlus;
+        defenseBonus = smolourController.defPlus;
+        critBonus = smolourController.critPlus;
+        speedBonus = smolourController.spPlus;
+
+        redMultiplier = smolourController.redPlus;
+        blueMultiplier = smolourController.bluePlus;
+        yellowMultiplier = smolourController.yellowPlus;
+        orangeMultiplier = smolourController.orangePlus;
+        greenMultiplier = smolourController.greenPlus;
+        magentaMultiplier = smolourController.magentaPlus;
         //stops the anim
         animator.speed = 0;
     }

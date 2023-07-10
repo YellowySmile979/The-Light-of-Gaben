@@ -22,7 +22,7 @@ MonoBehaviour:
   greenMultiplier: 0
   magentaMultiplier: 0
   speedBonus: 0
-  attackBonus: 15
+  attackBonus: 5
   defenseBonus: 0
   shield: 0
   critBonus: 0

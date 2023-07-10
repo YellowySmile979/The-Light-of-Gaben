@@ -16,7 +16,7 @@ MonoBehaviour:
   rarity: 0
   hpBonus: 0
   redMultiplier: 0
-  yellowMultiplier: 1.25
+  yellowMultiplier: 0.25
   blueMultiplier: 0
   orangeMultiplier: 0
   greenMultiplier: 0
