@@ -263,5 +263,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurnBased Combat
       objectReference: {fileID: 0}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: crit
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}

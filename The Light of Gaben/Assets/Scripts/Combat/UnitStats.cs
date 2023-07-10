@@ -130,8 +130,10 @@ public abstract class UnitStats : MonoBehaviour
                 }
                 break;
             default:
+                print("Gaben is White");
                 break;
         }
+        
         // Switch Case for Smolour Buffs
         switch (attacker.lightType)
         {
@@ -154,13 +156,13 @@ public abstract class UnitStats : MonoBehaviour
                 dmg *= attacker.magentaMultiplier;
                 break;
             default:
+                print("No Smolours");                
                 break;
         }
-
+        print("The dmg is: " + dmg);
         health -= dmg;
 
         stateController.actionDesc = "Player attacks " + attackee.name + " for " + dmg + " damage!";
-
     }
 
     public void HealDamage(float heal)
