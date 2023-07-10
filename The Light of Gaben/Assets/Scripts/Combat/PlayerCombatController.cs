@@ -50,6 +50,7 @@ public class PlayerCombatController : UnitStats
         SelectTarget();
         //sets the hp bar for the main HUD
         HealthBar.Instance.currentHealth = this.health;
+        PlayerPrefs.SetFloat("Current Health", this.health);
         int damage = (int)attack;
         playerPrefsDMG += damage;
         //sets the total damage for the end card
@@ -71,6 +72,7 @@ public class PlayerCombatController : UnitStats
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
         //updates the hp bar for the main HUD
         HealthBar.Instance.currentHealth = this.health;
+        PlayerPrefs.SetFloat("Current Health", this.health);
         StartCoroutine(WaitUnitStatsVer());
     }
 

@@ -9,4 +9,6 @@ public class EnemyData : ScriptableObject
     public float deceleration = 50f;
     public float moveSpeed = 10f;
     public float turnSpeed = 100f;
+
+    public Sprite enemySprite;
 }

@@ -28,6 +28,7 @@ public class HealthBar : MonoBehaviour
     //updates the health UI according to the remaining battlehealth
     public void UpdateHealth()
     {
+        PlayerPrefs.GetFloat("Current Health", currentHealth);
         if (currentHealth == maxHealth)
         {
             image.sprite = fullHP;

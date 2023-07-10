@@ -12,8 +12,11 @@ public class EnemyCombatController : UnitStats
     public float xpToGive = 10f;
     public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
 
+    Image image;
+
     void Start()
     {
+        image = GetComponent<Image>();
         healingTarget = this;
         if (lowestProbabilityInt == 0)
         {
@@ -24,6 +27,12 @@ public class EnemyCombatController : UnitStats
             highestProbabilityInt = 100;
         }
         RandomColour();
+        ChangeSprite();
+    }
+    //change sprites to the corresponding enemy
+    void ChangeSprite()
+    {
+        image.sprite = LevelManager.Instance.spr;
     }
     //randomises which colour the enemy spawns as
     void RandomColour()

@@ -313,7 +313,7 @@ MonoBehaviour:
   movementVector: {x: 0, y: 0}
   currentSpeed: 0
   currentForwardDirection: 1
-  enemyData: {fileID: 11400000, guid: 6e9da306f5e7c1445b989cd90ad89ce2, type: 2}
+  enemyData: {fileID: 11400000, guid: 6b14b52b6f24a6041a6a6a3bf87846aa, type: 2}
 --- !u!1 &138784856
 GameObject:
   m_ObjectHideFlags: 0
@@ -21878,7 +21878,7 @@ MonoBehaviour:
   movementVector: {x: 0, y: 0}
   currentSpeed: 0
   currentForwardDirection: 1
-  enemyData: {fileID: 11400000, guid: 6e9da306f5e7c1445b989cd90ad89ce2, type: 2}
+  enemyData: {fileID: 11400000, guid: 4aa977633f35f424e9ac97d51332c514, type: 2}
 --- !u!1001 &633832617
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,3 +16,4 @@ MonoBehaviour:
   deceleration: 50
   moveSpeed: 70
   turnSpeed: 200
+  enemySprite: {fileID: 21300000, guid: 84caf2c2e096f2a419fe2323c3d18353, type: 3}

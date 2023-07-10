@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
     [Header("UI")]
     public GameObject gachaScreen;
 
+    [HideInInspector] public Sprite spr;
+
     void Awake()
     {
         PlayExplorationMusic();
@@ -44,6 +46,11 @@ public class LevelManager : MonoBehaviour
     {
         enemies.AddRange(FindObjectsOfType<BaseEnemy>());
         camExplorationAudioSource = GetComponent<AudioSource>();
+    }
+    //self-explanatory
+    public void ChangeEnemyInCombatSprite(Sprite sprite)
+    {
+        spr = sprite;
     }
     // Update is called once per frame
     void Update()
