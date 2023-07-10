@@ -27,19 +27,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Easy/Easy 4.unity
     guid: 4e3ee13aa8b02bb45adb640863935ebe
   - enabled: 1
-    path: Assets/Scenes/Levels/Medium/Easy 6.unity
+    path: Assets/Scenes/Levels/Medium/Medium 6.unity
     guid: 27953c7b1e5b1eb4ab5d6e6a07baeacf
   - enabled: 1
-    path: Assets/Scenes/Levels/Medium/Easy 7.unity
+    path: Assets/Scenes/Levels/Medium/Medium 7.unity
     guid: 2ef2ae9610b7fb749b41656c3304e1e9
   - enabled: 1
-    path: Assets/Scenes/Levels/Medium/Easy 8.unity
+    path: Assets/Scenes/Levels/Medium/Medium 8.unity
     guid: 06d91f15d0e8d684dbed33bc43186520
   - enabled: 1
-    path: Assets/Scenes/Levels/Medium/Easy 9.unity
+    path: Assets/Scenes/Levels/Medium/Medium 9.unity
     guid: 2710a0d5f4c319c418c54c14a9835bae
   - enabled: 1
-    path: Assets/Scenes/Levels/Medium/Hard10.unity
+    path: Assets/Scenes/Levels/Medium/Medium 10.unity
     guid: bbf6177b86990d5418defdce177427c9
   - enabled: 1
     path: Assets/Scenes/Levels/Hard/Hard11.unity
