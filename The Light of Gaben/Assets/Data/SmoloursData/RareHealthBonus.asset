@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: RareHealthBonus
   m_EditorClassIdentifier: 
+  ID: RareHthBns
   known: {fileID: 6506918092018414217, guid: 9c8a927ae2866b74cab873b7b9f3df8d, type: 3}
   rarity: 0
   hpBonus: 5

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: SRareDefenseBoost
   m_EditorClassIdentifier: 
+  ID: SFDefBst
   known: {fileID: -3997317144745264746, guid: 658e9dca9341e2343aa732ab96ae3798, type: 3}
   rarity: 1
   hpBonus: 0
