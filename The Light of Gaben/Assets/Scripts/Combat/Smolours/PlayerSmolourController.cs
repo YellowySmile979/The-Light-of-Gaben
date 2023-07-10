@@ -15,10 +15,6 @@ public class PlayerSmolourController : MonoBehaviour
         {
             Instance = this;
         }
-        else
-        {
-            smolourBuffsSelected = Instance.smolourBuffsSelected;
-        }
         DontDestroyOnLoad(gameObject);
     }
     public void UpdateComb()
@@ -66,5 +62,6 @@ public class PlayerSmolourController : MonoBehaviour
         magentaPlus = combmagenta.ToString();
 
         Instance = this;
+        Instance.smolourBuffsSelected = smolourBuffsSelected;
     }
 }
