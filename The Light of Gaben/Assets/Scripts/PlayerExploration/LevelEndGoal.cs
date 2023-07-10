@@ -39,9 +39,10 @@ public class LevelEndGoal : MonoBehaviour
                 SceneManager.LoadScene(LoadSceneManager.Instance.mediumSceneNames[randomNumber]);
             }
             else if(PlayerPrefs.GetInt("Floor Number") > 10 && PlayerPrefs.GetInt("Floor Number") <= 15)
-            {
+            {                
                 SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNumber]);
             }
+            floorNumber++;
         }
     }
 }

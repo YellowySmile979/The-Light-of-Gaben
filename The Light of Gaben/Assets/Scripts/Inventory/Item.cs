@@ -21,7 +21,7 @@ public abstract class Item : MonoBehaviour
     //which then stores this info for further use
     void OnTriggerEnter2D(Collider2D collision)
     {       
-        if(collision.GetComponent<PlayerMovement>())
+        if(collision.GetComponent<PlayerMovement>() && (data.type == ItemData.Type.key || data.type == ItemData.Type.consumables))
         {
             //prevents function from being called so many times
             if (hasCollided) return;

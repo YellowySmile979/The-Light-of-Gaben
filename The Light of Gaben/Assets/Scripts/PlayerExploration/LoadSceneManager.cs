@@ -126,7 +126,10 @@ public class LoadSceneManager : MonoBehaviour
     public void WinConditionCollectItems(float collectedItems = 0)
     {
         //updates UI to this specific instance of the win condition
-        string winConditionCollectItems = "Items to collect (Note that some items DO NOT count): " + numberOfWinItemsToCollect.ToString();
+        string winConditionCollectItems = "Items collected/Items to collect (Note that some items DO NOT count): " 
+                                        + numberOfWinItemsCollected 
+                                        + "/" 
+                                        + numberOfWinItemsToCollect;
         GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionCollectItems);
         //item(s) to get
         numberOfWinItemsCollected += collectedItems;

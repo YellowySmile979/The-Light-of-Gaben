@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombatController : UnitStats
 {
@@ -13,6 +14,7 @@ public class PlayerCombatController : UnitStats
     public GameObject w;
 
     [Header("Animator")]
+    public GameObject flash;
 
     public RuntimeAnimatorController whiteAnim;
     public RuntimeAnimatorController redAnim;
@@ -35,7 +37,18 @@ public class PlayerCombatController : UnitStats
     void Start()
     {
         HealthBar.Instance.maxHealth = this.maxHealth;
-        HealthBar.Instance.currentHealth = this.health;
+        HealthBar.Instance.currentHealth = PlayerPrefs.GetFloat("Current Health");
+
+        //stops the anim
+        animator.speed = 0;
+    }
+    void Update()
+    {
+        //ensures that the object is hidden when the animator end
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            flash.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        }
     }
     public void SelectTarget()
     {
@@ -49,8 +62,9 @@ public class PlayerCombatController : UnitStats
         //selects the target
         SelectTarget();
         //sets the hp bar for the main HUD
-        HealthBar.Instance.currentHealth = this.health;
+        //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
+        AnimationAttack();
         int damage = (int)attack;
         playerPrefsDMG += damage;
         //sets the total damage for the end card
@@ -71,11 +85,49 @@ public class PlayerCombatController : UnitStats
         //shows what happened
         stateController.actionDesc = "Player heals themself for " + heal + " health!";
         //updates the hp bar for the main HUD
-        HealthBar.Instance.currentHealth = this.health;
+        //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
         StartCoroutine(WaitUnitStatsVer());
     }
-
+    //animations for attacks
+    void AnimationAttack()
+    {
+        animator.runtimeAnimatorController = null;
+        print("This animation attack");
+        //enables the flash
+        flash.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        //starts the anim
+        animator.speed = 1;
+        //decides which anim to play
+        if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
+        {
+            animator.runtimeAnimatorController = whiteAnim;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
+        {
+            animator.runtimeAnimatorController = redAnim;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
+        {
+            animator.runtimeAnimatorController = blueAnim;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
+        {
+            animator.runtimeAnimatorController = yellowAnim;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
+        {
+            animator.runtimeAnimatorController = orangeAnim;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.green.colour)
+        {
+            animator.runtimeAnimatorController = greenAnim;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.magenta.colour)
+        {
+            animator.runtimeAnimatorController = purpleAnim;
+        }
+    }
     public void LightChangerBlue()
     {
         lightType = LightTypes.Blue;

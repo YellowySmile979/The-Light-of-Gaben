@@ -11,6 +11,7 @@ TagManager:
   - Blue Light
   - PlayerUnit
   - EnemyUnit
+  - Win Condition Items
   layers:
   - Default
   - TransparentFX
