@@ -69,6 +69,7 @@ public class GeneralCanvasStuff : MonoBehaviour
         finalLevelText.text = "Level: " + PlayerPrefs.GetInt("Player Level");
         finalLSText.text = "LS Count: " + PlayerPrefs.GetInt("LS Count");
         finalPPText.text = "PP Count: " + PlayerPrefs.GetInt("PP Count");
+        finalSmouloursCount.text = "Total Smolour Count:" + PlayerPrefs.GetInt("Smolours Collected");
         finalTotalDMG.text = "Total Damage Dealt: " + PlayerPrefs.GetInt("Total Attack");
         //fades in the BG
         fade = true;

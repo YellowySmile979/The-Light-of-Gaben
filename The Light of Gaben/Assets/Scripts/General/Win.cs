@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Win : MonoBehaviour
 {
     public string mainMenu;
-    public Text finalLevelText, finalLSText, finalPPText, finalTotalDMG;
+    public Text finalLevelText, finalLSText, finalPPText, finalSmoloursCount, finalTotalDMG;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class Win : MonoBehaviour
         finalLevelText.text = "Level: " + PlayerPrefs.GetInt("Player Level");
         finalLSText.text = "LS Count: " + PlayerPrefs.GetInt("LS Count");
         finalPPText.text = "PP Count: " + PlayerPrefs.GetInt("PP Count");
+        finalSmoloursCount.text = "Total Smolour Count:" + PlayerPrefs.GetInt("Smolours Collected");
         finalTotalDMG.text = "Total Damage Dealt: " + PlayerPrefs.GetInt("Total Attack");
     }
     //returns back to main menu

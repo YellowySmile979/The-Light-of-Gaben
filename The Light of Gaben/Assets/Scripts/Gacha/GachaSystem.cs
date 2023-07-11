@@ -83,6 +83,7 @@ public class GachaSystem : MonoBehaviour
         }
         pityCounter.text = "Pity: " + pity;
         Results();
+        PlayerPrefs.SetInt("Smolours Collected", smolour.collectedSmolours.Count);
     }
     //randomises which place the appropriate smolour should spawn in
     void Results()
