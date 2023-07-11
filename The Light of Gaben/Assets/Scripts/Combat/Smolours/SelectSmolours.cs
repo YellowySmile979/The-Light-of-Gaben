@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SelectSmolours : MonoBehaviour
 {
-    public GameObject buttonPrefab, buttonParent;
+    public GameObject buttonPrefab, buttonParent, selectScreen;
     public Text finalStats;
     SmolourGallery gallery;
     PlayerSmolourController smolourController;
@@ -13,7 +13,7 @@ public class SelectSmolours : MonoBehaviour
 
     public void Close()
     { 
-        gameObject.SetActive(false);
+        selectScreen.SetActive(false);
     }
 
     private void Start()

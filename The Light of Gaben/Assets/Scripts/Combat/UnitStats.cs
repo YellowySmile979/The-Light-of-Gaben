@@ -35,6 +35,14 @@ public abstract class UnitStats : MonoBehaviour
 
     public bool isDead = false;
 
+    [Header("SFX")]
+    public AudioClip clawSFX, healSFX;
+
+    /*[Header("Wiggle")]
+    public RuntimeAnimatorController bodyguardHurtAnim, archerHurtAnim, summonerHurtAnim;
+    public Animator enemy;
+    public Sprite bodyguard, archer, summoner;*/
+
     public CombatStateController stateController;
 
     public enum LightTypes { White, Red, Yellow, Blue, Orange, Magenta, Green };
@@ -46,43 +54,43 @@ public abstract class UnitStats : MonoBehaviour
         maxHealth += hpBonus;
         UpdateComb();
     }
+    /*void Start()
+    {
+        enemy = FindObjectOfType<EnemyCombatController>().GetComponent<Animator>();
+        enemy.speed = 0;
+    }
+    void Update()
+    {
+        //ensures that the object is hidden when the animator end
+        if (enemy.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            enemy.speed = 0;
+        }
+    }*/
     // Calculates nextTurnIn value   
     public void CalculateNextTurn(int currentTurn)
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - (speed+speedBonus));
     }
-    IEnumerator Wiggle(UnitStats attackee)
+    /*void Wiggle(UnitStats attackee)
     {
-        int count = 0;
-        bool movingRight = true;
-        float moveSpeed = 5f, maxDistance = 1f;
-        Vector3 startPos = attackee.transform.position;
-        while(count < 50)
+        enemy.runtimeAnimatorController = null;
+        print("This animation attack");
+        //starts the anim
+        enemy.speed = 1;
+        if (FindObjectOfType<EnemyCombatController>().image == bodyguard)
         {
-            // Calculate the target position based on the movement direction
-            Vector3 targetPosition;
-            if (movingRight)
-            {
-                targetPosition = startPos + Vector3.right * maxDistance;
-            }
-            else
-            {
-                targetPosition = startPos + Vector3.left * maxDistance;
-            }
-
-            // Move the object towards the target position using Lerp
-            transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-            // Check if the object has reached the target position
-            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-            {
-                // Switch the movement direction
-                movingRight = !movingRight;
-            }
-            count++;
-            yield return new WaitForEndOfFrame();
+            enemy.runtimeAnimatorController = bodyguardHurtAnim;
         }
-    }
+        else if (FindObjectOfType<EnemyCombatController>().image == archer)
+        {
+            enemy.runtimeAnimatorController = archerHurtAnim;
+        }
+        else if(FindObjectOfType<EnemyCombatController>().image == summoner)
+        {
+            enemy.runtimeAnimatorController = summonerHurtAnim;
+        }
+    }*/
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(float dmg, UnitStats attacker, UnitStats attackee)
     {
@@ -97,11 +105,11 @@ public abstract class UnitStats : MonoBehaviour
             * attacker.WV 
             * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attacker.defenseBonus)) / 2) +2;
 
-        if (attackee.GetComponent<EnemyCombatController>())
+        /*if (attackee.GetComponent<EnemyCombatController>())
         {
             print("WIGGLE");
-            StartCoroutine(Wiggle(attackee));
-        }
+            Wiggle(attackee);
+        }*/
         // Switch Case for Light Weakness
         switch (attackee.lightType)
         {

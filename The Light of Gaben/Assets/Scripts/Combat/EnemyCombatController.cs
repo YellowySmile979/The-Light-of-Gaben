@@ -11,10 +11,8 @@ public class EnemyCombatController : UnitStats
     public Image healthBar;
     public float xpToGive = 10f;
     public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
-    public AudioSource audioSource;
-    public AudioClip clawSFX, healSFX;
 
-    Image image;
+    [HideInInspector] public Image image;
 
     void Start()
     {
@@ -89,7 +87,7 @@ public class EnemyCombatController : UnitStats
         stateController = FindObjectOfType<CombatStateController>();
         //makes player takedamage
         player.TakeDamage(attack, this, player);
-        audioSource.PlayOneShot(clawSFX);
+        stateController.camAudioSource.PlayOneShot(clawSFX);
         //tells player what happened
         //stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
         hasFinishedTheirTurn = true;
@@ -116,7 +114,7 @@ public class EnemyCombatController : UnitStats
         stateController = FindObjectOfType<CombatStateController>();
         if (health < maxHealth) healingTarget.health += heal;
         else healingTarget.health = maxHealth;
-        audioSource.PlayOneShot(healSFX);
+        stateController.camAudioSource.PlayOneShot(healSFX);
         stateController.actionDesc = stateController.actionDesc + "Enemy heals itself for " + heal + " health!";
         hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());

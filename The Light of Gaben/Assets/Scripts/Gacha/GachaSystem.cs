@@ -16,6 +16,7 @@ public class GachaSystem : MonoBehaviour
     SmoloursData rolledSmolour;
     public Button RollButton;
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
+    GachaWishingWell wishingWell;
 
     public GameObject SelectScreen, Instructions1Screen, Instructions2Screen;
 
@@ -30,7 +31,7 @@ public class GachaSystem : MonoBehaviour
         if ((int)CurrencyData.Type.PP < amontToPull) RollButton.interactable = false;
         else RollButton.interactable = true;
         smolour = FindObjectOfType<SmolourGallery>();
-        
+        wishingWell = FindObjectOfType<GachaWishingWell>();
         // auto sorts Smolours into rarity.
         // These tables are called by GachaSystem to determine which Smolour the player receives.
         foreach (SmoloursData smolour in smolour.Smolours)
@@ -41,7 +42,7 @@ public class GachaSystem : MonoBehaviour
         }
     }
 
-    public void Close() { gameObject.SetActive(false); }
+    public void Close() { gameObject.SetActive(false); wishingWell.Close(); }
     public void Roll()
     {
         rolled = new List<SmoloursData>();

@@ -4208,10 +4208,18 @@ MonoBehaviour:
   critBonus: 0
   smolourBuffs: []
   isDead: 0
+  bodyguardHurtAnim: {fileID: 0}
+  archerHurtAnim: {fileID: 0}
+  summonerHurtAnim: {fileID: 0}
+  enemy: {fileID: 0}
+  bodyguard: {fileID: 0}
+  archer: {fileID: 0}
+  summoner: {fileID: 0}
   stateController: {fileID: 5789798506877479293}
   lightType: 0
   playerXP: 0
   w: {fileID: 0}
+  flash: {fileID: 0}
   whiteAnim: {fileID: 9100000, guid: cb0442a27d5430643aaa37d6de187091, type: 2}
   redAnim: {fileID: 9100000, guid: 52258d13aff929741b0c10b6fa8d86db, type: 2}
   blueAnim: {fileID: 9100000, guid: f5e752baddac1064eb8e2cf56eee56ca, type: 2}
@@ -4219,6 +4227,7 @@ MonoBehaviour:
   orangeAnim: {fileID: 9100000, guid: d6f12cc1277e9bb41aa91c3c576b1790, type: 2}
   greenAnim: {fileID: 9100000, guid: 8dca23a9d0e3f764bae88ffe88f97dbc, type: 2}
   purpleAnim: {fileID: 9100000, guid: 6cb115338c69307439aa6738e542607d, type: 2}
+  heal: {fileID: 0}
   animator: {fileID: 1278863438}
 --- !u!1 &5789798506512592638
 GameObject:
@@ -4333,6 +4342,13 @@ MonoBehaviour:
   critBonus: 0
   smolourBuffs: []
   isDead: 0
+  bodyguardHurtAnim: {fileID: 0}
+  archerHurtAnim: {fileID: 0}
+  summonerHurtAnim: {fileID: 0}
+  enemy: {fileID: 0}
+  bodyguard: {fileID: 0}
+  archer: {fileID: 0}
+  summoner: {fileID: 0}
   stateController: {fileID: 0}
   lightType: 0
   healthBar: {fileID: 5789798505045700449}
@@ -4340,6 +4356,10 @@ MonoBehaviour:
   lowestProbabilityInt: 0
   highestProbabilityInt: 100
   turnOrder: 0
+  audioSource: {fileID: 0}
+  clawSFX: {fileID: 0}
+  healSFX: {fileID: 0}
+  image: {fileID: 0}
 --- !u!1001 &196209845655091571
 PrefabInstance:
   m_ObjectHideFlags: 0
