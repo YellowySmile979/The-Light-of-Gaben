@@ -51,7 +51,38 @@ public abstract class UnitStats : MonoBehaviour
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - (speed+speedBonus));
     }
+    IEnumerator Wiggle(UnitStats attackee)
+    {
+        int count = 0;
+        bool movingRight = true;
+        float moveSpeed = 5f, maxDistance = 1f;
+        Vector3 startPos = attackee.transform.position;
+        while(count < 50)
+        {
+            // Calculate the target position based on the movement direction
+            Vector3 targetPosition;
+            if (movingRight)
+            {
+                targetPosition = startPos + Vector3.right * maxDistance;
+            }
+            else
+            {
+                targetPosition = startPos + Vector3.left * maxDistance;
+            }
 
+            // Move the object towards the target position using Lerp
+            transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            // Check if the object has reached the target position
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+            {
+                // Switch the movement direction
+                movingRight = !movingRight;
+            }
+            count++;
+            yield return new WaitForEndOfFrame();
+        }
+    }
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(float dmg, UnitStats attacker, UnitStats attackee)
     {
@@ -65,7 +96,12 @@ public abstract class UnitStats : MonoBehaviour
             (attacker.crit + attacker.critBonus) / 5) + 2) 
             * attacker.WV 
             * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attacker.defenseBonus)) / 2) +2;
-        
+
+        if (attackee.GetComponent<EnemyCombatController>())
+        {
+            print("WIGGLE");
+            StartCoroutine(Wiggle(attackee));
+        }
         // Switch Case for Light Weakness
         switch (attackee.lightType)
         {
