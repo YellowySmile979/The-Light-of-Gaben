@@ -42,7 +42,14 @@ public class LevelEndGoal : MonoBehaviour
             {                
                 SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNumber]);
             }
-            floorNumber++;
+            else if(PlayerPrefs.GetInt("Floor Number") <= 15)
+            {
+                SceneManager.LoadScene("Win");
+            }
+            if(PlayerPrefs.GetInt("Floor Number") <= 15)
+            {
+                floorNumber++;
+            }
         }
     }
 }
