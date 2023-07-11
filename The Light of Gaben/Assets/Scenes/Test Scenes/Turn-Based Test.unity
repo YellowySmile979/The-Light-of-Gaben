@@ -304,6 +304,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 6d6365521686b664aa37ca6372765f79, type: 3}
     - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: clawSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 583847110e9f9a049be83d798d7a0164, type: 3}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: healSFX
       value: 
       objectReference: {fileID: 8300000, guid: b6311c38629518742ac9a3bee3d36e46, type: 3}
