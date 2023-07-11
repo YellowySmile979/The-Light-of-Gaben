@@ -1516,6 +1516,7 @@ MonoBehaviour:
   floorText: {fileID: 6064957411621652938}
   winConditionText: {fileID: 6064957410675671031}
   gameOverScreen: {fileID: 6064957410912818490}
+  mapScreenOverlay: {fileID: 0}
   finalLevelText: {fileID: 6064957410857652613}
   finalPPText: {fileID: 6064957411497534606}
   finalLSText: {fileID: 6064957410070921514}
@@ -1523,6 +1524,7 @@ MonoBehaviour:
   finalSmouloursCount: {fileID: 6064957411371838232}
   backgroundGameOverScreen: {fileID: 6064957411560422548}
   mainMenu: Start
+  mapOpen: 0
 --- !u!1 &6064957411009131385
 GameObject:
   m_ObjectHideFlags: 0
