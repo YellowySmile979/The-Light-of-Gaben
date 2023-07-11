@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditScreen: {fileID: 1893354208}
-  lvlToStart: SampleScene
+  lvlToStart: Tutorial
   confirmSFX: {fileID: 8300000, guid: 37897981cd1e45a44b9854972d9b28f8, type: 3}
   hoverSFX: {fileID: 8300000, guid: e2f9ca87412a95c4daf13abd1c692fb6, type: 3}
   startSFX: {fileID: 8300000, guid: a97131d47e03210489dedad78451644c, type: 3}
