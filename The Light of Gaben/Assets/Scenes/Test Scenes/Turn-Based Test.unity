@@ -292,13 +292,49 @@ PrefabInstance:
       value: TurnBased Combat
       objectReference: {fileID: 0}
     - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 8936266892992936883}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: flash
       value: 
       objectReference: {fileID: 8936266892992936878}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: archer
+      value: 
+      objectReference: {fileID: 21300000, guid: 71df63efca2ca794f88273b6d26ae33a, type: 3}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: summoner
+      value: 
+      objectReference: {fileID: 21300000, guid: 08f4eca9c7e873c41aacc238167d2302, type: 3}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: bodyguard
+      value: 
+      objectReference: {fileID: 21300000, guid: 84caf2c2e096f2a419fe2323c3d18353, type: 3}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: archerHurtAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 218adec275c6a82488c72eaa39fd5302, type: 2}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: summonerHurtAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: ac8738722553a8542bb0b94cbb01f360, type: 2}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: bodyguardHurtAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 9e8a3ec2ad7916f4d933a2893df9b425, type: 2}
     - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: crit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 8936266892992936883}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: archer
+      value: 
+      objectReference: {fileID: 21300000, guid: 71df63efca2ca794f88273b6d26ae33a, type: 3}
     - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: clawSFX
       value: 
@@ -307,10 +343,26 @@ PrefabInstance:
       propertyPath: healSFX
       value: 
       objectReference: {fileID: 8300000, guid: b6311c38629518742ac9a3bee3d36e46, type: 3}
-    - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
-      propertyPath: camAudioSource
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: summoner
       value: 
-      objectReference: {fileID: 8936266892992936881}
+      objectReference: {fileID: 21300000, guid: 08f4eca9c7e873c41aacc238167d2302, type: 3}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: bodyguard
+      value: 
+      objectReference: {fileID: 21300000, guid: 84caf2c2e096f2a419fe2323c3d18353, type: 3}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: archerHurtAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 218adec275c6a82488c72eaa39fd5302, type: 2}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: summonerHurtAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: ac8738722553a8542bb0b94cbb01f360, type: 2}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: bodyguardHurtAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 9e8a3ec2ad7916f4d933a2893df9b425, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
 --- !u!1 &8936266892992936878 stripped
@@ -520,3 +572,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &8936266892992936883
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936266892992936880}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
