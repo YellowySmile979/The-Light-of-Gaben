@@ -269,6 +269,26 @@ PrefabInstance:
       propertyPath: baseEnemies.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: mediumSceneNames.Array.data[0]
+      value: Medium 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: mediumSceneNames.Array.data[1]
+      value: Medium 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: mediumSceneNames.Array.data[2]
+      value: Medium 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: mediumSceneNames.Array.data[3]
+      value: Medium 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821670804568333671, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
+      propertyPath: mediumSceneNames.Array.data[4]
+      value: Medium 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f03b3e7ecbc5ab43925f0e0c0f4a5a7, type: 3}
 --- !u!4 &7381109794873567579 stripped
