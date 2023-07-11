@@ -12,7 +12,12 @@ public class PlayerSmolourController : MonoBehaviour
 
     private void Start()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        } else { Instance = this; }
         gallery = FindObjectOfType<SmolourGallery>();
+        DontDestroyOnLoad(gameObject);
     }
     public void UpdateComb()
     {
@@ -57,5 +62,6 @@ public class PlayerSmolourController : MonoBehaviour
         orangePlus = comborange;
         greenPlus = combgreen;
         magentaPlus = combmagenta;
+        Instance = this;
     }
 }

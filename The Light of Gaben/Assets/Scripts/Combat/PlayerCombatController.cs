@@ -30,7 +30,7 @@ public class PlayerCombatController : UnitStats
     public static PlayerCombatController Instance;
 
     public AudioSource audioSource;
-    public AudioClip healSFX, whiteSFX, blueSFX, redSFX, yellowSFX, colourSFX;
+    public AudioClip whiteSFX, blueSFX, redSFX, yellowSFX, colourSFX;
 
     void Awake()
     {
@@ -99,7 +99,7 @@ public class PlayerCombatController : UnitStats
         int heal = Random.Range(1, 20) + (int)attack;
         //heals self
         healTarget.HealDamage(heal);
-        audioSource.PlayOneShot(healSFX);
+        stateController.camAudioSource.PlayOneShot(healSFX);
         //shows what happened
         stateController.actionDesc = "Gaben heals himself for " + heal + " health!";
         //updates the hp bar for the main HUD
@@ -120,24 +120,24 @@ public class PlayerCombatController : UnitStats
         if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
         {
             animator.runtimeAnimatorController = whiteAnim;
-            audioSource.PlayOneShot(whiteSFX);
+            stateController.camAudioSource.PlayOneShot(whiteSFX);
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
         {
             animator.runtimeAnimatorController = redAnim;
-            audioSource.PlayOneShot(redSFX);
+            stateController.camAudioSource.PlayOneShot(redSFX);
 
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
         {
             animator.runtimeAnimatorController = blueAnim;
-            audioSource.PlayOneShot(blueSFX);
+            stateController.camAudioSource.PlayOneShot(blueSFX);
 
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
         {
             animator.runtimeAnimatorController = yellowAnim;
-            audioSource.PlayOneShot(yellowSFX);
+            stateController.camAudioSource.PlayOneShot(yellowSFX);
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
         {
