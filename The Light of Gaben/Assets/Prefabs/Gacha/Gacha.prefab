@@ -7192,6 +7192,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6369352921606417744}
     m_Modifications:
     - target: {fileID: 2090167749, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
+      propertyPath: amontToPull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090167749, guid: cc14e9a21ecec9f4bb975c1b3da5ba31, type: 3}
       propertyPath: SelectScreen
       value: 
       objectReference: {fileID: 679589644122415887}
