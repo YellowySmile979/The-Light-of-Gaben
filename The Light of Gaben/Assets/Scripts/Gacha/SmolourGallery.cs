@@ -20,10 +20,6 @@ public class SmolourGallery : MonoBehaviour
     {
         Gallery.SetActive(false);
     }
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
     public void Open()
     {
         Gallery.SetActive(true);
