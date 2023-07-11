@@ -189,7 +189,7 @@ MonoBehaviour:
   movementVector: {x: 0, y: 0}
   currentSpeed: 0
   currentForwardDirection: 1
-  enemyData: {fileID: 11400000, guid: 6e9da306f5e7c1445b989cd90ad89ce2, type: 2}
+  enemyData: {fileID: 11400000, guid: 6b14b52b6f24a6041a6a6a3bf87846aa, type: 2}
 --- !u!1 &3637955947464756928
 GameObject:
   m_ObjectHideFlags: 0
