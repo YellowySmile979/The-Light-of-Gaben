@@ -29,6 +29,9 @@ public class PlayerCombatController : UnitStats
 
     public static PlayerCombatController Instance;
 
+    public AudioSource audioSource;
+    public AudioClip healSFX, whiteSFX, blueSFX, redSFX, yellowSFX, colourSFX;
+
     void Awake()
     {
         Instance = this;
@@ -96,6 +99,7 @@ public class PlayerCombatController : UnitStats
         int heal = Random.Range(1, 20) + (int)attack;
         //heals self
         healTarget.HealDamage(heal);
+        audioSource.PlayOneShot(healSFX);
         //shows what happened
         stateController.actionDesc = "Gaben heals himself for " + heal + " health!";
         //updates the hp bar for the main HUD
@@ -116,18 +120,24 @@ public class PlayerCombatController : UnitStats
         if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
         {
             animator.runtimeAnimatorController = whiteAnim;
+            audioSource.PlayOneShot(whiteSFX);
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
         {
             animator.runtimeAnimatorController = redAnim;
+            audioSource.PlayOneShot(redSFX);
+
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
         {
             animator.runtimeAnimatorController = blueAnim;
+            audioSource.PlayOneShot(blueSFX);
+
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
         {
             animator.runtimeAnimatorController = yellowAnim;
+            audioSource.PlayOneShot(yellowSFX);
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
         {
@@ -146,38 +156,45 @@ public class PlayerCombatController : UnitStats
     {
         lightType = LightTypes.Blue;
         stateController.actionDesc = "Gaben changes his light to Blue!";
+        audioSource.PlayOneShot(colourSFX);
     }
 
     public void LightChangerRed()
     {
         lightType = LightTypes.Red;
         stateController.actionDesc = "Gaben changes his light to Red!";
+        audioSource.PlayOneShot(colourSFX);
     }
 
     public void LightChangerYellow()
     {
         lightType = LightTypes.Yellow;
+        audioSource.PlayOneShot(colourSFX);
         stateController.actionDesc = "Gaben changes his light to Yellow!";
     }
 
     public void LightChangerOrange()
     {
         lightType = LightTypes.Orange;
+        audioSource.PlayOneShot(colourSFX);
         stateController.actionDesc = "Gaben changes his light to Orange!";
     }
     public void LightChangerGreen()
     {
         lightType = LightTypes.Green;
+        audioSource.PlayOneShot(colourSFX);
         stateController.actionDesc = "Gaben changes his light to Green!";
     }
     public void LightChangerMagenta()
     {
         lightType = LightTypes.Magenta;
+        audioSource.PlayOneShot(colourSFX);
         stateController.actionDesc = "Gaben changes his light to Magenta!";
     }
     public void LightChangerWhite()
     {
         lightType = LightTypes.White;
+        audioSource.PlayOneShot(colourSFX);
         stateController.actionDesc = "Gaben changes his light to White!";
     }
     public void UpdatePlayerLevel(float xpGiven)
