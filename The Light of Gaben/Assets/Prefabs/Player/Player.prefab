@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickMovement: {fileID: 0}
-  playerSpeed: 3
+  playerSpeed: 5
   angle: 0
   frontAnim: {fileID: 9100000, guid: b74dd5db6b815284d8c3331bf7070573, type: 2}
   leftAnim: {fileID: 9100000, guid: 7576a1f362d8a60428dcefc8c78cd6b9, type: 2}

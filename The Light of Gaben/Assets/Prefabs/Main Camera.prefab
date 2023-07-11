@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: gachaScreen
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 58490803818350842, guid: 2f6430aff202df64594cfe40d891c1cf, type: 3}
+      propertyPath: footstepsSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 27f8d3c87d30bc34fbb2b90aee3d5d6c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6430aff202df64594cfe40d891c1cf, type: 3}
 --- !u!4 &7381109794021819624 stripped
