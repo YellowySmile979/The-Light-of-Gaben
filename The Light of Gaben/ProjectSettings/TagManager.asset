@@ -58,6 +58,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Objects that should be dark
+    uniqueID: 3091564181
+    locked: 0
+  - name: Black
+    uniqueID: 3309158041
+    locked: 0
   - name: Object
     uniqueID: 830337355
     locked: 0
