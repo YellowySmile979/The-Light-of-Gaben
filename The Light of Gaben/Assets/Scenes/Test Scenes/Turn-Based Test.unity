@@ -312,6 +312,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 583847110e9f9a049be83d798d7a0164, type: 3}
     - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: colourSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: c6eeaa52356355243b8731022f096c75, type: 3}
+    - target: {fileID: 5789798506219527080, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: yellowSFX
       value: 
       objectReference: {fileID: 8300000, guid: 1cf8f42eabfcaa44e84caa8345745288, type: 3}
