@@ -105,10 +105,12 @@ public class PlayerCombatController : UnitStats
 
         if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
         {
+            print("White Colour Effect");
             return;
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
         {
+            print("Red Colour Effect");
             //heal 10% of dmg dealt
             if (hasAttacked)
             {
@@ -120,21 +122,25 @@ public class PlayerCombatController : UnitStats
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
         {
+            print("Blue Colour Effect");
             //increases defence by 40% of player's max hp
             defense = maxHealth * 0.4f;
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
         {
+            print("Yellow Colour Effect");
             //ignore enemy defence
             enemy.defense = 0;
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
         {
+            print("Orange Colour Effect");
             //increases dmg dealt by 20%
             attack += damage * 0.2f;
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.magenta.colour)
         {
+            print("Magenta Colour Effect");
             //gain 5% max hp, and each attack consumes 5% hp to deal extra 5% damage to opponents
             float maxHp = this.maxHealth;
             this.maxHealth = maxHp + maxHp * 0.05f;
@@ -144,6 +150,7 @@ public class PlayerCombatController : UnitStats
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.green.colour)
         {
+            print("Green Colour Effect");
             //player defence increases by 20% and heal 15% of max hp each attack
             defense = maxDefence + maxDefence * 0.2f;
 
