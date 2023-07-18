@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class UnitStats : MonoBehaviour
 {
     [Header("Unit Stats")]
     public float attack = 10;
     public float defense = 0;
+    public float maxDefence;
     public float WV = 2;
     public float speed = 10;
     public float crit = 0;
@@ -17,6 +19,8 @@ public abstract class UnitStats : MonoBehaviour
     float WeakBuff = 2.5f;
 
     public bool hasFinishedTheirTurn;
+
+    protected bool hasAttacked;
 
     [Header("Smolour Buff Stats")]
     public float redMultiplier = 1.0f;
@@ -54,12 +58,13 @@ public abstract class UnitStats : MonoBehaviour
         maxHealth += hpBonus;
         UpdateComb();
     }
-    /*void Start()
+    void Start()
     {
-        enemy = FindObjectOfType<EnemyCombatController>().GetComponent<Animator>();
-        enemy.speed = 0;
+        //enemy = FindObjectOfType<EnemyCombatController>().GetComponent<Animator>();
+        //enemy.speed = 0;
+        maxDefence = defense;
     }
-    void Update()
+    /*void Update()
     {
         //ensures that the object is hidden when the animator end
         if (enemy.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
@@ -205,6 +210,17 @@ public abstract class UnitStats : MonoBehaviour
         }
         print("The dmg is: " + dmg);
         health -= dmg;
+
+        hasAttacked = true;
+        if (attacker.GetComponent<PlayerCombatController>()
+            &&
+            (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour
+            || CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour
+            || CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
+            )
+        {
+            attacker.GetComponent<PlayerCombatController>().ColourEffects(dmg, attackee.GetComponent<EnemyCombatController>());
+        }
 
         stateController.actionDesc = "Player attacks " + attackee.name + " for " + dmg + " damage!";
     }

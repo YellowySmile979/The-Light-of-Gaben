@@ -35,7 +35,6 @@ public class PlayerCombatController : UnitStats
         HealthBar.Instance.maxHealth = this.maxHealth;
         HealthBar.Instance.currentHealth = PlayerPrefs.GetFloat("Current Health");
 
-
         hpBonus = smolourController.hpPlus;
         attackBonus = smolourController.atkPlus;
         defenseBonus = smolourController.defPlus;
@@ -64,6 +63,13 @@ public class PlayerCombatController : UnitStats
         //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
         AnimationAttack();
+        if(CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour
+           || CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.magenta.colour
+           || CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.green.colour
+           )
+        {
+            ColourEffects();
+        }
         int damage = (int)attack;
         playerPrefsDMG += damage;
         //sets the total damage for the end card
@@ -88,6 +94,61 @@ public class PlayerCombatController : UnitStats
         //HealthBar.Instance.currentHealth = this.health;
         PlayerPrefs.SetFloat("Current Health", this.health);
         StartCoroutine(WaitUnitStatsVer());
+    }
+    //handles the different colour effects
+    public void ColourEffects(float damage = 0, EnemyCombatController enemy = null)
+    {
+        //resets player's defence
+        defense = maxDefence;
+        //resets enemy's defence
+        enemy.defense = enemy.maxDefence;
+
+        if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
+        {
+            return;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
+        {
+            //heal 10% of dmg dealt
+            if (hasAttacked)
+            {
+                health += damage * 0.1f;
+                if (health > maxHealth) health = maxHealth;
+
+                hasAttacked = false;
+            }
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
+        {
+            //increases defence by 40% of player's max hp
+            defense = maxHealth * 0.4f;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
+        {
+            //ignore enemy defence
+            enemy.defense = 0;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
+        {
+            //increases dmg dealt by 20%
+            attack += damage * 0.2f;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.magenta.colour)
+        {
+            //gain 5% max hp, and each attack consumes 5% hp to deal extra 5% damage to opponents
+            float maxHp = this.maxHealth;
+            this.maxHealth = maxHp + maxHp * 0.05f;
+
+            this.health -= maxHp * 0.05f;
+            attack += maxHp * 0.05f;
+        }
+        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.green.colour)
+        {
+            //player defence increases by 20% and heal 15% of max hp each attack
+            defense = maxDefence + maxDefence * 0.2f;
+
+            health += maxHealth * 0.15f;
+        }
     }
     //animations for attacks
     void AnimationAttack()
