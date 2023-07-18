@@ -56,13 +56,14 @@ public abstract class UnitStats : MonoBehaviour
     {
         stateController = FindObjectOfType<CombatStateController>();
         maxHealth += hpBonus;
+        if (defense <= 0) defense = 1;
         UpdateComb();
     }
-    void Start()
+    /*void Start()
     {
         //enemy = FindObjectOfType<EnemyCombatController>().GetComponent<Animator>();
         //enemy.speed = 0;
-        maxDefence = defense;
+        
     }
     /*void Update()
     {
@@ -220,7 +221,7 @@ public abstract class UnitStats : MonoBehaviour
                 print("No Smolours");                
                 break;
         }
-        print("The dmg is: " + dmg);
+        print("The dmg dealt by" + attacker.name + " is: " + dmg);
         health -= dmg;
 
         hasAttacked = true;
@@ -231,7 +232,7 @@ public abstract class UnitStats : MonoBehaviour
             || CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
             )
         {
-            attacker.GetComponent<PlayerCombatController>().ColourEffects(dmg, attackee.GetComponent<EnemyCombatController>());
+            attacker.GetComponent<PlayerCombatController>().ColourEffects(dmg);
         }
 
         stateController.actionDesc = attacker.name + " attacks " + attackee.name + " for " + dmg + " damage!";

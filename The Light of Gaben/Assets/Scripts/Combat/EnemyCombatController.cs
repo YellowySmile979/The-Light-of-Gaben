@@ -16,6 +16,8 @@ public class EnemyCombatController : UnitStats
 
     void Start()
     {
+        maxDefence = defense;
+
         image = GetComponent<Image>();
         healingTarget = this;
         if (lowestProbabilityInt == 0)

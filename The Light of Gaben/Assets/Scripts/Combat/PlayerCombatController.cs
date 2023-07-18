@@ -35,6 +35,8 @@ public class PlayerCombatController : UnitStats
         HealthBar.Instance.maxHealth = this.maxHealth;
         HealthBar.Instance.currentHealth = PlayerPrefs.GetFloat("Current Health");
 
+        maxDefence = defense;
+
         hpBonus = smolourController.hpPlus;
         attackBonus = smolourController.atkPlus;
         defenseBonus = smolourController.defPlus;
@@ -96,10 +98,11 @@ public class PlayerCombatController : UnitStats
         StartCoroutine(WaitUnitStatsVer());
     }
     //handles the different colour effects
-    public void ColourEffects(float damage = 0, EnemyCombatController enemy = null)
+    public void ColourEffects(float damage = 0)
     {
         //resets player's defence
         defense = maxDefence;
+        EnemyCombatController enemy = FindObjectOfType<EnemyCombatController>();
         //resets enemy's defence
         if(enemy != null) enemy.defense = enemy.maxDefence;
 
@@ -130,7 +133,7 @@ public class PlayerCombatController : UnitStats
         {
             print("Yellow Colour Effect");
             //ignore enemy defence
-            enemy.defense = 0;
+            enemy.defense = 1;
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
         {
