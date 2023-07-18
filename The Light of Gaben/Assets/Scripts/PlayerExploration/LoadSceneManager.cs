@@ -24,7 +24,7 @@ public class LoadSceneManager : MonoBehaviour
     //i.e. if you want the player to kill 6 enemies and there are 10 in total, minKillRequirement = 4
     public float minKillRequirement, timeLeftBeforeLose, numberOfWinItemsToCollect; 
     float numberOfWinItemsCollected = 0;
-    [SerializeField] int numberOfEnemies, initialNumberOfEnemies;
+    [SerializeField] int numberOfEnemies, enemiesKilled;
     public int chosenWinCondtion = 0;
     public bool canWin = false;
     public List<GameObject> baseEnemies = new List<GameObject>();
@@ -40,7 +40,6 @@ public class LoadSceneManager : MonoBehaviour
         easyRandomNumber = Random.Range(0, easySceneNames.Count - 1);
         mediumRandomNumber = Random.Range(0, mediumSceneNames.Count - 1);
         hardRandomNumber = Random.Range(0, hardSceneNames.Count - 1);
-        initialNumberOfEnemies = baseEnemies.Count - (int)minKillRequirement;
         timer = initialTime;        
     }
 
@@ -85,16 +84,20 @@ public class LoadSceneManager : MonoBehaviour
     void WinConditionMinKill()
     {
         //updates UI to show min number of kills needed
-        string winConditionMinKill = "Minimum amount of kills required: " + initialNumberOfEnemies.ToString();
+        string winConditionMinKill = "Minimum amount of kills required: " + minKillRequirement.ToString();
         GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionMinKill);
         //min kill requirement
         //the count of enemies there
-        if(minKillRequirement >= numberOfEnemies)
+        if(minKillRequirement <= enemiesKilled)
         {
             canWin = true;
             string winConditionMet = "You may proceed to the next level.";
             GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionMet);
         }
+    }
+    public void EnemiesKilled(int killed)
+    {
+        enemiesKilled += killed;
     }
     void WinConditionTimer()
     {        

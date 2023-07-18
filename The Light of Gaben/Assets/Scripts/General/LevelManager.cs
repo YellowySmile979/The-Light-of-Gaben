@@ -120,6 +120,7 @@ public class LevelManager : MonoBehaviour
                     enemies[theEnemy].explorationCanvas.enabled = true;
                     SpawnLightShard();
                     LoadSceneManager.Instance.baseEnemies.Remove(enemies[theEnemy].gameObject);
+                    LoadSceneManager.Instance.EnemiesKilled(1);
                     Destroy(enemies[theEnemy].gameObject);
                     enemies.RemoveAt(theEnemy);
                     hasAddedIndex = true;
