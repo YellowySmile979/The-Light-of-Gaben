@@ -60,16 +60,21 @@ public class PlayerCombatController : UnitStats
         magentaMultiplier = smolourController.magentaPlus;
         //stops the anim
         animator.speed = 0;
-
-        animator.SetBool("Red", false);
     }
     void Update()
     {
         //ensures that the object is hidden when the animator end
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.1f)
         {
             //flash.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             onOrOff = false;
+            animator.SetBool("White", onOrOff);
+            animator.SetBool("Red", onOrOff);
+            animator.SetBool("Blue", onOrOff);
+            animator.SetBool("Yellow", onOrOff);
+            animator.SetBool("Magenta", onOrOff);
+            animator.SetBool("Orange", onOrOff);
+            animator.SetBool("Green", onOrOff);
         }
     }
     public void SelectTarget()
@@ -114,8 +119,8 @@ public class PlayerCombatController : UnitStats
     }
     //animations for attacks
     void AnimationAttack()
-    {        
-        animator.runtimeAnimatorController = null;
+    {
+        //animator.runtimeAnimatorController = null;
         print("This animation attack");
         //enables the flash
         onOrOff = true;
