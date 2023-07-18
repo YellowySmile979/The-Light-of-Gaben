@@ -7,7 +7,7 @@ public abstract class UnitStats : MonoBehaviour
 {
     [Header("Unit Stats")]
     public float attack = 10;
-    public float defense = 0;
+    public float defense = 10;
     public float maxDefence;
     public float WV = 2;
     public float speed = 10;
@@ -56,13 +56,14 @@ public abstract class UnitStats : MonoBehaviour
     {
         stateController = FindObjectOfType<CombatStateController>();
         maxHealth += hpBonus;
+        if (defense <= 0) defense = 1;
         UpdateComb();
     }
-    void Start()
+    /*void Start()
     {
         //enemy = FindObjectOfType<EnemyCombatController>().GetComponent<Animator>();
         //enemy.speed = 0;
-        maxDefence = defense;
+        
     }
     /*void Update()
     {
@@ -115,7 +116,19 @@ public abstract class UnitStats : MonoBehaviour
             print("WIGGLE");
             Wiggle(attackee);
         }*/
-        // Switch Case for Light Weakness
+        // Switch Case for Light Weaknes
+
+        Debug.Log(
+            "level: " + attacker.level +
+            "crit " + attacker.crit +
+            "critbonus " + attacker.critBonus +
+            "wv " + attacker.WV +
+            "attack " + attacker.attack +
+            "attackbonus " + attacker.attackBonus +
+            "defensee " + attackee.defense +
+            "defensebonuss " + attackee.defenseBonus
+            );
+
         switch (attackee.lightType)
         {
             case LightTypes.Red:
@@ -208,7 +221,7 @@ public abstract class UnitStats : MonoBehaviour
                 print("No Smolours");                
                 break;
         }
-        print("The dmg is: " + dmg);
+        print("The dmg dealt by " + attacker.name + " is: " + dmg);
         health -= dmg;
 
         hasAttacked = true;
@@ -219,10 +232,10 @@ public abstract class UnitStats : MonoBehaviour
             || CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
             )
         {
-            attacker.GetComponent<PlayerCombatController>().ColourEffects(dmg, attackee.GetComponent<EnemyCombatController>());
+            attacker.GetComponent<PlayerCombatController>().ColourEffects(dmg);
         }
 
-        stateController.actionDesc = "Player attacks " + attackee.name + " for " + dmg + " damage!";
+        stateController.actionDesc = attacker.name + " attacks " + attackee.name + " for " + dmg + " damage!";
     }
 
     public void HealDamage(float heal)

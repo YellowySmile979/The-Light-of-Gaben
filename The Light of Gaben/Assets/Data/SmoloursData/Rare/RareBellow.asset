@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: RareBellow
   m_EditorClassIdentifier: 
-  known: {fileID: 0}
+  known: {fileID: -904850274805115026, guid: 9c8a927ae2866b74cab873b7b9f3df8d, type: 3}
   rarity: 0
   hpBonus: 0
   redMultiplier: 0
-  yellowMultiplier: 0
-  blueMultiplier: 0
+  yellowMultiplier: 0.1
+  blueMultiplier: 0.1
   orangeMultiplier: 0
   greenMultiplier: 0
   magentaMultiplier: 0
@@ -26,4 +26,4 @@ MonoBehaviour:
   defenseBonus: 0
   shield: 0
   critBonus: 0
-  description: 
+  description: Marginally Increases Blue and Yellow Type Damage

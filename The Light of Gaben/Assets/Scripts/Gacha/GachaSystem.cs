@@ -96,7 +96,6 @@ public class GachaSystem : MonoBehaviour
         Text[] descriptions = new Text[] { desc1, desc2, desc3 };
         for (int i = 0; i < 3; i++)
         {
-            
             descriptions[i].text = rolled[i].description;
             results[i].sprite = rolled[i].known;
         }
