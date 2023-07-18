@@ -203,6 +203,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3576d05dd8fd7f3458bd9a0b138ca1d6, type: 2}
+    - target: {fileID: 1278863439, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4174881737258197855, guid: 54c95c5a8fd568e4bbb87ebd188cbf27, type: 3}
+    - target: {fileID: 1278863439, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 534083736240082505, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: m_IsActive
       value: 1
