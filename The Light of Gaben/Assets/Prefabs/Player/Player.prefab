@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystickMovement: {fileID: 0}
-  playerSpeed: 5
+  playerSpeed: 7
   angle: 0
   frontAnim: {fileID: 9100000, guid: b74dd5db6b815284d8c3331bf7070573, type: 2}
   leftAnim: {fileID: 9100000, guid: 7576a1f362d8a60428dcefc8c78cd6b9, type: 2}
@@ -569,7 +569,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -742674747
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6dcfc2ec0d168b54981326fe9d31e2a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}

@@ -27,11 +27,11 @@ public class GachaSystem : MonoBehaviour
     // R : 900/1000 = 90 %
     private void Start()
     {
-        // If you have less than 50 PP, will not let you interact
-        if ((int)CurrencyData.Type.PP < amontToPull) RollButton.interactable = false;
-        else RollButton.interactable = true;
         smolour = FindObjectOfType<SmolourGallery>();
         wishingWell = FindObjectOfType<GachaWishingWell>();
+        // If you have less than 1 PP, will not let you interact
+        if (PlayerPrefs.GetInt("PP Count") < amontToPull) RollButton.interactable = false;
+        else RollButton.interactable = true;
         // auto sorts Smolours into rarity.
         // These tables are called by GachaSystem to determine which Smolour the player receives.
         foreach (SmoloursData smolour in smolour.Smolours)
@@ -40,6 +40,7 @@ public class GachaSystem : MonoBehaviour
             else if (smolour.rarity == SmoloursData.Rarity.SR) SRSmolours.Add(smolour);
             else RSmolours.Add(smolour);
         }
+        Close();
     }
 
     public void Close() { gameObject.SetActive(false); wishingWell.Close(); }
@@ -83,6 +84,8 @@ public class GachaSystem : MonoBehaviour
             if (!alreadyCollected) smolour.collectedSmolours.Add(rolledSmolour);
         }
         pityCounter.text = "Pity: " + pity;
+        int minusPP = PlayerPrefs.GetInt("PP Count") - amontToPull;
+        PlayerPrefs.SetInt("PP Count", minusPP);
         Results();
         PlayerPrefs.SetInt("Smolours Collected", smolour.collectedSmolours.Count);
     }

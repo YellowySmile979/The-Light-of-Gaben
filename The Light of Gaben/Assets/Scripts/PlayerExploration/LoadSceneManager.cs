@@ -70,7 +70,7 @@ public class LoadSceneManager : MonoBehaviour
                 mediumRandomNumber = Random.Range(0, mediumSceneNames.Count - 1);
                 LevelEndGoal.Instance.Win(mediumRandomNumber);
             }
-            else if(PlayerPrefs.GetInt("Floor Number") <= 15 && PlayerPrefs.GetInt("Floor Number") > 10)
+            else if(PlayerPrefs.GetInt("Floor Number") <= 14 && PlayerPrefs.GetInt("Floor Number") > 10)
             {
                 hardRandomNumber = Random.Range(0, hardSceneNames.Count - 1);
                 LevelEndGoal.Instance.Win(hardRandomNumber);

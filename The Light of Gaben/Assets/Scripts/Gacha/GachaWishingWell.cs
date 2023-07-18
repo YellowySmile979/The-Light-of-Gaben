@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class GachaWishingWell : MonoBehaviour
 {
-    public GameObject gachaScreen;
+    public PlayerSmolourController smolourController;
     bool hasCollided;
+
+    private void Start()
+    {
+        smolourController = FindObjectOfType<PlayerSmolourController>();
+    }
 
     //when player collides, open the gacha screen
     void OnTriggerEnter2D(Collider2D collision)
@@ -13,7 +18,7 @@ public class GachaWishingWell : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>() && !hasCollided)
         {
             Time.timeScale = 0;
-            gachaScreen.SetActive(true);
+            smolourController.OpenGacha();
             hasCollided = true;
         }
     }
@@ -21,7 +26,7 @@ public class GachaWishingWell : MonoBehaviour
     public void Close()
     {
         Time.timeScale = 1;
-        gachaScreen.SetActive(false);
+        smolourController.CloseGacha();
         hasCollided = false;
     }
 

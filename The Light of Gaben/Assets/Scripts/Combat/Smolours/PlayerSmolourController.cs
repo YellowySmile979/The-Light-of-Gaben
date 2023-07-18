@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSmolourController : MonoBehaviour
 {
     public static PlayerSmolourController Instance;
-    SmolourGallery gallery;
+    public GameObject gachaScreen;
     public List<SmoloursData> smolourBuffsSelected;
 
     public float hpPlus, atkPlus, defPlus, spPlus, critPlus, shieldPlus, redPlus, bluePlus, yellowPlus, orangePlus, greenPlus, magentaPlus;
@@ -16,9 +16,12 @@ public class PlayerSmolourController : MonoBehaviour
         {
             Destroy(gameObject);
         } else { Instance = this; }
-        gallery = FindObjectOfType<SmolourGallery>();
         DontDestroyOnLoad(gameObject);
     }
+
+    public void OpenGacha() { gachaScreen.SetActive(true); }
+    public void CloseGacha() { gachaScreen.SetActive(false); }
+
     public void UpdateComb()
     {
         float combHP = 0, 

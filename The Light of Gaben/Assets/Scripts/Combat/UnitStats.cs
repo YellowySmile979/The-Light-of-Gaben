@@ -103,7 +103,7 @@ public abstract class UnitStats : MonoBehaviour
         dmg = (((2 * attacker.level * 
             (attacker.crit + attacker.critBonus) / 5) + 2) 
             * attacker.WV 
-            * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attacker.defenseBonus)) / 2) +2;
+            * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attackee.defenseBonus)) / 2) +2;
 
         /*if (attackee.GetComponent<EnemyCombatController>())
         {
