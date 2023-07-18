@@ -20,7 +20,6 @@ public class SelectSmolours : MonoBehaviour
     {
         gallery = FindObjectOfType<SmolourGallery>();
         smolourController = FindObjectOfType<PlayerSmolourController>();
-        Debug.Log("SelectScreenStart");
         Close();
     }
 
