@@ -16,16 +16,6 @@ public class PlayerCombatController : UnitStats
     [Header("Animator")]
     public GameObject flash;
 
-    public RuntimeAnimatorController whiteAnim;
-    public RuntimeAnimatorController redAnim;
-    public RuntimeAnimatorController blueAnim;
-    public RuntimeAnimatorController yellowAnim;
-    public RuntimeAnimatorController orangeAnim;
-    public RuntimeAnimatorController greenAnim;
-    public RuntimeAnimatorController purpleAnim;
-
-    bool onOrOff;
-
     public RuntimeAnimatorController heal;
     public Animator animator;
 
@@ -58,24 +48,6 @@ public class PlayerCombatController : UnitStats
         orangeMultiplier = smolourController.orangePlus;
         greenMultiplier = smolourController.greenPlus;
         magentaMultiplier = smolourController.magentaPlus;
-        //stops the anim
-        animator.speed = 0;
-    }
-    void Update()
-    {
-        //ensures that the object is hidden when the animator end
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.1f)
-        {
-            //flash.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-            onOrOff = false;
-            animator.SetBool("White", onOrOff);
-            animator.SetBool("Red", onOrOff);
-            animator.SetBool("Blue", onOrOff);
-            animator.SetBool("Yellow", onOrOff);
-            animator.SetBool("Magenta", onOrOff);
-            animator.SetBool("Orange", onOrOff);
-            animator.SetBool("Green", onOrOff);
-        }
     }
     public void SelectTarget()
     {
@@ -120,54 +92,48 @@ public class PlayerCombatController : UnitStats
     //animations for attacks
     void AnimationAttack()
     {
-        //animator.runtimeAnimatorController = null;
         print("This animation attack");
-        //enables the flash
-        onOrOff = true;
-        //flash.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-        //starts the anim
-        animator.speed = 1;
         //decides which anim to play
         if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
         {
             //animator.runtimeAnimatorController = whiteAnim;
-            animator.SetBool("White", onOrOff);
+            animator.SetTrigger("White");
             stateController.camAudioSource.PlayOneShot(whiteSFX);
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
         {
             //animator.runtimeAnimatorController = redAnim;
-            animator.SetBool("Red", onOrOff);
+            animator.SetTrigger("Red");
             stateController.camAudioSource.PlayOneShot(redSFX);
 
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
         {
             //animator.runtimeAnimatorController = blueAnim;
-            animator.SetBool("Blue", onOrOff);
+            animator.SetTrigger("Blue");
             stateController.camAudioSource.PlayOneShot(blueSFX);
 
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
         {
             //animator.runtimeAnimatorController = yellowAnim;
-            animator.SetBool("Yellow", onOrOff);
+            animator.SetTrigger("Yellow");
             stateController.camAudioSource.PlayOneShot(yellowSFX);
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
         {
             //animator.runtimeAnimatorController = orangeAnim;
-            animator.SetBool("Orange", onOrOff);
+            animator.SetTrigger("Orange");
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.green.colour)
         {
             //animator.runtimeAnimatorController = greenAnim;
-            animator.SetBool("Green", onOrOff);
+            animator.SetTrigger("Green");
         }
         else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.magenta.colour)
         {
             //animator.runtimeAnimatorController = purpleAnim;
-            animator.SetBool("Magenta", onOrOff);
+            animator.SetTrigger("Magenta");
         }
     }
     public void LightChangerBlue()

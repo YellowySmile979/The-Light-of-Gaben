@@ -9,11 +9,7 @@ public class SmolourGallery : MonoBehaviour
     public Sprite unknown;
 
     public SmoloursData[] Smolours;
-    public Text[] Texts;
-    public Image[] Images;
     public GameObject Gallery;
-    public GameObject SelectScreen;
-
     public GameObject smolourGalleryPrefab, galleryParent;
     public List<GameObject> smolourGalleryControllers;
 
