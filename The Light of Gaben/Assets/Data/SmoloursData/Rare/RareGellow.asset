@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: RareGellow
   m_EditorClassIdentifier: 
-  known: {fileID: 0}
+  known: {fileID: 8843930516510768233, guid: 9c8a927ae2866b74cab873b7b9f3df8d, type: 3}
   rarity: 0
   hpBonus: 0
   redMultiplier: 0
-  yellowMultiplier: 0
+  yellowMultiplier: 0.1
   blueMultiplier: 0
   orangeMultiplier: 0
-  greenMultiplier: 0
+  greenMultiplier: 0.1
   magentaMultiplier: 0
   speedBonus: 0
   attackBonus: 0
   defenseBonus: 0
   shield: 0
   critBonus: 0
-  description: 
+  description: Marginally Increases Green and Yellow Type Damage

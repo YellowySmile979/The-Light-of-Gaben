@@ -7,7 +7,7 @@ public abstract class UnitStats : MonoBehaviour
 {
     [Header("Unit Stats")]
     public float attack = 10;
-    public float defense = 0;
+    public float defense = 10;
     public float maxDefence;
     public float WV = 2;
     public float speed = 10;
@@ -115,7 +115,19 @@ public abstract class UnitStats : MonoBehaviour
             print("WIGGLE");
             Wiggle(attackee);
         }*/
-        // Switch Case for Light Weakness
+        // Switch Case for Light Weaknes
+
+        Debug.Log(
+            "level: " + attacker.level +
+            "crit " + attacker.crit +
+            "critbonus " + attacker.critBonus +
+            "wv " + attacker.WV +
+            "attack " + attacker.attack +
+            "attackbonus " + attacker.attackBonus +
+            "defensee " + attackee.defense +
+            "defensebonuss " + attackee.defenseBonus
+            );
+
         switch (attackee.lightType)
         {
             case LightTypes.Red:

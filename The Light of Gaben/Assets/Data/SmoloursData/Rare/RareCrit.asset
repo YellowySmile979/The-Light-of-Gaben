@@ -25,5 +25,5 @@ MonoBehaviour:
   attackBonus: 0
   defenseBonus: 0
   shield: 0
-  critBonus: 15
+  critBonus: 5
   description: Marginally Increases Crit
