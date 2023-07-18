@@ -6,14 +6,29 @@ using UnityEngine.UI;
 public class SmolourGallery : MonoBehaviour
 {
     public List<SmoloursData> collectedSmolours;
+    public Sprite unknown;
 
     public SmoloursData[] Smolours;
     public Text[] Texts;
     public Image[] Images;
     public GameObject Gallery;
     public GameObject SelectScreen;
+
+    public GameObject smolourGalleryPrefab, galleryParent;
+    public List<GameObject> smolourGalleryControllers;
+
     private void Start()
     {
+
+        foreach (SmoloursData smolours in Smolours)
+        {
+            SmoloursData smolour = smolours;    
+            GameObject newSmolour = Instantiate(smolourGalleryPrefab, galleryParent.transform);
+            newSmolour.GetComponent<SmolourGalleryController>().displayedSprite.sprite = unknown;
+            newSmolour.GetComponent<SmolourGalleryController>().description.text = "UNKNOWN";
+            newSmolour.GetComponent<SmolourGalleryController>().smoloursData = smolour;
+            smolourGalleryControllers.Add(newSmolour);
+        }
         Close();
     }
     public void Close()
@@ -26,14 +41,14 @@ public class SmolourGallery : MonoBehaviour
         foreach (SmoloursData smolour in collectedSmolours)
         {
             // searches for the index of each collected smolour in the Smolour array, and changes the corresponding Image and text.
-            int index = 0;
-            for (; index < Smolours.Length; index++)
+            
+            foreach (GameObject smolourGallery in smolourGalleryControllers)
             {
-                if (Smolours[index] == smolour) break;
+                if (smolourGallery.GetComponent<SmolourGalleryController>().smoloursData == smolour)
+                {
+                    smolourGallery.GetComponent<SmolourGalleryController>().collected = true;
+                }
             }
-
-            Images[index].sprite = smolour.known;
-            Texts[index].text = smolour.description;
-        }
+        }                                                                                   
     }
 }
