@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class LoadSceneManager : MonoBehaviour
     [HideInInspector] public bool deactivateTimer = false;
     int easyRandomNumber, mediumRandomNumber, hardRandomNumber;
     float timer, initialTime = 10f;
+
+    public Scene currentScene;
 
     [Header("Win Conditions")]
     [TextArea]
@@ -36,6 +39,20 @@ public class LoadSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        if (easySceneNames.Contains(currentScene.name))
+        {
+            easySceneNames.Remove(currentScene.name);
+        }
+        if (mediumSceneNames.Contains(currentScene.name))
+        {
+            mediumSceneNames.Remove(currentScene.name);
+        }
+        if (hardSceneNames.Contains(currentScene.name))
+        {
+            hardSceneNames.Remove(currentScene.name);
+        }
+
         canWin = false;
         easyRandomNumber = Random.Range(0, easySceneNames.Count - 1);
         mediumRandomNumber = Random.Range(0, mediumSceneNames.Count - 1);
