@@ -28,6 +28,7 @@ public class LevelEndGoal : MonoBehaviour
     //if player has met the win conditions, player can win
     public void Win(int randomNumber = 0)
     {        
+        //gets the corresponding random number depending on the floor number
         if (PlayerPrefs.GetInt("Floor Number") <= 5)
         {
             randomNo = LoadSceneManager.Instance.easyRandomNumber;
