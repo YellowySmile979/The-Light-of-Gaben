@@ -222,7 +222,7 @@ public abstract class UnitStats : MonoBehaviour
             attacker.GetComponent<PlayerCombatController>().ColourEffects(dmg, attackee.GetComponent<EnemyCombatController>());
         }
 
-        stateController.actionDesc = "Player attacks " + attackee.name + " for " + dmg + " damage!";
+        stateController.actionDesc = attacker.name + " attacks " + attackee.name + " for " + dmg + " damage!";
     }
 
     public void HealDamage(float heal)
