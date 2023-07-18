@@ -2253,10 +2253,10 @@ RectTransform:
   m_Father: {fileID: 6369352920639920002}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1098.7412}
-  m_SizeDelta: {x: 0, y: 557.6272}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &155305393
 MonoBehaviour:
@@ -2270,8 +2270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 1
-  m_VerticalFit: 1
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!114 &155305394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2478,7 +2478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6369352921076929064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2709,7 +2709,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -421.5}
+  m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6369352921840553806
 CanvasRenderer:
@@ -2792,8 +2792,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6369352920964346101}
   m_HandleRect: {fileID: 6369352920964346100}
   m_Direction: 2
-  m_Value: 0.44641417
-  m_Size: 0.308903
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2896,6 +2896,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4767fd8050b40f14a9aac967b0704bf1, type: 2}
   - {fileID: 11400000, guid: aa8f14a731c7bbd458128f6294af5a90, type: 2}
   - {fileID: 11400000, guid: 36ac397f9f1e72b4e8cdbb4f3e35fbee, type: 2}
+  - {fileID: 11400000, guid: 9538e3e2ed59da045859d068d88b6917, type: 2}
+  - {fileID: 11400000, guid: 9d509657142c4a249b9923932312d066, type: 2}
   - {fileID: 11400000, guid: fc1110025c008ff49ad5487b8ac3cc4b, type: 2}
   - {fileID: 11400000, guid: cf776ad2418b38f4db5a99c48f0daaee, type: 2}
   - {fileID: 11400000, guid: 7286678e88021564cb9e63bd213c70bd, type: 2}
@@ -2914,58 +2916,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd058238e6af261478d60f3744fc2b8a, type: 2}
   - {fileID: 11400000, guid: 0b13eabffb2f2bf4fb2b778377f2353f, type: 2}
   - {fileID: 11400000, guid: 69503dd896458f1448f074dc476cedaf, type: 2}
-  Texts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Images:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Gallery: {fileID: 6369352921076929063}
-  SelectScreen: {fileID: 2621624234455593610}
   smolourGalleryPrefab: {fileID: 6687521069214050143, guid: 3b4062d781f5b0647bac947c9bf30273, type: 3}
   galleryParent: {fileID: 6369352920634415332}
   smolourGalleryControllers: []

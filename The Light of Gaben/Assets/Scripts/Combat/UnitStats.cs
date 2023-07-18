@@ -96,9 +96,9 @@ public abstract class UnitStats : MonoBehaviour
     {
         print("Took Damage");
 
-        // Light Type If Else statements! There's probably a more efficient way to do this but it's 28 May and our critique is in 2 days.
         // Red > Blue > Yellow > Red
-        // - noelle
+        // Magenta > Green > Orange > Magenta
+
         
         dmg = (((2 * attacker.level * 
             (attacker.crit + attacker.critBonus) / 5) + 2) 

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
-  m_Name: RareAttackBonus
+  m_Name: RareDefense
   m_EditorClassIdentifier: 
-  known: {fileID: 3589401743827439963, guid: 2b39c7608f7ed884cb893a940038e203, type: 3}
+  ID: RareDefBns
+  known: {fileID: 1815058107772715798, guid: 21951058cb0a93e4cb2d691f41d71945, type: 3}
   rarity: 0
   hpBonus: 0
   redMultiplier: 0
@@ -22,8 +23,8 @@ MonoBehaviour:
   greenMultiplier: 0
   magentaMultiplier: 0
   speedBonus: 0
-  attackBonus: 2
-  defenseBonus: 0
+  attackBonus: 0
+  defenseBonus: 5
   shield: 0
   critBonus: 0
-  description: Marginally Increases Attack
+  description: Marginally Increases Defense

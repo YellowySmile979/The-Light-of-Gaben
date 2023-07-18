@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
-  m_Name: RareMagenta
+  m_Name: RareAttack
   m_EditorClassIdentifier: 
-  known: {fileID: 0}
+  known: {fileID: 3791822370276211659, guid: 21951058cb0a93e4cb2d691f41d71945, type: 3}
   rarity: 0
   hpBonus: 0
   redMultiplier: 0
@@ -22,8 +22,8 @@ MonoBehaviour:
   greenMultiplier: 0
   magentaMultiplier: 0
   speedBonus: 0
-  attackBonus: 0
+  attackBonus: 2
   defenseBonus: 0
   shield: 0
   critBonus: 0
-  description: 
+  description: Marginally Increases Attack

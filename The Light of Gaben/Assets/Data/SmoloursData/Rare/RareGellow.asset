@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
-  m_Name: RareCritBonus
+  m_Name: RareGellow
   m_EditorClassIdentifier: 
-  ID: RareCritBns
-  known: {fileID: 1585975840842088787, guid: 9c8a927ae2866b74cab873b7b9f3df8d, type: 3}
+  known: {fileID: 0}
   rarity: 0
   hpBonus: 0
   redMultiplier: 0
@@ -26,5 +25,5 @@ MonoBehaviour:
   attackBonus: 0
   defenseBonus: 0
   shield: 0
-  critBonus: 15
-  description: Marginally Increases Crit
+  critBonus: 0
+  description: 
