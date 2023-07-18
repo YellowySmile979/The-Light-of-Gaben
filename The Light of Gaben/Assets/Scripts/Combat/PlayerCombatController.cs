@@ -101,7 +101,7 @@ public class PlayerCombatController : UnitStats
         //resets player's defence
         defense = maxDefence;
         //resets enemy's defence
-        enemy.defense = enemy.maxDefence;
+        if(enemy != null) enemy.defense = enemy.maxDefence;
 
         if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
         {
@@ -148,6 +148,7 @@ public class PlayerCombatController : UnitStats
             defense = maxDefence + maxDefence * 0.2f;
 
             health += maxHealth * 0.15f;
+            if (health > maxHealth) health = maxHealth;
         }
     }
     //animations for attacks
