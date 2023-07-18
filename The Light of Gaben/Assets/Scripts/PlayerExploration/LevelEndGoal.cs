@@ -7,6 +7,7 @@ public class LevelEndGoal : MonoBehaviour
 {
     public static LevelEndGoal Instance;
     public int floorNumber;
+    int randomNo;
     
     void Awake()
     {
@@ -14,7 +15,7 @@ public class LevelEndGoal : MonoBehaviour
     }
     void Start()
     {
-        PlayerPrefs.SetInt("Floor Number", floorNumber);
+        
     }
     //detects when player enters
     void OnTriggerEnter2D(Collider2D collision)
@@ -26,21 +27,33 @@ public class LevelEndGoal : MonoBehaviour
     }
     //if player has met the win conditions, player can win
     public void Win(int randomNumber = 0)
-    {
+    {        
+        if (PlayerPrefs.GetInt("Floor Number") <= 5)
+        {
+            randomNo = LoadSceneManager.Instance.easyRandomNumber;
+        }
+        else if (PlayerPrefs.GetInt("Floor Number") > 5 && PlayerPrefs.GetInt("Floor Number") <= 10)
+        {
+            randomNo = LoadSceneManager.Instance.mediumRandomNumber;
+        }
+        else if (PlayerPrefs.GetInt("Floor Number") > 10 && PlayerPrefs.GetInt("Floor Number") <= 15)
+        {
+            randomNo = LoadSceneManager.Instance.hardRandomNumber;
+        }
         if (LoadSceneManager.Instance.canWin)
         {
             //player can win
             if(PlayerPrefs.GetInt("Floor Number") <= 5)
             {
-                SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNumber]);
+                SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNo]);
             }
             else if(PlayerPrefs.GetInt("Floor Number") > 5 && PlayerPrefs.GetInt("Floor Number") <= 10)
             {
-                SceneManager.LoadScene(LoadSceneManager.Instance.mediumSceneNames[randomNumber]);
+                SceneManager.LoadScene(LoadSceneManager.Instance.mediumSceneNames[randomNo]);
             }
             else if(PlayerPrefs.GetInt("Floor Number") > 10 && PlayerPrefs.GetInt("Floor Number") <= 15)
             {                
-                SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNumber]);
+                SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNo]);
             }
             else if(PlayerPrefs.GetInt("Floor Number") <= 14)
             {
@@ -49,6 +62,7 @@ public class LevelEndGoal : MonoBehaviour
             if(PlayerPrefs.GetInt("Floor Number") <= 14)
             {
                 floorNumber++;
+                PlayerPrefs.SetInt("Floor Number", floorNumber);
             }
         }
     }

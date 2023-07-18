@@ -57,7 +57,7 @@ public class CombatStateController : MonoBehaviour
         else
         {
             camAudioSource.clip = combatMusic2;
-            camAudioSource.volume = 0.5f;
+            camAudioSource.volume = 0.4f;
             camAudioSource.Play();
             //camAudioSource.PlayOneShot(combatMusic2, 0.7f);
         }

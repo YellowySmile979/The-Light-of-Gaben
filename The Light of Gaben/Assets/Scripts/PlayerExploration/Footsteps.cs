@@ -20,7 +20,6 @@ public class Footsteps : MonoBehaviour
         if (player.GetComponent<PlayerMovement>().isMoving)
         {
             footsteps();
-            print("dis bitch steppin!");
         }
         else
         {

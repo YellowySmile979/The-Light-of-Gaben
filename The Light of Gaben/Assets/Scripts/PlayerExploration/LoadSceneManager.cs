@@ -15,7 +15,7 @@ public class LoadSceneManager : MonoBehaviour
 
     public string loseScene;
     [HideInInspector] public bool deactivateTimer = false;
-    int easyRandomNumber, mediumRandomNumber, hardRandomNumber;
+    public int easyRandomNumber, mediumRandomNumber, hardRandomNumber;
     float timer, initialTime = 10f;
 
     public Scene currentScene;
@@ -31,6 +31,7 @@ public class LoadSceneManager : MonoBehaviour
     public int chosenWinCondtion = 0;
     public bool canWin = false;
     public List<GameObject> baseEnemies = new List<GameObject>();
+    bool printed = false;
 
     void Awake()
     {
@@ -39,7 +40,9 @@ public class LoadSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //sets the currentscene variable to this scene
         currentScene = SceneManager.GetActiveScene();
+        //checks to see if the name is found in any of the following and removes it if there is
         if (easySceneNames.Contains(currentScene.name))
         {
             easySceneNames.Remove(currentScene.name);
@@ -100,6 +103,11 @@ public class LoadSceneManager : MonoBehaviour
     }
     void WinConditionMinKill()
     {
+        if (!printed)
+        {
+            print("Using Min Kill");
+            printed = true;
+        }
         //updates UI to show min number of kills needed
         string winConditionMinKill = "Minimum amount of kills required: " + minKillRequirement.ToString();
         GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionMinKill);
@@ -117,7 +125,12 @@ public class LoadSceneManager : MonoBehaviour
         enemiesKilled += killed;
     }
     void WinConditionTimer()
-    {        
+    {
+        if (!printed)
+        {
+            print("Using Timer");
+            printed = true;
+        }
         //timer to complete level
         if (timeLeftBeforeLose <= 0)
         {
@@ -145,6 +158,11 @@ public class LoadSceneManager : MonoBehaviour
     }
     public void WinConditionCollectItems(float collectedItems = 0)
     {
+        if (!printed)
+        {
+            print("Using Collect Items");
+            printed = true;
+        }
         //updates UI to this specific instance of the win condition
         string winConditionCollectItems = "Items collected/Items to collect (Note that some items DO NOT count): " 
                                         + numberOfWinItemsCollected 
