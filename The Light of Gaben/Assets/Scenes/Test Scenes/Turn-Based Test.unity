@@ -351,6 +351,14 @@ PrefabInstance:
       propertyPath: healSFX
       value: 
       objectReference: {fileID: 8300000, guid: b6311c38629518742ac9a3bee3d36e46, type: 3}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: wiggleSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: wiggleOffset
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: camAudioSource
       value: 

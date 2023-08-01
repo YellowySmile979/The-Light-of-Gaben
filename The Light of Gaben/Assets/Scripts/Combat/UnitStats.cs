@@ -43,9 +43,10 @@ public abstract class UnitStats : MonoBehaviour
     public AudioClip clawSFX, healSFX;
 
     [Header("Wiggle")]
-    public float minWiggleDistance;
-    public float maxWiggleDistance, wiggleSpeed;
+    public float wiggleOffset;
+    public float wiggleSpeed;
     Vector3 origin;
+    bool direction;
 
     public CombatStateController stateController;
 
@@ -68,35 +69,35 @@ public abstract class UnitStats : MonoBehaviour
     {
         bool doWiggle = true;
         origin = attackee.transform.position;
-        Vector3 distance;
-        float direction;
+        int count = 0;
 
         while (doWiggle)
         {
-            direction = Mathf.Abs(attackee.transform.position.x);
-            if(direction > 0)
+            //changes direction depending on which direction dude moves
+            if(attackee.transform.position.x >= origin.x + wiggleOffset - 0.01f)
             {
-                distance = new Vector3(maxWiggleDistance, 0, 0);
+                direction = true;
             }
-            else if (direction < 0)
+            else if(attackee.transform.position.x <= origin.x - wiggleOffset + 0.01f)
             {
-                distance = new Vector3(minWiggleDistance, 0, 0);
+                direction = false;
+            }
+            //dpending on the bool, move accordingly
+            if (direction)
+            {
+                attackee.transform.position -= new Vector3(wiggleSpeed, 0) * Time.deltaTime; 
+            }
+            else
+            {
+                attackee.transform.position += new Vector3(wiggleSpeed, 0) * Time.deltaTime;
             }
 
-            if(attackee.transform.position.x > maxWiggleDistance)
+            if(count > 100)
             {
-                //move in opposite direction
+                print("Count: " + count);
+                break;
             }
-            else if(attackee.transform.position.x < minWiggleDistance)
-            {
-                //reverse direction
-            }
-            attackee.transform.position = Vector3.Lerp(
-                                        origin,
-                                        attackee.transform.position + distance,
-                                        wiggleSpeed * Time.deltaTime
-                                        );
-
+            count++;
             yield return new WaitForSeconds(0.0001f);
         }
     }
@@ -117,6 +118,7 @@ public abstract class UnitStats : MonoBehaviour
         if (attackee.GetComponent<EnemyCombatController>())
         {
             print("WIGGLE");
+            StopCoroutine(Wiggle(attackee));
             StartCoroutine(Wiggle(attackee));
         }
         // Switch Case for Light Weaknes
