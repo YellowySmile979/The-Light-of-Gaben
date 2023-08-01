@@ -29,9 +29,6 @@ public class GachaSystem : MonoBehaviour
     {
         smolour = FindObjectOfType<SmolourGallery>();
         wishingWell = FindObjectOfType<GachaWishingWell>();
-        // If you have less than 1 PP, will not let you interact
-        if (PlayerPrefs.GetInt("PP Count") < amontToPull) RollButton.interactable = false;
-        else RollButton.interactable = true;
         // auto sorts Smolours into rarity.
         // These tables are called by GachaSystem to determine which Smolour the player receives.
         foreach (SmoloursData smolour in smolour.Smolours)
@@ -98,16 +95,26 @@ public class GachaSystem : MonoBehaviour
 
     void Update() 
     { 
+        // If you have less than 1 PP, will not let you interact
+        if (PlayerPrefs.GetInt("PP Count") < amontToPull) RollButton.interactable = false;
+        else RollButton.interactable = true;
+
+        // Check for Gacha animation to end.
+        // i dont know how this works. im a programmer - noelle
         GachaPlayer.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
 
+        // Extra check to skip the video if player clicks on the screen while video is playing
         if (GachaPlayer.GetComponent<VideoPlayer>().isPlaying && Input.GetMouseButtonDown(0)) { CheckOver(GachaPlayer.GetComponent<VideoPlayer>()); }
     }
 
+    // Happens when gacha pull video is played / skipped.
     public void CheckOver(VideoPlayer vp)
     {
         GachaPlayer.SetActive(false);
         Results();
     }
+
+    // Displays the smolours pulled.
     void Results()
     {
         GameObject[] results = new GameObject[] { result1, result2, result3 };
@@ -116,6 +123,7 @@ public class GachaSystem : MonoBehaviour
         {
             descriptions[i].text = rolled[i].description;
             results[i].GetComponent<Image>().sprite = rolled[i].known;
+            // Plays little display animation
             results[i].GetComponent<GachaResultsAnimationController>().Pulled();
         }
     }

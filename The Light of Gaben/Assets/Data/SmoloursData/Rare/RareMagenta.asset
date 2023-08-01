@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832d5af979c08424b926cd18bcd9f96c, type: 3}
   m_Name: RareMagenta
   m_EditorClassIdentifier: 
-  known: {fileID: 2076829918076605512, guid: 21951058cb0a93e4cb2d691f41d71945, type: 3}
+  known: {fileID: 3589401743827439963, guid: 2b39c7608f7ed884cb893a940038e203, type: 3}
   rarity: 0
   hpBonus: 0
   redMultiplier: 0

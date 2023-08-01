@@ -4248,7 +4248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6369352921840553803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4643,7 +4643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pity: 0
-  amontToPull: 0
+  amontToPull: 1
   pityCounter: {fileID: 2045563190895389416}
   result1: {fileID: 5149688317609635234}
   result2: {fileID: 4641239688419429184}
