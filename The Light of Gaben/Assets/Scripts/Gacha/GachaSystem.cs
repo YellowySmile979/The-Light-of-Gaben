@@ -22,9 +22,9 @@ public class GachaSystem : MonoBehaviour
 
     //The Gacha System
     // Current drop rates are:
-    // SSR++* : 1/100 = 1 % (Not taking into account Pity)
-    // SR : 10/100 = 10 %
-    // R : 89/100 = 89 %
+    // SSR++* : 5/100 = 5 % (Not taking into account Pity)
+    // SR : 20/100 = 20 %
+    // R : 75/100 = 75 %
     private void Start()
     {
         smolour = FindObjectOfType<SmolourGallery>();
@@ -51,13 +51,13 @@ public class GachaSystem : MonoBehaviour
 
             //Once roll is calculated, an if else statement
             // is used to call the loot table according to the roll
-            ; if (roll == 100 || pity == 50)
+            ; if (roll >= 95  || pity == 50)
             {
                 int rolledSmolourIndex = Random.Range(0, SSRSmolours.Count); // rolls on SSRare Smolours Table for the Smolour Rolled.
                 rolledSmolour = SSRSmolours[rolledSmolourIndex]; // Finds the Smolour rolled
                 pity = 0;
             }
-            else if (roll >= 89)
+            else if (roll >= 75)
             {
                 pity += 1; //Increases Pity
                 int rolledSmolourIndex = Random.Range(0, SRSmolours.Count); // rolls on SRare Smolours Table for the Smolour Rolled.
@@ -74,10 +74,8 @@ public class GachaSystem : MonoBehaviour
 
             // if the rolled smolour has already been collected, it does not get added to the collected Smolours array
             bool alreadyCollected = false;
-            foreach (SmoloursData j in smolour.collectedSmolours)
-            {
-                if (j == rolledSmolour) alreadyCollected = true;
-            }
+            if (smolour.collectedSmolours.Contains(rolledSmolour)) alreadyCollected = true;
+
             if (!alreadyCollected) smolour.collectedSmolours.Add(rolledSmolour);
         }
         pityCounter.text = "Pity: " + pity;
@@ -122,6 +120,12 @@ public class GachaSystem : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             descriptions[i].text = rolled[i].description;
+
+            if (smolour.collectedSmolours.Contains(rolled[i]))
+            {
+                descriptions[i].text += "[COLLECTED]";
+            }
+
             results[i].GetComponent<Image>().sprite = rolled[i].known;
             // Plays little display animation
             results[i].GetComponent<GachaResultsAnimationController>().Pulled();

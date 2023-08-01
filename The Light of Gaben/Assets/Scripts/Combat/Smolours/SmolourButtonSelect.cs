@@ -10,6 +10,7 @@ public class SmolourButtonSelect : MonoBehaviour
     public Button button;
     public SmoloursData smoloursData;
     public SelectSmolours selectSmolours;
+    public GameObject checkmark;
     PlayerSmolourController smolourController;
     bool selected;
 
@@ -23,11 +24,13 @@ public class SmolourButtonSelect : MonoBehaviour
         if (selected)
         {
             selectSmolours.Deselect(smoloursData);
+            checkmark.SetActive(false);
             selected = !selected; //inverts select, in this case to false;
         }
         else
         {
             selectSmolours.SelectSmolour(smoloursData);
+            checkmark.SetActive(true);
             selected = !selected;
         }
     }
