@@ -7,7 +7,6 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
 
-    // Update is called once per frame
     void Update()
     {
         //targets the player using the player's x and y coords
