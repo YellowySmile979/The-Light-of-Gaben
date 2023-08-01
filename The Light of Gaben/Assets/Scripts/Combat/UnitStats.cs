@@ -91,7 +91,7 @@ public abstract class UnitStats : MonoBehaviour
             {
                 attackee.transform.position += new Vector3(wiggleSpeed, 0) * Time.deltaTime;
             }
-
+            //falls outta the loop when count reaches more than 100
             if(count > 100)
             {
                 print("Count: " + count);
