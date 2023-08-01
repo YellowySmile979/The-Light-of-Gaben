@@ -43,9 +43,10 @@ public abstract class UnitStats : MonoBehaviour
     public AudioClip clawSFX, healSFX;
 
     [Header("Wiggle")]
-    public float minWiggleDistance;
-    public float maxWiggleDistance, wiggleSpeed;
+    public float wiggleOffset;
+    public float wiggleSpeed;
     Vector3 origin;
+    bool direction;
 
     public CombatStateController stateController;
 
@@ -64,39 +65,40 @@ public abstract class UnitStats : MonoBehaviour
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - (speed+speedBonus));
     }
+    //handles the wiggling of the enemy
     IEnumerator Wiggle(UnitStats attackee)
     {
         bool doWiggle = true;
         origin = attackee.transform.position;
-        Vector3 distance;
-        float direction;
+        int count = 0;
 
         while (doWiggle)
         {
-            direction = Mathf.Abs(attackee.transform.position.x);
-            if(direction > 0)
+            //changes direction depending on which direction dude moves
+            if(attackee.transform.position.x >= origin.x + wiggleOffset - 0.01f)
             {
-                distance = new Vector3(maxWiggleDistance, 0, 0);
+                direction = true;
             }
-            else if (direction < 0)
+            else if(attackee.transform.position.x <= origin.x - wiggleOffset + 0.01f)
             {
-                distance = new Vector3(minWiggleDistance, 0, 0);
+                direction = false;
             }
-
-            if(attackee.transform.position.x > maxWiggleDistance)
+            //dpending on the bool, move accordingly
+            if (direction)
             {
-                //move in opposite direction
+                attackee.transform.position -= new Vector3(wiggleSpeed, 0) * Time.deltaTime; 
             }
-            else if(attackee.transform.position.x < minWiggleDistance)
+            else
             {
-                //reverse direction
+                attackee.transform.position += new Vector3(wiggleSpeed, 0) * Time.deltaTime;
             }
-            attackee.transform.position = Vector3.Lerp(
-                                        origin,
-                                        attackee.transform.position + distance,
-                                        wiggleSpeed * Time.deltaTime
-                                        );
-
+            //falls outta the loop when count reaches more than 100
+            if(count > 100)
+            {
+                print("Count: " + count);
+                break;
+            }
+            count++;
             yield return new WaitForSeconds(0.0001f);
         }
     }
@@ -114,9 +116,10 @@ public abstract class UnitStats : MonoBehaviour
             * attacker.WV 
             * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attackee.defenseBonus)) / 2) +2;
 
-        if (attackee.GetComponent<EnemyCombatController>())
+        if (attackee.GetComponent<EnemyCombatController>() || attackee.GetComponent<ShadowKingCombatController>())
         {
             print("WIGGLE");
+            StopCoroutine(Wiggle(attackee));
             StartCoroutine(Wiggle(attackee));
         }
         // Switch Case for Light Weaknes

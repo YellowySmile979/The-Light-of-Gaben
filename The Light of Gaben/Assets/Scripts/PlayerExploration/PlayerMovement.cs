@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.runtimeAnimatorController = frontAnim;
         }
-        else if (angle >= 315 && angle < 45 || angle == 0)
+        else //if ((angle >= 315 && angle < 45) || angle == 0)
         {
             animator.runtimeAnimatorController = rightAnim;
         }

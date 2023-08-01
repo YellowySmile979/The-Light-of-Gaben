@@ -24,6 +24,8 @@ public class PlayerCombatController : UnitStats
     public AudioSource audioSource;
     public AudioClip whiteSFX, blueSFX, redSFX, yellowSFX, colourSFX;
 
+    UnitStats enemy;
+
     void Awake()
     {
         Instance = this;
@@ -53,7 +55,14 @@ public class PlayerCombatController : UnitStats
     public void SelectTarget()
     {
         //Temp
-        attackTarget = FindObjectOfType<EnemyCombatController>();
+        if(FindObjectOfType<EnemyCombatController>())
+        {
+            attackTarget = FindObjectOfType<EnemyCombatController>();
+        }
+        else if (FindObjectOfType<ShadowKingCombatController>())
+        {
+            attackTarget = FindObjectOfType<ShadowKingCombatController>();
+        }
         stateController = FindObjectOfType<CombatStateController>();
         healTarget = this;
     }
@@ -102,9 +111,16 @@ public class PlayerCombatController : UnitStats
     {
         //resets player's defence
         defense = maxDefence;
-        EnemyCombatController enemy = FindObjectOfType<EnemyCombatController>();
+        if(FindObjectOfType<EnemyCombatController>())
+        {
+            enemy = FindObjectOfType<EnemyCombatController>();
+        }
+        else if (FindObjectOfType<ShadowKingCombatController>())
+        {
+            enemy = FindObjectOfType<ShadowKingCombatController>();
+        }
         //resets enemy's defence
-        if(enemy != null) enemy.defense = enemy.maxDefence;
+        if (enemy != null) enemy.defense = enemy.maxDefence;
 
         if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
         {
