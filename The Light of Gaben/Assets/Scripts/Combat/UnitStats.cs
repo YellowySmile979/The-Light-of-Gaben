@@ -65,6 +65,7 @@ public abstract class UnitStats : MonoBehaviour
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - (speed+speedBonus));
     }
+    //handles the wiggling of the enemy
     IEnumerator Wiggle(UnitStats attackee)
     {
         bool doWiggle = true;
