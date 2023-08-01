@@ -42,10 +42,10 @@ public abstract class UnitStats : MonoBehaviour
     [Header("SFX")]
     public AudioClip clawSFX, healSFX;
 
-    /*[Header("Wiggle")]
-    public RuntimeAnimatorController bodyguardHurtAnim, archerHurtAnim, summonerHurtAnim;
-    public Animator enemy;
-    public Sprite bodyguard, archer, summoner;*/
+    [Header("Wiggle")]
+    public float minWiggleDistance;
+    public float maxWiggleDistance, wiggleSpeed;
+    Vector3 origin;
 
     public CombatStateController stateController;
 
@@ -59,44 +59,47 @@ public abstract class UnitStats : MonoBehaviour
         if (defense <= 0) defense = 1;
         UpdateComb();
     }
-    /*void Start()
-    {
-        //enemy = FindObjectOfType<EnemyCombatController>().GetComponent<Animator>();
-        //enemy.speed = 0;
-        
-    }
-    /*void Update()
-    {
-        //ensures that the object is hidden when the animator end
-        if (enemy.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-        {
-            enemy.speed = 0;
-        }
-    }*/
     // Calculates nextTurnIn value   
     public void CalculateNextTurn(int currentTurn)
     {
         nextTurnIn = currentTurn + (Random.Range(1, 50) - (speed+speedBonus));
     }
-    /*void Wiggle(UnitStats attackee)
+    IEnumerator Wiggle(UnitStats attackee)
     {
-        enemy.runtimeAnimatorController = null;
-        print("This animation attack");
-        //starts the anim
-        enemy.speed = 1;
-        if (FindObjectOfType<EnemyCombatController>().image == bodyguard)
+        bool doWiggle = true;
+        origin = attackee.transform.position;
+        Vector3 distance;
+        float direction;
+
+        while (doWiggle)
         {
-            enemy.runtimeAnimatorController = bodyguardHurtAnim;
+            direction = Mathf.Abs(attackee.transform.position.x);
+            if(direction > 0)
+            {
+                distance = new Vector3(maxWiggleDistance, 0, 0);
+            }
+            else if (direction < 0)
+            {
+                distance = new Vector3(minWiggleDistance, 0, 0);
+            }
+
+            if(attackee.transform.position.x > maxWiggleDistance)
+            {
+                //move in opposite direction
+            }
+            else if(attackee.transform.position.x < minWiggleDistance)
+            {
+                //reverse direction
+            }
+            attackee.transform.position = Vector3.Lerp(
+                                        origin,
+                                        attackee.transform.position + distance,
+                                        wiggleSpeed * Time.deltaTime
+                                        );
+
+            yield return new WaitForSeconds(0.0001f);
         }
-        else if (FindObjectOfType<EnemyCombatController>().image == archer)
-        {
-            enemy.runtimeAnimatorController = archerHurtAnim;
-        }
-        else if(FindObjectOfType<EnemyCombatController>().image == summoner)
-        {
-            enemy.runtimeAnimatorController = summonerHurtAnim;
-        }
-    }*/
+    }
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(float dmg, UnitStats attacker, UnitStats attackee)
     {
@@ -111,11 +114,11 @@ public abstract class UnitStats : MonoBehaviour
             * attacker.WV 
             * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attackee.defenseBonus)) / 2) +2;
 
-        /*if (attackee.GetComponent<EnemyCombatController>())
+        if (attackee.GetComponent<EnemyCombatController>())
         {
             print("WIGGLE");
-            Wiggle(attackee);
-        }*/
+            StartCoroutine(Wiggle(attackee));
+        }
         // Switch Case for Light Weaknes
 
         Debug.Log(
