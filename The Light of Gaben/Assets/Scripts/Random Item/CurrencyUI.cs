@@ -16,11 +16,13 @@ public class CurrencyUI : MonoBehaviour
         {
             addValueForPP += (int)currencyValue;
             ppCount.text = addValueForPP.ToString();
+            PlayerPrefs.SetInt("PP Count", addValueForPP);
         }
         else if (currencyDataType.currencyType == CurrencyData.Type.LightShard)
         {
             addValueForLS += (int)currencyValue;
             lightShardCount.text = addValueForLS.ToString();
+            PlayerPrefs.SetInt("LS Count", addValueForLS);
         }
     }
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class CurrencyUI : MonoBehaviour
     void Update()
     {
         //constantly updates the player prefs
-        PlayerPrefs.SetInt("PP Count", addValueForPP);
-        PlayerPrefs.SetInt("LS Count", addValueForLS);
+        // PlayerPrefs.SetInt("PP Count", addValueForPP);
+        // PlayerPrefs.SetInt("LS Count", addValueForLS);
     }
 }

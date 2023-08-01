@@ -9,7 +9,7 @@ public class GachaSystem : MonoBehaviour
     public int pity = 0;
     public int amontToPull = 50;
     public Text pityCounter;
-    public Image result1, result2, result3;
+    public GameObject result1, result2, result3;
     public Text desc1, desc2, desc3;
     private List<SmoloursData> rolled;
     SmolourGallery smolour;
@@ -84,20 +84,25 @@ public class GachaSystem : MonoBehaviour
             if (!alreadyCollected) smolour.collectedSmolours.Add(rolledSmolour);
         }
         pityCounter.text = "Pity: " + pity;
+
+        // Sets PP count to itself - amountToPull
         int minusPP = PlayerPrefs.GetInt("PP Count") - amontToPull;
         PlayerPrefs.SetInt("PP Count", minusPP);
         Results();
+
+        // Updates how many smolours collected.
         PlayerPrefs.SetInt("Smolours Collected", smolour.collectedSmolours.Count);
     }
     //randomises which place the appropriate smolour should spawn in
     void Results()
     {
-        Image[] results = new Image[] { result1, result2, result3 };
+        GameObject[] results = new GameObject[] { result1, result2, result3 };
         Text[] descriptions = new Text[] { desc1, desc2, desc3 };
         for (int i = 0; i < 3; i++)
         {
             descriptions[i].text = rolled[i].description;
-            results[i].sprite = rolled[i].known;
+            results[i].GetComponent<Image>().sprite = rolled[i].known;
+            results[i].GetComponent<GachaResultsAnimationController>().Pulled();
         }
     }
 
