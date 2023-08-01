@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class GachaSystem : MonoBehaviour
 {
@@ -17,8 +18,7 @@ public class GachaSystem : MonoBehaviour
     public Button RollButton;
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
     GachaWishingWell wishingWell;
-
-    public GameObject SelectScreen, Instructions1Screen, Instructions2Screen;
+    public GameObject SelectScreen, Instructions1Screen, Instructions2Screen, GachaPlayer;
 
     //The Gacha System
     // Current drop rates are:
@@ -88,12 +88,26 @@ public class GachaSystem : MonoBehaviour
         // Sets PP count to itself - amountToPull
         int minusPP = PlayerPrefs.GetInt("PP Count") - amontToPull;
         PlayerPrefs.SetInt("PP Count", minusPP);
-        Results();
+        PlayAnimation();
 
         // Updates how many smolours collected.
         PlayerPrefs.SetInt("Smolours Collected", smolour.collectedSmolours.Count);
     }
-    //randomises which place the appropriate smolour should spawn in
+    
+    void PlayAnimation(){ GachaPlayer.SetActive(true); }
+
+    void Update() 
+    { 
+        GachaPlayer.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
+
+        if (GachaPlayer.GetComponent<VideoPlayer>().isPlaying && Input.GetMouseButtonDown(0)) { CheckOver(GachaPlayer.GetComponent<VideoPlayer>()); }
+    }
+
+    public void CheckOver(VideoPlayer vp)
+    {
+        GachaPlayer.SetActive(false);
+        Results();
+    }
     void Results()
     {
         GameObject[] results = new GameObject[] { result1, result2, result3 };
