@@ -116,7 +116,7 @@ public abstract class UnitStats : MonoBehaviour
             * attacker.WV 
             * (((attacker.attack + attacker.attackBonus)) / (attackee.defense+ attackee.defenseBonus)) / 2) +2;
 
-        if (attackee.GetComponent<EnemyCombatController>())
+        if (attackee.GetComponent<EnemyCombatController>() || attackee.GetComponent<ShadowKingCombatController>())
         {
             print("WIGGLE");
             StopCoroutine(Wiggle(attackee));
