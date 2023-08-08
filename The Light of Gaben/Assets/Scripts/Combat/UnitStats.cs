@@ -256,6 +256,11 @@ public abstract class UnitStats : MonoBehaviour
         if (health > maxHealth) health = maxHealth;
     }
 
+    public void TakeDoT(float dmg)
+    {
+        health -= dmg;
+    }
+
     // WaitUnitStatsVer() is a temporary numerable called in place of actual animation and gives players
     // enough time to read the action desc to understand what the hell is happening
     // - noelle
