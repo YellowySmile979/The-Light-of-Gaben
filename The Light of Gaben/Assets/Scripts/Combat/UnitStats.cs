@@ -95,7 +95,7 @@ public abstract class UnitStats : MonoBehaviour
             //falls outta the loop when count reaches more than 100
             if(count > 100)
             {
-                print("Count: " + count);
+                //print("Count: " + count);
                 break;
             }
             count++;
@@ -105,11 +105,10 @@ public abstract class UnitStats : MonoBehaviour
     // Self Actions: Methods called by other CombatControllers to affect their targetting unit
     public void TakeDamage(float dmg, UnitStats attacker, UnitStats attackee)
     {
-        print("Took Damage");
+        print(attackee + " took damage.");
 
         // Red > Blue > Yellow > Red
         // Magenta > Green > Orange > Magenta
-
         
         dmg = (((2 * attacker.level * 
             (attacker.crit + attacker.critBonus) / 5) + 2) 
@@ -124,7 +123,7 @@ public abstract class UnitStats : MonoBehaviour
         }
         // Switch Case for Light Weaknes
 
-        Debug.Log(
+        /*Debug.Log(
             "level: " + attacker.level +
             "crit " + attacker.crit +
             "critbonus " + attacker.critBonus +
@@ -133,7 +132,7 @@ public abstract class UnitStats : MonoBehaviour
             "attackbonus " + attacker.attackBonus +
             "defensee " + attackee.defense +
             "defensebonuss " + attackee.defenseBonus
-            );
+            );*/
 
         switch (attackee.lightType)
         {
@@ -198,7 +197,7 @@ public abstract class UnitStats : MonoBehaviour
                 }
                 break;
             default:
-                print("Gaben is White");
+                print("Gaben is White"); // ,':/
                 break;
         }
         
@@ -227,7 +226,10 @@ public abstract class UnitStats : MonoBehaviour
                 print("No Smolours");                
                 break;
         }
+        /*
         print("The dmg dealt by " + attacker.name + " is: " + dmg);
+        dmg = Mathf.Round(dmg);
+        print("The dmg dealt by " + attacker.name + " is: " + dmg);*/
         health -= dmg;
 
         hasAttacked = true;
