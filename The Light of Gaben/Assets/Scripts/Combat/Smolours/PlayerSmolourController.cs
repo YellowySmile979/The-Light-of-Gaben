@@ -12,6 +12,7 @@ public class PlayerSmolourController : MonoBehaviour
 
     private void Start()
     {
+        gachaScreen.SetActive(true);
         if (Instance != null)
         {
             Destroy(gameObject);

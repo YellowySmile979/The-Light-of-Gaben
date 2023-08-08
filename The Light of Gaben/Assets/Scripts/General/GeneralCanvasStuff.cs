@@ -17,12 +17,13 @@ public class GeneralCanvasStuff : MonoBehaviour
     public string mainMenu;
 
     public static GeneralCanvasStuff Instance;
-    public bool mapOpen;
+    
+    public GameObject mapCamera;
+    bool MapButtonSelected;
 
     void Awake()
     {
         Instance = this;
-        mapOpen = false;
     }
     void Update()
     {
@@ -80,19 +81,20 @@ public class GeneralCanvasStuff : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
     }
 
-    public void OpenMap()
-    {
-        mapScreenOverlay.SetActive(true);
-        //mapOpen = true;
 
-    }
+    // Open/Closes Map
 
-    public void CloseMap()
+    public void MapButtonToggle()
     {
-        //if( mapOpen == true){
-            mapScreenOverlay.SetActive(false);
-            //mapOpen = false;
-        //}
-        //else mapScreenOverlay.SetActive(true);
+        if (MapButtonSelected)
+        {
+            MapButtonSelected = false;
+            mapCamera.SetActive(false);
+        }
+        else
+        {
+            MapButtonSelected = true;
+            mapCamera.SetActive(true);
+        }
     }
 }

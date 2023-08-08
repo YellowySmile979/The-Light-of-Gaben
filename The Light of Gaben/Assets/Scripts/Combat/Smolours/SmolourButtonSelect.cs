@@ -30,7 +30,7 @@ public class SmolourButtonSelect : MonoBehaviour
         else
         {
             selectSmolours.SelectSmolour(smoloursData);
-            checkmark.SetActive(true);
+            checkmark.SetActive(true); 
             selected = !selected;
         }
     }
