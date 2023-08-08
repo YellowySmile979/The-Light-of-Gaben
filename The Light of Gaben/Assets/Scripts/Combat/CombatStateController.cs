@@ -278,6 +278,7 @@ public class CombatStateController : MonoBehaviour
                             else if(randomInt <= 80 && randomInt > 70)
                             {
                                 //buff himself to take damage
+                                currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
                             }
                             else if(randomInt <= 100 && randomInt > 80)
                             {
