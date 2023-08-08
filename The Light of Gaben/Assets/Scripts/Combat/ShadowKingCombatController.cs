@@ -12,6 +12,8 @@ public class ShadowKingCombatController : UnitStats
     public float xpToGive = 10f;
     public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
 
+    public ShadowKingPhase shadowKingPhase;
+
     [HideInInspector] public Image image;
 
     void Start()
@@ -37,7 +39,7 @@ public class ShadowKingCombatController : UnitStats
         image.sprite = LevelManager.Instance.spr;
     }
     //randomises which colour the enemy spawns as
-    void RandomColour()
+    public void RandomColour()
     {
         var randomColour = Random.Range(1, 8);
         switch (randomColour)
@@ -146,4 +148,12 @@ public class ShadowKingCombatController : UnitStats
         }
         PlayerCombatController.Instance.UpdatePlayerLevel(xpToGive);
     }
+}
+public enum ShadowKingPhase
+{
+    Phase1,
+    Phase2,
+    Phase3,
+    Win,
+    Lose
 }
