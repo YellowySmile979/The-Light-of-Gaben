@@ -266,9 +266,23 @@ public class CombatStateController : MonoBehaviour
                         else if (shadowKingPhase == ShadowKingPhase.Phase3)
                         {
                             //phase 3 attacks
-                            //applies status effect to player (damage overtime)
-                            //stronger attack
-                            //buff himself to take damage
+                            randomInt = Random.Range(
+                            currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
+                            currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
+                            );
+
+                            if(randomInt <= 70)
+                            {
+                                //stronger attack
+                            }
+                            else if(randomInt <= 80 && randomInt > 70)
+                            {
+                                //buff himself to take damage
+                            }
+                            else if(randomInt <= 100 && randomInt > 80)
+                            {
+                                //applies status effect to player (damage overtime)
+                            }
                         }
                     }
                 }
