@@ -218,32 +218,30 @@ public class CombatStateController : MonoBehaviour
 
                     if (shadowKingPhase == ShadowKingPhase.Phase1)
                     {
-                        //phase 1 attacks
-                        //base attack
-                        //heal
-                        //do nothing
+                        //phase 1 attacks                        
                         int randomInt = Random.Range(
                         currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
                         currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
                         );
 
-                        if (randomInt <= 70) {
+                        if (randomInt <= 70) 
+                        {
+                            //base attack
                             currentUnit.GetComponent<ShadowKingCombatController>().Attack();
                         }
                         else if (randomInt <= 80 && randomInt > 70)
                         {
+                            //do nothing
                             currentUnit.GetComponent<ShadowKingCombatController>().DoNothing();
                         }
                         else if (randomInt <= 100 && randomInt > 80)
                         {
+                            //heal
                             currentUnit.GetComponent<ShadowKingCombatController>().HealSelf();
                         }
                         else if (shadowKingPhase == ShadowKingPhase.Phase2)
                         {
-                            //phase 2 attacks
-                            //base attack
-                            //buffs himself to deal more damage
-                            //do nothing
+                            //phase 2 attacks                            
                             randomInt = Random.Range(
                             currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
                             currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
@@ -251,14 +249,17 @@ public class CombatStateController : MonoBehaviour
 
                             if (randomInt <= 70)
                             {
+                                //base attack
                                 currentUnit.GetComponent<ShadowKingCombatController>().Attack();
                             }
                             else if (randomInt <= 80 && randomInt > 70)
                             {
+                                //do nothing
                                 currentUnit.GetComponent<ShadowKingCombatController>().DoNothing();
                             }
                             else if (randomInt <= 100 && randomInt > 80)
                             {
+                                //buffs himself to deal more damage
                                 currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
                             }
                         }
