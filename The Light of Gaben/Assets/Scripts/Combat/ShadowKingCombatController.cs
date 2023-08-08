@@ -95,6 +95,23 @@ public class ShadowKingCombatController : UnitStats
         hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }
+    //performs a stronger enemy attack
+    public void StrongerAttack()
+    {
+        hasFinishedTheirTurn = false;
+        print("Stronger Enemy Attack");
+        //sets the player and stateController
+        player = FindObjectOfType<PlayerCombatController>();
+        stateController = FindObjectOfType<CombatStateController>();
+        //randomises damage
+        float randomAttack = attack + Random.Range(attack, attack + 15);
+        //makes player takedamage
+        player.TakeDamage(randomAttack, this, player);
+        stateController.camAudioSource.PlayOneShot(clawSFX);
+        //tells player what happened
+        hasFinishedTheirTurn = true;
+        StartCoroutine(WaitUnitStatsVer());
+    }
     //enemy will do nothing
     public void DoNothing()
     {
