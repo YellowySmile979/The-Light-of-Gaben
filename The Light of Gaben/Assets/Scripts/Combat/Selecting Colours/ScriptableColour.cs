@@ -9,6 +9,8 @@ public class ScriptableColour : ScriptableObject
     public ColourType typeOfColour;
     [Header("Colour")]
     public Color colour;
+    [Header("Colour Icon")]
+    public Sprite colourIcon;
 }
 public enum ColourType
 {

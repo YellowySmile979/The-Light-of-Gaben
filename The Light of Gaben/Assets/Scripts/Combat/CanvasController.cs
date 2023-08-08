@@ -20,6 +20,7 @@ public class CanvasController : MonoBehaviour
 
     [Header("Final Resulting Colour")]
     public GameObject result;
+    public Sprite white;
     public ScriptableColour red, blue, yellow, orange, magenta, green;
     public GameObject colour1, colour2;    
 
@@ -91,7 +92,8 @@ public class CanvasController : MonoBehaviour
             && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible)
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = Color.white;
+            //result.GetComponent<Image>().color = Color.white;
+            result.GetComponent<Image>().sprite = white;
             //updates the appropriate info to this colour
             lightBG.color = Color.white;
             player.lightType = UnitStats.LightTypes.White;
@@ -110,7 +112,8 @@ public class CanvasController : MonoBehaviour
             && colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible))
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = red.colour;
+            //result.GetComponent<Image>().color = red.colour;
+            result.GetComponent<Image>().sprite = red.colourIcon;
             //updates the appropriate info to this colour
             lightBG.color = red.colour;
             player.lightType = UnitStats.LightTypes.Red;
@@ -127,7 +130,8 @@ public class CanvasController : MonoBehaviour
             && colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible))
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = blue.colour;
+            //result.GetComponent<Image>().color = blue.colour;
+            result.GetComponent<Image>().sprite = blue.colourIcon;
             //updates the appropriate info to this colour
             lightBG.color = blue.colour;
             player.lightType = UnitStats.LightTypes.Blue;
@@ -144,7 +148,8 @@ public class CanvasController : MonoBehaviour
             && colour1.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Invisible))
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = yellow.colour;
+            //result.GetComponent<Image>().color = yellow.colour;
+            result.GetComponent<Image>().sprite = yellow.colourIcon;
             //updates the appropriate info to this colour
             lightBG.color = yellow.colour;
             player.lightType = UnitStats.LightTypes.Yellow;
@@ -161,7 +166,8 @@ public class CanvasController : MonoBehaviour
             && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red))
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = orange.colour;
+            //result.GetComponent<Image>().color = orange.colour;
+            result.GetComponent<Image>().sprite = orange.colourIcon;
             //updates the appropriate info to this colour
             lightBG.color = orange.colour;
             player.lightType = UnitStats.LightTypes.Orange;
@@ -178,7 +184,8 @@ public class CanvasController : MonoBehaviour
             && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Red))
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = magenta.colour;
+            //result.GetComponent<Image>().color = magenta.colour;
+            result.GetComponent<Image>().sprite = magenta.colourIcon;
             //updates the appropriate info to this colour
             lightBG.color = magenta.colour;
             player.lightType = UnitStats.LightTypes.Magenta;
@@ -195,7 +202,8 @@ public class CanvasController : MonoBehaviour
             && colour2.GetComponent<DraggableColour>().scriptableColour.typeOfColour == ColourType.Blue))
         {
             //changes the result to the stated colour
-            result.GetComponent<Image>().color = green.colour;
+            //result.GetComponent<Image>().color = green.colour;
+            result.GetComponent<Image>().sprite = green.colourIcon;
             //updates the appropriate info to this colour
             lightBG.color = green.colour;
             player.lightType = UnitStats.LightTypes.Green;

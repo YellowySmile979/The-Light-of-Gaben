@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfColour: 3
   colour: {r: 1, g: 0.56078434, b: 0, a: 1}
+  colourIcon: {fileID: 21300000, guid: 948d9f5ad44c7cb48a88fea6285209fa, type: 3}
