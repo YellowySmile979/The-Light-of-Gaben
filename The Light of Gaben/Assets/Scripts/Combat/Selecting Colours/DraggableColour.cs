@@ -15,7 +15,7 @@ public class DraggableColour : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 
     void Start()
     {
-        SetColour();
+        //SetColour();
     }
     //sets the colour of the colour
     public void SetColour()
