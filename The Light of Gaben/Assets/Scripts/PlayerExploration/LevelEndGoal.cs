@@ -7,15 +7,21 @@ public class LevelEndGoal : MonoBehaviour
 {
     public static LevelEndGoal Instance;
     public int floorNumber;
-    int randomNo;
+    int randomNo, count;
     
     void Awake()
     {
         Instance = this;
     }
-    void Start()
+    void Update()
     {
-        
+        count++;
+        if(count >= 100)
+        {
+            int floorNumber = PlayerPrefs.GetInt("Floor Number");
+            print("Floor Number " + floorNumber);
+            count = 0;
+        }
     }
     //detects when player enters
     void OnTriggerEnter2D(Collider2D collision)
