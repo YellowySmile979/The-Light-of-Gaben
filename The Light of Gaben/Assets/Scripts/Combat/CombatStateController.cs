@@ -16,6 +16,7 @@ public class CombatStateController : MonoBehaviour
     public bool isBossBattle = false;
     bool hasRandomised;
     int count, randomFinalCounter;
+    public UnitStats PassiveUnit;
 
     public ShadowKingPhase shadowKingPhase;
 
@@ -52,7 +53,7 @@ public class CombatStateController : MonoBehaviour
     {
         float randomTrack = Mathf.Round(Random.Range(0, 100));
         print("Random music");
-        if(randomTrack < 50)
+        if (randomTrack < 50)
         {
             camAudioSource.clip = combatMusic1;
             camAudioSource.volume = 0.7f;
@@ -95,6 +96,8 @@ public class CombatStateController : MonoBehaviour
         // lowest nextTurnIn.
 
         TurnOrder.Sort(SortByTurn);
+
+        TurnOrder.Add(PassiveUnit);
         print("TurnOrder: " + TurnOrder);
         NextTurn();
     }
@@ -102,7 +105,7 @@ public class CombatStateController : MonoBehaviour
     // Comparable called to sort List by nextTurnIn
     static int SortByTurn(UnitStats p1, UnitStats p2)
     {
-        return p1.nextTurnIn.CompareTo(p2.nextTurnIn);       
+        return p1.nextTurnIn.CompareTo(p2.nextTurnIn);
     }
 
     // Called after Player and Enemy states, calls the next unit in TurnOrder.
@@ -136,7 +139,7 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(LostCombat());
             return;
         }
-        if(player.health <= 0 && isBossBattle)
+        if (player.health <= 0 && isBossBattle)
         {
             StartCoroutine(LoseBossBattle());
             return;
@@ -151,12 +154,12 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(WinCombat());
             return;
         }*/
-        if(enemy.health <= 0 && !isBossBattle)
+        if (enemy.health <= 0 && !isBossBattle)
         {
             StartCoroutine(WinCombat());
             return;
         }
-        if(enemy.health <= 0 && isBossBattle)
+        if (enemy.health <= 0 && isBossBattle)
         {
             //boss battle win
             StartCoroutine(WinBossBattle());
@@ -170,13 +173,13 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(Wait());
             PlayerState();
         }
-        else
+        else if (currentUnit.tag == "EnemyUnit")
         {
             CanvasController.Instance.lightChanger.SetActive(false);
             EnemyState();
             actionDesc = "Enemy is now acting!";
             StartCoroutine(Wait());
-            if(state != GameStates.End)
+            if (state != GameStates.End)
             {
                 if (!isBossBattle)
                 {
@@ -208,126 +211,166 @@ public class CombatStateController : MonoBehaviour
                         hasRandomised = true;
                     }
                     count++;
-                    if(count >= randomFinalCounter)
+                    if (count >= randomFinalCounter)
                     {
                         currentUnit.GetComponent<ShadowKingCombatController>().RandomColour();
                     }
 
-                    if(shadowKingPhase == ShadowKingPhase.Phase1)
+                    if (shadowKingPhase == ShadowKingPhase.Phase1)
                     {
                         //phase 1 attacks
                         //base attack
                         //heal
                         //do nothing
-                    }
-                    else if(shadowKingPhase == ShadowKingPhase.Phase2)
-                    {
-                        //phase 2 attacks
-                        //base attack
-                        //buffs himself to deal more damage
-                        //do nothing
-                    }
-                    else if(shadowKingPhase == ShadowKingPhase.Phase3)
-                    {
-                        //phase 3 attacks
-                        //applies status effect to player (damage overtime)
-                        //stronger attack
-                        //buff himself to take damage
+                        int randomInt = Random.Range(
+                        currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
+                        currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
+                        );
+
+                        if (randomInt <= 70) {
+                            currentUnit.GetComponent<ShadowKingCombatController>().Attack();
+                        }
+                        else if (randomInt <= 80 && randomInt > 70)
+                        {
+                            currentUnit.GetComponent<ShadowKingCombatController>().DoNothing();
+                        }
+                        else if (randomInt <= 100 && randomInt > 80)
+                        {
+                            currentUnit.GetComponent<ShadowKingCombatController>().HealSelf();
+                        }
+                        else if (shadowKingPhase == ShadowKingPhase.Phase2)
+                        {
+                            //phase 2 attacks
+                            //base attack
+                            //buffs himself to deal more damage
+                            //do nothing
+                            randomInt = Random.Range(
+                            currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
+                            currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
+                            );
+
+                            if (randomInt <= 70)
+                            {
+                                currentUnit.GetComponent<ShadowKingCombatController>().Attack();
+                            }
+                            else if (randomInt <= 80 && randomInt > 70)
+                            {
+                                currentUnit.GetComponent<ShadowKingCombatController>().DoNothing();
+                            }
+                            else if (randomInt <= 100 && randomInt > 80)
+                            {
+                                currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
+                            }
+                        }
+                        else if (shadowKingPhase == ShadowKingPhase.Phase3)
+                        {
+                            //phase 3 attacks
+                            //applies status effect to player (damage overtime)
+                            //stronger attack
+                            //buff himself to take damage
+                        }
                     }
                 }
             }
         }
-        //}
-    }
-    //call this to change the state to player
-    void PlayerState()
-    {
-        state = GameStates.Player;
-        TurnOrder.Sort(SortByTurn);
+        else if (currentUnit.tag == "PassiveUnit") 
+        {
+            actionDesc = "Passive Damage has been set off!";
+            currentUnit.GetComponent<PassiveAttacksController>().Damage();
+            StartCoroutine(Wait());
+            PassiveState();
+        }
+        //call this to change the state to player
+        void PlayerState()
+        {
+            state = GameStates.Player;
+            TurnOrder.Sort(SortByTurn);
+        }
+        //call this to change the state to player
+        void EnemyState()
+        {
+            state = GameStates.Enemy;
+            TurnOrder.Sort(SortByTurn);
+        }
+        void PassiveState()
+        {
+            state = GameStates.Passive;
+            TurnOrder.Sort(SortByTurn);
+        }
 
-    }
-    //call this to change the state to player
-    void EnemyState()
-    {
-        state = GameStates.Enemy;
-        TurnOrder.Sort(SortByTurn);
-    }
-    void PassivesState()
-    {
-        state = GameStates.Passive;
-    }
-    //when player loses, set the gamestate to end, play the lossSFX, tell player they have lost,
-    //fadeout the scene and then reset the variables in the levelManager
-    IEnumerator LostCombat()
-    {
-        state = GameStates.End;
-        camAudioSource.PlayOneShot(lossSFX);
-        actionDesc = "You Lost!";
-        yield return new WaitForSeconds(2);        
-        // Uh load the scene before this
-        fade.FadeOut();
-        yield return new WaitForSeconds(1);
-        camAudioSource.Stop();
-        LevelManager.Instance.hasUnloaded = false;
-        LevelManager.Instance.hasWon = false;
-        LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
-        LevelManager.Instance.inCombat = false;
-    }
-    //when player wins, set the gamestate to end, play the victorySFX, tell player they have won,
-    //fadeout the scene and then reset the variables in the levelManager
-    IEnumerator WinCombat()
-    {
-        print("WinCombat");
-        state = GameStates.End;
-        camAudioSource.PlayOneShot(victorySFX);
-        actionDesc = "You Won!";
-        EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+        //when player loses, set the gamestate to end, play the lossSFX, tell player they have lost,
+        //fadeout the scene and then reset the variables in the levelManager
+        IEnumerator LostCombat()
         {
-            enemy.ScaleXPWithLevel();
-        });
-        yield return new WaitForSeconds(2);
-        // Uh load the scene before this
-        fade.FadeOut();
-        yield return new WaitForSeconds(1);
-        camAudioSource.Stop();
-        canvasController.gabenHPBar.enabled = false;
-        LevelManager.Instance.hasUnloaded = false;
-        LevelManager.Instance.hasWon = true;
-        LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
-        LevelManager.Instance.inCombat = false;
-    }
-    IEnumerator WinBossBattle()
-    {
-        print("WinCombat");
-        state = GameStates.End;
-        camAudioSource.PlayOneShot(victorySFX);
-        actionDesc = "You Won!";
-        EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+            state = GameStates.End;
+            camAudioSource.PlayOneShot(lossSFX);
+            actionDesc = "You Lost!";
+            yield return new WaitForSeconds(2);
+            // Uh load the scene before this
+            fade.FadeOut();
+            yield return new WaitForSeconds(1);
+            camAudioSource.Stop();
+            LevelManager.Instance.hasUnloaded = false;
+            LevelManager.Instance.hasWon = false;
+            LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
+            LevelManager.Instance.inCombat = false;
+        }
+        //when player wins, set the gamestate to end, play the victorySFX, tell player they have won,
+        //fadeout the scene and then reset the variables in the levelManager
+        IEnumerator WinCombat()
         {
-            enemy.ScaleXPWithLevel();
-        });
-        yield return new WaitForSeconds(2);
-        // Uh load the scene before this
-        fade.FadeOut();
-        yield return new WaitForSeconds(1);
-        //boots u to win screen
-        SceneManager.LoadScene("Win");
-    }
-    IEnumerator LoseBossBattle()
-    {
-        state = GameStates.End;
-        camAudioSource.PlayOneShot(lossSFX);
-        actionDesc = "You Lost!";
-        yield return new WaitForSeconds(2);
-        // Uh load the scene before this
-        fade.FadeOut();
-        yield return new WaitForSeconds(1);
-        camAudioSource.Stop();
-        //boots u to lose scene
-        SceneManager.LoadScene("Lose");
-    }
-    public IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(1f);
-    }
+            print("WinCombat");
+            state = GameStates.End;
+            camAudioSource.PlayOneShot(victorySFX);
+            actionDesc = "You Won!";
+            EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+            {
+                enemy.ScaleXPWithLevel();
+            });
+            yield return new WaitForSeconds(2);
+            // Uh load the scene before this
+            fade.FadeOut();
+            yield return new WaitForSeconds(1);
+            camAudioSource.Stop();
+            canvasController.gabenHPBar.enabled = false;
+            LevelManager.Instance.hasUnloaded = false;
+            LevelManager.Instance.hasWon = true;
+            LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
+            LevelManager.Instance.inCombat = false;
+        }
+        IEnumerator WinBossBattle()
+        {
+            print("WinCombat");
+            state = GameStates.End;
+            camAudioSource.PlayOneShot(victorySFX);
+            actionDesc = "You Won!";
+            EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+            {
+                enemy.ScaleXPWithLevel();
+            });
+            yield return new WaitForSeconds(2);
+            // Uh load the scene before this
+            fade.FadeOut();
+            yield return new WaitForSeconds(1);
+            //boots u to win screen
+            SceneManager.LoadScene("Win");
+        }
+        IEnumerator LoseBossBattle()
+        {
+            state = GameStates.End;
+            camAudioSource.PlayOneShot(lossSFX);
+            actionDesc = "You Lost!";
+            yield return new WaitForSeconds(2);
+            // Uh load the scene before this
+            fade.FadeOut();
+            yield return new WaitForSeconds(1);
+            camAudioSource.Stop();
+            //boots u to lose scene
+            SceneManager.LoadScene("Lose");
+        }
+        IEnumerator Wait()
+        {
+            yield return new WaitForSeconds(1f);
+        }
+    } 
 }

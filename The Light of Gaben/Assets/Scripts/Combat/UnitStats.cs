@@ -226,10 +226,10 @@ public abstract class UnitStats : MonoBehaviour
                 print("No Smolours");                
                 break;
         }
-        /*
+        
         print("The dmg dealt by " + attacker.name + " is: " + dmg);
         dmg = Mathf.Round(dmg);
-        print("The dmg dealt by " + attacker.name + " is: " + dmg);*/
+        print("The dmg dealt by " + attacker.name + " is: " + dmg);
         health -= dmg;
 
         hasAttacked = true;

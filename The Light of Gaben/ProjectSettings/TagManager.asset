@@ -12,6 +12,7 @@ TagManager:
   - PlayerUnit
   - EnemyUnit
   - Win Condition Items
+  - PassiveUnit
   layers:
   - Default
   - TransparentFX

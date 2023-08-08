@@ -2621,6 +2621,7 @@ Transform:
   m_Children:
   - {fileID: 5789798506512592639}
   - {fileID: 5789798506219527093}
+  - {fileID: 7949847981097143512}
   m_Father: {fileID: 5789798505608056338}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3179,6 +3180,80 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7615716838966112925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7949847981097143512}
+  - component: {fileID: 5475239618013754508}
+  m_Layer: 0
+  m_Name: Passive State
+  m_TagString: PassiveUnit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7949847981097143512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7615716838966112925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5789798505493166007}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5475239618013754508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7615716838966112925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872376973ef1a345b6a881c3551fe24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 10
+  defense: 10
+  maxDefence: 0
+  WV: 2
+  speed: -1
+  crit: 0
+  nextTurnIn: 0
+  maxHealth: 50
+  health: 50
+  level: 1
+  hasFinishedTheirTurn: 0
+  redMultiplier: 1
+  yellowMultiplier: 1
+  blueMultiplier: 1
+  orangeMultiplier: 1
+  greenMultiplier: 1
+  magentaMultiplier: 1
+  hpBonus: 0
+  speedBonus: 0
+  attackBonus: 0
+  defenseBonus: 0
+  shield: 0
+  critBonus: 0
+  smolourBuffs: []
+  isDead: 0
+  clawSFX: {fileID: 0}
+  healSFX: {fileID: 0}
+  wiggleOffset: 0
+  wiggleSpeed: 0
+  stateController: {fileID: 0}
+  lightType: 0
 --- !u!1001 &196209845655091571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3222,6 +3297,10 @@ PrefabInstance:
       propertyPath: victorySFX
       value: 
       objectReference: {fileID: 8300000, guid: 91c0605c38bb245449c8778b956c14cb, type: 3}
+    - target: {fileID: 5971892679329468430, guid: a45b1e0e8eced5846b7dd4c32a4bca35, type: 3}
+      propertyPath: PassiveUnit
+      value: 
+      objectReference: {fileID: 5475239618013754508}
     - target: {fileID: 5971892679329468430, guid: a45b1e0e8eced5846b7dd4c32a4bca35, type: 3}
       propertyPath: camAudioSource
       value: 
@@ -3783,6 +3862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8614854671993754cba02d665ef76345, type: 3}
+--- !u!224 &534083736240082506 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6282536068422994220, guid: 8614854671993754cba02d665ef76345, type: 3}
+  m_PrefabInstance: {fileID: 5789798504872920934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &534083736240082549 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6282536068422994195, guid: 8614854671993754cba02d665ef76345, type: 3}
@@ -3794,8 +3878,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9137bfffa3cfd6c41b92c1cdc90a577d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &534083736240082506 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6282536068422994220, guid: 8614854671993754cba02d665ef76345, type: 3}
-  m_PrefabInstance: {fileID: 5789798504872920934}
-  m_PrefabAsset: {fileID: 0}

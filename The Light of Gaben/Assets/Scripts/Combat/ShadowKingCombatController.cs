@@ -121,6 +121,37 @@ public class ShadowKingCombatController : UnitStats
         hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }
+
+    public void BuffSelf()
+    {
+        hasFinishedTheirTurn = false;
+        attackBonus = attack / 2;
+        stateController.camAudioSource.PlayOneShot(healSFX);
+        stateController.actionDesc = stateController.actionDesc + "The Shadow King buffs its attack!";
+        hasFinishedTheirTurn = true;
+        StartCoroutine(WaitUnitStatsVer());
+    }
+
+    public PassiveAttacksController passive;
+    public void DamageOverTime()
+    {
+        passive.dmgToGive = attack;
+        passive.turnsToDmg = 2;
+        passive.passsivelightTypes = lightType;
+    }
+
+    public void AttackHarder()
+    {
+        hasFinishedTheirTurn = false;
+        print("Enemy Attack Harder");
+        player = FindObjectOfType<PlayerCombatController>();
+        stateController = FindObjectOfType<CombatStateController>();
+        player.TakeDamage(attack + 5 , this, player);
+        stateController.camAudioSource.PlayOneShot(clawSFX);
+        hasFinishedTheirTurn = true;
+        StartCoroutine(WaitUnitStatsVer());
+    }
+
     //scale xp given to the level of the enemy
     public void ScaleXPWithLevel()
     {
