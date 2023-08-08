@@ -133,11 +133,15 @@ public class ShadowKingCombatController : UnitStats
     }
 
     public PassiveAttacksController passive;
+    bool DoTnotEmpty;
     public void DamageOverTime()
     {
+
         passive.dmgToGive = attack;
         passive.turnsToDmg = 2;
         passive.passsivelightTypes = lightType;
+
+
     }
 
     public void AttackHarder()
