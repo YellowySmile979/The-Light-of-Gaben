@@ -274,6 +274,7 @@ public class CombatStateController : MonoBehaviour
                             if(randomInt <= 70)
                             {
                                 //stronger attack
+                                currentUnit.GetComponent<ShadowKingCombatController>().StrongerAttack();
                             }
                             else if(randomInt <= 80 && randomInt > 70)
                             {
