@@ -13,6 +13,11 @@ public class CombatStateController : MonoBehaviour
     public AudioSource camAudioSource;
     public Canvas turnBasedScreen;
     public int defeatedEnemies = 0;
+    public bool isBossBattle = false;
+    bool hasRandomised;
+    int count, randomFinalCounter;
+
+    public ShadowKingPhase shadowKingPhase;
 
     PlayerCombatController player;
     EnemyCombatController enemy;
@@ -126,9 +131,14 @@ public class CombatStateController : MonoBehaviour
         //checks to see if either enemy or player has died
         //if the respective dude has died, perform the respective Coroutine
         //and then return
-        if (player.health <= 0)
+        if (player.health <= 0 && !isBossBattle)
         {
             StartCoroutine(LostCombat());
+            return;
+        }
+        if(player.health <= 0 && isBossBattle)
+        {
+            StartCoroutine(LoseBossBattle());
             return;
         }
         /*if (EnemyManager.Instance.activeCombatEnemies.Find(s => s.health <= 0))
@@ -141,9 +151,15 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(WinCombat());
             return;
         }*/
-        if(enemy.health <= 0)
+        if(enemy.health <= 0 && !isBossBattle)
         {
             StartCoroutine(WinCombat());
+            return;
+        }
+        if(enemy.health <= 0 && isBossBattle)
+        {
+            //boss battle win
+            StartCoroutine(WinBossBattle());
             return;
         }
         //checks to see which unit's turn it should be
@@ -162,24 +178,54 @@ public class CombatStateController : MonoBehaviour
             StartCoroutine(Wait());
             if(state != GameStates.End)
             {
-                int randomInt = Random.Range(
-                    currentUnit.GetComponent<EnemyCombatController>().lowestProbabilityInt,
-                    currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt
-                    );
+                if (!isBossBattle)
+                {
+                    int randomInt = Random.Range(
+                        currentUnit.GetComponent<EnemyCombatController>().lowestProbabilityInt,
+                        currentUnit.GetComponent<EnemyCombatController>().highestProbabilityInt
+                        );
 
-                if (randomInt <= 70)
-                {
-                    currentUnit.GetComponent<EnemyCombatController>().Attack();
+                    if (randomInt <= 70)
+                    {
+                        currentUnit.GetComponent<EnemyCombatController>().Attack();
+                    }
+                    else if (randomInt <= 80 && randomInt > 70)
+                    {
+                        currentUnit.GetComponent<EnemyCombatController>().DoNothing();
+                    }
+                    else if (randomInt <= 100 && randomInt > 80)
+                    {
+                        currentUnit.GetComponent<EnemyCombatController>().HealSelf();
+                    }
                 }
-                else if (randomInt <= 80 && randomInt > 70)
+                else
                 {
-                    currentUnit.GetComponent<EnemyCombatController>().DoNothing();
+                    //boss changes colour
+                    if (!hasRandomised)
+                    {
+                        count = 0;
+                        randomFinalCounter = Random.Range(4, 9);
+                        hasRandomised = true;
+                    }
+                    count++;
+                    if(count >= randomFinalCounter)
+                    {
+                        currentUnit.GetComponent<ShadowKingCombatController>().RandomColour();
+                    }
+
+                    if(shadowKingPhase == ShadowKingPhase.Phase1)
+                    {
+                        //phase 1 attacks
+                    }
+                    else if(shadowKingPhase == ShadowKingPhase.Phase2)
+                    {
+                        //phase 2 attacks
+                    }
+                    else if(shadowKingPhase == ShadowKingPhase.Phase3)
+                    {
+                        //phase 3 attacks
+                    }
                 }
-                else if (randomInt <= 100 && randomInt > 80)
-                {
-                    currentUnit.GetComponent<EnemyCombatController>().HealSelf();
-                }
-                
             }
         }
         //}
@@ -240,6 +286,36 @@ public class CombatStateController : MonoBehaviour
         LevelManager.Instance.hasWon = true;
         LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
         LevelManager.Instance.inCombat = false;
+    }
+    IEnumerator WinBossBattle()
+    {
+        print("WinCombat");
+        state = GameStates.End;
+        camAudioSource.PlayOneShot(victorySFX);
+        actionDesc = "You Won!";
+        EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+        {
+            enemy.ScaleXPWithLevel();
+        });
+        yield return new WaitForSeconds(2);
+        // Uh load the scene before this
+        fade.FadeOut();
+        yield return new WaitForSeconds(1);
+        //boots u to win screen
+        SceneManager.LoadScene("Win");
+    }
+    IEnumerator LoseBossBattle()
+    {
+        state = GameStates.End;
+        camAudioSource.PlayOneShot(lossSFX);
+        actionDesc = "You Lost!";
+        yield return new WaitForSeconds(2);
+        // Uh load the scene before this
+        fade.FadeOut();
+        yield return new WaitForSeconds(1);
+        camAudioSource.Stop();
+        //boots u to lose scene
+        SceneManager.LoadScene("Lose");
     }
     public IEnumerator Wait()
     {
