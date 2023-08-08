@@ -182,43 +182,43 @@ public class PlayerCombatController : UnitStats
     {
         print("This animation attack");
         //decides which anim to play
-        if (CanvasController.Instance.result.GetComponent<Image>().color == Color.white)
+        if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.white)
         {
             //animator.runtimeAnimatorController = whiteAnim;
             animator.SetTrigger("White");
             stateController.camAudioSource.PlayOneShot(whiteSFX);
         }
-        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.red.colour)
+        else if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.red.colourIcon)
         {
             //animator.runtimeAnimatorController = redAnim;
             animator.SetTrigger("Red");
             stateController.camAudioSource.PlayOneShot(redSFX);
 
         }
-        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.blue.colour)
+        else if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.blue.colourIcon)
         {
             //animator.runtimeAnimatorController = blueAnim;
             animator.SetTrigger("Blue");
             stateController.camAudioSource.PlayOneShot(blueSFX);
 
         }
-        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.yellow.colour)
+        else if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.yellow.colourIcon)
         {
             //animator.runtimeAnimatorController = yellowAnim;
             animator.SetTrigger("Yellow");
             stateController.camAudioSource.PlayOneShot(yellowSFX);
         }
-        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.orange.colour)
+        else if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.orange.colourIcon)
         {
             //animator.runtimeAnimatorController = orangeAnim;
             animator.SetTrigger("Orange");
         }
-        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.green.colour)
+        else if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.green.colourIcon)
         {
             //animator.runtimeAnimatorController = greenAnim;
             animator.SetTrigger("Green");
         }
-        else if (CanvasController.Instance.result.GetComponent<Image>().color == CanvasController.Instance.magenta.colour)
+        else if (CanvasController.Instance.result.GetComponent<Image>().sprite == CanvasController.Instance.magenta.colourIcon)
         {
             //animator.runtimeAnimatorController = purpleAnim;
             animator.SetTrigger("Magenta");
