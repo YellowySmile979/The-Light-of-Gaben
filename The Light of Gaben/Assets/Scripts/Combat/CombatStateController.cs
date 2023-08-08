@@ -216,14 +216,23 @@ public class CombatStateController : MonoBehaviour
                     if(shadowKingPhase == ShadowKingPhase.Phase1)
                     {
                         //phase 1 attacks
+                        //base attack
+                        //heal
+                        //do nothing
                     }
                     else if(shadowKingPhase == ShadowKingPhase.Phase2)
                     {
                         //phase 2 attacks
+                        //base attack
+                        //buffs himself to deal more damage
+                        //do nothing
                     }
                     else if(shadowKingPhase == ShadowKingPhase.Phase3)
                     {
                         //phase 3 attacks
+                        //applies status effect to player (damage overtime)
+                        //stronger attack
+                        //buff himself to take damage
                     }
                 }
             }

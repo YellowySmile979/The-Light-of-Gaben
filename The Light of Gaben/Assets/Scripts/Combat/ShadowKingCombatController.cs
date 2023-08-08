@@ -12,8 +12,6 @@ public class ShadowKingCombatController : UnitStats
     public float xpToGive = 10f;
     public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
 
-    public ShadowKingPhase shadowKingPhase;
-
     [HideInInspector] public Image image;
 
     void Start()
