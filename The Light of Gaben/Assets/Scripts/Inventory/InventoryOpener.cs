@@ -6,10 +6,15 @@ using UnityEngine.EventSystems;
 
 public class InventoryOpener : MonoBehaviour
 {
+    [Header("Inventory Stuff")]
     public GameObject[] inventorySlots;
     [HideInInspector] public bool onOrOff = false;
     InventoryManager inventoryManager;
     public int chosenSlot;
+
+    [Header("Other UI")]
+    public GameObject mapButton;
+    public Text floorText, levelText;
 
     void Start()
     {
@@ -20,6 +25,11 @@ public class InventoryOpener : MonoBehaviour
     {
         if(!onOrOff)
         {
+            //sets UI to be turned on
+            mapButton.SetActive(true);
+            floorText.color = new Color(1, 1, 1, 1);
+            levelText.color = new Color(1, 1, 1, 1);
+
             for (int i = 0; i < inventorySlots.Length; i++)
             {
                 Image image = inventorySlots[i].GetComponent<Image>();
@@ -32,6 +42,11 @@ public class InventoryOpener : MonoBehaviour
         }
         else
         {
+            //sets UI to be turned off
+            mapButton.SetActive(false);
+            floorText.color = new Color(1, 1, 1, 0);
+            levelText.color = new Color(1, 1, 1, 0);
+
             for (int i = 0; i < inventorySlots.Length; i++)
             {
                 Image image = inventorySlots[i].GetComponent<Image>();
