@@ -9,7 +9,7 @@ public class ColourPickerSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         //if there isnt anything in the slot, perform the following
-        if(transform.childCount == 0)
+        if (transform.childCount == 0)
         {
             //gets the item
             DraggableColour draggableColour = eventData.pointerDrag.GetComponent<DraggableColour>();

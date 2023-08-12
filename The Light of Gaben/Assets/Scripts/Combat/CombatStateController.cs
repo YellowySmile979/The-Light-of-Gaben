@@ -214,6 +214,7 @@ public class CombatStateController : MonoBehaviour
                     if (count >= randomFinalCounter)
                     {
                         currentUnit.GetComponent<ShadowKingCombatController>().RandomColour();
+                        hasRandomised = false;
                     }
 
                     if (shadowKingPhase == ShadowKingPhase.Phase1)

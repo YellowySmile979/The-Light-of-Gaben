@@ -78,6 +78,24 @@ public class ShadowKingCombatController : UnitStats
     private void Update()
     {
         healthBar.fillAmount = ((health / maxHealth) * 1);
+        UpdateShadowKingPhase();
+    }
+    //changes the phase depending on what health the shadow king is on
+    void UpdateShadowKingPhase()
+    {
+        CombatStateController combatStateController = FindObjectOfType<CombatStateController>();
+        if (health >= maxHealth * 0.75)
+        {
+            combatStateController.shadowKingPhase = ShadowKingPhase.Phase1;
+        }
+        else if (health >= maxHealth * 0.25 && health < maxHealth * 0.75)
+        {
+            combatStateController.shadowKingPhase = ShadowKingPhase.Phase2;
+        }
+        else if (health > 0 && health <= maxHealth * 0.25)
+        {
+            combatStateController.shadowKingPhase = ShadowKingPhase.Phase3;
+        }
     }
     //performs the enemy's attack
     public void Attack()

@@ -47,6 +47,7 @@ public class DraggableColour : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         colour.raycastTarget = true;
         //sets parent to be the original parent
         transform.SetParent(parentAfterDrag);
+        transform.SetAsFirstSibling();
     }
 
     public void OnPointerDown(PointerEventData eventData)

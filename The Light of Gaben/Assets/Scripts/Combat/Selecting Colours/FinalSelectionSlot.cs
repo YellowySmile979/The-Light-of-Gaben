@@ -10,7 +10,7 @@ public class FinalSelectionSlot : MonoBehaviour, IDropHandler
     {
         //this is to ensure that the colour picker slot doesnt kill itself
         if (transform.childCount == 1)
-        {
+        {            
             //gets the item
             DraggableColour draggableColour = eventData.pointerDrag.GetComponent<DraggableColour>();
             //sets its parent to the transform of the slot
