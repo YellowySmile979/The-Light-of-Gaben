@@ -29,6 +29,8 @@ public class LevelEndGoal : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             Win();
+
+            if (SceneManager.GetActiveScene().name == "Tutorial") { PlayerPrefs.SetInt("FirstLoad", 1); }
         }
     }
     //if player has met the win conditions, player can win

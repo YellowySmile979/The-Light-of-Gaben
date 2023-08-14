@@ -17,6 +17,7 @@ public class JoystickMovement : MonoBehaviour
     public Transform flashlightTransform;
     public Transform separateTransform;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,10 @@ public class JoystickMovement : MonoBehaviour
         joystickOriginalPos = joystickBG.transform.position;
         //stores the BG radius
         joystickRadius = joystickBG.GetComponent<RectTransform>().sizeDelta.x / joystickRadiusLimit;
+
+        playerTransform = GameObject.Find("Player (Footsteps)").transform;
+        flashlightTransform = GameObject.Find("Player (Footsteps)/Light Source Holder").transform;
+        separateTransform = GameObject.Find("Player (Footsteps)/Separate rotation").transform;
     }
     void Update()
     {

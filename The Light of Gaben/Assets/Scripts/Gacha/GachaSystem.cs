@@ -18,7 +18,7 @@ public class GachaSystem : MonoBehaviour
     public Button RollButton;
     public List<SmoloursData> RSmolours, SRSmolours, SSRSmolours;
     GachaWishingWell wishingWell;
-    public GameObject SelectScreen, Instructions1Screen, Instructions2Screen, GachaPlayer;
+    public GameObject SelectScreen, GachaPlayer;
 
     //The Gacha System
     // Current drop rates are:
@@ -27,6 +27,7 @@ public class GachaSystem : MonoBehaviour
     // R : 75/100 = 75 %
     private void Start()
     {
+        // General Stuff to start up Gacha.
         smolour = FindObjectOfType<SmolourGallery>();
         wishingWell = FindObjectOfType<GachaWishingWell>();
         // auto sorts Smolours into rarity.
@@ -37,6 +38,7 @@ public class GachaSystem : MonoBehaviour
             else if (smolour.rarity == SmoloursData.Rarity.SR) SRSmolours.Add(smolour);
             else RSmolours.Add(smolour);
         }
+
         Close();
     }
 

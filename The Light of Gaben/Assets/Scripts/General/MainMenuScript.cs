@@ -14,6 +14,8 @@ public class MainMenuScript : MonoBehaviour
     public GameObject menuLoop, beginningAnim, galleryButton;
     public bool skipBeginning;
 
+    SmolourGallery gallery;
+
     // Begins playing the First Load Animation if it is a fresh launch.
     // Else, skips to Menu.
     private void Start()
@@ -27,6 +29,8 @@ public class MainMenuScript : MonoBehaviour
         {
             PlayBeginning();
         }
+
+        gallery = FindObjectOfType<SmolourGallery>();
     }
 
     // For playing the Beginning Anim and the Menu Loop
@@ -64,14 +68,13 @@ public class MainMenuScript : MonoBehaviour
             SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNo]); 
         }
         else { SceneManager.LoadScene(lvlToStart); }
-        PlayerPrefs.SetInt("FirstLoad", 1);
-
         // resets all player prefs for a new game
         PlayerPrefs.SetInt("Player Level", 1);
         PlayerPrefs.SetInt("LS Count", 0);
         PlayerPrefs.SetInt("PP Count", 0);
         PlayerPrefs.SetInt("Total Attack", 0);
         PlayerPrefs.SetInt("Smolours Collected", 0);
+        gallery.collectedSmolours.Clear();
     }
     //opens the credits overlay
     public void Credits()

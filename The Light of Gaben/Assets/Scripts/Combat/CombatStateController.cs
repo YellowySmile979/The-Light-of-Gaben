@@ -17,6 +17,7 @@ public class CombatStateController : MonoBehaviour
     bool hasRandomised;
     int count, randomFinalCounter;
     public UnitStats PassiveUnit;
+    public InstructionsController instructions;
 
     public ShadowKingPhase shadowKingPhase;
 
@@ -47,6 +48,9 @@ public class CombatStateController : MonoBehaviour
         canvasController = FindObjectOfType<CanvasController>();
         camAudioSource = FindObjectOfType<LevelManager>().GetComponent<AudioSource>();
         if (state == GameStates.Start) StartState();
+
+        if (PlayerPrefs.GetInt("seenCombatInstructions") == 1) { return; }
+        else { instructions.gameObject.SetActive(true); PlayerPrefs.SetInt("seenCombatInstructions", 1); }
     }
     //randomises the combat music
     public void RandomiseCombatMusic()
@@ -96,8 +100,7 @@ public class CombatStateController : MonoBehaviour
         // lowest nextTurnIn.
 
         TurnOrder.Sort(SortByTurn);
-
-        TurnOrder.Add(PassiveUnit);
+        if (isBossBattle) { TurnOrder.Add(PassiveUnit); }
         print("TurnOrder: " + TurnOrder);
         NextTurn();
     }

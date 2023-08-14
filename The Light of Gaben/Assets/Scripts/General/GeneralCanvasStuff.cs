@@ -24,6 +24,7 @@ public class GeneralCanvasStuff : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        mapCamera = GameObject.Find("Map Camera");
     }
     void Update()
     {
