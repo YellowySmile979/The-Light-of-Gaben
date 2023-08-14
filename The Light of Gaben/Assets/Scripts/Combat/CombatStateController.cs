@@ -96,8 +96,7 @@ public class CombatStateController : MonoBehaviour
         // lowest nextTurnIn.
 
         TurnOrder.Sort(SortByTurn);
-
-        TurnOrder.Add(PassiveUnit);
+        if (isBossBattle) { TurnOrder.Add(PassiveUnit); }
         print("TurnOrder: " + TurnOrder);
         NextTurn();
     }

@@ -64,8 +64,6 @@ public class MainMenuScript : MonoBehaviour
             SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNo]); 
         }
         else { SceneManager.LoadScene(lvlToStart); }
-        PlayerPrefs.SetInt("FirstLoad", 1);
-
         // resets all player prefs for a new game
         PlayerPrefs.SetInt("Player Level", 1);
         PlayerPrefs.SetInt("LS Count", 0);
