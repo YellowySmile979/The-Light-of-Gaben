@@ -41,9 +41,6 @@ public class MainMenuScript : MonoBehaviour
         // Check for animation to end.
         // i dont know how this works. im a programmer - noelle
         beginningAnim.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
-
-        // Extra check to skip the video if player clicks on the screen while video is playing
-        if (beginningAnim.GetComponent<VideoPlayer>().isPlaying && Input.GetMouseButtonDown(0)) { CheckOver(beginningAnim.GetComponent<VideoPlayer>()); }
     }
 
     // Happens when gacha pull video is played / skipped.
