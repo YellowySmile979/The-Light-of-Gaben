@@ -12,24 +12,24 @@ public class MainMenuScript : MonoBehaviour
     public AudioClip confirmSFX, hoverSFX, startSFX;
     public AudioSource audioSource;
     public GameObject menuLoop, beginningAnim;
+    public bool skipBeginning;
 
     // Begins playing the First Load Animation if it is a fresh launch.
     // Else, skips to Menu.
     private void Start()
     {
-        if (PlayerPrefs.GetInt("FirstLoad") == 1) 
+        if (PlayerPrefs.GetInt("FirstLoad") == 1 || skipBeginning)
         {
-            beginningAnim.SetActive(false);
-            menuLoop.SetActive(true);
+            PlayLoop();
         }
         else
         {
-            beginningAnim.SetActive(true);
-            menuLoop.SetActive(false);
+            PlayBeginning();
         }
     }
 
-
+    void PlayBeginning() { beginningAnim.SetActive(true); }
+    void PlayLoop() { menuLoop.SetActive(true); }
     void Update()
     {
         // Check for animation to end.
@@ -44,6 +44,7 @@ public class MainMenuScript : MonoBehaviour
     public void CheckOver(VideoPlayer vp)
     {
         beginningAnim.SetActive(false);
+        PlayLoop();
     }
 
     //detects if the player is hovering over the button and plays the hoverSFX
@@ -57,6 +58,13 @@ public class MainMenuScript : MonoBehaviour
         audioSource.PlayOneShot(startSFX);
         SceneManager.LoadScene(lvlToStart);
         PlayerPrefs.SetInt("FirstLoad", 1);
+
+        // resets all player prefs for a new game
+        PlayerPrefs.SetInt("Player Level", 1);
+        PlayerPrefs.SetInt("LS Count", 0);
+        PlayerPrefs.SetInt("PP Count", 0);
+        PlayerPrefs.SetInt("Total Attack", 0);
+        PlayerPrefs.SetInt("Smolours Collected", 0);
     }
     //opens the credits overlay
     public void Credits()
