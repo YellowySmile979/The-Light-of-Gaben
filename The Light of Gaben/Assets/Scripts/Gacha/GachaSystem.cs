@@ -40,7 +40,7 @@ public class GachaSystem : MonoBehaviour
         Close();
     }
 
-    public void Close() { gameObject.SetActive(false); wishingWell.Close(); }
+    public void Close() { gameObject.SetActive(false); if (wishingWell != null)wishingWell.Close(); }
     public void Roll()
     {
         rolled = new List<SmoloursData>();

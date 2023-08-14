@@ -66,6 +66,10 @@ public class LoadSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // quick fix for runtime error.
+        // if in Start scene, doesn't check for all of these
+        if (currentScene.name == "Start") return;
+
         numberOfEnemies = baseEnemies.Count;
         //helps prevent bugs
         if (!deactivateTimer) Timer();

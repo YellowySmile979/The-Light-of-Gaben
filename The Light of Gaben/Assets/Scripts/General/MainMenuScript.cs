@@ -28,6 +28,7 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
+    // For playing the Beginning Anim and the Menu Loop
     void PlayBeginning() { beginningAnim.SetActive(true); }
     void PlayLoop() { menuLoop.SetActive(true); }
     void Update()
@@ -56,7 +57,12 @@ public class MainMenuScript : MonoBehaviour
     public void StartLevel()
     {
         audioSource.PlayOneShot(startSFX);
-        SceneManager.LoadScene(lvlToStart);
+        if (PlayerPrefs.GetInt("FirstLoad") == 1 || skipBeginning)
+        {
+            int randomNo = Random.Range(1, 5);
+            SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNo]); 
+        }
+        else { SceneManager.LoadScene(lvlToStart); }
         PlayerPrefs.SetInt("FirstLoad", 1);
 
         // resets all player prefs for a new game
