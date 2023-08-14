@@ -602,6 +602,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371095490}
   m_CullTransparentMesh: 1
+--- !u!1 &436308305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6369352921606417743, guid: e775bf9216e6f6748ad2312695f83b3f, type: 3}
+  m_PrefabInstance: {fileID: 574960780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &436308311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436308305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6922531cc8901f94ca3fc38d0384a48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InstructionsText:
+  - At wishing wells, spend Present Paper (PP) to collect Smolours! They will aid
+    you in your journey and provide you with powerups and buffs.
+  - Select smolours to join you in the Select Menu. You can only have 6 Smolours
+    at once, so choose wisely!
+  - You can also see all the smolours you've collected in the Gallery menu.
+  text: {fileID: 1390724364}
 --- !u!1001 &574960780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -697,7 +721,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1201679139, guid: e775bf9216e6f6748ad2312695f83b3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e775bf9216e6f6748ad2312695f83b3f, type: 3}
 --- !u!1 &634607175
 GameObject:
@@ -1551,6 +1576,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1390724364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8781692330495949270, guid: e775bf9216e6f6748ad2312695f83b3f, type: 3}
+  m_PrefabInstance: {fileID: 574960780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1439844726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1936067775, guid: e775bf9216e6f6748ad2312695f83b3f, type: 3}
@@ -1977,7 +2013,7 @@ MonoBehaviour:
   menuLoop: {fileID: 1650391298}
   beginningAnim: {fileID: 1570592507}
   galleryButton: {fileID: 371095490}
-  skipBeginning: 1
+  skipBeginning: 0
 --- !u!114 &1661627393
 MonoBehaviour:
   m_ObjectHideFlags: 0

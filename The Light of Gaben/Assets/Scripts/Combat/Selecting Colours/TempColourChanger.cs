@@ -10,6 +10,7 @@ public class TempColourChanger : MonoBehaviour
     // Uncomment FinalColourSwitch() in CanvasController
 
     public PlayerCombatController player;
+    CombatStateController stateController;
 
     private void Start()
     {

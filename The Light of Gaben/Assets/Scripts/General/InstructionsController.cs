@@ -8,10 +8,9 @@ public class InstructionsController : MonoBehaviour
     public List<string> InstructionsText;
     public Text text;
     int instructionsCount = 0;
-    
+
     private void Start()
     {
-        if (PlayerPrefs.GetInt("FirstLoad") == 1) { Close(); }
         // starts out the instructions text with the 1st text
         text.text = InstructionsText[0];
     }

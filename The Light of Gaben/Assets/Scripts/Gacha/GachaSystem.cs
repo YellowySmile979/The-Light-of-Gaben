@@ -27,11 +27,6 @@ public class GachaSystem : MonoBehaviour
     // R : 75/100 = 75 %
     private void Start()
     {
-        // Checks for if this the first time opening the Gacha. If so, begins tutorial
-        if (PlayerPrefs.GetInt("First Load") == 1)
-        {
-
-        }
         // General Stuff to start up Gacha.
         smolour = FindObjectOfType<SmolourGallery>();
         wishingWell = FindObjectOfType<GachaWishingWell>();
