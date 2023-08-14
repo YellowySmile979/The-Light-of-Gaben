@@ -11,7 +11,7 @@ public class MainMenuScript : MonoBehaviour
     public string lvlToStart;
     public AudioClip confirmSFX, hoverSFX, startSFX;
     public AudioSource audioSource;
-    public GameObject menuLoop, beginningAnim;
+    public GameObject menuLoop, beginningAnim, galleryButton;
     public bool skipBeginning;
 
     // Begins playing the First Load Animation if it is a fresh launch.
@@ -21,6 +21,7 @@ public class MainMenuScript : MonoBehaviour
         if (PlayerPrefs.GetInt("FirstLoad") == 1 || skipBeginning)
         {
             PlayLoop();
+            galleryButton.SetActive(true);
         }
         else
         {

@@ -175,6 +175,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5789798505200875544, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de334e0d20293d04ba09d9d566ab2889, type: 3}
     - target: {fileID: 5789798505608056338, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -271,6 +275,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow King
       objectReference: {fileID: 0}
+    - target: {fileID: 8811669187461974289, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_Color.b
+      value: 0.039215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811669187461974289, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_Color.g
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811669187461974289, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
+      propertyPath: m_Color.r
+      value: 0.078431375
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5789798506512592626, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
@@ -328,6 +344,7 @@ MonoBehaviour:
   highestProbabilityInt: 100
   turnOrder: 0
   image: {fileID: 0}
+  passive: {fileID: 0}
 --- !u!114 &8936266892992936880 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5789798506877479293, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
