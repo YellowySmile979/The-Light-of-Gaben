@@ -19,12 +19,10 @@ public class GeneralCanvasStuff : MonoBehaviour
     public static GeneralCanvasStuff Instance;
     
     public GameObject mapCamera;
-    bool MapButtonSelected;
 
     void Awake()
     {
         Instance = this;
-        mapCamera = GameObject.Find("Map Camera");
     }
     void Update()
     {
@@ -84,17 +82,14 @@ public class GeneralCanvasStuff : MonoBehaviour
 
 
     // Open/Closes Map
-
     public void MapButtonToggle()
     {
-        if (MapButtonSelected)
+        if ( mapCamera.activeInHierarchy )
         {
-            MapButtonSelected = false;
             mapCamera.SetActive(false);
         }
         else
         {
-            MapButtonSelected = true;
             mapCamera.SetActive(true);
         }
     }

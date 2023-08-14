@@ -11,12 +11,14 @@ public class ShadowKingCombatController : UnitStats
     public Image healthBar;
     public float xpToGive = 10f;
     public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
+    CombatStateController stateController;
 
     [HideInInspector] public Image image;
 
     void Start()
     {
         maxDefence = defense;
+        stateController = FindObjectOfType<CombatStateController>();
 
         image = GetComponent<Image>();
         healingTarget = this;
@@ -45,33 +47,41 @@ public class ShadowKingCombatController : UnitStats
             case 1:
                 lightType = LightTypes.White;
                 GetComponent<Image>().color = Color.white;
+                stateController.actionDesc = "The Shadow King has changed his colour to white!";
                 break;
             case 2:
                 lightType = LightTypes.Red;
                 GetComponent<Image>().color = Color.red;
+                stateController.actionDesc = "The Shadow King has changed his colour to red!";
                 break;
             case 3:
                 lightType = LightTypes.Blue;
                 GetComponent<Image>().color = Color.blue;
+                stateController.actionDesc = "The Shadow King has changed his colour to blue!";
                 break;
             case 4:
                 lightType = LightTypes.Yellow;
                 GetComponent<Image>().color = Color.yellow;
+                stateController.actionDesc = "The Shadow King has changed his colour to yellow!";
                 break;
             case 5:
                 lightType = LightTypes.Magenta;
                 GetComponent<Image>().color = Color.magenta;
+                stateController.actionDesc = "The Shadow King has changed his colour to magenta!";
                 break;
             case 6:
                 lightType = LightTypes.Green;
                 GetComponent<Image>().color = Color.green;
+                stateController.actionDesc = "The Shadow King has changed his colour to green!";
                 break;
             case 7:
                 lightType = LightTypes.Orange;
                 GetComponent<Image>().color = new Color(1, 0.5607843f, 0, 1);
+                stateController.actionDesc = "The Shadow King has changed his colour to orange!";
                 break;
             default:
                 lightType = LightTypes.White;
+                stateController.actionDesc = "The Shadow King has changed his colour to white!";
                 break;
         }
     }
