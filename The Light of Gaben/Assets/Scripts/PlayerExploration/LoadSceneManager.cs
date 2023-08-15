@@ -83,6 +83,7 @@ public class LoadSceneManager : MonoBehaviour
     {
         if (timer <= 0)
         {
+            print("Timer() is firing" + timer);
             if (PlayerPrefs.GetInt("Floor Number") <= 5)
             {
                 easyRandomNumber = Random.Range(0, easySceneNames.Count - 1);
@@ -119,6 +120,7 @@ public class LoadSceneManager : MonoBehaviour
         //the count of enemies there
         if(minKillRequirement <= enemiesKilled)
         {
+            print("Min kill reached");
             canWin = true;
             string winConditionMet = "You may proceed to the next level.";
             GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionMet);
@@ -177,6 +179,7 @@ public class LoadSceneManager : MonoBehaviour
         numberOfWinItemsCollected += collectedItems;
         if (numberOfWinItemsCollected == numberOfWinItemsToCollect)
         {
+            print("Collected all items");
             //updates UI to say that the win condition has been met
             string winConditionMet = "You have collected all the items.";
             GeneralCanvasStuff.Instance.UpdateWinConditionText(winConditionMet);

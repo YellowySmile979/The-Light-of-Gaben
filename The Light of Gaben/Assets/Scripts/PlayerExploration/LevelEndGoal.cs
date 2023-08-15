@@ -8,10 +8,12 @@ public class LevelEndGoal : MonoBehaviour
     public static LevelEndGoal Instance;
     public int floorNumber;
     int randomNo, count;
+    bool isInGoal;
     
     void Awake()
     {
         Instance = this;
+        isInGoal = false;
     }
     void Update()
     {
@@ -28,14 +30,20 @@ public class LevelEndGoal : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMovement>())
         {
+            isInGoal = true;
             Win();
 
             if (SceneManager.GetActiveScene().name == "Tutorial") { PlayerPrefs.SetInt("FirstLoad", 1); }
         }
     }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isInGoal = false;
+    }
     //if player has met the win conditions, player can win
     public void Win(int randomNumber = 0)
-    {        
+    {
+        print("Win is firing");
         //gets the corresponding random number depending on the floor number
         if (PlayerPrefs.GetInt("Floor Number") <= 5)
         {
@@ -49,7 +57,7 @@ public class LevelEndGoal : MonoBehaviour
         {
             randomNo = LoadSceneManager.Instance.hardRandomNumber;
         }
-        if (LoadSceneManager.Instance.canWin)
+        if (LoadSceneManager.Instance.canWin && isInGoal)
         {
             //player can win
             if(PlayerPrefs.GetInt("Floor Number") <= 5)
