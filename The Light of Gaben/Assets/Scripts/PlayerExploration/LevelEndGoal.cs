@@ -60,23 +60,23 @@ public class LevelEndGoal : MonoBehaviour
         if (LoadSceneManager.Instance.canWin && isInGoal)
         {
             //player can win
-            if(PlayerPrefs.GetInt("Floor Number") <= 5)
+            if(PlayerPrefs.GetInt("Floor Number") <= 2) //Original 5
             {
                 SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNo]);
             }
-            else if(PlayerPrefs.GetInt("Floor Number") > 5 && PlayerPrefs.GetInt("Floor Number") <= 10)
+            else if(PlayerPrefs.GetInt("Floor Number") > 2 && PlayerPrefs.GetInt("Floor Number") <= 5)
             {
                 SceneManager.LoadScene(LoadSceneManager.Instance.mediumSceneNames[randomNo]);
             }
-            else if(PlayerPrefs.GetInt("Floor Number") > 10 && PlayerPrefs.GetInt("Floor Number") <= 15)
+            else if(PlayerPrefs.GetInt("Floor Number") > 5 && PlayerPrefs.GetInt("Floor Number") <= 6)
             {                
                 SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNo]);
             }
-            else if(PlayerPrefs.GetInt("Floor Number") > 15)
+            else if(PlayerPrefs.GetInt("Floor Number") > 6)
             {
                 SceneManager.LoadScene("Hard16");
             }
-            if(PlayerPrefs.GetInt("Floor Number") <= 15)
+            if(PlayerPrefs.GetInt("Floor Number") <= 7)
             {
                 floorNumber++;
                 PlayerPrefs.SetInt("Floor Number", floorNumber);
