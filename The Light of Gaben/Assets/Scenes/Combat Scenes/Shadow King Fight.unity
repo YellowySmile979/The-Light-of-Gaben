@@ -274,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 5789798506512592624, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4368257465921258107, guid: 46eaf52a76aeaf24eb638776f6b591ca, type: 3}
+      objectReference: {fileID: 21300000, guid: d9a71158d1e7b394b9cd41b226a93e53, type: 3}
     - target: {fileID: 5789798506512592638, guid: c05b88be788520a42a25cc968e1eb2ae, type: 3}
       propertyPath: m_Name
       value: Shadow King
