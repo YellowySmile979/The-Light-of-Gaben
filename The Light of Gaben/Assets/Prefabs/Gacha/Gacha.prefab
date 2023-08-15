@@ -4176,6 +4176,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7913773940886805041}
     m_Modifications:
     - target: {fileID: 133810179, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
+      propertyPath: instructionsCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 133810179, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
       propertyPath: InstructionsText.Array.data[0]
       value: At wishing wells, spend Present Paper (PP) to collect Smolours! They
         will aid you in your journey and provide you with powerups and buffs.
@@ -4187,6 +4191,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 133810179, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
       propertyPath: InstructionsText.Array.data[2]
+      value: You can also see all the smolours you've collected in the Gallery menu.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781692331563834102, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
+      propertyPath: m_Text
       value: You can also see all the smolours you've collected in the Gallery menu.
       objectReference: {fileID: 0}
     - target: {fileID: 8781692331655604460, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
@@ -4276,6 +4284,10 @@ PrefabInstance:
     - target: {fileID: 8781692331655604463, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
       propertyPath: m_Name
       value: InstructionsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781692331655604463, guid: d399518c3752c1841a12338d7f6e7244, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d399518c3752c1841a12338d7f6e7244, type: 3}

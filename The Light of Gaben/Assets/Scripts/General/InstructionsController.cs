@@ -7,10 +7,12 @@ public class InstructionsController : MonoBehaviour
 {
     public List<string> InstructionsText;
     public Text text;
-    int instructionsCount = 0;
+    public int instructionsCount = 0;
+    public InstructionsController Instance;
 
     private void Start()
     {
+        if (Instance == null) { Instance = this; }
         // starts out the instructions text with the 1st text
         text.text = InstructionsText[0];
     }
@@ -18,17 +20,18 @@ public class InstructionsController : MonoBehaviour
     public void NextInstruction()
     {
         //advances instrcutions count
-        instructionsCount++;
-        if (instructionsCount >= InstructionsText.Count)
+        Instance.instructionsCount += 1;
+        if (Instance.instructionsCount >= Instance.InstructionsText.Count)
         {
-            Close();
+            Instance.Close();
         }
-        text.text = InstructionsText[instructionsCount];
+        text.text = InstructionsText[Instance.instructionsCount];
+    
     }
 
     void Close()
     {
-        gameObject.SetActive(false);
+        Instance.gameObject.SetActive(false);
     }
 
 }
