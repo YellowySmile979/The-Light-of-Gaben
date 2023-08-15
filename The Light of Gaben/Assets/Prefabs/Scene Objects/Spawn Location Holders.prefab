@@ -86,7 +86,7 @@ MonoBehaviour:
   lightShardSpawn: {fileID: 3993934148287303071, guid: a93f11424b7cb6a48b6caab9f008578b, type: 3}
   minProbabilitySpawnValue: 0
   maxProbabilitySpawnValue: 2
-  spawnLimit: 3
+  spawnLimit: 1
   setTimeToRandomise: 5
   hasRandomised: 0
 --- !u!1 &5036862145192905728

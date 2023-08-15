@@ -884,6 +884,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   scaleInventoryItemSize: {x: 0, y: 0, z: 0}
+  winConditonalData: {fileID: 11400000, guid: 5a6310c659d478441bdec6c949346bb5, type: 2}
 --- !u!1 &6064957410675671025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,7 +3380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6032850256192911532, guid: e6f56f91d8a3e554da91118a3b1ee3c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 415
+      value: 436
       objectReference: {fileID: 0}
     - target: {fileID: 6032850256192911532, guid: e6f56f91d8a3e554da91118a3b1ee3c9, type: 3}
       propertyPath: m_AnchoredPosition.y
