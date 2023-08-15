@@ -11,6 +11,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private InventorySlot[] inventorySlots;
     public GameObject[] itemsInSlots;
     public Vector3 scaleInventoryItemSize;
+
+    public ItemData winConditonalData;
+
     ItemInventory[] itemInventory;
     ItemInteraction itemInteraction;
 
@@ -77,7 +80,11 @@ public class InventoryManager : MonoBehaviour
                 {
                     print(itemsInSlots.Length);
                     itemInventory[itemDataCounter].parentAfterDrag = parentTransform.transform.parent;
-                }                
+                }  
+                if(item.GetComponent<ItemInventory>().data == winConditonalData)
+                {
+                    item.GetComponent<RectTransform>().localScale = new Vector3(0.005f, 0.005f, 1f);
+                }
             }
             //actiavtes the inventory object
             if(itemsInSlots[itemDataCounter] != null)
