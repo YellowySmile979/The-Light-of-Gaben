@@ -344,10 +344,12 @@ public class CombatStateController : MonoBehaviour
             state = GameStates.End;
             camAudioSource.PlayOneShot(victorySFX);
             actionDesc = "You Won!";
-            EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+            EnemyCombatController enemyCombatController = FindObjectOfType<EnemyCombatController>();
+            enemyCombatController.ScaleXPWithLevel();
+            /*EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
             {
                 enemy.ScaleXPWithLevel();
-            });
+            });*/
             yield return new WaitForSeconds(2);
             // Uh load the scene before this
             fade.FadeOut();
@@ -365,10 +367,12 @@ public class CombatStateController : MonoBehaviour
             state = GameStates.End;
             camAudioSource.PlayOneShot(victorySFX);
             actionDesc = "You Won!";
-            EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
+            EnemyCombatController enemyCombatController = FindObjectOfType<EnemyCombatController>();
+            enemyCombatController.ScaleXPWithLevel();
+            /*EnemyManager.Instance.activatedCombatEnemies.ForEach(delegate (EnemyCombatController enemy)
             {
                 enemy.ScaleXPWithLevel();
-            });
+            });*/
             yield return new WaitForSeconds(2);
             // Uh load the scene before this
             fade.FadeOut();

@@ -187,6 +187,12 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         //sets the original position of this dude to where it was
         originalPosition = gameObject.transform;
+
+        if (explorationCanvas == null)
+        {
+            GameObject canvasy = GameObject.FindGameObjectWithTag("Exploration Canvas");
+            explorationCanvas = canvasy.GetComponent<Canvas>();
+        }
     }
     private void OnDrawGizmosSelected()
     {
