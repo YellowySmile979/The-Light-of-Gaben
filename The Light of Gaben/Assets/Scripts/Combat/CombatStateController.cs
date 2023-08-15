@@ -390,8 +390,10 @@ public class CombatStateController : MonoBehaviour
             fade.FadeOut();
             yield return new WaitForSeconds(1);
             camAudioSource.Stop();
-            //boots u to lose scene
-            SceneManager.LoadScene("Lose");
+            LevelManager.Instance.hasUnloaded = false;
+            LevelManager.Instance.hasWon = false;
+            LevelManager.Instance.enemies[LevelManager.Instance.theEnemy].hasLoaded = false;
+            LevelManager.Instance.inCombat = false;
         }
         IEnumerator Wait()
         {
