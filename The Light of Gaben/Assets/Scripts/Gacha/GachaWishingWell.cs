@@ -17,7 +17,7 @@ public class GachaWishingWell : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMovement>() && !hasCollided)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             smolourController.OpenGacha();
             hasCollided = true;
         }
@@ -25,7 +25,7 @@ public class GachaWishingWell : MonoBehaviour
 
     public void Close()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         smolourController.CloseGacha();
         hasCollided = false;
     }

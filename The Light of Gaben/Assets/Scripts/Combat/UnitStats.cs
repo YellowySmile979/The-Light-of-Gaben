@@ -227,8 +227,8 @@ public abstract class UnitStats : MonoBehaviour
                 break;
         }
         
-        print("The dmg dealt by " + attacker.name + " is: " + dmg);
         dmg = Mathf.Round(dmg);
+        if (dmg == 0) dmg = 1;
         print("The dmg dealt by " + attacker.name + " is: " + dmg);
         health -= dmg;
 
