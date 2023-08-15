@@ -13,6 +13,7 @@ TagManager:
   - EnemyUnit
   - Win Condition Items
   - PassiveUnit
+  - Exploration Canvas
   layers:
   - Default
   - TransparentFX
