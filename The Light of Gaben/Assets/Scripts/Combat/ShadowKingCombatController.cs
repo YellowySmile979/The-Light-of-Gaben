@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShadowKingCombatController : UnitStats
+public class ShadowKingCombatController : EnemyCombatController
 {
     UnitStats player;
     UnitStats healingTarget;
     //public GameObject healthBar;
-    public Image healthBar;
-    public float xpToGive = 10f;
-    public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
-    CombatStateController stateController;
+    //public Image healthBar;
+    //public float xpToGive = 10f;
+    //public int lowestProbabilityInt, highestProbabilityInt, turnOrder;
+    //CombatStateController stateController;
 
-    [HideInInspector] public Image image;
+    //[HideInInspector] public Image image;
 
     void Start()
     {
@@ -108,7 +108,7 @@ public class ShadowKingCombatController : UnitStats
         }
     }
     //performs the enemy's attack
-    public void Attack()
+/*    public void Attack()
     {
         hasFinishedTheirTurn = false;
         print("Enemy Attack");
@@ -122,7 +122,7 @@ public class ShadowKingCombatController : UnitStats
         //stateController.actionDesc = stateController.actionDesc + " Enemy attacks the player for 10 damage!";
         hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
-    }
+    }*/
     //performs a stronger enemy attack
     public void StrongerAttack()
     {
@@ -141,7 +141,7 @@ public class ShadowKingCombatController : UnitStats
         StartCoroutine(WaitUnitStatsVer());
     }
     //enemy will do nothing
-    public void DoNothing()
+    /*public void DoNothing()
     {
         hasFinishedTheirTurn = false;
         print("Enemy Does Nothing");
@@ -165,7 +165,7 @@ public class ShadowKingCombatController : UnitStats
         stateController.actionDesc = stateController.actionDesc + "The Shadow King heals itself for " + heal + " health!";
         hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
-    }
+    }*/
 
     public void BuffSelf()
     {
@@ -183,23 +183,23 @@ public class ShadowKingCombatController : UnitStats
         if (passive.DoTnotEmpty) return;
         passive.dmgToGive = attack;
         passive.turnsToDmg = 2;
-
-    }
-
-    public void AttackHarder()
-    {
-        hasFinishedTheirTurn = false;
-        print("Enemy Attack Harder");
-        player = FindObjectOfType<PlayerCombatController>();
-        stateController = FindObjectOfType<CombatStateController>();
-        player.TakeDamage(attack + 5 , this, player);
-        stateController.camAudioSource.PlayOneShot(clawSFX);
-        hasFinishedTheirTurn = true;
         StartCoroutine(WaitUnitStatsVer());
     }
+    /*
+        public void AttackHarder()
+        {
+            hasFinishedTheirTurn = false;
+            print("Enemy Attack Harder");
+            player = FindObjectOfType<PlayerCombatController>();
+            stateController = FindObjectOfType<CombatStateController>();
+            player.TakeDamage(attack + 5 , this, player);
+            stateController.camAudioSource.PlayOneShot(clawSFX);
+            hasFinishedTheirTurn = true;
+            StartCoroutine(WaitUnitStatsVer());
+        }*/
 
     //scale xp given to the level of the enemy
-    public void ScaleXPWithLevel()
+    /*public void ScaleXPWithLevel()
     {
         switch (level)
         {
@@ -222,7 +222,7 @@ public class ShadowKingCombatController : UnitStats
                 break;
         }
         PlayerCombatController.Instance.UpdatePlayerLevel(xpToGive);
-    }
+    }*/
 }
 public enum ShadowKingPhase
 {

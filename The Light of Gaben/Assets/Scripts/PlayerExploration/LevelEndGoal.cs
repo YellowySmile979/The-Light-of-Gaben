@@ -64,11 +64,11 @@ public class LevelEndGoal : MonoBehaviour
             {
                 SceneManager.LoadScene(LoadSceneManager.Instance.easySceneNames[randomNo]);
             }
-            else if(PlayerPrefs.GetInt("Floor Number") > 2 && PlayerPrefs.GetInt("Floor Number") <= 5)
+            else if(PlayerPrefs.GetInt("Floor Number") > 2 && PlayerPrefs.GetInt("Floor Number") <= 3)
             {
                 SceneManager.LoadScene(LoadSceneManager.Instance.mediumSceneNames[randomNo]);
             }
-            else if(PlayerPrefs.GetInt("Floor Number") > 5 && PlayerPrefs.GetInt("Floor Number") <= 6)
+            else if(PlayerPrefs.GetInt("Floor Number") > 3 && PlayerPrefs.GetInt("Floor Number") <= 6)
             {                
                 SceneManager.LoadScene(LoadSceneManager.Instance.hardSceneNames[randomNo]);
             }

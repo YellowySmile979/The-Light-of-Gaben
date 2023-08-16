@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyCombatController : UnitStats
 {
     UnitStats player;
-    UnitStats healingTarget;
+    public UnitStats healingTarget;
     //public GameObject healthBar;
     public Image healthBar;
     public float xpToGive = 10f;

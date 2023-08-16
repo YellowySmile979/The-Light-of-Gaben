@@ -17,5 +17,6 @@ public class PassiveAttacksController : UnitStats
 
         if (turnsToDmg == 0) { DoTnotEmpty = false; }
         else { DoTnotEmpty = true; }
+        StartCoroutine(WaitUnitStatsVer());
     }
 }

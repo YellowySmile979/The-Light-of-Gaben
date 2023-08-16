@@ -279,12 +279,12 @@ public abstract class UnitStats : MonoBehaviour
         speedBonus = 0;
         critBonus = 0;
         shield = 0;
-        redMultiplier = 0;
-        blueMultiplier = 0;
-        yellowMultiplier = 0;
-        orangeMultiplier = 0;
-        greenMultiplier = 0;
-        magentaMultiplier = 0;
+        redMultiplier = 1;
+        blueMultiplier = 1;
+        yellowMultiplier = 1;
+        orangeMultiplier = 1;
+        greenMultiplier = 1;
+        magentaMultiplier = 1;
 
         foreach (SmoloursData smoloursData in smolourBuffs)
         {

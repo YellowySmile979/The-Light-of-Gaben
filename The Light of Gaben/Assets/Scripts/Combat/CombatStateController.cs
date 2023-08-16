@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CombatStateController : MonoBehaviour
 {
     public BlackFade fade;
-    private List<UnitStats> TurnOrder;
+    public List<UnitStats> TurnOrder;
     UnitStats stats;
     public string actionDesc;
     public AudioClip combatMusic1, combatMusic2, victorySFX, lossSFX, clawSFX, whiteSFX, blueSFX, redSFX, yellowSFX;
@@ -106,7 +106,7 @@ public class CombatStateController : MonoBehaviour
     }
 
     // Comparable called to sort List by nextTurnIn
-    static int SortByTurn(UnitStats p1, UnitStats p2)
+    static int SortByTurn(UnitStats p2, UnitStats p1)
     {
         return p1.nextTurnIn.CompareTo(p2.nextTurnIn);
     }
@@ -220,15 +220,15 @@ public class CombatStateController : MonoBehaviour
                         hasRandomised = false;
                     }
 
+                    int randomInt = Random.Range(
+                    currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
+                    currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
+                    );
                     if (shadowKingPhase == ShadowKingPhase.Phase1)
                     {
                         //phase 1 attacks                        
-                        int randomInt = Random.Range(
-                        currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
-                        currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
-                        );
 
-                        if (randomInt <= 70) 
+                        if (randomInt <= 70)
                         {
                             //base attack
                             currentUnit.GetComponent<ShadowKingCombatController>().Attack();
@@ -243,52 +243,46 @@ public class CombatStateController : MonoBehaviour
                             //heal
                             currentUnit.GetComponent<ShadowKingCombatController>().HealSelf();
                         }
-                        else if (shadowKingPhase == ShadowKingPhase.Phase2)
+                    }
+                    else if (shadowKingPhase == ShadowKingPhase.Phase2)
+                    {
+                        //phase 2 attacks                            
+                        if (randomInt <= 70)
                         {
-                            //phase 2 attacks                            
-                            randomInt = Random.Range(
-                            currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
-                            currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
-                            );
-
-                            if (randomInt <= 70)
-                            {
-                                //base attack
-                                currentUnit.GetComponent<ShadowKingCombatController>().Attack();
-                            }
-                            else if (randomInt <= 80 && randomInt > 70)
-                            {
-                                //do nothing
-                                currentUnit.GetComponent<ShadowKingCombatController>().DoNothing();
-                            }
-                            else if (randomInt <= 100 && randomInt > 80)
-                            {
-                                //buffs himself to deal more damage
-                                currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
-                            }
+                            //base attack
+                            print("attacks");
+                            currentUnit.GetComponent<ShadowKingCombatController>().Attack();
                         }
-                        else if (shadowKingPhase == ShadowKingPhase.Phase3)
+                        else if (randomInt <= 80 && randomInt > 70)
                         {
-                            //phase 3 attacks
-                            randomInt = Random.Range(
-                            currentUnit.GetComponent<ShadowKingCombatController>().lowestProbabilityInt,
-                            currentUnit.GetComponent<ShadowKingCombatController>().highestProbabilityInt
-                            );
-
-                            if(randomInt <= 70)
-                            {
-                                //stronger attack
-                                currentUnit.GetComponent<ShadowKingCombatController>().StrongerAttack();
-                            }
-                            else if(randomInt <= 80 && randomInt > 70)
-                            {
-                                //buff himself to take damage
-                                currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
-                            }
-                            else if(randomInt <= 100 && randomInt > 80)
-                            {
-                                //applies status effect to player (damage overtime)
-                            }
+                            //do nothing
+                            print("does nothing");
+                            currentUnit.GetComponent<ShadowKingCombatController>().DoNothing();
+                        }
+                        else if (randomInt <= 100 && randomInt > 80)
+                        {
+                            //buffs himself to deal more damage
+                            print("enemy is buffing self");
+                            currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
+                        }
+                    }
+                    else if (shadowKingPhase == ShadowKingPhase.Phase3)
+                    {
+                        //phase 3 attacks
+                        if (randomInt <= 70)
+                        {
+                            //stronger attack
+                            currentUnit.GetComponent<ShadowKingCombatController>().StrongerAttack();
+                        }
+                        else if (randomInt <= 80 && randomInt > 70)
+                        {
+                            //buff himself to take damage
+                            currentUnit.GetComponent<ShadowKingCombatController>().BuffSelf();
+                        }
+                        else if (randomInt <= 100 && randomInt > 80)
+                        {
+                            //applies status effect to player (damage overtime)
+                            currentUnit.GetComponent<ShadowKingCombatController>().DamageOverTime();
                         }
                     }
                 }
@@ -296,10 +290,14 @@ public class CombatStateController : MonoBehaviour
         }
         else if (currentUnit.tag == "PassiveUnit") 
         {
-            actionDesc = "Passive Damage has been set off!";
-            currentUnit.GetComponent<PassiveAttacksController>().Damage();
-            StartCoroutine(Wait());
-            PassiveState();
+            if (currentUnit.GetComponent<PassiveAttacksController>().DoTnotEmpty == false) NextTurn();
+            else
+            {
+                actionDesc = "Passive Damage has been set off!";
+                currentUnit.GetComponent<PassiveAttacksController>().Damage();
+                StartCoroutine(Wait());
+                PassiveState();
+            }
         }
         //call this to change the state to player
         void PlayerState()
