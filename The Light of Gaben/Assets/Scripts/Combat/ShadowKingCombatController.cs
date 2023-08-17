@@ -87,7 +87,7 @@ public class ShadowKingCombatController : EnemyCombatController
     }
     private void Update()
     {
-        healthBar.fillAmount = ((health / maxHealth) * 1);
+        //healthBar.fillAmount = ((health / maxHealth) * 1);
         UpdateShadowKingPhase();
     }
     //changes the phase depending on what health the shadow king is on
